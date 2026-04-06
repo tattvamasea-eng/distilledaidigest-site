@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subscribe — Distilled AI Digest</title>
+  <meta http-equiv="refresh" content="0; url=https://newsletter.distilledaidigest.com/subscribe" />
+  <meta name="description" content="Subscribe to Distilled AI Digest — the week's most important AI stories, distilled. Free, weekly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .subscribe-page {
+      min-height: calc(100vh - 68px);
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+    .subscribe-inner {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+    .subscribe-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .subscribe-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .subscribe-title em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .subscribe-subtitle {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: rgba(245, 240, 232, 0.7);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    .subscribe-form-wrapper {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 12px;
+      padding: 36px 32px;
+    }
+    .beehiiv-embed-container {
+      display: flex;
+      justify-content: center;
+    }
+    .beehiiv-embed-container iframe {
+      border-radius: 6px;
+      max-width: 100%;
+    }
+    .subscribe-perks {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .perk {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: rgba(245, 240, 232, 0.55);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .perk::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+    }
+    @media (max-width: 480px) {
+      .subscribe-form-wrapper {
+        padding: 24px 16px;
+      }
+      .subscribe-perks {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-text">Distilled AI Digest</span>
+        <span class="logo-badge">D·A·D</span>
+      </a>
+      <nav class="nav-links">
+        <a href="archive.html">Archive</a>
+        <a href="about.html">About</a>
+        <a href="https://newsletter.distilledaidigest.com/subscribe" class="btn-nav">Subscribe Free</a>
+      </nav>
+      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <!-- SUBSCRIBE PAGE -->
+  <section class="subscribe-page">
+    <div class="subscribe-inner">
+      <div class="subscribe-eyebrow">Weekly · Free · No hype</div>
+      <h1 class="subscribe-title">Stay ahead of AI.<br><em>Every week.</em></h1>
+      <p class="subscribe-subtitle">
+        Join readers across 6 countries getting the five AI developments that actually matter — with the context enterprise leaders and practitioners need to act.
+      </p>
+
+      <div class="subscribe-form-wrapper">
+        <div class="beehiiv-embed-container">
+          <iframe
+            src="https://embeds.beehiiv.com/pub_aaa5c525-0e66-42f1-b615-7209771cbac6"
+            data-test-id="beehiiv-embed"
+            width="480"
+            height="320"
+            frameborder="0"
+            scrolling="no"
+            style="border-radius: 4px; border: 2px solid rgba(201,168,76,0.3); margin: 0; background-color: transparent;"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="subscribe-perks">
+        <span class="perk">Free forever</span>
+        <span class="perk">One email per week</span>
+        <span class="perk">No spam, ever</span>
+        <span class="perk">Unsubscribe anytime</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">D·A·D</span>
+        <span class="footer-tagline">Distilled AI Digest</span>
+      </div>
+      <nav class="footer-links">
+        <a href="archive.html">Archive</a>
+        <a href="about.html">About</a>
+        <a href="https://newsletter.distilledaidigest.com/subscribe">Subscribe</a>
+      </nav>
+      <p class="footer-copy">© 2025 Distilled AI Digest. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
