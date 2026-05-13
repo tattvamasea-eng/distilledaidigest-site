@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D·A·D Issue #14 — The Week AI Rewrote the Org Chart</title>
+<meta name="description" content="IBM's 2,000-CEO study, Cloudflare's honest math, Anthropic's SpaceX deal — and the data that explains why 88% of AI pilots never ship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1C2F50;
+    --navy-deep: #111e35;
+    --gold: #C9A84C;
+    --gold-light: #E8D08A;
+    --gold-pale: #F9F3E3;
+    --ink: #1a1a1a;
+    --muted: #5a6070;
+    --border: #ddd8cc;
+    --surface: #f7f5f0;
+    --white: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'IBM Plex Sans', system-ui, sans-serif; background: var(--surface); color: var(--ink); font-size: 16px; line-height: 1.7; }
+
+  /* MASTHEAD */
+  .masthead { background: var(--navy); position: relative; overflow: hidden; }
+  .masthead::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(201,168,76,0.04) 40px, rgba(201,168,76,0.04) 41px); }
+  .masthead-inner { max-width: 860px; margin: 0 auto; padding: 48px 32px 40px; position: relative; }
+  .masthead-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+  .brand { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--gold); letter-spacing: -0.5px; }
+  .issue-badge { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--gold-light); background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3); padding: 3px 10px; border-radius: 2px; letter-spacing: 1px; text-transform: uppercase; }
+  .issue-date { font-size: 12px; color: rgba(255,255,255,0.4); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.5px; margin-left: auto; }
+  .masthead h1 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 44px); font-weight: 900; color: var(--white); line-height: 1.15; max-width: 640px; margin-bottom: 16px; }
+  .masthead-sub { font-size: 14px; color: rgba(255,255,255,0.55); max-width: 600px; line-height: 1.6; font-style: italic; }
+  .masthead-bar { height: 3px; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 60%, transparent 100%); }
+
+  /* NAV */
+  .nav-bar { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+  .nav-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-pill { font-size: 12px; font-weight: 500; color: var(--muted); padding: 12px 16px; text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; }
+  .nav-pill:hover { color: var(--navy); border-bottom-color: var(--gold); }
+  .nav-home { margin-left: auto; font-size: 12px; color: var(--gold); padding: 12px 16px; text-decoration: none; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+
+  /* LAYOUT */
+  .wrapper { max-width: 860px; margin: 0 auto; padding: 0 32px; }
+
+  /* SECTION HEADERS */
+  .section-label { display: flex; align-items: center; gap: 12px; margin: 48px 0 20px; }
+  .section-label-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); background: var(--navy); padding: 4px 10px; border-radius: 2px; white-space: nowrap; }
+  .section-label-line { flex: 1; height: 1px; background: var(--border); }
+
+  /* STORY CARDS */
+  .story-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 20px; overflow: hidden; }
+  .story-number-bar { background: var(--navy); padding: 10px 24px; display: flex; align-items: center; gap: 12px; }
+  .story-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 1px; }
+  .story-tag { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.5px; }
+  .story-body { padding: 24px; }
+  .story-headline { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: 6px; }
+  .story-deck { font-size: 13px; color: var(--muted); margin-bottom: 20px; font-style: italic; }
+  .story-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .fact-chip { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; }
+  .fact-chip-value { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 3px; }
+  .fact-chip-label { font-size: 11px; color: var(--muted); line-height: 1.3; }
+  .story-body p { font-size: 15px; color: #2a2a2a; margin-bottom: 14px; line-height: 1.75; }
+  .story-body p:last-of-type { margin-bottom: 0; }
+
+  /* CALLOUT */
+  .callout { border-left: 3px solid var(--gold); background: var(--gold-pale); padding: 16px 20px; margin-top: 20px; border-radius: 0 3px 3px 0; }
+  .callout-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #7A4F00; margin-bottom: 6px; }
+  .callout p { font-size: 13px !important; color: #3a3020 !important; font-style: italic; margin: 0 !important; line-height: 1.6 !important; }
+
+  /* CIO CORNER */
+  .cio-card { background: var(--navy); border-radius: 4px; padding: 32px; margin-bottom: 20px; position: relative; overflow: hidden; }
+  .cio-card::after { content: '\275D'; position: absolute; right: 24px; top: 16px; font-size: 80px; color: rgba(201,168,76,0.12); font-family: 'Playfair Display', serif; line-height: 1; }
+  .cio-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .cio-card h2 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); margin-bottom: 16px; line-height: 1.3; }
+  .cio-card p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 12px; }
+  .cio-card p:last-of-type { margin-bottom: 0; }
+  .cio-callout { border-left: 2px solid var(--gold); padding: 14px 18px; margin-top: 20px; background: rgba(201,168,76,0.08); }
+  .cio-callout p { font-size: 13px !important; color: rgba(255,255,255,0.85) !important; font-style: italic; }
+
+  /* THE STACK */
+  .stack-grid { display: grid; grid-template-columns: 1fr; gap: 2px; margin-bottom: 20px; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .stack-row { display: grid; grid-template-columns: 100px 1fr; background: var(--white); min-height: 60px; }
+  .stack-row:not(:last-child) { border-bottom: 1px solid var(--border); }
+  .stack-layer { background: var(--navy); display: flex; align-items: center; justify-content: center; padding: 12px 8px; }
+  .stack-layer span { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); text-align: center; }
+  .stack-content { padding: 14px 18px; font-size: 14px; color: #2a2a2a; line-height: 1.6; display: flex; align-items: center; }
+
+  /* AGENT 101 */
+  .agent-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 20px; }
+  .agent-header { background: #1A3A2A; padding: 14px 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .agent-badge { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #7DCCA8; }
+  .agent-title { font-size: 14px; color: rgba(255,255,255,0.9); font-weight: 500; }
+  .agent-body { padding: 24px; }
+  .agent-body h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--navy); margin-bottom: 12px; }
+  .agent-body p { font-size: 14px; color: #2a2a2a; line-height: 1.75; margin-bottom: 12px; }
+  .eval-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 16px 0; }
+  .eval-item { border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; border-top: 3px solid var(--gold); }
+  .eval-item-title { font-size: 12px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .eval-item-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  /* QUICK HITS */
+  .quick-hits-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 20px; }
+  .quick-hit { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 16px 18px; display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; }
+  .qh-bullet { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 9px; flex-shrink: 0; }
+  .qh-text { font-size: 14px; color: #2a2a2a; line-height: 1.65; }
+  .qh-text strong { color: var(--navy); font-weight: 600; }
+
+  /* CLOSING */
+  .closing-quote { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 32px; margin-bottom: 40px; text-align: center; }
+  .closing-quote p:first-child { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--navy); margin-bottom: 12px; font-style: italic; }
+  .closing-quote p:last-child { font-size: 14px; color: var(--muted); }
+  .closing { text-align: center; padding: 40px 32px 48px; border-top: 1px solid var(--border); }
+  .closing .brand-mark { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--navy); margin-bottom: 8px; }
+  .closing .tagline { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 24px; }
+  .subscribe-btn { display: inline-block; background: var(--navy); color: var(--gold); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 12px 28px; border-radius: 2px; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+  .back-link { display: inline-block; margin-top: 16px; font-size: 12px; color: var(--muted); text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+  .back-link:hover { color: var(--navy); }
+
+  /* FOOTER */
+  .footer { background: var(--navy); padding: 24px 32px; text-align: center; }
+  .footer p { font-size: 12px; color: rgba(255,255,255,0.35); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.5px; }
+
+  @media (max-width: 600px) {
+    .wrapper { padding: 0 16px; }
+    .masthead-inner { padding: 32px 16px 28px; }
+    .issue-date { margin-left: 0; }
+    .story-facts { grid-template-columns: 1fr 1fr; }
+    .stack-row { grid-template-columns: 70px 1fr; }
+    .stack-layer span { font-size: 9px; }
+    .cio-card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-meta">
+      <span class="brand">D·A·D</span>
+      <span class="issue-badge">Issue #14</span>
+      <span class="issue-badge" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);">Free Edition</span>
+      <span class="issue-date">May 4–10, 2026</span>
+    </div>
+    <h1>The Week AI Rewrote the Org Chart</h1>
+    <p class="masthead-sub">IBM's 2,000-CEO study, Cloudflare's honest math, Anthropic's SpaceX deal — and the data that explains why 88% of AI pilots never ship</p>
+  </div>
+  <div class="masthead-bar"></div>
+</div>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#stories" class="nav-pill">Stories</a>
+    <a href="#cio-corner" class="nav-pill">CIO Corner</a>
+    <a href="#stack" class="nav-pill">The Stack</a>
+    <a href="#agent101" class="nav-pill">Agent 101</a>
+    <a href="#quickhits" class="nav-pill">Quick Hits</a>
+    <a href="../archive.html" class="nav-home">← All Issues</a>
+  </div>
+</nav>
+
+<div class="wrapper" id="stories">
+  <div class="section-label">
+    <span class="section-label-tag">This Week's Signal</span>
+    <span class="section-label-line"></span>
+  </div>
+
+  <div class="story-card">
+    <div class="story-number-bar">
+      <span class="story-num">01 / 05</span>
+      <span class="story-tag">Enterprise Strategy · IBM Think 2026</span>
+    </div>
+    <div class="story-body">
+      <h2 class="story-headline">IBM Think 2026 — The CEO Who Runs AI at the Margin Will Lose</h2>
+      <p class="story-deck">IBM surveyed 2,000 CEOs. Only 16% of AI initiatives have scaled enterprise-wide. The CAIO role tripled in a year. The results have not kept pace.</p>
+      <div class="story-facts">
+        <div class="fact-chip"><div class="fact-chip-value">25%</div><div class="fact-chip-label">AI initiatives delivering expected ROI</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">16%</div><div class="fact-chip-label">Scaled enterprise-wide</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">76%</div><div class="fact-chip-label">Orgs now have a Chief AI Officer</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">4×</div><div class="fact-chip-label">More likely to deliver when 5 core areas redesigned</div></div>
+      </div>
+      <p>IBM opened its flagship conference with a hard truth from Arvind Krishna: "Most enterprises run AI at the margin. The core end-to-end processes — how an enterprise makes money, makes decisions — are largely untouched." CEOs expect AI to handle 48% of codifiable operational decisions by 2030, up from 25% today.</p>
+      <p>IBM's prescription centres on what it calls an "AI Operating Model" — four connected systems: agents, data, automation, and hybrid infrastructure. A Nestlé proof-of-concept across 186 countries cited 83% cost savings on data processing. Organizations that redesigned five core business areas were four times more likely to have delivered on business objectives.</p>
+      <div class="callout">
+        <div class="callout-label">The Signal</div>
+        <p>The CAIO role tripling in one year is a governance signal, not a technology one. Enterprises that appoint a Chief AI Officer without redesigning the processes that officer is meant to govern are buying a title, not a transformation.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-number-bar">
+      <span class="story-num">02 / 05</span>
+      <span class="story-tag">Infrastructure · Compute · Anthropic</span>
+    </div>
+    <div class="story-body">
+      <h2 class="story-headline">Anthropic + SpaceX — 220,000 GPUs and an Unlikely Alliance</h2>
+      <p class="story-deck">Elon Musk called Anthropic "doomed." Then he met their team, reversed course, and signed a 300-megawatt compute deal. The rate limits lifted the same day.</p>
+      <div class="story-facts">
+        <div class="fact-chip"><div class="fact-chip-value">220K</div><div class="fact-chip-label">NVIDIA GPUs secured at Colossus 1</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">300MW</div><div class="fact-chip-label">Capacity available within a month</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">2×</div><div class="fact-chip-label">Claude Code rate limits doubled</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">$50B</div><div class="fact-chip-label">Fluidstack US infrastructure deal</div></div>
+      </div>
+      <p>Anthropic signed an agreement for all compute capacity at SpaceX's Colossus 1 data center in Memphis — over 300 megawatts, more than 220,000 NVIDIA GPUs, available within the month. The rate limit changes took effect the day of announcement: Claude Code five-hour limits doubled, peak-hour caps removed for Pro and Max, Claude Opus API limits significantly increased.</p>
+      <p>Anthropic's multi-hyperscaler compute stack now spans Amazon (5GW), Google/Broadcom (5GW), Microsoft/NVIDIA ($30B Azure), Fluidstack ($50B), and now SpaceX. The diversification strategy reduces enterprise dependency risk for organizations running Claude at scale.</p>
+      <div class="callout">
+        <div class="callout-label">Watch This</div>
+        <p>Orbital AI compute is not science fiction anymore — it's a stated strategic interest in a signed partnership. The energy and land constraints of terrestrial data centers are real. The next phase of the compute arms race may literally be above the clouds.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-number-bar">
+      <span class="story-num">03 / 05</span>
+      <span class="story-tag">Enterprise Platforms · Microsoft 365 · Anthropic</span>
+    </div>
+    <div class="story-body">
+      <h2 class="story-headline">Claude in Microsoft 365 — Context Persistence Is the Real Story</h2>
+      <p class="story-deck">Claude is now GA in Excel, Word, and PowerPoint. The detail worth paying attention to isn't the integration — it's what it does that Copilot doesn't.</p>
+      <div class="story-facts">
+        <div class="fact-chip"><div class="fact-chip-value">400M</div><div class="fact-chip-label">Microsoft 365 paid seats globally</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">$10</div><div class="fact-chip-label">Approx. $/seat delta vs. Copilot</div></div>
+      </div>
+      <p>Anthropic announced general availability for Claude add-ins in Excel, Word, and PowerPoint, and launched Claude for Outlook in public beta. The headline is the product release. The detail worth tracking is cross-app context persistence: Claude carries the full conversation context as you move between Microsoft apps. Analyze a financial model in Excel, open PowerPoint — Claude already knows the model.</p>
+      <p>Microsoft 365 has over 400 million paid seats globally. Even a single-digit adoption rate represents tens of millions of knowledge workers interacting with Claude inside applications they already use daily. Note: the Outlook beta is not yet covered by Enterprise audit logs; IT and legal teams should scope pilots carefully before broad rollout to regulated mailboxes.</p>
+      <div class="callout">
+        <div class="callout-label">The Implication</div>
+        <p>The race in enterprise AI is no longer about benchmark performance — it's about depth of integration into tools people already use all day. The model layer is becoming a commodity; the integration layer is where differentiation is happening.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-number-bar">
+      <span class="story-num">04 / 05</span>
+      <span class="story-tag">Research · Analyst Data · Enterprise AI</span>
+    </div>
+    <div class="story-body">
+      <h2 class="story-headline">The Data on Why 88% of AI Pilots Never Ship</h2>
+      <p class="story-deck">Forrester, McKinsey, Deloitte, and Gartner data converged this week. The blockers aren't compute, cost, or capability. They're organizational.</p>
+      <div class="story-facts">
+        <div class="fact-chip"><div class="fact-chip-value">88%</div><div class="fact-chip-label">AI agent pilots that fail to reach production</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">64%</div><div class="fact-chip-label">Blocked by evaluation gaps</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">5.1mo</div><div class="fact-chip-label">Median agent deployment payback</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">3×</div><div class="fact-chip-label">More likely when CEO commitment is strong</div></div>
+      </div>
+      <p>Forrester and Anaconda's 2026 data show 88% of AI agent pilots fail to reach production. The top blockers: evaluation gaps (64%), governance friction (57%), and model reliability concerns (51%). Not compute. Not cost. Not capability. McKinsey found workflow redesign had the single largest effect on enterprise AI profit impact — larger than model quality or technology investment.</p>
+      <p>Deloitte's 2026 State of AI report found only one in five companies has a mature model for governing autonomous AI agents. Only 2% of organizations are ready across all five pillars: strategy, data, technology, governance, and talent. The median payback period on agent deployments is 5.1 months — faster for customer-facing agents (3.4 months), slower for finance and operations (8.9 months).</p>
+      <div class="callout">
+        <div class="callout-label">The Lesson</div>
+        <p>88% pilot failure is not a technology problem — it's an organizational readiness problem. The enterprises closing the gap are asking "what does this workflow need to look like with AI?" before they ask "which AI tool should we buy?"</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-number-bar">
+      <span class="story-num">05 / 05</span>
+      <span class="story-tag">Workforce · Cloudflare · Agentic AI</span>
+    </div>
+    <div class="story-body">
+      <h2 class="story-headline">Cloudflare Cuts 1,100 Jobs — And Finally Says Why</h2>
+      <p class="story-deck">Record Q1 revenue. Largest layoff in company history. And for the first time, a CEO said the quiet part out loud: AI replaced the work.</p>
+      <div class="story-facts">
+        <div class="fact-chip"><div class="fact-chip-value">$639M</div><div class="fact-chip-label">Q1 2026 revenue, up 34% YoY</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">1,100</div><div class="fact-chip-label">Jobs cut (≈20% of workforce)</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">600%</div><div class="fact-chip-label">Internal AI usage growth in 3 months</div></div>
+        <div class="fact-chip"><div class="fact-chip-value">47.9%</div><div class="fact-chip-label">Q1 2026 layoffs attributed to AI (Nikkei)</div></div>
+      </div>
+      <p>Cloudflare reported record Q1 2026 revenue of $639.8M — up 34% year-over-year — and announced the largest layoff in its 16-year history. CEO Matthew Prince broke the frame other tech companies have avoided: internal AI usage had increased over 600% in three months, and the company is explicitly "defining how a world-class company operates in the agentic AI era."</p>
+      <p>Prince told analysts Cloudflare will have more employees in 2027 than at any point in 2026. The cuts are not expected to hold. The operating model is. 127,411 tech workers have been laid off year-to-date in 2026. Amazon, Microsoft, Alphabet, and Meta plan to spend $725 billion on AI infrastructure this year — a 77% increase — while simultaneously cutting tens of thousands.</p>
+      <div class="callout">
+        <div class="callout-label">The Context</div>
+        <p>Cloudflare's 600% internal AI usage growth in three months is not an outlier — it's a leading indicator. When AI usage grows 6x faster than any product decision can track, the organizational implications arrive faster than the governance frameworks designed to manage them.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper" id="cio-corner">
+  <div class="section-label">
+    <span class="section-label-tag">CIO Corner</span>
+    <span class="section-label-line"></span>
+  </div>
+  <div class="cio-card">
+    <div class="cio-label">Week of May 4–10, 2026</div>
+    <h2>The Org Chart Is the Constraint</h2>
+    <p>IBM's CEO study landed this week with a number that should concern every technology leader: only 16% of AI initiatives have scaled enterprise-wide. Not 16% have failed — 16% have succeeded at scale. After two years of accelerating investment and accelerating benchmarks, the majority of enterprise AI is still operating in pockets.</p>
+    <p>The data from McKinsey, Forrester, and Gartner all converge on the same diagnosis. Workflow redesign drives more profit impact than model quality. Governance friction is blocking 57% of agent projects from production. The organisations pulling ahead are not the ones with the most AI tools — they are the ones with the strongest CEO commitment and the clearest evaluation frameworks. The technology is no longer the hard part.</p>
+    <p>Cloudflare gave us the most honest accounting yet of what "AI-first" looks like when it actually happens: internal AI usage up 600% in three months, 1,100 roles restructured, and an operating model that explicitly replaces process capacity with agent capacity. The transition — from managing tasks to managing agents — is the one that enterprise governance frameworks are not yet built for.</p>
+    <p>The CIO's practical challenge in the second half of 2026 is not finding more AI tools. It is building the evaluation infrastructure to know when an agent is ready for production, the governance model to manage agents running at scale, and the workforce design to handle the transition from task-execution roles to agent-oversight roles.</p>
+    <div class="cio-callout">
+      <p>The AI Operating Model is not a platform you buy — it is a governance structure you build. The enterprises that treat agentic AI as a procurement decision will stay at 16% scale. The ones that treat it as an organisational design decision will not.</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper" id="stack">
+  <div class="section-label">
+    <span class="section-label-tag">The Stack</span>
+    <span class="section-label-line"></span>
+  </div>
+  <div class="stack-grid">
+    <div class="stack-row">
+      <div class="stack-layer"><span>Energy</span></div>
+      <div class="stack-content">Microsoft signals it cannot sustain AI's clean-power bills at current buildout pace. IBM's Arvind Krishna warns $8 trillion in data center commitments requires $800B annual profit just to service the cost of capital. Energy cost is entering AI procurement conversations for the first time.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-layer"><span>Chips</span></div>
+      <div class="stack-content">Anthropic's SpaceX deal secures 220,000 NVIDIA GPUs (H100, H200, GB200) within 30 days. OpenAI's reported AI phone targets a customized MediaTek Dimensity 9600 on TSMC N2P — a sign AI-native hardware is moving from concept to supply chain reality.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-layer"><span>Cloud</span></div>
+      <div class="stack-content">Anthropic's multi-hyperscaler compute stack now spans Amazon (5GW), Google/Broadcom (5GW), Microsoft/NVIDIA ($30B Azure), Fluidstack ($50B), and SpaceX Colossus 1 (300MW immediate). The diversification strategy reduces enterprise dependency risk.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-layer"><span>Models</span></div>
+      <div class="stack-content">GPT-Realtime-2 brings GPT-5-class reasoning to voice — the first production-grade reasoning voice model. Claude's M365 GA introduces cross-app context persistence. The integration layer is now the primary competitive surface, not the model layer.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-layer"><span>Apps</span></div>
+      <div class="stack-content">Cloudflare's 600% internal AI usage growth is the most concrete enterprise application data point of the week. Glean shipped real-time voice grounded in organisational context. Genspark reported +26% effective conversation rate after upgrading to GPT-Realtime-2.</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper" id="agent101">
+  <div class="section-label">
+    <span class="section-label-tag">Agent 101</span>
+    <span class="section-label-line"></span>
+  </div>
+  <div class="agent-card">
+    <div class="agent-header">
+      <span class="agent-badge">Foundational Concept</span>
+      <span class="agent-title">The Evaluation Gate: How You Know an Agent Is Production-Ready</span>
+    </div>
+    <div class="agent-body">
+      <h3>The Evaluation Gate</h3>
+      <p>Every week, organisations run AI agent pilots. Most of them never ship — this week's data said 88%. The gap is not usually the technology. It's the absence of a clear answer to a simple question: how do you know when an agent is ready to run without supervision?</p>
+      <p>The answer is an evaluation gate — a defined set of criteria an agent must meet before it is granted production access. In human hiring, the equivalent is a probation period with performance benchmarks. For AI agents, the criteria typically cover four areas:</p>
+      <div class="eval-grid">
+        <div class="eval-item"><div class="eval-item-title">Task Accuracy</div><div class="eval-item-desc">Does the agent complete the task correctly at a defined rate?</div></div>
+        <div class="eval-item"><div class="eval-item-title">Failure Behaviour</div><div class="eval-item-desc">Does the agent fail gracefully and escalate appropriately?</div></div>
+        <div class="eval-item"><div class="eval-item-title">Governance Compliance</div><div class="eval-item-desc">Does the agent stay within its authorised scope?</div></div>
+        <div class="eval-item"><div class="eval-item-title">Audit Trail</div><div class="eval-item-desc">Can you reconstruct what the agent did and why?</div></div>
+      </div>
+      <p>The procurement angle: when evaluating an agentic AI platform, ask the vendor to show you their evaluation framework, not their benchmark scores. The vendors who can answer those questions clearly are the ones whose agents are likely to survive contact with production environments.</p>
+      <div class="callout">
+        <div class="callout-label">The Implication</div>
+        <p>An agent without an evaluation gate is a pilot that never ends. Make the production-ready decision before you start the pilot, not after it fails to ship.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper" id="quickhits">
+  <div class="section-label">
+    <span class="section-label-tag">Quick Hits</span>
+    <span class="section-label-line"></span>
+  </div>
+  <div class="quick-hits-grid">
+    <div class="quick-hit"><div class="qh-bullet"></div><div class="qh-text"><strong>OpenAI fast-tracks AI agent phone for H1 2027.</strong> Supply chain analyst Ming-Chi Kuo reports OpenAI is targeting mass production of an AI-native smartphone featuring a customised MediaTek Dimensity 9600, with estimated combined shipments of 30M units in 2027–28. Enterprise MDM and data policy teams will need new playbooks.</div></div>
+    <div class="quick-hit"><div class="qh-bullet"></div><div class="qh-text"><strong>GPT-Realtime-2 brings reasoning to voice agents.</strong> OpenAI launched three new realtime audio models on May 7: GPT-Realtime-2 (GPT-5-class reasoning, 128K context), GPT-Realtime-Translate (70+ input languages), and GPT-Realtime-Whisper (streaming transcription). Zillow reported a 26-point lift in call success rates.</div></div>
+    <div class="quick-hit"><div class="qh-bullet"></div><div class="qh-text"><strong>AI layoff wave extends beyond tech.</strong> Alongside Cloudflare, May 2026 saw Upwork cut 25% of workforce, BILL cut up to 30%, and Coinbase announce significant reductions — all explicitly citing AI-driven restructuring.</div></div>
+    <div class="quick-hit"><div class="qh-bullet"></div><div class="qh-text"><strong>AI power crisis sharpens.</strong> Microsoft signalled it cannot sustain AI's clean-power bills at current buildout pace. IBM's Arvind Krishna warned separately that $8 trillion in cumulative data center commitments requires $800 billion in annual profit just to service the cost of capital.</div></div>
+    <div class="quick-hit"><div class="qh-bullet"></div><div class="qh-text"><strong>Anthropic launches "Dreaming" for Claude.</strong> A research-preview feature allowing Claude agents to review their own work between sessions, identify patterns, and update persistent context files. An early signal of what between-session agent continuity looks like in practice.</div></div>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div class="closing-quote">
+    <p>"The org chart is the constraint."</p>
+    <p>That's your signal for the week of May 4–10, 2026. See you next week.</p>
+  </div>
+  <div class="closing">
+    <div class="brand-mark">D·A·D</div>
+    <div class="tagline">Distilled AI Digest · The signal, without the noise.</div>
+    <a href="https://newsletter.distilledaidigest.com/subscribe" class="subscribe-btn">Subscribe Free →</a><br>
+    <a href="../archive.html" class="back-link">← Back to all issues</a>
+  </div>
+</div>
+
+<div class="footer">
+  <p>DISTILLED AI DIGEST · Issue #14 · May 2026 · distilledaidigest.com</p>
+</div>
+
+</body>
+</html>
