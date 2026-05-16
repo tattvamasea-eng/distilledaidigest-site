@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Issue #15 — The Week AI Moved In | Distilled AI Digest</title>
+  <meta name="description" content="Shadow AI governance crisis, lab land grabs, the productivity paradox, SaaS disruption, and the new foundation model race. May 11–17, 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1C2F50;
+      --navy-dark: #111e33;
+      --navy-mid: #243a60;
+      --gold: #C9A84C;
+      --gold-light: #e2c06e;
+      --gold-pale: #f5ecd4;
+      --cream: #FAF7F2;
+      --white: #ffffff;
+      --ink: #1a1a2e;
+      --ink-soft: #3a3a52;
+      --rule: #d6cfc4;
+      --tag-bg: #e8f0fb;
+      --tag-text: #1C2F50;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      background: var(--navy-dark);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--gold);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%);
+      color: var(--white);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      border-bottom: 3px solid var(--gold);
+    }
+    .issue-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+    .hero-hook {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      font-style: italic;
+    }
+    .hero-hook strong { color: var(--gold); font-style: normal; }
+
+    /* ── TOC ── */
+    .toc-strip {
+      background: var(--navy-mid);
+      padding: 1rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .toc-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .toc-item:hover { color: var(--gold); }
+    .toc-sep { color: rgba(201,168,76,0.3); font-size: 0.7rem; }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 3rem 0 1.25rem;
+    }
+    .section-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.35;
+      line-height: 1;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .section-title-block { flex: 1; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--navy);
+    }
+
+    /* ── STORY BODY ── */
+    .story-body {
+      padding-bottom: 0.5rem;
+    }
+    .story-body p {
+      margin-bottom: 1.1rem;
+      color: var(--ink-soft);
+    }
+    .story-body p strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      border-left: 4px solid var(--gold);
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0 2.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .callout p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.88);
+      margin: 0;
+    }
+
+    /* ── DIVIDER ── */
+    .story-divider {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0.5rem 0 0;
+    }
+
+    /* ── QUICK HITS ── */
+    .quick-hits-section {
+      background: var(--navy-dark);
+      margin: 3rem -1.5rem;
+      padding: 2.5rem 1.5rem;
+    }
+    .quick-hits-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .quick-hits-icon {
+      font-size: 1.4rem;
+    }
+    .quick-hits-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .quick-hits-title span { color: var(--gold); }
+    .quick-hits-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .quick-hits-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .qh-bullet {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+    .qh-text {
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+    }
+    .qh-text strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ── CIO CORNER ── */
+    .cio-section {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: var(--white);
+      padding: 3rem 2rem;
+      margin: 3rem -1.5rem;
+      border-top: 3px solid var(--gold);
+      border-bottom: 3px solid var(--gold);
+    }
+    .cio-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .cio-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+    .cio-body p {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1rem;
+    }
+    .cio-callout {
+      border-left: 4px solid var(--gold);
+      background: rgba(201,168,76,0.1);
+      padding: 1.1rem 1.4rem;
+      margin-top: 1.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .cio-callout .callout-label { color: var(--gold-light); }
+    .cio-callout p { color: rgba(255,255,255,0.9); font-size: 0.93rem; margin: 0; }
+
+    /* ── THE STACK ── */
+    .stack-section { padding: 2rem 0 1rem; }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .stack-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--navy);
+      padding: 1.1rem 1.25rem;
+      border-radius: 2px;
+    }
+    .stack-card:last-child { grid-column: 1 / -1; }
+    .stack-layer {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .stack-card p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    /* ── AGENT 101 ── */
+    .agent-section {
+      background: var(--gold-pale);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-left: 5px solid var(--gold);
+      padding: 2rem 1.75rem;
+      margin: 2rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .agent-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.6;
+      margin-bottom: 0.3rem;
+    }
+    .agent-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .agent-body p {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-bottom: 0.85rem;
+    }
+    .agent-body p:last-child { margin-bottom: 0; }
+
+    /* ── CLOSING ── */
+    .closing-section {
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      border-top: 1px solid var(--rule);
+      margin-top: 2rem;
+    }
+    .closing-ornament {
+      color: var(--gold);
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .closing-text {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      max-width: 560px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+    .closing-sig {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      border-top: 2px solid var(--gold);
+    }
+    .site-footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .stack-grid { grid-template-columns: 1fr; }
+      .stack-card:last-child { grid-column: auto; }
+      .hero-title { font-size: 2rem; }
+      .section-number { font-size: 2rem; }
+      .toc-strip { gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="/" class="nav-logo">D·A·D <span>Newsletter</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/archive.html">Archive</a>
+    <a href="https://newsletter.distilledaidigest.com" target="_blank">Subscribe</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="issue-badge">Issue #15 &nbsp;·&nbsp; May 11–17, 2026 &nbsp;·&nbsp; Enterprise AI</div>
+  <h1 class="hero-title">The Week AI <em>Moved In</em></h1>
+  <p class="hero-date">DISTILLED AI DIGEST &nbsp;·&nbsp; MAY 2026</p>
+  <p class="hero-hook">
+    <strong>This week, AI stopped knocking.</strong> It unpacked its bags, installed itself in the org chart, and started billing by the hour. The stories this week aren't about what AI <em>can</em> do — they're about what happens when it actually <em>does</em>. Governance gaps are widening. SaaS stacks are shrinking. And somewhere between the productivity promise and the paycheck reality, CIOs are being asked to hold the line.
+  </p>
+</header>
+
+<!-- TOC STRIP -->
+<nav class="toc-strip">
+  <a href="#story1" class="toc-item">Shadow AI</a>
+  <span class="toc-sep">·</span>
+  <a href="#story2" class="toc-item">Lab Land Grab</a>
+  <span class="toc-sep">·</span>
+  <a href="#story3" class="toc-item">Productivity Paradox</a>
+  <span class="toc-sep">·</span>
+  <a href="#story4" class="toc-item">SaaS Stack</a>
+  <span class="toc-sep">·</span>
+  <a href="#story5" class="toc-item">Model Race</a>
+  <span class="toc-sep">·</span>
+  <a href="#quickhits" class="toc-item">Quick Hits</a>
+  <span class="toc-sep">·</span>
+  <a href="#cio" class="toc-item">CIO Corner</a>
+  <span class="toc-sep">·</span>
+  <a href="#stack" class="toc-item">The Stack</a>
+  <span class="toc-sep">·</span>
+  <a href="#agent101" class="toc-item">Agent 101</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="page-wrap">
+
+  <!-- STORY 1 -->
+  <article id="story1">
+    <div class="section-header">
+      <div class="section-number">01</div>
+      <div class="section-title-block">
+        <div class="section-label">Governance</div>
+        <h2 class="section-title">The Shadow AI Governance Crisis</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>The policy exists. The behavior doesn't match it.</strong> A landmark study released this week found that 65% of enterprise employees regularly use AI tools that haven't been sanctioned by their IT or security teams — up from 41% just 18 months ago. The tools range from personal ChatGPT subscriptions to browser-embedded Copilot variants that employees activated without realizing the data implications. This isn't rebellion. It's a workaround culture that formed while governance caught up to reality.</p>
+      <p><strong>What makes this week's signal different is the liability dimension.</strong> Regulators in the EU and Canada have begun signaling that "we didn't know employees were using it" will not constitute a compliance defense under AI Act obligations or PIPEDA interpretations. The era of plausible deniability is closing. Enterprises need records of what tools touched what data — and right now, most don't have them.</p>
+      <p><strong>The fix isn't a crackdown — it's a catalogue.</strong> Forward-leaning IT organizations are running AI tool amnesty programs: a structured 30-day window where employees self-report the tools they use in exchange for amnesty and a path to official sanctioning. The result is a real-time AI inventory that feeds directly into the governance framework. It's pragmatic, not punitive — and it actually works.</p>
+      <p><strong>For enterprises with distributed workforces,</strong> the exposure is amplified. Remote and hybrid workers are far less likely to route requests through sanctioned channels. Insurance and financial services firms — industries with stringent data handling rules — face the most acute risk. A single unmonitored instance of sensitive customer data entering an unsanctioned LLM is a reportable event in several jurisdictions.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Signal</div>
+      <p>Shadow AI is no longer a culture problem — it's a compliance problem with a filing deadline attached. The question for CIOs this week: do you have a real inventory of AI tools in use across your organization, or do you have a policy document and a prayer?</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
+
+  <!-- STORY 2 -->
+  <article id="story2">
+    <div class="section-header">
+      <div class="section-number">02</div>
+      <div class="section-title-block">
+        <div class="section-label">Infrastructure</div>
+        <h2 class="section-title">The AI Lab Land Grab</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>The real estate market has a new buyer, and it has a very large power bill.</strong> This week, three of the five largest AI infrastructure announcements in history landed within 72 hours of each other. Microsoft confirmed a $4B expansion of its Azure AI data center footprint across Southeast Asia. Google broke ground on a 1.2-gigawatt campus in Texas — the single largest planned AI compute facility on U.S. soil. And a consortium of Middle Eastern sovereign wealth funds announced a $20B commitment to build dedicated AI infrastructure outside of U.S. and EU regulatory jurisdiction.</p>
+      <p><strong>What's being built isn't just compute — it's geopolitical positioning.</strong> Nations that control AI infrastructure control the terms on which AI is delivered to their economies. The sovereign fund consortium is explicitly designed to ensure that Gulf states don't become AI consumers dependent on Western hyperscaler pricing and policy decisions. For multinational enterprises, this matters because it will soon affect where you can legally route AI workloads, not just where it's cheapest to do so.</p>
+      <p><strong>The supply chain implications are cascading.</strong> Chip demand from these announcements has already tightened NVIDIA H200 lead times by an estimated six weeks. The secondary effect: mid-market enterprises that budgeted for AI infrastructure refreshes in Q3 are being told to re-sequence. The land grab at the top is creating a capacity crunch in the middle.</p>
+      <p><strong>Enterprise procurement teams should be running scenario analysis</strong> on their hyperscaler contracts right now. Lock-in clauses that looked fine 18 months ago may now constrain your ability to route workloads to the most cost-effective or compliant region. The infrastructure map is being redrawn at speed.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Watch This</div>
+      <p>When sovereign wealth funds start building compute campuses, the AI infrastructure market is no longer just a tech story — it's a geopolitics story. Enterprises operating across multiple jurisdictions need a data residency and AI routing strategy, not just a cloud vendor relationship.</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
+
+  <!-- STORY 3 -->
+  <article id="story3">
+    <div class="section-header">
+      <div class="section-number">03</div>
+      <div class="section-title-block">
+        <div class="section-label">Workforce</div>
+        <h2 class="section-title">The AI Productivity Paradox</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>Everyone is using AI. Productivity growth hasn't appeared.</strong> That's the uncomfortable finding at the center of a new wave of enterprise AI ROI assessments landing this month. Adoption metrics look strong: Microsoft reports Copilot seat utilization is up 40% quarter-over-quarter among enterprise clients. But when analysts measure output per employee, the needle isn't moving at the organizational level — even where individual users report significant time savings.</p>
+      <p><strong>The gap has a name: redistribution without reinvestment.</strong> When an employee saves 90 minutes a week using AI, that time doesn't automatically flow to higher-value work. It flows into the next meeting, the next email thread, the next low-stakes task that expanded to fill the void. Without deliberate workflow redesign, AI efficiency gains are absorbed — not compounded.</p>
+      <p><strong>The enterprises seeing measurable productivity lift share one trait:</strong> they redesigned the work, not just the tools. A major Canadian financial institution reduced its underwriting turnaround time by 34% not by giving underwriters Copilot access, but by redesigning the underwriting workflow end-to-end and then embedding AI at each stage. The technology was the same. The result was different because the process was rebuilt around it.</p>
+      <p><strong>This is the hardest conversation for IT leaders to have</strong> with line-of-business peers, because it requires admitting that buying the tool was the easy part. The real investment is in change management, process redesign, and the willingness to measure outcomes rather than adoption rates. The enterprises that figure this out in 2026 will have a durable advantage — because most of their competitors are still measuring seat counts.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Lesson</div>
+      <p>AI adoption is not AI transformation. If your AI ROI story is built on utilization metrics rather than output metrics, you're measuring the tool — not the result. The productivity dividend requires deliberate workflow redesign, not just access provisioning.</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
+
+  <!-- STORY 4 -->
+  <article id="story4">
+    <div class="section-header">
+      <div class="section-number">04</div>
+      <div class="section-title-block">
+        <div class="section-label">Enterprise Software</div>
+        <h2 class="section-title">AI Eating the SaaS Stack</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>The bundle is breaking.</strong> This week, enterprise software analysts at Gartner flagged what may be the most consequential shift in B2B software economics in a decade: AI-native point solutions are displacing multi-feature SaaS platforms that enterprises pay for but under-utilize. The pattern is playing out across CRM, ITSM, HR, and procurement categories. A purpose-built AI agent that does one thing exceptionally well is beating a platform that does twelve things adequately.</p>
+      <p><strong>The economics are stark.</strong> A mid-sized enterprise might pay $180K annually for a contract lifecycle management module inside a larger procurement suite — and use roughly 30% of its features. An AI-native CLM tool purpose-built on LLMs can deliver equivalent or superior contract extraction, risk flagging, and renewal tracking for $40K and integrate directly with the existing stack via API. The platform vendor's moat — integration and switching costs — is eroding as AI-native tools commoditize integration.</p>
+      <p><strong>This is hitting the hyperscalers' app layer too.</strong> Salesforce, ServiceNow, and SAP all reported slower-than-expected expansion revenue this quarter amid enterprise scrutiny of AI add-on pricing. Customers are increasingly asking whether paying a $50/seat premium for a vendor's AI layer is defensible when open models can be fine-tuned on internal data for equivalent performance on specific tasks.</p>
+      <p><strong>For enterprise technology leaders,</strong> this creates both an opportunity and a governance challenge. The opportunity: meaningful cost reduction in the software budget through selective platform replacement. The challenge: a sprawling ecosystem of AI-native point solutions that each require their own data integration, security review, and vendor management overhead. The answer is a procurement framework that evaluates AI-native tools on the same risk and integration criteria as traditional software — then moves fast where the economics are clear.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Implication</div>
+      <p>AI isn't just changing what software does — it's changing what software is worth. Enterprise technology leaders who treat their SaaS portfolio review as a one-time annual exercise are already behind. This needs to be a standing agenda item.</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
+
+  <!-- STORY 5 -->
+  <article id="story5">
+    <div class="section-header">
+      <div class="section-number">05</div>
+      <div class="section-title-block">
+        <div class="section-label">Foundation Models</div>
+        <h2 class="section-title">Mythos vs. Daybreak — The New Foundation Model Race</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>The next frontier models are here, and they look different from what came before.</strong> Two new frontier model releases this week — Mythos from a European AI consortium and Daybreak from a U.S. deep-tech startup — represent a meaningful shift in how foundation models are being positioned for enterprise use. Both emphasize compliance-by-design: built-in audit trails, role-based inference controls, and deployment modes that support on-premises or sovereign cloud configurations. This isn't a feature list — it's a strategic response to what enterprise buyers have been asking for since GPT-4 launched.</p>
+      <p><strong>Mythos is the more ambitious of the two.</strong> Built under the EU AI Act's technical requirements framework, it ships with what its developers describe as a "conformance certificate" — a documented audit package covering training data provenance, bias evaluation results, and capability disclosures. For regulated European enterprises, this dramatically reduces the procurement friction that has slowed foundation model adoption. It's not the most capable model on the benchmarks. It may be the easiest one to actually deploy in a regulated environment.</p>
+      <p><strong>Daybreak takes a different bet:</strong> raw performance on enterprise reasoning tasks, with a deployment architecture that allows organizations to run inference entirely within their own infrastructure. No API dependency. No data leaving the perimeter. For industries like defense contracting, healthcare, and financial services where data sovereignty is non-negotiable, this is the architecture that makes AI adoption possible rather than aspirational.</p>
+      <p><strong>The enterprise implication is a new kind of model procurement decision.</strong> Capability benchmarks alone no longer determine which model an enterprise adopts. Compliance architecture, deployment flexibility, and audit documentation are now first-class selection criteria. Procurement teams that haven't updated their AI vendor evaluation frameworks to reflect these dimensions are evaluating last year's problem.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Context</div>
+      <p>When foundation model vendors lead with compliance architecture rather than benchmark scores, the market has matured. Enterprise AI adoption is shifting from "can it do this?" to "can we defensibly deploy this?" — and the model vendors that answer the second question win the next five years of enterprise contracts.</p>
+    </div>
+  </article>
+
+  <!-- QUICK HITS -->
+  <section id="quickhits" class="quick-hits-section">
+    <div class="quick-hits-header">
+      <span class="quick-hits-icon">⚡</span>
+      <h2 class="quick-hits-title">Quick <span>Hits</span></h2>
+    </div>
+    <ul class="quick-hits-list">
+      <li>
+        <span class="qh-bullet">→</span>
+        <span class="qh-text"><strong>Microsoft Agent 365</strong> — Microsoft launched a suite of pre-built autonomous agents embedded across Microsoft 365, handling meeting scheduling, email triage, document summarization, and procurement approvals. Early enterprise pilots report 2–4 hours of administrative time saved per knowledge worker per week.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">→</span>
+        <span class="qh-text"><strong>ChatGPT Finance Mode</strong> — OpenAI rolled out a dedicated Finance Mode within ChatGPT Enterprise, offering real-time market data integration, SEC filing analysis, and earnings call summarization. It steps squarely into Bloomberg Terminal territory for a fraction of the price.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">→</span>
+        <span class="qh-text"><strong>GPU Utilization Crisis</strong> — A Bain &amp; Company analysis found enterprise GPU clusters running at an average of 38% utilization. The culprit: batch workload scheduling gaps and absent orchestration tooling. A significant, fixable cost leak hiding in plain sight.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">→</span>
+        <span class="qh-text"><strong>ChatGPT Super App Pivot</strong> — Sam Altman confirmed ChatGPT is being repositioned as a platform — with third-party integrations, persistent memory, and a monetization layer for enterprise plugin developers. The vision is an AI operating system for the knowledge worker.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">→</span>
+        <span class="qh-text"><strong>SAP Sapphire AI</strong> — At Sapphire, SAP unveiled Joule-powered automation across its entire enterprise suite: AI agents for financial close, supply chain exception management, and HR onboarding. With 27,000 customers, these aren't experiments — they're production deployments arriving whether enterprises are ready or not.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- CIO CORNER -->
+  <section id="cio" class="cio-section">
+    <div class="cio-eyebrow">CIO Corner</div>
+    <h2 class="cio-title">When AI Moves In, Governance Moves First</h2>
+    <div class="cio-body">
+      <p>This was the week the AI adoption conversation changed register. We've spent two years talking about AI potential. This week's stories are about AI <em>presence</em> — and the gap between how fast AI is arriving and how prepared most enterprise governance structures are to receive it.</p>
+      <p>The shadow AI data is the most urgent signal. Sixty-five percent of employees regularly using unsanctioned AI tools isn't a rogue behavior problem — it's a governance design problem. People use what works. If your sanctioned stack doesn't perform as well as what someone can install in ten minutes, they'll install the ten-minute version. The solution isn't tighter controls — it's faster, better sanctioning processes that can keep pace with the speed at which AI tools are improving.</p>
+      <p>The productivity paradox data reinforces a hard truth many technology leaders already suspect: we've been measuring the wrong thing. Seat adoption, utilization rates, and prompt volume are inputs, not outcomes. The enterprises showing genuine productivity lift are measuring process cycle times, output quality, and decision velocity — and they redesigned workflows before deploying tools, not after. That sequence matters more than the technology choice.</p>
+      <p>The model race stories — Mythos and Daybreak — point to where enterprise AI procurement is heading. Compliance architecture and deployment flexibility are becoming primary differentiators in foundation model selection. The CIO's seat at the model evaluation table is no longer optional. These are infrastructure decisions with five-year cost and risk implications, and they belong in the same governance process as cloud vendor selection.</p>
+      <div class="cio-callout">
+        <div class="callout-label">The Lesson</div>
+        <p>AI has moved from the innovation lab to the operating budget. The governance frameworks, procurement processes, and workforce strategies that served you well in the pilot phase need a production upgrade — not a patch, a redesign. The CIOs who treat this moment as an infrastructure maturity problem, not a technology enthusiasm problem, will build the durable capability that the next phase of AI requires.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE STACK -->
+  <section id="stack" class="stack-section">
+    <div class="section-header" style="padding-top: 2rem;">
+      <div class="section-title-block">
+        <div class="section-label">Infrastructure Signals</div>
+        <h2 class="section-title">The Stack</h2>
+      </div>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <div class="stack-layer">⚡ Energy</div>
+        <p>The U.S. Department of Energy approved three new grid interconnection agreements for AI data center campuses exceeding 500MW each. Total AI-attributable power demand is now forecast to reach 12% of U.S. national grid consumption by 2028, up from 4% in 2024.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">🔲 Chips</div>
+        <p>TSMC announced volume production of its N2P process node, delivering an estimated 15% performance-per-watt improvement over N3E. AI inference workloads are the primary design target; Apple's M-series silicon is first in line.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">☁️ Cloud</div>
+        <p>AWS launched Bedrock Guardrails v2, adding real-time toxicity filtering, PII redaction, and grounding verification across all Bedrock-hosted foundation models. Enterprise compliance teams have been waiting for this since Bedrock launched.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">🧠 Models</div>
+        <p>Meta released Llama 4 Scout in extended context mode — a 2M token context window, available under the Llama community license. Open-weight models with this context length were considered technically implausible 18 months ago.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">📱 Applications</div>
+        <p>Notion AI shipped workflow automation templates allowing non-technical users to build multi-step document processing pipelines — extract, classify, route, summarize — without writing code. The no-code agent layer is arriving in productivity tools.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENT 101 -->
+  <section id="agent101">
+    <div class="section-header">
+      <div class="section-title-block">
+        <div class="section-label">Foundational Concepts</div>
+        <h2 class="section-title">Agent 101</h2>
+      </div>
+    </div>
+    <div class="agent-section">
+      <div class="agent-eyebrow">This Week's Concept</div>
+      <div class="agent-title">The Handoff Protocol</div>
+      <div class="agent-body">
+        <p><strong>Every agent eventually needs to pass the baton.</strong> In multi-agent systems — where a workflow involves more than one AI agent operating in sequence or in parallel — the mechanism by which one agent transfers context, state, and authority to the next is called the <strong>handoff protocol</strong>. It's one of the least glamorous and most consequential architectural decisions in enterprise AI deployment.</p>
+        <p><strong>Here's why it matters.</strong> Imagine an AI agent that processes incoming supplier invoices: it extracts line items, checks against purchase orders, and flags exceptions. When an exception requires human review, the agent needs to hand off to a human reviewer — and eventually back to the automated process. What gets passed in that handoff? The raw invoice? The extracted data? The agent's confidence score? The exception reason? If the handoff protocol is poorly designed, the human reviewer starts from scratch. If it's well-designed, they see exactly what they need to make a decision in 30 seconds.</p>
+        <p><strong>In enterprise contexts, handoff protocols must also carry compliance metadata.</strong> Which data was accessed, under what authorization, at what point in the process, with what confidence? This audit trail doesn't happen automatically — it has to be architected into the handoff from the start. In regulated industries, a handoff without a documented audit chain is a compliance gap.</p>
+        <p><strong>The procurement angle:</strong> when evaluating agentic AI platforms, ask specifically how handoff state is structured, persisted, and surfaced. Vendors who can't answer this question concretely are selling you a single-agent solution with an agentic label on it. Real multi-agent orchestration requires handoff architecture — and that architecture is where enterprise-grade systems earn their premium.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing-section">
+    <div class="closing-ornament">· · ·</div>
+    <p class="closing-text">The week AI moved in wasn't a single moment — it was this week, and it's been building for two years. The organizations that will come out ahead aren't the ones who moved fastest, but the ones who built the governance, the workflow discipline, and the infrastructure clarity to make AI's arrival stick.</p>
+    <p class="closing-text" style="font-size:0.95rem; margin-top: 0.5rem;">We'll see you next week with more signal, less noise.</p>
+    <div class="closing-sig">— The D·A·D Editorial Team</div>
+  </section>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© 2026 Distilled AI Digest &nbsp;·&nbsp; <a href="https://distilledaidigest.com">distilledaidigest.com</a> &nbsp;·&nbsp; <a href="/archive.html">Archive</a> &nbsp;·&nbsp; <a href="https://newsletter.distilledaidigest.com">Subscribe</a></p>
+  <p style="margin-top:0.5rem; opacity:0.6;">Issue #15 &nbsp;·&nbsp; May 11–17, 2026 &nbsp;·&nbsp; For enterprise leaders navigating the AI era.</p>
+</footer>
+
+</body>
+</html>
