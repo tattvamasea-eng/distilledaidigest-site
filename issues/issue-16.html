@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Issue #16 — The Week Google Rewired Everything | Distilled AI Digest</title>
+  <meta name="description" content="Google's always-on agents, Anthropic acquires Stainless, Gartner's $2.59T forecast, and the coding agent wars. May 18–24, 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1C2F50;
+      --navy-dark: #111e33;
+      --navy-mid: #243a60;
+      --gold: #C9A84C;
+      --gold-light: #e2c06e;
+      --gold-pale: #f5ecd4;
+      --cream: #FAF7F2;
+      --white: #ffffff;
+      --ink: #1a1a2e;
+      --ink-soft: #3a3a52;
+      --rule: #d6cfc4;
+      --tag-bg: #e8f0fb;
+      --tag-text: #1C2F50;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* NAV */
+    .site-nav {
+      background: var(--navy-dark);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--gold);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%);
+      color: var(--white);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      border-bottom: 3px solid var(--gold);
+    }
+    .issue-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+    .hero-hook {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      font-style: italic;
+    }
+    .hero-hook strong { color: var(--gold); font-style: normal; }
+
+    /* TOC */
+    .toc-strip {
+      background: var(--navy-mid);
+      padding: 1rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .toc-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .toc-item:hover { color: var(--gold); }
+    .toc-sep { color: rgba(201,168,76,0.3); font-size: 0.7rem; }
+
+    /* LAYOUT */
+    .page-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* SECTION HEADER */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 3rem 0 1.25rem;
+    }
+    .section-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.35;
+      line-height: 1;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .section-title-block { flex: 1; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--navy);
+    }
+
+    /* STORY BODY */
+    .story-body { padding-bottom: 0.5rem; }
+    .story-body p { margin-bottom: 1.1rem; color: var(--ink-soft); }
+    .story-body p strong { color: var(--ink); font-weight: 600; }
+
+    /* CALLOUT */
+    .callout {
+      background: var(--navy);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .callout p { color: rgba(255,255,255,0.9); margin: 0; font-size: 0.97rem; }
+    .callout p strong { color: var(--gold-light); }
+
+    /* DIVIDER */
+    .story-divider {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2rem 0 0;
+    }
+
+    /* TEASER GRID */
+    .teaser-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0 2rem;
+    }
+    @media (max-width: 600px) { .teaser-grid { grid-template-columns: 1fr; } }
+    .teaser-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 1.1rem 1.2rem;
+    }
+    .teaser-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .teaser-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+    .teaser-desc { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.55; }
+
+    /* FULL ISSUE CTA */
+    .full-issue-cta {
+      background: var(--navy);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .full-issue-cta p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .full-issue-cta a {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy-dark);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      border-radius: 3px;
+      transition: background 0.2s;
+    }
+    .full-issue-cta a:hover { background: var(--gold-light); }
+
+    /* QUICK HITS */
+    .quick-hits-section {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+    }
+    .quick-hits-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .quick-hits-icon { font-size: 1.4rem; }
+    .quick-hits-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .quick-hits-title span { color: var(--gold); }
+    .quick-hits-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+    .quick-hits-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+    .qh-bullet {
+      color: var(--gold);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+    .qh-text { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.6; }
+    .qh-text strong { color: var(--ink); }
+
+    /* CLOSING */
+    .closing-section {
+      text-align: center;
+      padding: 3rem 0 4rem;
+    }
+    .closing-ornament {
+      font-size: 1.2rem;
+      color: var(--gold);
+      letter-spacing: 0.5em;
+      margin-bottom: 1.5rem;
+    }
+    .closing-text {
+      max-width: 580px;
+      margin: 0 auto 0.75rem;
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+    .closing-sig {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-top: 1.5rem;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      border-top: 2px solid var(--gold);
+    }
+    .site-footer a { color: var(--gold); text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <a href="/index.html" class="nav-logo">Distilled <span>AI</span> Digest</a>
+    <div class="nav-links">
+      <a href="/archive.html">Archive</a>
+      <a href="/about.html">About</a>
+      <a href="https://newsletter.distilledaidigest.com/subscribe" target="_blank">Subscribe</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="issue-badge">Issue #16 · May 18–24, 2026</div>
+    <h1 class="hero-title">The Week Google <em>Rewired Everything</em></h1>
+    <div class="hero-date">MAY 18–24, 2026 &nbsp;·&nbsp; FREE EDITION</div>
+    <p class="hero-hook">This week didn't feel like incremental progress. It felt like a <strong>phase change</strong>. Google didn't ship features — it shipped a new architecture for how AI works in the enterprise. Meanwhile, Anthropic quietly redrew the competitive map, and Gartner handed CIOs the honest assessment they've been waiting for.</p>
+  </header>
+
+  <!-- TOC -->
+  <nav class="toc-strip">
+    <a href="#story1" class="toc-item">Gemini Spark</a>
+    <span class="toc-sep">·</span>
+    <a href="#story2" class="toc-item">AI Search</a>
+    <span class="toc-sep">·</span>
+    <a href="#story3" class="toc-item">Anthropic + Stainless</a>
+    <span class="toc-sep">·</span>
+    <a href="#story4" class="toc-item">Gartner $2.59T</a>
+    <span class="toc-sep">·</span>
+    <a href="#story5" class="toc-item">Coding Agent Wars</a>
+    <span class="toc-sep">·</span>
+    <a href="#quickhits" class="toc-item">Quick Hits</a>
+  </nav>
+
+  <div class="page-wrap">
+
+    <!-- STORY 1 -->
+    <article id="story1">
+      <div class="section-header">
+        <div class="section-number">01</div>
+        <div class="section-title-block">
+          <div class="section-label">Agentic Infrastructure</div>
+          <h2 class="section-title">Google Declares the Agentic Era — Gemini Spark Goes 24/7</h2>
+        </div>
+      </div>
+      <div class="story-body">
+        <p><strong>The headline is the hardware, not the model.</strong> Google didn't just release Gemini Spark this week — it announced that AI agents now run on always-on, persistent cloud VMs. That's the real story. For the first time, a frontier AI agent has a continuous home: it doesn't spin up when you call it, then disappear. It lives, waits, and acts — autonomously, around the clock.</p>
+        <p><strong>The pricing tells you who Google is targeting.</strong> A $100/month Ultra tier for consumers and a $200/month enterprise plan are competitive when stacked against what organisations currently pay for automation tooling and human-hours on repetitive cognitive tasks. Google is pricing Gemini as infrastructure, not a chatbot subscription.</p>
+        <p><strong>The governance issue is now urgent.</strong> When agents run continuously on cloud VMs — browsing, writing, calling APIs, sending emails — your IAM policies are the last line of defence. Google's moves this week make agent identity and access management a board-level infrastructure question, not a future concern.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">The Signal</div>
+        <p>Before you evaluate Gemini's pricing, ask your security team one question: do our current IAM policies cover autonomous agents? If the answer is unclear, that's your week-one priority.</p>
+      </div>
+      <hr class="story-divider" />
+    </article>
+
+    <!-- STORIES 2–5 TEASERS -->
+    <section id="story2">
+      <div class="section-header" style="padding-top: 2.5rem;">
+        <div class="section-title-block">
+          <div class="section-label">Also in this issue</div>
+          <h2 class="section-title">Four More Stories That Matter</h2>
+        </div>
+      </div>
+      <div class="teaser-grid">
+        <div class="teaser-card" id="story2">
+          <div class="teaser-num">Story 02 · Search</div>
+          <div class="teaser-title">Google Kills the Search Box as We Know It</div>
+          <p class="teaser-desc">AI Mode is now the default. 60% of searches already end with zero clicks. The intelligent search box doesn't just autocomplete — it answers. Enterprise intranets are next.</p>
+        </div>
+        <div class="teaser-card" id="story3">
+          <div class="teaser-num">Story 03 · Acquisitions</div>
+          <div class="teaser-title">Anthropic Acquires Stainless — Shuts the Door on OpenAI &amp; Google</div>
+          <p class="teaser-desc">A $300M+ acquisition of the SDK generator rivals depend on. The toolchain war is now explicit. Vendor lock-in risk has moved upstream.</p>
+        </div>
+        <div class="teaser-card" id="story4">
+          <div class="teaser-num">Story 04 · Analyst Report</div>
+          <div class="teaser-title">Gartner: $2.59T AI Spending — But Enterprises Aren't Driving It Yet</div>
+          <p class="teaser-desc">47% YoY growth, but enterprises are in the Trough of Disillusionment. 2026 is the inflection year — for organisations that act now.</p>
+        </div>
+        <div class="teaser-card" id="story5">
+          <div class="teaser-num">Story 05 · Procurement</div>
+          <div class="teaser-title">Microsoft &amp; Uber Ditch Claude Code</div>
+          <p class="teaser-desc">The coding agent wars are live. Portability clauses now belong in every AI contract. Here's what the Fortune 500 switch tells you about procurement strategy.</p>
+        </div>
+      </div>
+
+      <div class="full-issue-cta">
+        <p>The full analysis — all five stories, CIO Corner, The Stack, Agent 101 — is in your inbox and on Beehiiv.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-week-google-rewired-everything" target="_blank">Read the full issue →</a>
+      </div>
+    </section>
+
+    <!-- QUICK HITS -->
+    <section id="quickhits" class="quick-hits-section">
+      <div class="quick-hits-header">
+        <span class="quick-hits-icon">⚡</span>
+        <h2 class="quick-hits-title">Quick <span>Hits</span></h2>
+      </div>
+      <ul class="quick-hits-list">
+        <li>
+          <span class="qh-bullet">→</span>
+          <span class="qh-text"><strong>OpenAI vs. Erdős</strong> — OpenAI disproved an 80-year-old Erdős math conjecture, verified by Princeton and Fields Medal mathematicians.</span>
+        </li>
+        <li>
+          <span class="qh-bullet">→</span>
+          <span class="qh-text"><strong>Novo Nordisk + OpenAI</strong> — End-to-end enterprise AI partnership from drug discovery to supply chain — one of the most comprehensive lab-pharma AI deals to date.</span>
+        </li>
+        <li>
+          <span class="qh-bullet">→</span>
+          <span class="qh-text"><strong>Google AI Co-Scientist in Nature</strong> — Novel liver fibrosis drug targets found autonomously and published in Nature, marking a milestone for AI-driven scientific discovery.</span>
+        </li>
+        <li>
+          <span class="qh-bullet">→</span>
+          <span class="qh-text"><strong>Zero-click at 60%</strong> — Google's Search AI overhaul is devastating open web publisher economics. The implications for enterprise content strategy are significant.</span>
+        </li>
+        <li>
+          <span class="qh-bullet">→</span>
+          <span class="qh-text"><strong>Anthropic valuation</strong> — Targeting $900B valuation; annualised revenue ~$30B, ahead of OpenAI's ~$24B. The competitive landscape is shifting faster than most enterprises have updated their vendor strategies.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing-section">
+      <div class="closing-ornament">· · ·</div>
+      <p class="closing-text">The week AI became infrastructure wasn't a metaphor — it was this week. The organisations that treat Google's agent announcement as a product update rather than an architectural shift will find themselves rebuilding governance under pressure. The ones that act now will be ready.</p>
+      <p class="closing-text" style="font-size:0.95rem; margin-top: 0.5rem;">We'll see you next week with more signal, less noise.</p>
+      <div class="closing-sig">— The D·A·D Editorial Team</div>
+    </section>
+
+  </div><!-- /page-wrap -->
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© 2026 Distilled AI Digest &nbsp;·&nbsp; <a href="https://distilledaidigest.com">distilledaidigest.com</a> &nbsp;·&nbsp; <a href="/archive.html">Archive</a> &nbsp;·&nbsp; <a href="https://newsletter.distilledaidigest.com">Subscribe</a></p>
+    <p style="margin-top:0.5rem; opacity:0.6;">Issue #16 &nbsp;·&nbsp; May 18–24, 2026 &nbsp;·&nbsp; For enterprise leaders navigating the AI era.</p>
+  </footer>
+
+</body>
+</html>
