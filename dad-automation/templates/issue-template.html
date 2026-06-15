@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{META_DESCRIPTION}} Issue #{{ISSUE_NUM}} of Distilled AI Digest.">
+<title>Issue #{{ISSUE_NUM}} — {{TITLE}} | Distilled AI Digest</title>
+<style>
+  :root { --navy:#1C2F50; --gold:#B8862F; --cream:#f5f5f0; --card:#ffffff; --stack:#eef2f8; --ink:#1a1a1a; --muted:#555; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  nav { background:var(--navy); padding:14px 0; }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; }
+  nav .brand { color:#fff; font-weight:bold; letter-spacing:3px; font-size:18px; text-decoration:none; }
+  nav .links a { color:#cdd6e6; text-decoration:none; margin-left:18px; font-size:13px; font-family:Arial,sans-serif; }
+  nav .links a:hover { color:#fff; }
+  header.hero { background:var(--navy); color:#fff; padding:44px 0 50px; border-bottom:4px solid var(--gold); }
+  .issue-line { color:var(--gold); font-family:Arial,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+  header.hero h1 { font-size:40px; line-height:1.15; margin-bottom:16px; color:#fff; }
+  header.hero .dateline { color:#aebbd2; font-size:15px; margin-bottom:20px; }
+  .tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .tags span { border:1px solid var(--gold); color:var(--gold); font-family:Arial,sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:20px; }
+  .intro { padding:34px 0 10px; }
+  .intro p { margin-bottom:18px; font-size:18px; }
+  .story { background:var(--card); border-left:5px solid var(--gold); padding:30px 30px 28px; margin:26px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+  .story .kicker { font-family:Arial,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .story h2 { font-size:26px; line-height:1.25; color:var(--navy); margin-bottom:16px; }
+  .story p { margin-bottom:15px; }
+  .story p .lead { font-weight:bold; color:var(--navy); }
+  .callout { background:var(--cream); border-left:4px solid var(--navy); padding:16px 18px; margin-top:18px; }
+  .callout .label { font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; margin-bottom:6px; display:block; }
+  .callout p { margin:0; font-size:15px; color:#333; }
+  .section-head { font-family:Arial,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin:44px 0 4px; font-weight:bold; }
+  .quickhits { background:var(--card); border-left:5px solid var(--gold); padding:26px 30px; margin:26px 0; }
+  .quickhits h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .quickhits ul { list-style:none; }
+  .quickhits li { margin-bottom:14px; padding-left:16px; position:relative; font-size:15px; }
+  .quickhits li:before { content:"\25B8"; color:var(--gold); position:absolute; left:0; }
+  .stack-grid { display:grid; gap:14px; margin:22px 0; }
+  .stack-card { background:var(--stack); border-radius:6px; padding:18px 20px; }
+  .stack-card .layer { font-family:Arial,sans-serif; font-size:13px; font-weight:bold; color:var(--navy); margin-bottom:6px; }
+  .stack-card p { font-size:14px; margin:0; color:#333; }
+  .agent101 { background:var(--card); border-left:5px solid var(--navy); padding:30px; margin:26px 0; }
+  .agent101 h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .agent101 p { margin-bottom:15px; }
+  .agent101 .takeaway { font-style:italic; color:var(--navy); border-top:1px solid #ddd; padding-top:14px; margin-top:6px; }
+  .cio { background:var(--card); border-left:5px solid var(--gold); padding:30px; margin:26px 0; }
+  .cio h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .cio p { margin-bottom:15px; }
+  .closing { padding:30px 0 10px; font-size:18px; }
+  .closing p { margin-bottom:14px; }
+  .sign { color:var(--navy); font-weight:bold; }
+  footer { background:var(--navy); color:#aebbd2; padding:26px 0; margin-top:40px; font-family:Arial,sans-serif; font-size:13px; }
+  footer a { color:var(--gold); text-decoration:none; }
+  footer .fine { margin-top:8px; font-size:12px; color:#8595b0; }
+  @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="https://distilledaidigest.com/" class="brand">D&middot;A&middot;D</a><div class="links"><a href="https://distilledaidigest.com/">Home</a><a href="https://distilledaidigest.com/archive">Archive</a><a href="https://newsletter.distilledaidigest.com">Subscribe</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="issue-line">Issue #{{ISSUE_NUM}} &middot; {{DATE_RANGE}}</div>
+<h1>{{TITLE}}</h1>
+<div class="dateline">{{DATE_RANGE}}</div>
+<div class="tags">{{TAG_PILLS}}</div>
+</div></header>
+
+<div class="wrap">
+
+<!-- ============================================================ -->
+<!-- INTRO: 2 paragraphs setting the week's through-line          -->
+<!-- ============================================================ -->
+<section class="intro">
+{{INTRO_PARAGRAPHS}}
+</section>
+
+<!-- ============================================================ -->
+<!-- STORIES 1-5. Each: kicker + h2 + 3-4 <p> with bold .lead      -->
+<!-- spans + one .callout (label = The Signal / The Lesson /       -->
+<!-- Watch This / The Implication / The Context). Pattern:         -->
+<!--                                                                -->
+<!-- <article class="story">                                        -->
+<!--   <div class="kicker">Story 0N</div>                          -->
+<!--   <h2>Headline</h2>                                            -->
+<!--   <p><span class="lead">Bold lead-in.</span> Rest...</p>       -->
+<!--   ...3-4 paragraphs...                                         -->
+<!--   <div class="callout"><span class="label">&#9612; Label</span>-->
+<!--     <p>Takeaway.</p></div>                                     -->
+<!-- </article>                                                     -->
+<!-- ============================================================ -->
+{{STORIES}}
+
+<!-- ============================================================ -->
+<!-- QUICK HITS: 5 <li>, each one sentence, bold lead phrase       -->
+<!-- ============================================================ -->
+<div class="quickhits">
+<h2>&#9889; Quick Hits</h2>
+<ul>
+{{QUICK_HITS}}
+</ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- CIO CORNER: 4 paragraphs + one callout                       -->
+<!-- ============================================================ -->
+<div class="section-head">CIO Corner</div>
+<div class="cio">
+<h2>{{CIO_TITLE}}</h2>
+{{CIO_PARAGRAPHS}}
+<div class="callout"><span class="label">&#9612; {{CIO_CALLOUT_LABEL}}</span><p>{{CIO_CALLOUT}}</p></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- THE STACK: exactly 5 cards, layers in order:                 -->
+<!-- Energy / Chips / Cloud / Models / Applications               -->
+<!-- ============================================================ -->
+<div class="section-head">The Stack</div>
+<h2 style="font-size:22px;color:var(--navy);margin:6px 0 4px;">Five Signals Across the AI Infrastructure Layers &mdash; {{DATE_RANGE}}</h2>
+<div class="stack-grid">
+{{STACK_CARDS}}
+</div>
+
+<!-- ============================================================ -->
+<!-- AGENT 101: ONE foundational concept, NEVER repeat prior.     -->
+<!-- Used: Harness(#13), Eval Gate(#14), Agent IAM(#15),          -->
+<!-- Persistent Agents(#16), Orchestration(#17), Context Window   -->
+<!-- (#18), Model Routing & Fallback(#19). 3 <p> + .takeaway.     -->
+<!-- ============================================================ -->
+<div class="section-head">Agent 101</div>
+<div class="agent101">
+<h2>{{AGENT101_TITLE}}</h2>
+{{AGENT101_PARAGRAPHS}}
+<p class="takeaway">{{AGENT101_TAKEAWAY}}</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- CLOSING: 2 sentences + brand sign-off (NEVER "Ram")          -->
+<!-- ============================================================ -->
+<section class="closing">
+{{CLOSING_PARAGRAPH}}
+<p class="sign">See you next week &mdash; still watching, still distilling.</p>
+<p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
+</section>
+
+</div>
+
+<footer><div class="wrap">&copy; 2026 Distilled AI Digest &middot; <a href="https://distilledaidigest.com/archive">Archive</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe on Beehiiv</a><div class="fine">You're reading the full issue. Share it freely.</div></div></footer>
+
+</body>
+</html>
