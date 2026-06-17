@@ -570,7 +570,6 @@ a { color: inherit; text-decoration: none; }
 .deca-feature { background: var(--cream); }
 
 .deca-card {
-  border: 2px solid var(--navy) !important;
   background: #fff !important;
 }
 
