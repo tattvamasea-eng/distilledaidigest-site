@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Issue #23 — The Week Everyone Wanted a Piece of AI | Distilled AI Digest</title>
+  <meta name="description" content="Fable 5 and Mythos 5 return after export controls, OpenAI's 5% government stake offer, AWS's $1B deployment bet, Palantir's Karp vs. the labs, and agentic trading goes retail. June 28–July 4, 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1C2F50;
+      --navy-dark: #111e33;
+      --navy-mid: #243a60;
+      --gold: #C9A84C;
+      --gold-light: #e2c06e;
+      --gold-pale: #f5ecd4;
+      --cream: #FAF7F2;
+      --white: #ffffff;
+      --ink: #1a1a2e;
+      --ink-soft: #3a3a52;
+      --rule: #d6cfc4;
+      --tag-bg: #e8f0fb;
+      --tag-text: #1C2F50;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      background: var(--navy-dark);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--gold);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%);
+      color: var(--white);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      border-bottom: 3px solid var(--gold);
+    }
+    .issue-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+    .hero-hook {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      font-style: italic;
+    }
+    .hero-hook strong { color: var(--gold); font-style: normal; }
+
+    /* ── TOC ── */
+    .toc-strip {
+      background: var(--navy-mid);
+      padding: 1rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .toc-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .toc-item:hover { color: var(--gold); }
+    .toc-sep { color: rgba(201,168,76,0.3); font-size: 0.7rem; }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 3rem 0 1.25rem;
+    }
+    .section-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.35;
+      line-height: 1;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .section-title-block { flex: 1; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--navy);
+    }
+
+    /* ── STORY BODY ── */
+    .story-body {
+      padding-bottom: 0.5rem;
+    }
+    .story-body p {
+      margin-bottom: 1.1rem;
+      color: var(--ink-soft);
+    }
+    .story-body p strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      border-left: 4px solid var(--gold);
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0 2.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .callout p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.88);
+      margin: 0;
+    }
+
+    /* ── DIVIDER ── */
+    .story-divider {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0.5rem 0 0;
+    }
+
+    /* ── QUICK HITS ── */
+    .quick-hits-section {
+      background: var(--navy-dark);
+      margin: 3rem -1.5rem;
+      padding: 2.5rem 1.5rem;
+    }
+    .quick-hits-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .quick-hits-icon {
+      font-size: 1.4rem;
+    }
+    .quick-hits-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .quick-hits-title span { color: var(--gold); }
+    .quick-hits-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .quick-hits-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .qh-bullet {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+    .qh-text {
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+    }
+    .qh-text strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ── CIO CORNER ── */
+    .cio-section {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: var(--white);
+      padding: 3rem 2rem;
+      margin: 3rem -1.5rem;
+      border-top: 3px solid var(--gold);
+      border-bottom: 3px solid var(--gold);
+    }
+    .cio-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .cio-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+    .cio-body p {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1rem;
+    }
+    .cio-callout {
+      border-left: 4px solid var(--gold);
+      background: rgba(201,168,76,0.1);
+      padding: 1.1rem 1.4rem;
+      margin-top: 1.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .cio-callout .callout-label { color: var(--gold-light); }
+    .cio-callout p { color: rgba(255,255,255,0.9); font-size: 0.93rem; margin: 0; }
+
+    /* ── THE STACK ── */
+    .stack-section { padding: 2rem 0 1rem; }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .stack-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--navy);
+      padding: 1.1rem 1.25rem;
+      border-radius: 2px;
+    }
+    .stack-card:last-child { grid-column: 1 / -1; }
+    .stack-layer {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .stack-card p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    /* ── AGENT 101 ── */
+    .agent-section {
+      background: var(--gold-pale);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-left: 5px solid var(--gold);
+      padding: 2rem 1.75rem;
+      margin: 2rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .agent-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.6;
+      margin-bottom: 0.3rem;
+    }
+    .agent-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .agent-body p {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-bottom: 0.85rem;
+    }
+    .agent-body p:last-child { margin-bottom: 0; }
+
+    /* ── CLOSING ── */
+    .closing-section {
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      border-top: 1px solid var(--rule);
+      margin-top: 2rem;
+    }
+    .closing-ornament {
+      color: var(--gold);
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .closing-text {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      max-width: 560px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+    .closing-sig {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      border-top: 2px solid var(--gold);
+    }
+    .site-footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .stack-grid { grid-template-columns: 1fr; }
+      .stack-card:last-child { grid-column: auto; }
+      .hero-title { font-size: 2rem; }
+      .section-number { font-size: 2rem; }
+      .toc-strip { gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="/" class="nav-logo">D·A·D <span>Newsletter</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/archive.html">Archive</a>
+    <a href="https://newsletter.distilledaidigest.com" target="_blank">Subscribe</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="issue-badge">Issue #23 &nbsp;·&nbsp; June 28–July 4, 2026 &nbsp;·&nbsp; Enterprise AI</div>
+  <h1 class="hero-title">The Week Everyone Wanted <em>a Piece</em> of AI</h1>
+  <p class="hero-date">DISTILLED AI DIGEST &nbsp;·&nbsp; JULY 2026</p>
+  <p class="hero-hook">
+    <strong>This was the week ownership became the story.</strong> Washington wants equity in the labs building the technology. Cloud giants want the deployment layer inside your walls. A rival CEO wants you to distrust the vendor pricing your tokens. And a brokerage wants to hand retail traders the same autonomous firepower institutions have hoarded for decades. AI didn't get more capable this week so much as it got more contested — and every one of these fights ends with someone else's hand closer to your infrastructure.
+  </p>
+</header>
+
+<!-- TOC STRIP -->
+<nav class="toc-strip">
+  <a href="#story1" class="toc-item">Fable &amp; Mythos Return</a>
+  <span class="toc-sep">·</span>
+  <a href="#story2" class="toc-item">OpenAI's 5% Offer</a>
+  <span class="toc-sep">·</span>
+  <a href="#story3" class="toc-item">The Deployment Race</a>
+  <span class="toc-sep">·</span>
+  <a href="#story4" class="toc-item">Karp vs. the Labs</a>
+  <span class="toc-sep">·</span>
+  <a href="#story5" class="toc-item">Agentic Trading</a>
+  <span class="toc-sep">·</span>
+  <a href="#quickhits" class="toc-item">Quick Hits</a>
+  <span class="toc-sep">·</span>
+  <a href="#cio" class="toc-item">CIO Corner</a>
+  <span class="toc-sep">·</span>
+  <a href="#stack" class="toc-item">The Stack</a>
+  <span class="toc-sep">·</span>
+  <a href="#agent101" class="toc-item">Agent 101</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="page-wrap">
+
+  <!-- STORY 1 -->
+  <article id="story1">
+    <div class="section-header">
+      <div class="section-number">01</div>
+      <div class="section-title-block">
+        <div class="section-label">Policy &amp; Governance</div>
+        <h2 class="section-title">Fable and Mythos Are Back — After the First Export Controls Ever Applied to a Model</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>Three days after launch, the models went dark — and stayed dark for nineteen.</strong> On June 12, the U.S. Department of Commerce ordered Anthropic to suspend all foreign-national access to Claude Fable 5 and Claude Mythos 5, days after both launched to widespread praise. Because Anthropic had no reliable way to verify user nationality in real time across its global cloud footprint, it pulled both models everywhere, for everyone, simultaneously — from the Claude Platform, AWS Bedrock, Google Cloud, Microsoft Foundry, Snowflake, and Box all at once. On June 30, Commerce Secretary Howard Lutnick lifted the order. Fable 5 returned globally on July 1; Mythos 5 is back only for a vetted set of U.S. organizations under Anthropic's Project Glasswing.</p>
+      <p><strong>The trigger was a jailbreak, not a breach.</strong> Amazon researchers found a technique that bypassed one of Fable 5's cybersecurity safeguards and flagged it to federal authorities. Anthropic contested the government's framing, telling press the demonstration surfaced a handful of previously known, minor vulnerabilities rather than a sophisticated exploit — but the order took effect regardless, and the company had no legal path to a partial, nationality-filtered shutdown. That's the detail enterprise buyers should sit with: the failure mode wasn't a security flaw. It was the absence of a mechanism to comply narrowly.</p>
+      <p><strong>For finance, healthcare, SaaS, and critical-infrastructure customers, this was a live-fire test of a risk nobody had modeled.</strong> Force-majeure clauses written before 2026 didn't contemplate a government-mandated, instantaneous suspension of a vendor's flagship model across every integration at once. Production workflows built on Fable 5 or Mythos 5 fell back to Opus 4.8 with no warning window. Whatever contingency plan your organization has for "the vendor has an outage" almost certainly doesn't cover "the vendor is legally barred from serving you," and those require different mitigations.</p>
+      <p><strong>The precedent outlasts the resolution.</strong> Anthropic's own restoration announcement frames what emerged as a durable, three-tier structure — full public availability, vetted-partner access, and total suspension — that didn't exist before June 12 and now sits available to regulators for the next frontier release, from any lab. Enterprise architects who treated multi-model fallback as a nice-to-have should treat it as a compliance requirement starting this quarter, regardless of which lab you're standardized on.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Context</div>
+      <p>This is the first time export controls — a mechanism built for hardware — have been applied to an AI model instead of a chip. Whether that becomes the template for every frontier release going forward is now an open question for every lab, not just Anthropic. Build your fallback architecture as if the answer is yes.</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
+
+  <!-- STORY 2 -->
+  <article id="story2">
+    <div class="section-header">
+      <div class="section-number">02</div>
+      <div class="section-title-block">
+        <div class="section-label">Washington</div>
+        <h2 class="section-title">OpenAI Offers the U.S. Government a $42.6 Billion Stake</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>Sam Altman wants Washington to become a shareholder in every major American AI lab — starting with his own.</strong> The Financial Times reported this week that OpenAI has proposed handing the U.S. government a 5% equity stake, worth roughly $42.6 billion at the company's $852 billion March valuation. Altman's pitch, modeled explicitly on the Alaska Permanent Fund, envisions Anthropic, Google, and Meta contributing matching stakes into a government-seeded "Public Wealth Fund" that would distribute AI-driven economic gains directly to citizens. None of those other labs have signaled interest.</p>
+      <p><strong>The timing is the tell.</strong> The offer landed six days after OpenAI delayed the public rollout of GPT-5.6 at the government's request, and in the same week Anthropic was still working through the aftermath of the Fable 5 and Mythos 5 shutdown. Both events point to the same pattern: the U.S. government is now an active participant in decisions about how and when frontier models ship, and the labs are responding by offering to formalize that relationship on their own terms before it gets formalized for them.</p>
+      <p><strong>Precedent exists, and it's not comforting for anyone hoping this stays theoretical.</strong> Washington already holds a 9.9% stake in Intel, converted from CHIPS Act grants, and negotiated 15% revenue-sharing arrangements with Nvidia and AMD on China chip sales. Senator Bernie Sanders has filed a competing bill demanding 50% public ownership of major AI firms' equity — which makes Altman's 5% look less like generosity and more like an opening bid designed to make a bigger ask look unreasonable by comparison.</p>
+      <p><strong>For enterprise buyers, the relevant question isn't whether the government takes the stake — it's what strings come attached if it does.</strong> Equity typically comes with governance rights: board influence, disclosure requirements, veto power over certain decisions. A frontier lab with a government shareholder is a different kind of vendor than one without, with different incentives around what gets built, what gets restricted, and whose interests get weighed when those two things conflict. That's a vendor-risk conversation that didn't exist on anyone's procurement checklist eighteen months ago.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Implication</div>
+      <p>If even one frontier lab accepts a government equity stake, "which AI vendor should we standardize on" stops being a pure capability-and-cost decision and becomes a geopolitical one. Enterprises with global operations should be tracking this alongside export controls, not after them.</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
+
+  <!-- STORY 3 -->
+  <article id="story3">
+    <div class="section-header">
+      <div class="section-number">03</div>
+      <div class="section-title-block">
+        <div class="section-label">Enterprise Deployment</div>
+        <h2 class="section-title">AWS Bets $1 Billion That the Real AI Bottleneck Is People, Not Models</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>AWS just made its clearest statement yet on where enterprise AI actually breaks.</strong> The company is committing $1 billion to a new Forward Deployed Engineering organization, embedding pods of five to six engineers directly inside customer environments for roughly 45-day engagements to build and ship production agentic systems using the customer's own data and governance controls. Teams are already live with the Allen Institute, Cox Automotive, the NBA, the NFL, Ricoh, and Southwest Airlines. Microsoft answered within days, committing 6,000 engineers to its own "Frontier Company" deployment push.</p>
+      <p><strong>The bet underneath both moves is specific: model quality stopped being the constraint months ago.</strong> Independent research from MIT, McKinsey, RAND, and Gartner converges on roughly the same finding by different methods — somewhere between 73% and 95% of enterprise AI pilots never produce measurable ROI. Not because the models can't do the work, but because nobody on staff can wire agentic systems into real business processes fast enough, under real governance constraints, before the pilot budget runs out. AWS's model is designed to leave customers self-sufficient — knowledge graphs, runbooks, trained internal staff — rather than create ongoing dependency, which distinguishes it from a traditional consulting engagement.</p>
+      <p><strong>This lands in the same news cycle as a record 87,714 AI-attributed job cuts through May 2026,</strong> the highest total Challenger, Gray &amp; Christmas has tracked for any calendar year on record. Thousands of new, high-paying deployment-engineering roles are opening at the exact moment AI is credited with eliminating other roles — not a contradiction, but the defining employment paradox of this phase: the same technology displacing workers in one function is creating acute scarcity in the function that makes it actually work.</p>
+      <p><strong>For CIOs, the practical decision is no longer "build or buy the model" — it's "who deploys it, and do they leave you capable of running it yourself."</strong> A forward-deployed engineering engagement that ends with your team owning the runbooks is a fundamentally different vendor relationship than one that ends with a support contract renewal. Ask any vendor pitching an FDE-style engagement this quarter exactly what you own when the 45 days are up.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Signal</div>
+      <p>When AWS, OpenAI, and Anthropic have all stood up forward-deployed engineering units in the same year, the market has made its verdict on where enterprise AI value actually gets created: not in the model weights, but in the messy, governed, customer-specific work of wiring them into how your business actually runs.</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
+
+  <!-- STORY 4 -->
+  <article id="story4">
+    <div class="section-header">
+      <div class="section-number">04</div>
+      <div class="section-title-block">
+        <div class="section-label">Vendor Trust</div>
+        <h2 class="section-title">Palantir's CEO Calls the AI Industry &ldquo;Effing Insane&rdquo; — And Enterprises Are Listening</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>Alex Karp didn't hold back, and the market rewarded him for it.</strong> In a combative CNBC interview timed to a new Palantir-Nvidia partnership, the Palantir CEO accused leading AI labs of overcharging customers, harvesting their business data, and putting U.S. national security at risk by running per-token pricing on models that see enterprises' most sensitive information. &ldquo;Something has gone completely wrong,&rdquo; Karp said. &ldquo;I'm going to chillax and waste my time with tokens. I'm going to get no value, and they're going to get my IP.&rdquo; Palantir shares rose more than 9% that morning.</p>
+      <p><strong>Strip away the theater and the argument is a real one that CIOs are already having internally.</strong> Karp's core claim is that value in AI accrues to whoever owns the layer where the model actually gets put to work against your data — not to whoever built the underlying model. He's selling Palantir's Ontology layer as the alternative: a governance boundary that sits between your data and any model, controlling exactly what the model can see and do. Self-interested, obviously — but the underlying worry, that per-token pricing obscures where your proprietary data and workflows are actually flowing, is one enterprise security teams have been quietly raising for at least a year.</p>
+      <p><strong>The timing sharpens the point.</strong> Karp's rant landed the same week Anthropic was restoring Fable 5 and Mythos 5 after a government-mandated shutdown, and OpenAI was pitching Washington on a government equity stake. Karp explicitly invoked the tension: &ldquo;Are we really going to outsource the battlefield of this country to the consensus view in Silicon Valley?&rdquo; Whatever you think of Palantir's own government entanglements, the underlying question — who actually controls the layer where sensitive enterprise and government data meets a frontier model — is now squarely on the table, and it isn't going back off it.</p>
+      <p><strong>For enterprise technology leaders, this is a governance-architecture question disguised as a personality story.</strong> Whether or not you buy Palantir's Ontology pitch specifically, every organization running frontier models against proprietary data should be able to answer, concretely: what data reaches the model, what does the vendor retain, and what would need to change if that vendor's incentives shifted. If the honest answer is &ldquo;we're not entirely sure,&rdquo; that's the finding — not Karp's delivery.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Watch This</div>
+      <p>Karp is a competitor selling against the labs he's attacking, and the attack is also a sales pitch. That doesn't make the underlying question — who controls the data layer between your enterprise and the model — any less worth answering on its own terms, independent of who's asking it loudest.</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
+
+  <!-- STORY 5 -->
+  <article id="story5">
+    <div class="section-header">
+      <div class="section-number">05</div>
+      <div class="section-title-block">
+        <div class="section-label">Consumer Finance</div>
+        <h2 class="section-title">Robinhood Wants to Give Every Retail Trader an Institutional-Grade AI Agent</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>Vlad Tenev isn't being subtle about the ambition.</strong> &ldquo;The idea behind agentic trading,&rdquo; the Robinhood CEO told CNBC this week, &ldquo;[is] every capability a human can do will be available to an AI agent.&rdquo; Robinhood introduced tools in May allowing AI agents to execute stock trades on users' behalf and expanded that capability to crypto markets in early July, enabling 24/7 autonomous execution. Tenev, who ran programmatic trading at an institutional level before founding Robinhood, is explicit that the end state is putting hedge-fund-grade automated trading infrastructure into a consumer app with a few hundred dollars in it.</p>
+      <p><strong>The context makes the bravado worth noting rather than dismissing.</strong> Robinhood cut 10% of its workforce earlier this month and missed Q1 profit forecasts amid crypto-market volatility — yet the stock jumped 8% the day before Tenev's comments and is sitting at a $98 billion market cap. The company is leaning into agentic autonomy precisely while under pressure to show growth, which is exactly the condition under which risk controls get under-resourced relative to the feature rollout.</p>
+      <p><strong>The risk isn't hypothetical, and it isn't really about trading at all.</strong> An AI agent operating with real money, around the clock, in a market that can move sharply in minutes, is a live-fire test of exactly the autonomy question every enterprise deploying agentic AI is wrestling with internally: what guardrails hold when the agent encounters a scenario nobody explicitly anticipated. Robinhood's own framing — user-defined limits, not full autonomy — is the right instinct. Whether the limits are well-designed only gets tested in a flash-crash scenario, which is not when you want to discover the gap.</p>
+      <p><strong>For any enterprise granting an AI agent standing authority to act with money, contracts, or customer commitments,</strong> the Robinhood rollout is a useful public test case to watch rather than a retail curiosity to ignore. The scoping question — what, specifically, is this agent allowed to do without a human in the loop, and what happens at the edge of that scope — is identical whether the agent is trading a retail portfolio or approving a supplier invoice. Robinhood is running that experiment at scale, with real money, in public. Take the data point.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Lesson</div>
+      <p>&ldquo;Every capability a human can do will be available to an AI agent&rdquo; is a mission statement, not a risk control. The enterprises getting agentic autonomy right are the ones treating agent permissioning as seriously as they'd treat a new employee's access badge — scoped, logged, and revocable. Robinhood's rollout is a live test of what happens when that discipline lags the ambition.</p>
+    </div>
+  </article>
+
+  <!-- QUICK HITS -->
+  <section id="quickhits" class="quick-hits-section">
+    <div class="quick-hits-header">
+      <span class="quick-hits-icon">⚡</span>
+      <h2 class="quick-hits-title">Quick <span>Hits</span></h2>
+    </div>
+    <ul class="quick-hits-list">
+      <li>
+        <span class="qh-bullet">→</span>
+        <span class="qh-text"><strong>Claude Sonnet 5</strong> — Anthropic shipped its most agentic Sonnet model yet, pitched as near-Opus 4.8 performance at roughly a third of the price, with intro pricing of $2/$10 per million tokens through August 31. Early reviews are split between "the economics are the real story" and "impresses no one" — a useful reminder that a strong benchmark and a strong market reception aren't the same evaluation.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">→</span>
+        <span class="qh-text"><strong>GPT-5.6's staggered rollout</strong> — OpenAI limited its newest model to a small group of trusted partners after Commerce Secretary Howard Lutnick reportedly warned against releasing it without prior government review — the same week Anthropic was restoring Fable 5 and Mythos 5. Frontier launches are starting to look like negotiated deployments, not product releases.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">→</span>
+        <span class="qh-text"><strong>Sanders' 50% counter-offer</strong> — Senator Bernie Sanders filed the American AI Sovereign Wealth Fund Act, seeking 50% of the voting shares of major U.S. AI companies through a fund his office values at $7 trillion — making OpenAI's 5% pitch look designed to make the bigger ask look unreasonable by comparison.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">→</span>
+        <span class="qh-text"><strong>A nuclear reactor powered an Nvidia chip, live, on stage</strong> — Valar Atomics and Nvidia demonstrated a helium-cooled microreactor running an Nvidia Blackwell chip in Utah, with plans for a 30-megawatt, near-waterless AI data center. It's currently generating 100 kilowatts — a proof of concept, not a production system, but the first of its kind in the U.S.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">→</span>
+        <span class="qh-text"><strong>Record AI-attributed layoffs</strong> — U.S. employers attributed 87,714 job cuts to AI through May 2026, per Challenger, Gray &amp; Christmas — the highest calendar-year total on record, landing the same week AWS and Microsoft announced thousands of new AI deployment engineering roles.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- CIO CORNER -->
+  <section id="cio" class="cio-section">
+    <div class="cio-eyebrow">CIO Corner</div>
+    <h2 class="cio-title">Who Actually Owns Your AI Stack?</h2>
+    <div class="cio-body">
+      <p>Every story this week is a variation on the same question, asked by a different party with a different amount of leverage. Washington is asking whether it should own a piece of the labs. AWS and Microsoft are asking whether they should own the deployment layer inside your organization. Karp is asking whether the labs already own more of your competitive advantage than you realize, one token at a time. None of these are hypothetical governance exercises anymore — they're live negotiations happening this quarter, and your enterprise is a stakeholder in all of them whether or not you've been asked to the table.</p>
+      <p>Start with the government-equity question, because it's the one most CIOs haven't put on a risk register yet. If a frontier lab takes on a government shareholder — and OpenAI's proposal, plus the precedent of Intel and the Nvidia/AMD chip revenue-sharing deals, suggests this is no longer a fringe scenario — that lab's incentive structure changes in ways that are hard to predict and harder to unwind once you're integrated. Add this explicitly to your vendor-risk framework this quarter: which of your model providers have government financial entanglements, and what governance rights come with them.</p>
+      <p>The AWS and Microsoft forward-deployed engineering pushes deserve equal scrutiny, in the opposite direction — not as a risk to defend against, but as a genuine answer to the deployment bottleneck that's producing the 73%-to-95% pilot failure rates research keeps converging on. The distinction that matters: does the engagement leave your team owning the runbooks and the knowledge graph, or does it leave you dependent on the vendor's engineers for the next update? Interrogate that before you sign, not after the 45-day engagement ends and the relationship quietly becomes permanent.</p>
+      <p>And take Karp's data-ownership argument seriously even though the messenger has an obvious commercial stake in you believing it. The concrete version of his question — what does the vendor retain from your usage, and what changes if the pricing model or the ownership structure shifts — is answerable today with the right contractual language and architecture. Most enterprises haven't asked for it because the question didn't feel urgent until this week put a government stake, a $1 billion deployment land-grab, and a CEO screaming about tokens on live television all in the same seven days.</p>
+      <div class="cio-callout">
+        <div class="callout-label">The Lesson</div>
+        <p>The AI ownership questions arriving this week — who holds equity in the lab, who deploys inside your walls, who retains your data — aren't separate governance workstreams. They're one question asked three ways: when the answer to "who controls this system" changes, does your enterprise still control what happens to it? Build the contracts and architecture so the answer stays yes regardless of who else shows up wanting a piece.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE STACK -->
+  <section id="stack" class="stack-section">
+    <div class="section-header" style="padding-top: 2rem;">
+      <div class="section-title-block">
+        <div class="section-label">Infrastructure Signals</div>
+        <h2 class="section-title">The Stack</h2>
+      </div>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <div class="stack-layer">⚡ Energy</div>
+        <p>Valar Atomics and Nvidia demonstrated the first U.S. nuclear microreactor directly powering an AI chip, aiming for a 30MW, near-waterless data center in Utah using helium cooling — a direct response to community backlash over data center water and power consumption.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">🔲 Chips</div>
+        <p>The Nvidia/AMD China chip revenue-sharing arrangements with the U.S. government — 15% on general sales, 25% on Nvidia's H200 — are now the explicit precedent cited in coverage of OpenAI's government equity proposal, tying chip export policy directly to the ownership-stake debate.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">☁️ Cloud</div>
+        <p>AWS's $1 billion Forward Deployed Engineering unit and Microsoft's 6,000-engineer Frontier Company both launched within days of each other, formalizing embedded-engineer deployment as a standard hyperscaler offering rather than a boutique consulting add-on.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">🧠 Models</div>
+        <p>Claude Sonnet 5 launched at $2/$10 per million tokens (intro pricing through August 31), positioned as near-Opus 4.8 performance at roughly a third of the cost — Anthropic's bet that most agentic work no longer needs a frontier-tier model.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">📱 Applications</div>
+        <p>Robinhood expanded its agentic trading platform from equities into 24/7 crypto execution, letting third-party AI agents buy and sell digital assets on users' behalf — the most consumer-facing test yet of autonomous agents with standing financial authority.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENT 101 -->
+  <section id="agent101">
+    <div class="section-header">
+      <div class="section-title-block">
+        <div class="section-label">Foundational Concepts</div>
+        <h2 class="section-title">Agent 101</h2>
+      </div>
+    </div>
+    <div class="agent-section">
+      <div class="agent-eyebrow">This Week's Concept</div>
+      <div class="agent-title">Agent Permissions and Scoping</div>
+      <div class="agent-body">
+        <p><strong>An AI agent should never have more authority than the task in front of it requires — but by default, most have exactly as much authority as whoever configured their tool access decided to grant, which is not the same thing.</strong> Agent Permissions and Scoping is the discipline of explicitly defining, for every agent in production, precisely what data it can read, what systems it can act on, what actions it can take without a human in the loop, and what actions require escalation — and then enforcing those boundaries at the architecture level, not the prompt level.</p>
+        <p><strong>The distinction between prompt-level and architecture-level scoping is the whole game.</strong> Telling an agent in its system prompt "only trade within these limits" or "only access these records" is an instruction, not a control — it shapes behavior under normal conditions but provides no guarantee under adversarial input, a bug in upstream logic, or simply a scenario the prompt's author didn't anticipate. Real scoping happens at the permission layer: the agent's credentials, API access, and tool set are restricted so that even a fully compromised or badly malfunctioning agent physically cannot exceed its scope, because the capability to do so was never granted in the first place.</p>
+        <p><strong>Robinhood's "user-defined limits" on agentic trading is this exact pattern, made visible at consumer scale.</strong> The agent can execute trades, but within boundaries the human set in advance — the right instinct, and the same instinct that should govern an enterprise agent with authority to approve invoices, modify records, or commit to customer terms. The question that actually matters isn't whether limits exist; it's whether they're enforced as a hard permission boundary or as a soft instruction the agent is merely asked to respect.</p>
+        <p><strong>The procurement test:</strong> ask any agentic AI vendor to show you, concretely, where in their architecture an agent's permissions are enforced — not described, enforced — and what happens when an agent attempts an action outside its scope. If the answer lives entirely in a prompt or a policy document, you're being sold an agent with a permissions system on paper and none in practice. The enterprises that get this right treat agent permissioning exactly like human access control: least privilege by default, logged, reviewed, and revocable in seconds — because an agent you can't scope is an agent you can't actually govern, regardless of how well it performs on a demo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing-section">
+    <div class="closing-ornament">&middot; &middot; &middot;</div>
+    <p class="closing-text">This was the week AI stopped being a technology decision and became an ownership negotiation — between governments and labs, cloud vendors and enterprises, competitors and the customers caught between them. The organizations that come out ahead won't be the ones who avoided the negotiation. They'll be the ones who showed up to it with their own terms already written.</p>
+    <p class="closing-text" style="font-size:0.95rem; margin-top: 0.5rem;">We'll see you next week with more signal, less noise.</p>
+    <div class="closing-sig">&mdash; The Distilled AI Digest Team</div>
+  </section>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© 2026 Distilled AI Digest &nbsp;·&nbsp; <a href="https://distilledaidigest.com">distilledaidigest.com</a> &nbsp;·&nbsp; <a href="/archive.html">Archive</a> &nbsp;·&nbsp; <a href="https://newsletter.distilledaidigest.com">Subscribe</a></p>
+  <p style="margin-top:0.5rem; opacity:0.6;">Issue #23 &nbsp;·&nbsp; June 28–July 4, 2026 &nbsp;·&nbsp; For enterprise leaders navigating the AI era.</p>
+</footer>
+
+</body>
+</html>
