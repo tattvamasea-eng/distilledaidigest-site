@@ -1,173 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The US government's shutdown of Anthropic's Fable 5; the OpenAI-Anthropic IPO race into a Chinese-led price war; Gartner's headcount-vs-ROI disconnect; the compute capital cycle behind SpaceX's record IPO; and Anthropic's $350M labor commitment. Issue #19 of Distilled AI Digest.">
-<title>Issue #19 — The Week AI Got Grounded | Distilled AI Digest</title>
-<style>
-  :root { --navy:#1C2F50; --gold:#B8862F; --cream:#f5f5f0; --card:#ffffff; --stack:#eef2f8; --ink:#1a1a1a; --muted:#555; }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
-  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
-  nav { background:var(--navy); padding:14px 0; }
-  nav .wrap { display:flex; align-items:center; justify-content:space-between; }
-  nav .brand { color:#fff; font-weight:bold; letter-spacing:3px; font-size:18px; text-decoration:none; }
-  nav .links a { color:#cdd6e6; text-decoration:none; margin-left:18px; font-size:13px; font-family:Arial,sans-serif; }
-  nav .links a:hover { color:#fff; }
-  header.hero { background:var(--navy); color:#fff; padding:44px 0 50px; border-bottom:4px solid var(--gold); }
-  .issue-line { color:var(--gold); font-family:Arial,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
-  header.hero h1 { font-size:40px; line-height:1.15; margin-bottom:16px; color:#fff; }
-  header.hero .dateline { color:#aebbd2; font-size:15px; margin-bottom:20px; }
-  .tags { display:flex; flex-wrap:wrap; gap:8px; }
-  .tags span { border:1px solid var(--gold); color:var(--gold); font-family:Arial,sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:20px; }
-  .intro { padding:34px 0 10px; }
-  .intro p { margin-bottom:18px; font-size:18px; }
-  .story { background:var(--card); border-left:5px solid var(--gold); padding:30px 30px 28px; margin:26px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
-  .story .kicker { font-family:Arial,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
-  .story h2 { font-size:26px; line-height:1.25; color:var(--navy); margin-bottom:16px; }
-  .story p { margin-bottom:15px; }
-  .story p .lead { font-weight:bold; color:var(--navy); }
-  .callout { background:var(--cream); border-left:4px solid var(--navy); padding:16px 18px; margin-top:18px; }
-  .callout .label { font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; margin-bottom:6px; display:block; }
-  .callout p { margin:0; font-size:15px; color:#333; }
-  .section-head { font-family:Arial,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin:44px 0 4px; font-weight:bold; }
-  .quickhits { background:var(--card); border-left:5px solid var(--gold); padding:26px 30px; margin:26px 0; }
-  .quickhits h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
-  .quickhits ul { list-style:none; }
-  .quickhits li { margin-bottom:14px; padding-left:16px; position:relative; font-size:15px; }
-  .quickhits li:before { content:"\25B8"; color:var(--gold); position:absolute; left:0; }
-  .stack-grid { display:grid; gap:14px; margin:22px 0; }
-  .stack-card { background:var(--stack); border-radius:6px; padding:18px 20px; }
-  .stack-card .layer { font-family:Arial,sans-serif; font-size:13px; font-weight:bold; color:var(--navy); margin-bottom:6px; }
-  .stack-card p { font-size:14px; margin:0; color:#333; }
-  .agent101 { background:var(--card); border-left:5px solid var(--navy); padding:30px; margin:26px 0; }
-  .agent101 h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
-  .agent101 p { margin-bottom:15px; }
-  .agent101 .takeaway { font-style:italic; color:var(--navy); border-top:1px solid #ddd; padding-top:14px; margin-top:6px; }
-  .cio { background:var(--card); border-left:5px solid var(--gold); padding:30px; margin:26px 0; }
-  .cio h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
-  .cio p { margin-bottom:15px; }
-  .closing { padding:30px 0 10px; font-size:18px; }
-  .closing p { margin-bottom:14px; }
-  .sign { color:var(--navy); font-weight:bold; }
-  footer { background:var(--navy); color:#aebbd2; padding:26px 0; margin-top:40px; font-family:Arial,sans-serif; font-size:13px; }
-  footer a { color:var(--gold); text-decoration:none; }
-  footer .fine { margin-top:8px; font-size:12px; color:#8595b0; }
-  @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Issue #22 — The Week the Model Wars Hit the Boardroom | Distilled AI Digest</title>
+  <meta name="description" content="The US government disables Anthropic's Fable 5 four days after launch; OpenAI and Anthropic file for IPO into a Chinese price war; Gartner finds headcount cuts don't correlate with AI ROI; SpaceX prices the largest IPO in history on unproven compute economics; Anthropic commits $350M to the labor question it helped create. June 22&ndash;27, 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1C2F50;
+      --navy-dark: #111e33;
+      --navy-mid: #243a60;
+      --gold: #C9A84C;
+      --gold-light: #e2c06e;
+      --gold-pale: #f5ecd4;
+      --cream: #FAF7F2;
+      --white: #ffffff;
+      --ink: #1a1a2e;
+      --ink-soft: #3a3a52;
+      --rule: #d6cfc4;
+      --tag-bg: #e8f0fb;
+      --tag-text: #1C2F50;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* -- NAV -- */
+    .site-nav {
+      background: var(--navy-dark);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--gold);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* -- HERO -- */
+    .hero {
+      background: var(--navy);
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%);
+      color: var(--white);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      border-bottom: 3px solid var(--gold);
+    }
+    .issue-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+    .hero-hook {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      font-style: italic;
+    }
+    .hero-hook strong { color: var(--gold); font-style: normal; }
+
+    /* -- TOC -- */
+    .toc-strip {
+      background: var(--navy-mid);
+      padding: 1rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .toc-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .toc-item:hover { color: var(--gold); }
+    .toc-sep { color: rgba(201,168,76,0.3); font-size: 0.7rem; }
+
+    /* -- LAYOUT -- */
+    .page-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* -- SECTION HEADER -- */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 3rem 0 1.25rem;
+    }
+    .section-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.35;
+      line-height: 1;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .section-title-block { flex: 1; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--navy);
+    }
+
+    /* -- STORY BODY -- */
+    .story-body {
+      padding-bottom: 0.5rem;
+    }
+    .story-body p {
+      margin-bottom: 1.1rem;
+      color: var(--ink-soft);
+    }
+    .story-body p strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* -- CALLOUT BOX -- */
+    .callout {
+      border-left: 4px solid var(--gold);
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0 2.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .callout p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.88);
+      margin: 0;
+    }
+
+    /* -- DIVIDER -- */
+    .story-divider {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0.5rem 0 0;
+    }
+
+    /* -- QUICK HITS -- */
+    .quick-hits-section {
+      background: var(--navy-dark);
+      margin: 3rem -1.5rem;
+      padding: 2.5rem 1.5rem;
+    }
+    .quick-hits-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .quick-hits-icon {
+      font-size: 1.4rem;
+    }
+    .quick-hits-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .quick-hits-title span { color: var(--gold); }
+    .quick-hits-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .quick-hits-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .qh-bullet {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+    .qh-text {
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+    }
+    .qh-text strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* -- CIO CORNER -- */
+    .cio-section {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: var(--white);
+      padding: 3rem 2rem;
+      margin: 3rem -1.5rem;
+      border-top: 3px solid var(--gold);
+      border-bottom: 3px solid var(--gold);
+    }
+    .cio-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .cio-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+    .cio-body p {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1rem;
+    }
+    .cio-callout {
+      border-left: 4px solid var(--gold);
+      background: rgba(201,168,76,0.1);
+      padding: 1.1rem 1.4rem;
+      margin-top: 1.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .cio-callout .callout-label { color: var(--gold-light); }
+    .cio-callout p { color: rgba(255,255,255,0.9); font-size: 0.93rem; margin: 0; }
+
+    /* -- THE STACK -- */
+    .stack-section { padding: 2rem 0 1rem; }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .stack-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--navy);
+      padding: 1.1rem 1.25rem;
+      border-radius: 2px;
+    }
+    .stack-card:last-child { grid-column: 1 / -1; }
+    .stack-layer {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .stack-card p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    /* -- AGENT 101 -- */
+    .agent-section {
+      background: var(--gold-pale);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-left: 5px solid var(--gold);
+      padding: 2rem 1.75rem;
+      margin: 2rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .agent-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.6;
+      margin-bottom: 0.3rem;
+    }
+    .agent-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .agent-body p {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-bottom: 0.85rem;
+    }
+    .agent-body p:last-child { margin-bottom: 0; }
+
+    /* -- CLOSING -- */
+    .closing-section {
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      border-top: 1px solid var(--rule);
+      margin-top: 2rem;
+    }
+    .closing-ornament {
+      color: var(--gold);
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .closing-text {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      max-width: 560px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+    .closing-sig {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* -- FOOTER -- */
+    .site-footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      border-top: 2px solid var(--gold);
+    }
+    .site-footer a { color: var(--gold); text-decoration: none; }
+
+    /* -- RESPONSIVE -- */
+    @media (max-width: 600px) {
+      .stack-grid { grid-template-columns: 1fr; }
+      .stack-card:last-child { grid-column: auto; }
+      .hero-title { font-size: 2rem; }
+      .section-number { font-size: 2rem; }
+      .toc-strip { gap: 0.75rem; }
+    }
+  </style>
 </head>
 <body>
-<nav><div class="wrap"><a href="https://distilledaidigest.com/" class="brand">D&middot;A&middot;D</a><div class="links"><a href="https://distilledaidigest.com/">Home</a><a href="https://distilledaidigest.com/archive">Archive</a><a href="https://newsletter.distilledaidigest.com">Subscribe</a></div></div></nav>
 
-<header class="hero"><div class="wrap">
-<div class="issue-line">Issue #22 · June 22–27, 2026 · Free Edition</div>
-<h1>The Week the Model Wars Hit the Boardroom</h1>
-<div class="dateline">June 8&ndash;14, 2026</div>
-<div class="tags"><span>Model Shutdown</span><span>The Price War</span><span>Headcount vs ROI</span><span>The Compute Cycle</span><span>The Jobs Question</span></div>
-</div></header>
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="/" class="nav-logo">D&middot;A&middot;D <span>Newsletter</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/archive.html">Archive</a>
+    <a href="https://newsletter.distilledaidigest.com" target="_blank">Subscribe</a>
+  </div>
+</nav>
 
-<div class="wrap">
+<!-- HERO -->
+<header class="hero">
+  <div class="issue-badge">Issue #22 &nbsp;&middot;&nbsp; June 22&ndash;27, 2026 &nbsp;&middot;&nbsp; Enterprise AI</div>
+  <h1 class="hero-title">The Week the <em>Model Wars</em> Hit the Boardroom</h1>
+  <p class="hero-date">DISTILLED AI DIGEST &nbsp;&middot;&nbsp; JUNE 2026</p>
+  <p class="hero-hook">
+    <strong>This week, the frontier hit its first hard limits.</strong> A government export-control order disabled Anthropic&rsquo;s most powerful model within four days of launch. Two US AI labs filed for IPO into a price war that makes the same workload <em>nine times cheaper</em> on Chinese competitors. Gartner found that the companies cutting the most jobs in AI&rsquo;s name aren&rsquo;t earning the most return. And the largest IPO in history was priced on compute economics that remain unproven. <strong>For the enterprise, limits are not bad news &mdash; they are planning information.</strong>
+  </p>
+</header>
 
-<section class="intro">
-<p>For two years the story of frontier AI moved in one direction: more capable, more available, more embedded. This week the arrow reversed. Anthropic put its most powerful public model into general release early in the week &mdash; and by Friday evening the United States government had ordered it disabled. Not throttled, not geo-fenced for a few markets. Disabled, for every customer in the world, because the export-control directive was written so broadly that selective compliance was impossible.</p>
-<p>The rest of the week rhymed with that theme of limits. OpenAI moved toward its IPO eight days after Anthropic filed for its own, and the price war that Chinese labs started came into sharp focus &mdash; the same workload that costs $4,811 on Claude costs $544 on a Chinese model. Gartner published data showing the firms cutting the most jobs in AI's name are not the ones earning the most return. SpaceX priced the largest IPO in history on the back of an AI-compute story whose economics remain unproven. And Anthropic committed $350 million to studying the very labor disruption its technology is accused of causing. This was the week the industry's limits &mdash; regulatory, financial, and physical &mdash; became the headline. For the enterprise, limits are not bad news. They are planning information.</p>
-</section>
+<!-- TOC STRIP -->
+<nav class="toc-strip">
+  <a href="#story1" class="toc-item">Fable 5 Shutdown</a>
+  <span class="toc-sep">&middot;</span>
+  <a href="#story2" class="toc-item">IPO Price War</a>
+  <span class="toc-sep">&middot;</span>
+  <a href="#story3" class="toc-item">Jobs vs. ROI</a>
+  <span class="toc-sep">&middot;</span>
+  <a href="#story4" class="toc-item">Compute Capital</a>
+  <span class="toc-sep">&middot;</span>
+  <a href="#story5" class="toc-item">$350M Labor Fund</a>
+  <span class="toc-sep">&middot;</span>
+  <a href="#quickhits" class="toc-item">Quick Hits</a>
+  <span class="toc-sep">&middot;</span>
+  <a href="#cio" class="toc-item">CIO Corner</a>
+  <span class="toc-sep">&middot;</span>
+  <a href="#stack" class="toc-item">The Stack</a>
+  <span class="toc-sep">&middot;</span>
+  <a href="#agent101" class="toc-item">Agent 101</a>
+</nav>
 
-<article class="story">
-<div class="kicker">Story 01</div>
-<h2>Launched Monday, Disabled Friday: The Government Shutdown of Fable 5</h2>
-<p><span class="lead">Anthropic released Claude Fable 5 into general availability early in the week &mdash; and four days later the US government forced it offline.</span> Fable 5 is the public, safety-gated edition of a new "Mythos-class" tier that Anthropic positioned above its Opus line, claiming capabilities exceeding any model it had made broadly available. On Friday, June 12, at 5:21pm ET, Anthropic received an export-control directive from the US government &mdash; a US official confirmed the Commerce Department issued the letter &mdash; ordering it to suspend all access to both Fable 5 and the non-public Mythos 5 by any foreign national, whether inside or outside the United States, including Anthropic's own foreign-national employees.</p>
-<p><span class="lead">The scope of the order is what made it a full shutdown.</span> Because the directive covered any foreign national anywhere, Anthropic concluded it had no way to comply selectively and abruptly disabled both models for every customer. Access to all other Anthropic models, including the newly released Claude Opus 4.8, was unaffected &mdash; so Opus 4.8 is once again the most capable model most enterprises can actually deploy. Anthropic disputed the directive publicly, stating it believes governments should be able to block unsafe deployments only through a process that is transparent, fair, clear, and grounded in technical facts, and that this action did not meet that bar. The company said it was working to restore access and characterized the situation as a misunderstanding.</p>
-<p><span class="lead">The trigger appears to have been a specific jailbreak, not a blanket capability judgment.</span> Anthropic's understanding is that the government became aware of a method of bypassing Fable 5's safeguards; the company said it reviewed a demonstration of the technique being used to identify a small number of previously known, minor vulnerabilities, and argued the exploit was narrow rather than a universal defeat of the model's guardrails. The underlying Mythos capability is the same one behind Project Glasswing, the program Anthropic says surfaced thousands of high- and critical-severity software vulnerabilities in its first weeks &mdash; a dual-use profile potent enough that the government treated the model weights the way it treats other strategically sensitive technology. This was also not Anthropic's first government clash; its models had earlier been dropped by the Pentagon after a separate dispute, making this the second federal action against the company's technology in 2026.</p>
-<p><span class="lead">For enterprise technology leaders, the lesson is about continuity, not capability.</span> Any architecture that hard-codes a dependency on a single named frontier model now carries a regulatory tail risk that did not exist a quarter ago: the model can be disabled on government timelines measured in hours, not quarters, and not for anything the customer did. The organizations that absorbed this week without disruption were those whose AI stack treated the model as a swappable component behind an abstraction layer, with a tested fallback already wired in. Those that pointed production traffic directly at "the newest Claude" spent Friday night rewriting integration code.</p>
-<div class="callout"><span class="label">&#9612; The Implication</span><p>Model availability is now a regulated, revocable condition &mdash; not a procurement constant. A frontier model can be pulled for export-control reasons that have nothing to do with your use of it, and the withdrawal can be total and immediate. If you cannot fail over to a second model without a code change, you do not have an AI architecture; you have a single point of failure.</p></div>
-</article>
+<!-- MAIN CONTENT -->
+<div class="page-wrap">
 
-<article class="story">
-<div class="kicker">Story 02</div>
-<h2>Two IPOs, One Price War: The Buyer's Market Arrives</h2>
-<p><span class="lead">Within eight days, both leading US AI labs moved toward public markets.</span> Anthropic confidentially filed its IPO paperwork with the SEC on June 1, days after closing a $65 billion Series H that valued it at $965 billion &mdash; eclipsing OpenAI's valuation for the first time. Its revenue run-rate had reportedly reached roughly $47 billion in May 2026, up from about $10 billion a year earlier. OpenAI followed with its own confidential filing, with reporting pointing to a target valuation in the $730&ndash;850 billion range and a possible autumn debut. Two companies that long insisted public markets were a distraction filed within the same window &mdash; a tell that the capital needed to keep training frontier models has outrun what private rounds can comfortably supply.</p>
-<p><span class="lead">The filings landed in the middle of a price war the US labs did not start.</span> A widely cited analysis this week put hard numbers on it: the same workload that costs $4,811 on Anthropic's Claude runs about $3,357 on OpenAI, $1,071 on DeepSeek &mdash; and just $544 on Zhipu's GLM. That is close to a nine-to-one gap between the most expensive US frontier option and the cheapest capable Chinese one. The Chinese labs &mdash; Zhipu, DeepSeek, Moonshot, Alibaba's Qwen &mdash; reached those price points by optimizing relentlessly for cost-per-task rather than peak benchmark scores. OpenAI was reported to be weighing steep token price cuts in early June, precisely as it prepares to show public-market investors a path to margin.</p>
-<p><span class="lead">Those two objectives are in direct tension.</span> A company cannot cut prices to defend volume and expand gross margin simultaneously unless inference costs fall faster than prices &mdash; which is the entire bet underwriting both IPOs. Meanwhile the demand side is escalating fast: the same analysis found 45% of companies now spend more than $100,000 a month on AI, up from 20% the prior year. The spend is real and growing; the question is whose model captures it.</p>
-<p><span class="lead">For procurement, this is the most favorable buyer's market in the short history of frontier AI.</span> When two soon-to-be-public companies compete on price against a wave of cheap, capable open-weight challengers, leverage sits with the customer for the first time. Multi-year, single-vendor token commitments signed at 2025 rates increasingly look like overpayment. But cheap is not the same as safe to standardize on &mdash; Story 01 is the reminder that the model you lock into can vanish on a Friday. The disciplined position is the same from both the price and the regulatory angle: keep model choice reversible and re-evaluated often.</p>
-<div class="callout"><span class="label">&#9612; Watch This</span><p>If OpenAI cuts token prices ahead of its IPO, expect Anthropic and Google to follow within weeks &mdash; and expect every per-token assumption in your 2026 AI budget to be stale. The same workload spanning $544 to $4,811 across providers means model selection is now a first-order cost decision. Re-run your model-selection economics quarterly, not annually.</p></div>
-</article>
+  <!-- STORY 1 -->
+  <article id="story1">
+    <div class="section-header">
+      <div class="section-number">01</div>
+      <div class="section-title-block">
+        <div class="section-label">Regulation</div>
+        <h2 class="section-title">Launched Monday, Disabled Friday: The Government Shutdown of Fable 5</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>Anthropic released Claude Fable 5 into general availability early in the week &mdash; and four days later the US government forced it offline.</strong> Fable 5 is the public, safety-gated edition of a new &ldquo;Mythos-class&rdquo; tier that Anthropic positioned above its Opus line, claiming capabilities exceeding any model it had made broadly available. On Friday, June 12, at 5:21pm ET, Anthropic received an export-control directive from the US government &mdash; a US official confirmed the Commerce Department issued the letter &mdash; ordering it to suspend all access to both Fable 5 and the non-public Mythos 5 by any foreign national, whether inside or outside the United States, including Anthropic&rsquo;s own foreign-national employees.</p>
+      <p><strong>The scope of the order is what made it a full shutdown.</strong> Because the directive covered any foreign national anywhere, Anthropic concluded it had no way to comply selectively and abruptly disabled both models for every customer. Access to all other Anthropic models, including the newly released Claude Opus 4.8, was unaffected &mdash; so Opus 4.8 is once again the most capable model most enterprises can actually deploy. Anthropic disputed the directive publicly, stating it believes governments should be able to block unsafe deployments only through a process that is transparent, fair, clear, and grounded in technical facts, and that this action did not meet that bar. The company said it was working to restore access and characterized the situation as a misunderstanding.</p>
+      <p><strong>The trigger appears to have been a specific jailbreak, not a blanket capability judgment.</strong> Anthropic&rsquo;s understanding is that the government became aware of a method of bypassing Fable 5&rsquo;s safeguards; the company said it reviewed a demonstration of the technique being used to identify a small number of previously known, minor vulnerabilities, and argued the exploit was narrow rather than a universal defeat of the model&rsquo;s guardrails. The underlying Mythos capability is the same one behind Project Glasswing, the program Anthropic says surfaced thousands of high- and critical-severity software vulnerabilities in its first weeks &mdash; a dual-use profile potent enough that the government treated the model weights the way it treats other strategically sensitive technology. This was also not Anthropic&rsquo;s first government clash; its models had earlier been dropped by the Pentagon after a separate dispute, making this the second federal action against the company&rsquo;s technology in 2026.</p>
+      <p><strong>For enterprise technology leaders, the lesson is about continuity, not capability.</strong> Any architecture that hard-codes a dependency on a single named frontier model now carries a regulatory tail risk that did not exist a quarter ago: the model can be disabled on government timelines measured in hours, not quarters, and not for anything the customer did. The organizations that absorbed this week without disruption were those whose AI stack treated the model as a swappable component behind an abstraction layer, with a tested fallback already wired in. Those that pointed production traffic directly at &ldquo;the newest Claude&rdquo; spent Friday night rewriting integration code.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Implication</div>
+      <p>Model availability is now a regulated, revocable condition &mdash; not a procurement constant. A frontier model can be pulled for export-control reasons that have nothing to do with your use of it, and the withdrawal can be total and immediate. If you cannot fail over to a second model without a code change, you do not have an AI architecture; you have a single point of failure.</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
 
-<article class="story">
-<div class="kicker">Story 03</div>
-<h2>Gartner: The Companies Cutting the Most Jobs Aren't Getting the Most ROI</h2>
-<p><span class="lead">Gartner delivered the most uncomfortable enterprise AI finding of the cycle, and it deserves a place in every boardroom this quarter.</span> In a survey of 350 global business executives at organizations with at least $1 billion in annual revenue &mdash; all already piloting or deploying autonomous capabilities &mdash; roughly 80% reported workforce reductions tied to their AI initiatives, some cutting headcount by as much as 20%. But when Gartner compared those cuts against measured returns, the correlation collapsed. Workforce-reduction rates were nearly identical between the companies reporting strong AI ROI and those seeing modest or negative outcomes. In several cases, the firms that cut less performed better.</p>
-<p><span class="lead">Gartner's analyst put the point bluntly.</span> "Many CEOs turn to layoffs to demonstrate quick AI returns; however, this disposition is misplaced," said Helen Poitevin, Distinguished VP Analyst. "Workforce reductions may create budget room, but they do not create return." The organizations actually improving ROI, she noted, were not those eliminating the need for people but those amplifying them &mdash; investing in the skills, roles, and operating models that let humans guide and scale autonomous systems. The data is the signature of cuts justified by an AI narrative rather than driven by demonstrated AI capability.</p>
-<p><span class="lead">The market sizing alongside the survey explains why the pressure to cut is so intense.</span> Gartner forecasts enterprise spending on AI agent software rising from $206.5 billion in 2026 to $376.3 billion in 2027 &mdash; a near-doubling every vendor, board, and consultant is racing to capture. When the spend forecast looks like that, the temptation to show a fast offsetting saving in headcount is enormous, regardless of whether the productivity to justify it has materialized. Gartner's longer-range view cuts the other way: it expects autonomous business to become a net job creator by 2028&ndash;2029, as demand grows for people who can govern and scale these systems.</p>
-<p><span class="lead">For the CIO, this is permission to demand evidence before cuts, not after.</span> If 80% of adopters are cutting and the cuts do not correlate with returns, the prudent sequence is to instrument the productivity gain first and let staffing follow the measured result &mdash; the reverse of the prevailing practice. An organization that cuts on the promise and then fails to realize the gain has manufactured a capability gap and a morale problem in one move, and will be rebuilding in a tighter talent market precisely when Gartner expects demand for AI-governance skills to surge.</p>
-<div class="callout"><span class="label">&#9612; The Signal</span><p>Headcount reduction is being used as a proxy for AI ROI, and Gartner's data says the proxy is broken. Before approving any AI-justified workforce reduction, require the measured productivity gain that supposedly funds it. If the gain cannot be shown, the cut is a bet on a narrative &mdash; and the bill for an under-resourced team comes due long after the savings are booked.</p></div>
-</article>
+  <!-- STORY 2 -->
+  <article id="story2">
+    <div class="section-header">
+      <div class="section-number">02</div>
+      <div class="section-title-block">
+        <div class="section-label">Capital Markets</div>
+        <h2 class="section-title">Two IPOs, One Price War: The Buyer&rsquo;s Market Arrives</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>Within eight days, both leading US AI labs moved toward public markets.</strong> Anthropic confidentially filed its IPO paperwork with the SEC on June 1, days after closing a $65 billion Series H that valued it at $965 billion &mdash; eclipsing OpenAI&rsquo;s valuation for the first time. Its revenue run-rate had reportedly reached roughly $47 billion in May 2026, up from about $10 billion a year earlier. OpenAI followed with its own confidential filing, with reporting pointing to a target valuation in the $730&ndash;850 billion range and a possible autumn debut. Two companies that long insisted public markets were a distraction filed within the same window &mdash; a tell that the capital needed to keep training frontier models has outrun what private rounds can comfortably supply.</p>
+      <p><strong>The filings landed in the middle of a price war the US labs did not start.</strong> A widely cited analysis this week put hard numbers on it: the same workload that costs $4,811 on Anthropic&rsquo;s Claude runs about $3,357 on OpenAI, $1,071 on DeepSeek &mdash; and just $544 on Zhipu&rsquo;s GLM. That is close to a nine-to-one gap between the most expensive US frontier option and the cheapest capable Chinese one. The Chinese labs &mdash; Zhipu, DeepSeek, Moonshot, Alibaba&rsquo;s Qwen &mdash; reached those price points by optimizing relentlessly for cost-per-task rather than peak benchmark scores. OpenAI was reported to be weighing steep token price cuts in early June, precisely as it prepares to show public-market investors a path to margin.</p>
+      <p><strong>Those two objectives are in direct tension.</strong> A company cannot cut prices to defend volume and expand gross margin simultaneously unless inference costs fall faster than prices &mdash; which is the entire bet underwriting both IPOs. Meanwhile the demand side is escalating fast: the same analysis found 45% of companies now spend more than $100,000 a month on AI, up from 20% the prior year. The spend is real and growing; the question is whose model captures it.</p>
+      <p><strong>For procurement, this is the most favorable buyer&rsquo;s market in the short history of frontier AI.</strong> When two soon-to-be-public companies compete on price against a wave of cheap, capable open-weight challengers, leverage sits with the customer for the first time. Multi-year, single-vendor token commitments signed at 2025 rates increasingly look like overpayment. But cheap is not the same as safe to standardize on &mdash; Story 01 is the reminder that the model you lock into can vanish on a Friday. The disciplined position is the same from both the price and the regulatory angle: keep model choice reversible and re-evaluated often.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Watch This</div>
+      <p>If OpenAI cuts token prices ahead of its IPO, expect Anthropic and Google to follow within weeks &mdash; and expect every per-token assumption in your 2026 AI budget to be stale. The same workload spanning $544 to $4,811 across providers means model selection is now a first-order cost decision. Re-run your model-selection economics quarterly, not annually.</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
 
-<article class="story">
-<div class="kicker">Story 04</div>
-<h2>The Compute Capital Cycle Behind the Largest IPO in History</h2>
-<p><span class="lead">SpaceX priced what would be the largest IPO ever this week, and the AI-compute story underneath it is more consequential for enterprises than the rocket company itself.</span> On June 8, ahead of the offering, Elon Musk unveiled "AI1," an orbital data-center satellite he described plainly as a rack of compute in space, with prototype launches slated for early 2027. SpaceX priced its IPO on June 11 at roughly $135 per share, targeting a raise near $75 billion &mdash; surpassing the previous record. Headline valuations ran as high as $1.77 trillion, though skeptics such as Morningstar pegged fair value far lower, near $780 billion, citing a thin public float and unproven AI economics.</p>
-<p><span class="lead">The enterprise-relevant substance is in the compute leases, not the satellites.</span> SpaceX, which absorbed xAI in February 2026, disclosed in its filings that Anthropic agreed to pay $1.25 billion a month to rent the entire output of xAI's Colossus 1 data center in Memphis through May 2029 &mdash; roughly $15 billion a year from a single customer. A separate filing on June 5 revealed Google committed about $920 million a month through June 2029. Combined, these two agreements represent on the order of $26 billion in annualized compute revenue, flowing from two of the best-funded AI companies in the world to a third.</p>
-<p><span class="lead">This is the financial plumbing most enterprise AI buyers never see.</span> The per-token price you pay sits atop a tower of inter-company compute commitments at staggering run-rates &mdash; Anthropic is simultaneously filing to go public, getting its flagship model shut down by the government, and committing $15 billion a year to rent someone else's data center. The orbital-compute pitch exists because the terrestrial bottleneck is real: power and cooling now constrain AI scaling more than chips do, which is why putting datacenters in orbit is being pitched to public-market investors with a straight face, despite economics that remain entirely unproven.</p>
-<p><span class="lead">For the CIO, the takeaway is about the durability of your cost assumptions.</span> The AI services you are budgeting for in 2026 are priced against a compute supply chain that is itself being financed by IPO proceeds and multi-year leases between rivals. That structure can deliver falling prices if the capacity bet pays off &mdash; or sharp repricing if it does not. Treat any vendor's pricing as a snapshot of a volatile capital cycle, not a stable input, and avoid commitments that assume today's economics hold for three years.</p>
-<div class="callout"><span class="label">&#9612; The Context</span><p>The cost of enterprise AI rests on a capital cycle of inter-company compute leases worth tens of billions a year, financed by the largest IPOs in history. When the company selling you intelligence is renting its compute from the company it competes with, your pricing is a function of their capital structure &mdash; not your contract. Budget for volatility, not stability.</p></div>
-</article>
+  <!-- STORY 3 -->
+  <article id="story3">
+    <div class="section-header">
+      <div class="section-number">03</div>
+      <div class="section-title-block">
+        <div class="section-label">Workforce</div>
+        <h2 class="section-title">Gartner: The Companies Cutting the Most Jobs Aren&rsquo;t Getting the Most ROI</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>Gartner delivered the most uncomfortable enterprise AI finding of the cycle, and it deserves a place in every boardroom this quarter.</strong> In a survey of 350 global business executives at organizations with at least $1 billion in annual revenue &mdash; all already piloting or deploying autonomous capabilities &mdash; roughly 80% reported workforce reductions tied to their AI initiatives, some cutting headcount by as much as 20%. But when Gartner compared those cuts against measured returns, the correlation collapsed. Workforce-reduction rates were nearly identical between the companies reporting strong AI ROI and those seeing modest or negative outcomes. In several cases, the firms that cut less performed better.</p>
+      <p><strong>Gartner&rsquo;s analyst put the point bluntly.</strong> &ldquo;Many CEOs turn to layoffs to demonstrate quick AI returns; however, this disposition is misplaced,&rdquo; said Helen Poitevin, Distinguished VP Analyst. &ldquo;Workforce reductions may create budget room, but they do not create return.&rdquo; The organizations actually improving ROI, she noted, were not those eliminating the need for people but those amplifying them &mdash; investing in the skills, roles, and operating models that let humans guide and scale autonomous systems. The data is the signature of cuts justified by an AI narrative rather than driven by demonstrated AI capability.</p>
+      <p><strong>The market sizing alongside the survey explains why the pressure to cut is so intense.</strong> Gartner forecasts enterprise spending on AI agent software rising from $206.5 billion in 2026 to $376.3 billion in 2027 &mdash; a near-doubling every vendor, board, and consultant is racing to capture. When the spend forecast looks like that, the temptation to show a fast offsetting saving in headcount is enormous, regardless of whether the productivity to justify it has materialized. Gartner&rsquo;s longer-range view cuts the other way: it expects autonomous business to become a net job creator by 2028&ndash;2029, as demand grows for people who can govern and scale these systems.</p>
+      <p><strong>For the CIO, this is permission to demand evidence before cuts, not after.</strong> If 80% of adopters are cutting and the cuts do not correlate with returns, the prudent sequence is to instrument the productivity gain first and let staffing follow the measured result &mdash; the reverse of the prevailing practice. An organization that cuts on the promise and then fails to realize the gain has manufactured a capability gap and a morale problem in one move, and will be rebuilding in a tighter talent market precisely when Gartner expects demand for AI-governance skills to surge.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Signal</div>
+      <p>Headcount reduction is being used as a proxy for AI ROI, and Gartner&rsquo;s data says the proxy is broken. Before approving any AI-justified workforce reduction, require the measured productivity gain that supposedly funds it. If the gain cannot be shown, the cut is a bet on a narrative &mdash; and the bill for an under-resourced team comes due long after the savings are booked.</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
 
-<article class="story">
-<div class="kicker">Story 05</div>
-<h2>Anthropic Puts $350 Million Behind the Jobs Question It Helped Create</h2>
-<p><span class="lead">On June 10, Anthropic committed $350 million to the economic-disruption question that hangs over its own technology.</span> The commitment splits into a $200 million Economic Futures Research Fund &mdash; an expansion of a program the company started in 2025 &mdash; which will fund research trials and evaluation of public policies aimed at cushioning AI's labor-market impact, and a $150 million national fellowship program for early-career people. Alongside the money, CEO Dario Amodei published an essay arguing that government should be prepared to provide economic support for those financially harmed by AI, warning the technology could produce larger and longer-lasting labor disruptions than previous waves of automation.</p>
-<p><span class="lead">The accompanying policy framework is unusually concrete for a frontier lab.</span> Anthropic proposed graduated government responses keyed to defined thresholds &mdash; what to do if national unemployment reaches 5%, then 10%, then an unspecified "unprecedented" level &mdash; and recommended the government retain the ability to block or deter the rollout of AI models that pose a significant risk of catastrophic harm. That last point lands with particular irony in the same week the government did exactly that to Anthropic's own Fable 5, suggesting the company would prefer such interventions arrive through a defined statutory process rather than a Friday-evening letter.</p>
-<p><span class="lead">The skeptical reading is obvious and worth stating.</span> A frontier lab has a clear interest in shaping how its own technology's employment effects are framed, measured, and ultimately regulated &mdash; and $350 million against a company last valued near $965 billion is a rounding error that buys considerable influence over the research agenda. The more useful reading is that the data to answer these questions rigorously does not yet exist, and a nine-figure commitment to build it is, whatever the motive, more than any government statistical agency has put forward. The real test is whether the fund produces findings that make Anthropic uncomfortable &mdash; and whether the company publishes them anyway.</p>
-<p><span class="lead">For enterprise leaders, the discipline is to resist both the doom and the dismissal.</span> The macro labor data remains genuinely ambiguous &mdash; no clear aggregate unemployment spike, but real questions about whether entry-level and AI-exposed roles are quietly thinning. The correct internal posture is empirical rather than ideological: measure your own role-composition shifts by level and AI exposure rather than importing either national narrative. The signal that matters for your workforce planning is the one in your own data, and you will not know its direction until you look.</p>
-<div class="callout"><span class="label">&#9612; The Lesson</span><p>When the company building the technology is also funding the research into its harms and writing the proposed policy response, treat every confident claim &mdash; in either direction &mdash; as interested. Measure your own workforce composition by level and AI exposure, and let your data, not the macro narrative or the vendor's framing, drive your talent decisions.</p></div>
-</article>
+  <!-- STORY 4 -->
+  <article id="story4">
+    <div class="section-header">
+      <div class="section-number">04</div>
+      <div class="section-title-block">
+        <div class="section-label">Infrastructure</div>
+        <h2 class="section-title">The Compute Capital Cycle Behind the Largest IPO in History</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>SpaceX priced what would be the largest IPO ever this week, and the AI-compute story underneath it is more consequential for enterprises than the rocket company itself.</strong> On June 8, ahead of the offering, Elon Musk unveiled &ldquo;AI1,&rdquo; an orbital data-center satellite he described plainly as a rack of compute in space, with prototype launches slated for early 2027. SpaceX priced its IPO on June 11 at roughly $135 per share, targeting a raise near $75 billion &mdash; surpassing the previous record. Headline valuations ran as high as $1.77 trillion, though skeptics such as Morningstar pegged fair value far lower, near $780 billion, citing a thin public float and unproven AI economics.</p>
+      <p><strong>The enterprise-relevant substance is in the compute leases, not the satellites.</strong> SpaceX, which absorbed xAI in February 2026, disclosed in its filings that Anthropic agreed to pay $1.25 billion a month to rent the entire output of xAI&rsquo;s Colossus 1 data center in Memphis through May 2029 &mdash; roughly $15 billion a year from a single customer. A separate filing on June 5 revealed Google committed about $920 million a month through June 2029. Combined, these two agreements represent on the order of $26 billion in annualized compute revenue, flowing from two of the best-funded AI companies in the world to a third.</p>
+      <p><strong>This is the financial plumbing most enterprise AI buyers never see.</strong> The per-token price you pay sits atop a tower of inter-company compute commitments at staggering run-rates &mdash; Anthropic is simultaneously filing to go public, getting its flagship model shut down by the government, and committing $15 billion a year to rent someone else&rsquo;s data center. The orbital-compute pitch exists because the terrestrial bottleneck is real: power and cooling now constrain AI scaling more than chips do, which is why putting datacenters in orbit is being pitched to public-market investors with a straight face, despite economics that remain entirely unproven.</p>
+      <p><strong>For the CIO, the takeaway is about the durability of your cost assumptions.</strong> The AI services you are budgeting for in 2026 are priced against a compute supply chain that is itself being financed by IPO proceeds and multi-year leases between rivals. That structure can deliver falling prices if the capacity bet pays off &mdash; or sharp repricing if it does not. Treat any vendor&rsquo;s pricing as a snapshot of a volatile capital cycle, not a stable input, and avoid commitments that assume today&rsquo;s economics hold for three years.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Context</div>
+      <p>The cost of enterprise AI rests on a capital cycle of inter-company compute leases worth tens of billions a year, financed by the largest IPOs in history. When the company selling you intelligence is renting its compute from the company it competes with, your pricing is a function of their capital structure &mdash; not your contract. Budget for volatility, not stability.</p>
+    </div>
+    <hr class="story-divider" />
+  </article>
 
-<div class="quickhits">
-<h2>&#9889; Quick Hits</h2>
-<ul>
-  <li>**Jensen Huang Declares Smuggled-Chip AI Data Centers a "Dead End"** — Nvidia's CEO publicly disavowed gray-market AI chip operations, signaling that RMA, firmware updates, and support will increasingly discriminate against unauthorized hardware stacks. The supply chain clean-up is now company policy.</li>
-  <li>**OpenAI and Oracle Quietly Scale Back Stargate Data Center Expansion** — The first major hyperscaler retrenchment on AI capex; several planned Stargate sites have been deferred or downsized. The signal is not a pullback from AI — it is a recalibration of how fast capacity can be profitably consumed.</li>
-  <li>**Claude Tag for AI Agent Identity and Authorization** — Anthropic launched an open standard for tagging and authorizing autonomous AI agents across enterprise systems. Adoption will determine whether agentic AI is governable at scale.</li>
-  <li>**SpaceX and OpenAI Confirm Joint Venture to Build Frontier AI Models** — The space company and the model company will co-develop frontier models optimized for SpaceX's compute infrastructure, marking the first major model-vendor pairing with a non-cloud compute provider.</li>
-  <li>**Big Tech AI Capex Reaches ~$700B Run-Rate** — Combined AI infrastructure spending by Microsoft, Google, Amazon, Meta, and Oracle is now running at roughly $700 billion annually — a figure larger than the GDP of Switzerland — and is the single largest capital cycle in technology history.</li>
-</ul>
-</div>
+  <!-- STORY 5 -->
+  <article id="story5">
+    <div class="section-header">
+      <div class="section-number">05</div>
+      <div class="section-title-block">
+        <div class="section-label">Labor &amp; Policy</div>
+        <h2 class="section-title">Anthropic Puts $350 Million Behind the Jobs Question It Helped Create</h2>
+      </div>
+    </div>
+    <div class="story-body">
+      <p><strong>On June 10, Anthropic committed $350 million to the economic-disruption question that hangs over its own technology.</strong> The commitment splits into a $200 million Economic Futures Research Fund &mdash; an expansion of a program the company started in 2025 &mdash; which will fund research trials and evaluation of public policies aimed at cushioning AI&rsquo;s labor-market impact, and a $150 million national fellowship program for early-career people. Alongside the money, CEO Dario Amodei published an essay arguing that government should be prepared to provide economic support for those financially harmed by AI, warning the technology could produce larger and longer-lasting labor disruptions than previous waves of automation.</p>
+      <p><strong>The accompanying policy framework is unusually concrete for a frontier lab.</strong> Anthropic proposed graduated government responses keyed to defined thresholds &mdash; what to do if national unemployment reaches 5%, then 10%, then an unspecified &ldquo;unprecedented&rdquo; level &mdash; and recommended the government retain the ability to block or deter the rollout of AI models that pose a significant risk of catastrophic harm. That last point lands with particular irony in the same week the government did exactly that to Anthropic&rsquo;s own Fable 5, suggesting the company would prefer such interventions arrive through a defined statutory process rather than a Friday-evening letter.</p>
+      <p><strong>The skeptical reading is obvious and worth stating.</strong> A frontier lab has a clear interest in shaping how its own technology&rsquo;s employment effects are framed, measured, and ultimately regulated &mdash; and $350 million against a company last valued near $965 billion is a rounding error that buys considerable influence over the research agenda. The more useful reading is that the data to answer these questions rigorously does not yet exist, and a nine-figure commitment to build it is, whatever the motive, more than any government statistical agency has put forward. The real test is whether the fund produces findings that make Anthropic uncomfortable &mdash; and whether the company publishes them anyway.</p>
+      <p><strong>For enterprise leaders, the discipline is to resist both the doom and the dismissal.</strong> The macro labor data remains genuinely ambiguous &mdash; no clear aggregate unemployment spike, but real questions about whether entry-level and AI-exposed roles are quietly thinning. The correct internal posture is empirical rather than ideological: measure your own role-composition shifts by level and AI exposure rather than importing either national narrative. The signal that matters for your workforce planning is the one in your own data, and you will not know its direction until you look.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-label">The Lesson</div>
+      <p>When the company building the technology is also funding the research into its harms and writing the proposed policy response, treat every confident claim &mdash; in either direction &mdash; as interested. Measure your own workforce composition by level and AI exposure, and let your data, not the macro narrative or the vendor&rsquo;s framing, drive your talent decisions.</p>
+    </div>
+  </article>
 
-<div class="section-head">CIO Corner</div>
-<div class="cio">
-<h2>&#128161; CIO Corner</h2>
-  <p>**The week governance became a board-level requirement and infrastructure became a water question.**</p>
-  <p>Two facts landed on enterprise CIO desks this week that change the operating model. First, the Five Eyes intelligence chiefs told boards — not security teams — that frontier-AI cyberattacks are months away. Second, OpenAI and Oracle quietly scaled back Stargate, the first signal that the AI capacity buildout is being recalibrated against actual demand. Between these two signals, the AI conversation in the enterprise has shifted from a procurement question to a governance and infrastructure question. CIOs who framed 2026 as the year of agentic AI adoption are now framing it as the year of agentic AI governance and constrained AI infrastructure.</p>
-  <p>For the enterprise technology leader, the strategic implication is dual. On the governance side, AI risk has formally moved up to the board. Directors who have not yet engaged with frontier-AI risk are now operating in a fiduciary gray zone. On the infrastructure side, the cooling and water constraints that determine where AI capacity can be built will increasingly determine where enterprise AI workloads can run. The CIO's vendor map, capacity map, and board-reporting cadence all need to be re-drawn in the next 90 days.</p>
-  <p>The OpenAI and Mythos 5 events together establish a new model release template: frontier launches are now negotiated, partial, and government-conditioned. Enterprise architecture that depends on immediate availability of any single frontier model just became a category of risk. The architectural answer is multi-model: at least one frontier provider, at least one open-weight frontier-class model, and at least one specialized fine-tuned model per high-value use case. The vendors that can support all three layers cleanly will be the procurement winners of 2027.</p>
-  <p>The Five Eyes advisory and the Mythos 5 release together redefine AI accountability. AI is no longer something the security team manages and the board signs off on. It is something the board owns and the security team implements. The CISO and the CIO are now co-accountable to the board for the same risk surface. That changes the org chart, the budget conversation, and the post-incident playbook simultaneously. The companies that restructure for this in 2026 will be the ones that pass the regulatory and investor scrutiny of 2027.</p>
-  <div class="callout"><p><strong>THE LESSON:</strong> The companies that thrive in 2027 will not be the ones that adopted AI fastest. They will be the ones that designed their AI strategy for a world where governance, infrastructure, and release cadence are all constrained variables — and started before their competitors did.</p></div>
-</div>
+  <!-- QUICK HITS -->
+  <section id="quickhits" class="quick-hits-section">
+    <div class="quick-hits-header">
+      <span class="quick-hits-icon">&#9889;</span>
+      <h2 class="quick-hits-title">Quick <span>Hits</span></h2>
+    </div>
+    <ul class="quick-hits-list">
+      <li>
+        <span class="qh-bullet">&rarr;</span>
+        <span class="qh-text"><strong>Jensen Huang Declares Smuggled-Chip AI Data Centers a &ldquo;Dead End&rdquo;</strong> &mdash; Nvidia&rsquo;s CEO publicly disavowed gray-market AI chip operations, signaling that RMA, firmware updates, and support will increasingly discriminate against unauthorized hardware stacks. The supply chain clean-up is now company policy.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">&rarr;</span>
+        <span class="qh-text"><strong>OpenAI and Oracle Quietly Scale Back Stargate Data Center Expansion</strong> &mdash; The first major hyperscaler retrenchment on AI capex; several planned Stargate sites have been deferred or downsized. The signal is not a pullback from AI &mdash; it is a recalibration of how fast capacity can be profitably consumed.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">&rarr;</span>
+        <span class="qh-text"><strong>Claude Tag for AI Agent Identity and Authorization</strong> &mdash; Anthropic launched an open standard for tagging and authorizing autonomous AI agents across enterprise systems. Adoption will determine whether agentic AI is governable at scale.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">&rarr;</span>
+        <span class="qh-text"><strong>SpaceX and OpenAI Confirm Joint Venture to Build Frontier AI Models</strong> &mdash; The space company and the model company will co-develop frontier models optimized for SpaceX&rsquo;s compute infrastructure, marking the first major model-vendor pairing with a non-cloud compute provider.</span>
+      </li>
+      <li>
+        <span class="qh-bullet">&rarr;</span>
+        <span class="qh-text"><strong>Big Tech AI Capex Reaches ~$700B Run-Rate</strong> &mdash; Combined AI infrastructure spending by Microsoft, Google, Amazon, Meta, and Oracle is now running at roughly $700 billion annually &mdash; a figure larger than the GDP of Switzerland &mdash; and is the single largest capital cycle in technology history.</span>
+      </li>
+    </ul>
+  </section>
 
-<div class="section-head">The Stack</div>
-<h2 style="font-size:22px;color:var(--navy);margin:6px 0 4px;">Five Signals Across the AI Infrastructure Layers &mdash; June 8&ndash;14, 2026</h2>
-<div class="stack-grid">
-  <div class="stack-card"><div class="layer">Applications** — Claude Tag and the IBM Daybreak SOC integration show the application layer splitting in two</div><p>governed agentic AI for high-trust enterprise workflows, and embedded frontier models for high-volume operational systems.</p></div>
-</div>
+  <!-- CIO CORNER -->
+  <section id="cio" class="cio-section">
+    <div class="cio-eyebrow">CIO Corner</div>
+    <h2 class="cio-title">When Governance Becomes a Board-Level Requirement and Infrastructure Becomes a Water Question</h2>
+    <div class="cio-body">
+      <p>Two facts landed on enterprise CIO desks this week that change the operating model. First, the Five Eyes intelligence chiefs told boards &mdash; not security teams &mdash; that frontier-AI cyberattacks are months away. Second, OpenAI and Oracle quietly scaled back Stargate, the first signal that the AI capacity buildout is being recalibrated against actual demand. Between these two signals, the AI conversation in the enterprise has shifted from a procurement question to a governance and infrastructure question. CIOs who framed 2026 as the year of agentic AI adoption are now framing it as the year of agentic AI governance and constrained AI infrastructure.</p>
+      <p>For the enterprise technology leader, the strategic implication is dual. On the governance side, AI risk has formally moved up to the board. Directors who have not yet engaged with frontier-AI risk are now operating in a fiduciary gray zone. On the infrastructure side, the cooling and water constraints that determine where AI capacity can be built will increasingly determine where enterprise AI workloads can run. The CIO&rsquo;s vendor map, capacity map, and board-reporting cadence all need to be re-drawn in the next 90 days.</p>
+      <p>The OpenAI and Mythos 5 events together establish a new model release template: frontier launches are now negotiated, partial, and government-conditioned. Enterprise architecture that depends on immediate availability of any single frontier model just became a category of risk. The architectural answer is multi-model: at least one frontier provider, at least one open-weight frontier-class model, and at least one specialized fine-tuned model per high-value use case. The vendors that can support all three layers cleanly will be the procurement winners of 2027.</p>
+      <p>The Five Eyes advisory and the Mythos 5 release together redefine AI accountability. AI is no longer something the security team manages and the board signs off on. It is something the board owns and the security team implements. The CISO and the CIO are now co-accountable to the board for the same risk surface. That changes the org chart, the budget conversation, and the post-incident playbook simultaneously. The companies that restructure for this in 2026 will be the ones that pass the regulatory and investor scrutiny of 2027.</p>
+      <div class="cio-callout">
+        <div class="callout-label">The Lesson</div>
+        <p>The companies that thrive in 2027 will not be the ones that adopted AI fastest. They will be the ones that designed their AI strategy for a world where governance, infrastructure, and release cadence are all constrained variables &mdash; and started before their competitors did.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="section-head">Agent 101</div>
-<div class="agent101">
-<h2>Model Routing and Fallback</h2>
-<p>A model router is a layer that sits between your application and the AI models it uses, deciding at request time which model handles a given call &mdash; and, critically, what to do when the first choice is unavailable. Instead of your code calling one named model directly, it calls the router, which holds a policy: send simple requests to a cheap, fast model; send hard ones to a frontier model; and if the preferred model errors, is rate-limited, or has been taken offline, automatically retry against a designated fallback. The application never knows which specific model answered. It asked for an answer; the router decided how to get one.</p>
-<p>This week made the abstract case concrete. When the government forced Fable 5 offline on Friday evening, organizations whose applications called that model by name had to ship emergency code changes to redirect traffic. Organizations that called a router simply updated a policy &mdash; fall back to Opus 4.8 &mdash; and kept running. The same layer that protects against a regulatory shutdown also captures the upside of the price war: when a cheaper model becomes good enough for a class of requests, you change a routing rule, not your codebase, and the savings flow immediately. Given a workload that ranges from $544 to $4,811 across providers, that routing rule is one of the highest-leverage cost controls you have.</p>
-<p>Routing also imposes useful discipline on cost and quality. Because every request passes through one place, the router is the natural point to meter token spend, log which model handled what, enforce a per-model budget ceiling, and run quality comparisons on live traffic. Uber's blown budget and the broader "spending faster than we can measure" problem are, in large part, routing-and-metering problems: an enterprise spending without a central control point has no lever to pull when the bill spikes. A router is that lever.</p>
-<p class="takeaway">When you evaluate an agentic AI platform, ask precisely how it handles model selection and fallback: Can it route by request type? Can it fail over automatically when a model is withdrawn, rate-limited, or geo-restricted? Can it meter and cap spend per model from a single point? A vendor that hard-wires one model with no routing layer is selling you this week's outage and next quarter's overrun. The router is the component that turns "the model" from a dependency into a choice.</p>
-</div>
+  <!-- THE STACK -->
+  <section id="stack" class="stack-section">
+    <div class="section-header" style="padding-top: 2rem;">
+      <div class="section-title-block">
+        <div class="section-label">Infrastructure Signals</div>
+        <h2 class="section-title">The Stack</h2>
+      </div>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <div class="stack-layer">&#9889; Energy</div>
+        <p>Combined AI capex from Microsoft, Google, Amazon, Meta, and Oracle is now running at roughly $700 billion annually &mdash; larger than the GDP of Switzerland. The binding constraint on further expansion is no longer capital or chips but electrical grid capacity: power interconnection queues at regional transmission organizations now stretch past 2030 for sites above 100MW.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">&#9632; Chips</div>
+        <p>Jensen Huang publicly declared gray-market AI chip operations a &ldquo;dead end,&rdquo; signaling NVIDIA will tighten firmware controls, RMA eligibility, and software support against unauthorized hardware stacks. Enterprises sourcing accelerators through secondary markets to beat lead times should treat that window as closing.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">&#9729; Cloud</div>
+        <p>OpenAI and Oracle quietly deferred or downsized several planned Stargate data center sites &mdash; the first significant retrenchment in the AI capacity buildout. The signal is a recalibration of pace: actual demand absorption rates are not matching the original build schedule, a data point every enterprise should factor into multi-year cloud AI pricing negotiations.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">&#129504; Models</div>
+        <p>The US government&rsquo;s export-control order against Anthropic&rsquo;s Fable 5 took the model from general availability to globally disabled in under 96 hours, leaving Claude Opus 4.8 as the de facto capability ceiling for most enterprise deployments. Regulatory risk is now a first-class variable in any model availability calculation &mdash; not an edge case.</p>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">&#128241; Applications</div>
+        <p>Anthropic launched Claude Tag, an open standard for identity and authorization metadata attached to autonomous AI agents across enterprise systems. Whether the standard achieves broad adoption will determine whether multi-vendor agentic AI deployments can be governed at scale &mdash; or remain a proliferation of untracked automations running without oversight.</p>
+      </div>
+    </div>
+  </section>
 
-<section class="closing">
-<p></p>
-</section>
+  <!-- AGENT 101 -->
+  <section id="agent101">
+    <div class="section-header">
+      <div class="section-title-block">
+        <div class="section-label">Foundational Concepts</div>
+        <h2 class="section-title">Agent 101</h2>
+      </div>
+    </div>
+    <div class="agent-section">
+      <div class="agent-eyebrow">This Week&rsquo;s Concept</div>
+      <div class="agent-title">Agent Observability and Logging</div>
+      <div class="agent-body">
+        <p><strong>When an AI agent completes a task, it leaves no paper trail unless you explicitly build one.</strong> Agent Observability and Logging is the practice &mdash; and the technical infrastructure &mdash; of capturing every decision point, tool invocation, model call, input, and output that occurred during an agent&rsquo;s execution, in a structured form that can be replayed, audited, and analyzed after the fact. Without it, your agent system is a black box that tells you what it produced but not how, why, or what it accessed along the way. In human workflows, this is the paper trail. In agentic AI, it has to be engineered deliberately, because it does not exist by default.</p>
+        <p><strong>Here is what the absence of observability looks like in practice.</strong> An insurance claims agent processes a batch of cases overnight, and three decisions are flagged the next morning as incorrect. Your team&rsquo;s first question &mdash; what did the agent actually do on those three cases? &mdash; cannot be answered. You do not know which tools it called, which data it accessed, which model handled the reasoning, or where the chain broke down. You are not debugging an agent; you are doing archaeology. Every enterprise that has run agentic systems at any meaningful scale has hit this wall. The teams that built observability into their agents from day one can replay the execution trace in minutes. The teams that did not are rebuilding from first principles after the audit finding.</p>
+        <p><strong>In regulated industries, the observability requirement is legal, not just operational.</strong> Financial services regulators increasingly expect explainability of automated decisions: not just the output, but the sequence of steps that produced it. Healthcare AI deployments face equivalent expectations under audit frameworks governing clinical decision support. An agent that cannot produce a structured execution trace for any given decision is not enterprise-grade under these frameworks &mdash; it is a liability waiting for a regulatory inquiry. Observability infrastructure must therefore be designed in at the architecture stage, not retrofitted when the compliance team asks why the model made that call in March.</p>
+        <p><strong>When evaluating agentic AI platforms, ask this directly: what does a complete agent execution trace look like, and where does it live?</strong> The answer tells you more about the platform&rsquo;s enterprise maturity than any benchmark score. You want structured logs at the step level &mdash; not just &ldquo;agent called tool X,&rdquo; but what parameters were passed, what was returned, how long it took, which model was invoked, and what the agent&rsquo;s stated reasoning was at each branch. Ask whether traces are exportable to your existing observability stack (Datadog, Splunk, Elastic). Ask whether a trace from six months ago is still accessible and queryable. A vendor who cannot show you a sample trace in the demo is selling you a black box. Observability is not a feature &mdash; it is the evidence that the system is governable.</p>
+        <p><em>The enterprise AI stacks that will pass the scrutiny of the next regulatory cycle are the ones being built with observability as a first-class architectural concern today, not as a logging afterthought added after the first audit. An agent you cannot audit is an agent you cannot defend.</em></p>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <!-- CLOSING -->
+  <section class="closing-section">
+    <div class="closing-ornament">&middot; &middot; &middot;</div>
+    <p class="closing-text">This was the week the frontier hit its first hard walls &mdash; regulatory, financial, and evidentiary &mdash; and enterprises discovered that constraints are not the enemy of AI strategy. They are the planning information that vendors spent two years withholding, arriving all at once in a single week.</p>
+    <p class="closing-text" style="font-size:0.95rem; margin-top: 0.5rem;">We&rsquo;ll see you next week with more signal, less noise.</p>
+    <div class="closing-sig">&mdash; The Distilled AI Digest Team</div>
+  </section>
 
-<footer><div class="wrap">&copy; 2026 Distilled AI Digest &middot; <a href="https://distilledaidigest.com/archive">Archive</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe on Beehiiv</a><div class="fine">You're reading the full issue. Share it freely.</div></div></footer>
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>&copy; 2026 Distilled AI Digest &nbsp;&middot;&nbsp; <a href="https://distilledaidigest.com">distilledaidigest.com</a> &nbsp;&middot;&nbsp; <a href="/archive.html">Archive</a> &nbsp;&middot;&nbsp; <a href="https://newsletter.distilledaidigest.com">Subscribe</a></p>
+  <p style="margin-top:0.5rem; opacity:0.6;">Issue #22 &nbsp;&middot;&nbsp; June 22&ndash;27, 2026 &nbsp;&middot;&nbsp; For enterprise leaders navigating the AI era.</p>
+</footer>
 
 </body>
 </html>

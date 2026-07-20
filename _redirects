@@ -1,2 +1,5 @@
+# HTTPS apex → www
+https://distilledaidigest.com/* https://www.distilledaidigest.com/:splat 301!
+# HTTP → HTTPS www
 http://distilledaidigest.com/* https://www.distilledaidigest.com/:splat 301!
 http://www.distilledaidigest.com/* https://www.distilledaidigest.com/:splat 301!
