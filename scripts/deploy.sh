@@ -10,6 +10,9 @@ N="${1:?usage: deploy.sh <num> <title>}"
 TITLE="${2:?missing title}"
 cd "$(dirname "$0")/.."
 
+# Clear stale git lock files left by sandbox sessions
+find .git -name "*.lock" -delete 2>/dev/null || true
+
 # Preconditions
 [ -f "issues/issue-${N}.html" ] || { echo "❌ issues/issue-${N}.html missing"; exit 1; }
 [ -f "assets/thumbnail_issue${N}.png" ] || { echo "❌ thumbnail missing"; exit 1; }
