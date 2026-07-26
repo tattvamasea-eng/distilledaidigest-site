@@ -1,459 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Archive — Distilled AI Digest</title>
-  <meta name="description" content="Every issue of the Distilled AI Digest — the weekly newsletter for enterprise AI leaders." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Every issue of the Distilled AI Digest — the weekly newsletter for enterprise AI leaders.">
+<title>Archive — Distilled AI Digest</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, 'Helvetica Neue', sans-serif; background: #fff; color: #222; font-size: 16px; line-height: 1.6; }
+  a { color: #1A2A4A; text-decoration: none; }
+  a:hover { color: #C9A84C; }
+
+  nav.main-nav { background: #fff; border-bottom: 1px solid #e5e5e5; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: Georgia, serif; font-size: 1.1rem; font-weight: bold; color: #1A2A4A; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-size: 0.9rem; color: #333; font-weight: 500; }
+  .nav-links a:hover { color: #C9A84C; }
+  .nav-cta { background: #1A2A4A; color: #fff !important; padding: 8px 18px; border-radius: 4px; font-size: 0.85rem !important; }
+
+  .page-header { background: #1A2A4A; color: #fff; padding: 48px 40px; }
+  .page-header .eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #C9A84C; margin-bottom: 10px; font-weight: bold; }
+  .page-header h1 { font-family: Georgia, serif; font-size: 2.2rem; color: #fff; }
+  .page-header p { color: #F5F0E8; font-size: 0.95rem; margin-top: 8px; }
+
+  .archive-body { max-width: 1080px; margin: 0 auto; padding: 56px 24px 80px; }
+
+  /* Deca reports */
+  .deca-section { margin-bottom: 56px; }
+  .section-title { font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; color: #C9A84C; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; }
+  .deca-explainer { font-size: 0.9rem; color: #666; margin-bottom: 20px; line-height: 1.6; }
+  .deca-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 640px) { .deca-grid { grid-template-columns: 1fr; } }
+  .deca-card { background: #F5F0E8; border-radius: 6px; display: flex; gap: 20px; padding: 24px; align-items: flex-start; }
+  .deca-card img { width: 120px; flex-shrink: 0; border-radius: 4px; }
+  .deca-card-meta { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
+  .deca-card h3 { font-family: Georgia, serif; font-size: 1.1rem; color: #1A2A4A; margin-bottom: 6px; line-height: 1.3; }
+  .deca-card p { font-size: 0.85rem; color: #666; margin-bottom: 12px; line-height: 1.55; }
+  .btn-read { display: inline-block; font-size: 0.82rem; color: #C9A84C; font-weight: bold; }
+
+  /* Issue grid */
+  .issues-section { margin-bottom: 48px; }
+  .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 820px) { .issue-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .issue-grid { grid-template-columns: 1fr; } }
+
+  .issue-card { }
+  .issue-card img { width: 100%; border-radius: 4px; margin-bottom: 10px; }
+  .issue-card-meta { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
+  .issue-card h3 { font-family: Georgia, serif; font-size: 1rem; color: #1A2A4A; margin-bottom: 6px; line-height: 1.3; }
+  .issue-card p { font-size: 0.85rem; color: #666; margin-bottom: 10px; line-height: 1.5; }
+  .issue-card .read-link { font-size: 0.82rem; color: #C9A84C; font-weight: bold; }
+
+  /* CTA */
+  .cta-band { background: #1A2A4A; text-align: center; padding: 48px 24px; margin-top: 40px; border-radius: 8px; }
+  .cta-band h2 { font-family: Georgia, serif; font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
+  .cta-band p { color: #F5F0E8; font-size: 0.9rem; margin-bottom: 20px; }
+  .btn-primary { display: inline-block; background: #C9A84C; color: #1A2A4A; padding: 12px 24px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+  .btn-primary:hover { background: #e0bc64; color: #1A2A4A; }
+
+  footer { background: #1A2A4A; color: #F5F0E8; padding: 36px 24px; text-align: center; margin-top: 0; }
+  .footer-logo { font-family: Georgia, serif; font-size: 1.1rem; color: #C9A84C; margin-bottom: 14px; }
+  .footer-links { display: flex; gap: 24px; justify-content: center; list-style: none; margin-bottom: 16px; }
+  .footer-links a { font-size: 0.85rem; color: #F5F0E8; }
+  .footer-copy { font-size: 0.8rem; color: #888; }
+</style>
 </head>
 <body>
 
-  <header class="nav">
-    <div class="nav-inner container">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-text">Distilled AI Digest</span>
-        <span class="logo-badge">D&middot;A&middot;D</span>
-      </a>
-      <nav class="nav-links">
-        <a href="archive.html" class="active">Archive</a>
-        <a href="about.html">About</a>
-        <a href="https://newsletter.distilledaidigest.com/subscribe" target="_blank" class="btn-nav">Subscribe Free</a>
-      </nav>
-      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
-    </div>
-  </header>
+<nav class="main-nav">
+  <a class="nav-logo" href="https://distilledaidigest.com/">Distilled AI Digest D·A·D</a>
+  <ul class="nav-links">
+    <li><a href="https://distilledaidigest.com/archive">Archive</a></li>
+    <li><a href="https://distilledaidigest.com/about">About</a></li>
+    <li><a href="https://newsletter.distilledaidigest.com/subscribe" class="nav-cta">Subscribe Free</a></li>
+  </ul>
+</nav>
 
-  <!-- PAGE HEADER -->
-  <section class="page-header">
-    <div class="container">
-      <div class="section-label">All Issues</div>
-      <h1 class="page-title">The Archive</h1>
-      <p class="page-sub">Every issue since Issue #1 &mdash; Feb 2026 to present.</p>
-    </div>
-  </section>
+<div class="page-header">
+  <p class="eyebrow">All Issues</p>
+  <h1>The Archive</h1>
+  <p>Every issue since Issue #1 — Feb 2026 to present.</p>
+</div>
 
-  <!-- ARCHIVE GRID -->
-  <section class="archive section">
-    <div class="container">
-      <div class="archive-grid">
+<div class="archive-body">
 
-        <!-- Issue 26 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue26.png" alt="Issue #26" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#26</span>
-              <span class="issue-date">July 19–25, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week the Frontier Went Free</h2>
-            <p class="archive-excerpt">OpenAI paused an unreleased model that escaped its sandbox three times. China is weighing export controls on its own AI weights. Kimi K3 — 2.8 trillion parameters, open weights July 27 — ran out of capacity the day it launched. And the US copyright ruling that sets the legal floor for enterprise AI finally landed.</p>
-            <a href="issues/issue-26.html" class="read-link">Read issue →</a>
-          </div>
-        </article>
-
-
-        <!-- Issue 23 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue23.png" alt="Issue #23" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#23</span>
-              <span class="issue-date">June 28&ndash;July 4, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week Everyone Wanted a Piece of AI</h2>
-            <p class="archive-excerpt">Fable 5 and Mythos 5 return after the first export controls ever applied to a model. OpenAI offers Washington a $42.6B stake. AWS bets $1B that deployment is the real bottleneck. Palantir&rsquo;s CEO calls the industry &ldquo;effing insane.&rdquo; Ownership became the story.</p>
-            <a href="issues/issue-23.html" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 22 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue22.png" alt="Issue #22" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#22</span>
-              <span class="issue-date">June 22&ndash;27, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week the Model Wars Hit the Boardroom</h2>
-            <p class="archive-excerpt">OpenAI and IBM embed frontier AI in the enterprise SOC. GPT-5.6 launches then gets throttled at the U.S. government&rsquo;s request. Five Eyes intelligence chiefs warn boards that frontier-AI cyberattacks are months away. The model wars hit the boardroom this week.</p>
-            <a href="issues/issue-22.html" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 21 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue21.png" alt="Issue #21" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#21</span>
-              <span class="issue-date">June 15&ndash;20, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week the Two Tracks Formed</h2>
-            <p class="archive-excerpt">SpaceX&rsquo;s $60B Cursor acquisition, PwC&rsquo;s billion-job study confirming a permanent two-track labor market, Fortune 500 record profits on shrinking headcount, OpenAI&rsquo;s leaked $38.5B loss, and Anthropic&rsquo;s landmark TCS partnership.</p>
-            <a href="issues/issue-21.html" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Deca·2 Synthesis -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_deca2.png" alt="D&middot;A&middot;D Deca&middot;2" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge deca-badge">Deca&middot;2</span>
-              <span class="issue-date">Issues #11&ndash;19 &middot; Apr&ndash;Jun 2026</span>
-            </div>
-            <h2 class="archive-title">D&middot;A&middot;D Deca&middot;2</h2>
-            <p class="archive-excerpt">Nine issues. Three threads. One verdict. The adoption gap that became a verdict, the agent stack built one layer at a time, and the frontier race that moved from model benchmarks to balance sheets.</p>
-            <a href="issues/issue-20.html" class="read-link">Read Deca&middot;2 &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 19 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue19.png" alt="Issue #19" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#19</span>
-              <span class="issue-date">June 8&ndash;14, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week AI Got Grounded</h2>
-            <p class="archive-excerpt">The US government&rsquo;s three-day shutdown of Anthropic&rsquo;s Fable 5, the OpenAI&ndash;Anthropic IPO race into a Chinese-led price war, Gartner&rsquo;s headcount-vs-ROI disconnect, the compute capital cycle behind SpaceX&rsquo;s record IPO, and Anthropic&rsquo;s $350M labor commitment.</p>
-            <a href="issues/issue-19.html" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 18 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue18.png" alt="Issue #18" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#18</span>
-              <span class="issue-date">June 1&ndash;7, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week AI Started Building Itself</h2>
-            <p class="archive-excerpt">Anthropic&rsquo;s recursive self-improvement disclosure, Microsoft&rsquo;s agent governance stack, the entry-level talent crisis, the vendor middleman reckoning, and the data war over AI jobs.</p>
-            <a href="issues/issue-18.html" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 17 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue17.png" alt="Issue #17" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#17</span>
-              <span class="issue-date">May 25&ndash;31, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week AI Started Running the Business</h2>
-            <p class="archive-excerpt">Google&rsquo;s autonomous security platform, ServiceNow&rsquo;s end-to-end AI workforce, the EY-Microsoft $1B scale-up, and the &ldquo;jobless boom&rdquo; that finally has a name.</p>
-            <a href="issues/issue-17.html" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 16 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue16.png" alt="Issue #16" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#16</span>
-              <span class="issue-date">May 18&ndash;24, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week Google Rewired Everything</h2>
-            <p class="archive-excerpt">Google&rsquo;s always-on agents, Anthropic acquires Stainless, Gartner&rsquo;s $2.59T forecast, and the coding agent wars &mdash; the week AI became infrastructure.</p>
-            <a href="issues/issue-16.html" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 15 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue15.png" alt="Issue #15" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#15</span>
-              <span class="issue-date">May 11&ndash;17, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week AI Moved In</h2>
-            <p class="archive-excerpt">Shadow AI governance crisis, the lab land grab, the productivity paradox, AI eating the SaaS stack &mdash; and the new foundation model race that changes enterprise procurement.</p>
-            <a href="issues/issue-15.html" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 14 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue14.png" alt="Issue #14" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#14</span>
-              <span class="issue-date">May 4&ndash;10, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week AI Rewrote the Org Chart</h2>
-            <p class="archive-excerpt">IBM&rsquo;s 2,000-CEO study, Cloudflare&rsquo;s honest math, Anthropic&rsquo;s SpaceX deal &mdash; and the data that explains why 88% of AI pilots never ship.</p>
-            <a href="issues/issue-14.html" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 13 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue13.png" alt="Issue #13" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#13</span>
-              <span class="issue-date">Apr 27&ndash;May 3, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week Agents Got Real Jobs</h2>
-            <p class="archive-excerpt">PocketOS wiped in 9 seconds, AWS issues IAM badges to agents, Anthropic eyes $900B &mdash; the agentic workforce just clocked in.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/the-week-agents-got-real-jobs" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 12 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue12.png" alt="Issue #12" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#12</span>
-              <span class="issue-date">Apr 20&ndash;26, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week AI Joined the Payroll</h2>
-            <p class="archive-excerpt">OpenAI ships GPT-5.5 &mdash; the agentic step function. ChatGPT and Gemini both turn into enterprise platforms. Walmart trains 2.1 million employees for the agentic era.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-joined-the-payroll" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 11 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue11.png" alt="Issue #11" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#11</span>
-              <span class="issue-date">Apr 13&ndash;19, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week AI Got Specific</h2>
-            <p class="archive-excerpt">OpenAI builds a model for cybersecurity defenders. Anthropic enters the productivity suite war. TCS reports $2.3 billion in annualised AI revenue.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-got-specific" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Deca·1 Synthesis -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_deca1.png" alt="Issue 10: Deca&middot;1" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge deca-badge">Issue 10: Deca&middot;1</span>
-              <span class="issue-date">Issues #1&ndash;9 &middot; Feb&ndash;Apr 2026</span>
-            </div>
-            <h2 class="archive-title">Issue 10: Deca&middot;1</h2>
-            <p class="archive-excerpt">Nine issues. Three patterns. One direction. The adoption gap, the workforce reckoning, and the bifurcating frontier &mdash; traced across nine weeks of AI news.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/d-a-d-deca-1" target="_blank" class="read-link">Read Deca&middot;1 &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 9 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue9.png" alt="Issue #9" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#9</span>
-              <span class="issue-date">Apr 6&ndash;12, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week AI Sent the Bill</h2>
-            <p class="archive-excerpt">OpenAI proposes a robot tax and public wealth fund. 80,000 tech jobs vanished in Q1 &mdash; half blamed on AI. BNY Mellon deploys 20,000 autonomous agents.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-sent-the-bill" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 8 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue8.png" alt="Issue #8" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#8</span>
-              <span class="issue-date">Mar 30 &ndash; Apr 5, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week AI Took the Wheel</h2>
-            <p class="archive-excerpt">GPT-5.4 can use your computer, Oracle sacrifices 30,000 jobs to fund the AI machine, and ChatGPT becomes an advertising platform in six weeks flat.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-took-the-wheel" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 7 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue7.png" alt="Issue #7" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#7</span>
-              <span class="issue-date">Mar 22&ndash;28, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week AI Got Its Report Card</h2>
-            <p class="archive-excerpt">Sora&rsquo;s six-month run ends in failure, AI flunks a new benchmark, Meta reads your mind &mdash; and Google pulls off the most underreported comeback of the year.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-got-its-report-card" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 6 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue6.png" alt="Issue #6" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#6</span>
-              <span class="issue-date">Mar 15&ndash;21, 2026</span>
-            </div>
-            <h2 class="archive-title">The Week AI Stopped Asking Permission</h2>
-            <p class="archive-excerpt">Jensen&rsquo;s $1T wake-up call, OpenAI goes classified, Meta&rsquo;s agent goes rogue &mdash; and Google reinvents developer tooling overnight.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-stopped-asking-permission" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 5 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue5.png" alt="Issue #5" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#5</span>
-              <span class="issue-date">Mar 9&ndash;14, 2026</span>
-            </div>
-            <h2 class="archive-title">The Agentic Web Has Arrived</h2>
-            <p class="archive-excerpt">Something shifted this week. AI didn&rsquo;t just generate content &mdash; it sued governments, crashed billion-dollar stocks, and launched a new kind of internet.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/the-agentic-web-has-arrived-d0d5" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 4 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue4.png" alt="Issue #4" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#4</span>
-              <span class="issue-date">Mar 2&ndash;8, 2026</span>
-            </div>
-            <h2 class="archive-title">The Human Bar Has Been Cleared</h2>
-            <p class="archive-excerpt">GPT-5.4 scored above the human baseline on desktop navigation. The bar has been cleared &mdash; and the implications go far beyond any benchmark number.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/the-human-bar-has-been-cleared" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 3 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue3.png" alt="Issue #3" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#3</span>
-              <span class="issue-date">Feb 23 &ndash; Mar 1, 2026</span>
-            </div>
-            <h2 class="archive-title">The Consultants Are Coming</h2>
-            <p class="archive-excerpt">Anthropic vs. the Pentagon dominated every newsletter. What happens when an AI company refuses a government &mdash; and the internet rallies behind it?</p>
-            <a href="https://newsletter.distilledaidigest.com/p/the-consultants-are-coming" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 2 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue2.png" alt="Issue #2" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#2</span>
-              <span class="issue-date">Feb 16&ndash;21, 2026</span>
-            </div>
-            <h2 class="archive-title">AI Summit &mdash; The Partnership Paradox</h2>
-            <p class="archive-excerpt">Three CEOs, three partnerships, 72 hours at the India AI Impact Summit 2026. The same AI labs threatening to displace Indian IT are now its biggest partners.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/ai-summit-the-partnership-paradox" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Issue 1 -->
-        <article class="archive-card">
-          <div class="archive-thumb">
-            <img src="assets/thumbnail_issue1.png" alt="Issue #1" />
-          </div>
-          <div class="archive-body">
-            <div class="issue-meta">
-              <span class="issue-badge">#1</span>
-              <span class="issue-date">Feb 10&ndash;15, 2026</span>
-            </div>
-            <h2 class="archive-title">The $650B Question: Is Enterprise AI Delivering?</h2>
-            <p class="archive-excerpt">Hyperscalers committed $650B in AI infrastructure. Markets erased $950B in market cap within days. The proof of ROI is beginning to emerge &mdash; and it&rsquo;s nuanced.</p>
-            <a href="https://newsletter.distilledaidigest.com/p/the-650b-question-is-enterprise-ai-delivering" target="_blank" class="read-link">Read issue &rarr;</a>
-          </div>
-        </article>
-
+  <!-- Deca Reports -->
+  <div class="deca-section">
+    <p class="section-title">Deca Reports — Synthesis Editions</p>
+    <p class="deca-explainer">Every ten issues, we step back from the week and trace the patterns. These editions synthesise nine issues into the three or four threads that actually matter — what emerged, what we got right, and what to watch next.</p>
+    <div class="deca-grid">
+      <div class="deca-card">
+        <img src="/assets/thumbnail_deca2.png" alt="D·A·D Deca·2">
+        <div>
+          <p class="deca-card-meta">Deca·2 Issues #11–19 · Apr–Jun 2026</p>
+          <h3>D·A·D Deca·2</h3>
+          <p>Nine issues. Three threads. One verdict. The adoption gap that became a verdict, the agent stack that built itself one layer at a time, and the frontier race that moved from model benchmarks to balance sheets.</p>
+          <a href="https://distilledaidigest.com/issues/issue-20" class="btn-read">Read Deca·2 →</a>
+        </div>
+      </div>
+      <div class="deca-card">
+        <img src="/assets/thumbnail_deca1.png" alt="D·A·D Deca·1">
+        <div>
+          <p class="deca-card-meta">Deca·1 Issues #1–9 · Feb–Apr 2026</p>
+          <h3>D·A·D Deca·1</h3>
+          <p>Nine issues. Three patterns. One direction. The adoption gap, the workforce reckoning, and the bifurcating frontier — traced across nine weeks of AI news.</p>
+          <a href="https://newsletter.distilledaidigest.com/p/d-a-d-deca-1" class="btn-read">Read Deca·1 →</a>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- SUBSCRIBE -->
-  <section class="subscribe-section">
-    <div class="container subscribe-inner">
-      <div class="subscribe-badge">D&middot;A&middot;D</div>
-      <h2 class="subscribe-title">Never miss an issue.</h2>
-      <p class="subscribe-sub">Free, every Sunday. The five AI developments that actually matter.</p>
-      <a href="https://newsletter.distilledaidigest.com/subscribe" target="_blank" class="btn-primary btn-large">Subscribe Free &rarr;</a>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-logo">
-        <span class="logo-text">Distilled AI Digest</span>
-        <span class="logo-badge">D&middot;A&middot;D</span>
+  <!-- Issues #25–21 -->
+  <div class="issues-section">
+    <p class="section-title">Issues #21–25 · June–July 2026</p>
+    <div class="issue-grid">
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue25.png" alt="Issue #25">
+        <p class="issue-card-meta">#25 July 12–18, 2026</p>
+        <h3>The Week AI Sent the Invoice</h3>
+        <p>IBM falls 25% as enterprises reroute software budgets. China's Kimi K3 opens the frontier. 200+ economists warn the pace is too fast. Nadella names the hidden cost in every AI contract.</p>
+        <a href="https://distilledaidigest.com/issues/issue-25" class="read-link">Read issue →</a>
       </div>
-      <nav class="footer-links">
-        <a href="archive.html">Archive</a>
-        <a href="about.html">About</a>
-        <a href="https://newsletter.distilledaidigest.com/subscribe" target="_blank">Subscribe</a>
-      </nav>
-      <p class="footer-copy">&copy; 2026 Distilled AI Digest &middot; Built with intention, delivered with clarity.</p>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue24.png" alt="Issue #24">
+        <p class="issue-card-meta">#24 July 7–11, 2026</p>
+        <h3>The Week AI Joined the Office</h3>
+        <p>ChatGPT Work gives AI a formal identity inside organisations. Three frontier models arrive in 72 hours, cutting costs 60%. Apple sues OpenAI over hardware trade secrets. Gartner warns $234B in SaaS spending is at risk.</p>
+        <a href="https://distilledaidigest.com/issues/issue-24" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue23.png" alt="Issue #23">
+        <p class="issue-card-meta">#23 June 28–July 4, 2026</p>
+        <h3>The Week Everyone Wanted a Piece of AI</h3>
+        <p>Fable 5 and Mythos 5 return after the first export controls ever applied to a model. OpenAI offers Washington a $42.6B stake. AWS bets $1B that deployment, not models, is the real bottleneck.</p>
+        <a href="https://distilledaidigest.com/issues/issue-23" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue22.png" alt="Issue #22">
+        <p class="issue-card-meta">#22 June 22–27, 2026</p>
+        <h3>The Week the Model Wars Hit the Boardroom</h3>
+        <p>OpenAI and IBM embed frontier models in the SOC. GPT-5.6 launches, then gets throttled at the U.S. government's request. Five Eyes chiefs tell boards that frontier-AI cyberattacks are months away.</p>
+        <a href="https://distilledaidigest.com/issues/issue-22" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue21.png" alt="Issue #21">
+        <p class="issue-card-meta">#21 June 15–20, 2026</p>
+        <h3>The Week the Two Tracks Formed</h3>
+        <p>SpaceX's $60B Cursor acquisition, PwC's billion-job two-track labor study, Fortune 500 record profits on shrinking headcount, OpenAI's leaked $38.5B loss, and Anthropic's TCS partnership.</p>
+        <a href="https://distilledaidigest.com/issues/issue-21" class="read-link">Read issue →</a>
+      </div>
     </div>
-  </footer>
+  </div>
+
+  <!-- Issues #15–20 -->
+  <div class="issues-section">
+    <p class="section-title">Issues #15–20 · May–June 2026</p>
+    <div class="issue-grid">
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue20.png" alt="Issue #20 — Deca·2">
+        <p class="issue-card-meta">Deca·2 · Issues #11–19 · Jun 2026</p>
+        <h3>D·A·D Deca·2</h3>
+        <p>Nine issues. Three threads. One verdict. The full synthesis edition — the adoption gap, the agent stack, and the frontier race.</p>
+        <a href="https://distilledaidigest.com/issues/issue-20" class="read-link">Read Deca·2 →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue19.png" alt="Issue #19">
+        <p class="issue-card-meta">#19 Jun 2026</p>
+        <h3>Issue #19</h3>
+        <p></p>
+        <a href="https://newsletter.distilledaidigest.com/archive" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue18.png" alt="Issue #18">
+        <p class="issue-card-meta">#18 Jun 2026</p>
+        <h3>Issue #18</h3>
+        <p></p>
+        <a href="https://newsletter.distilledaidigest.com/archive" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue17.png" alt="Issue #17">
+        <p class="issue-card-meta">#17 May–Jun 2026</p>
+        <h3>Issue #17</h3>
+        <p></p>
+        <a href="https://newsletter.distilledaidigest.com/archive" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue16.png" alt="Issue #16">
+        <p class="issue-card-meta">#16 May 2026</p>
+        <h3>Issue #16</h3>
+        <p></p>
+        <a href="https://newsletter.distilledaidigest.com/archive" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue15.png" alt="Issue #15">
+        <p class="issue-card-meta">#15 May 2026</p>
+        <h3>Issue #15</h3>
+        <p></p>
+        <a href="https://newsletter.distilledaidigest.com/archive" class="read-link">Read issue →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Issues #10–14 -->
+  <div class="issues-section">
+    <p class="section-title">Issues #10–14 · Apr–May 2026</p>
+    <div class="issue-grid">
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue14.png" alt="Issue #14">
+        <p class="issue-card-meta">#14 May 4–10, 2026</p>
+        <h3>The Week AI Rewrote the Org Chart</h3>
+        <p>IBM's 2,000-CEO study, Cloudflare's honest math, Anthropic's SpaceX deal — and the data that explains why 88% of AI pilots never ship.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-rewrote-the-org-chart" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue13.png" alt="Issue #13">
+        <p class="issue-card-meta">#13 Apr 27–May 3, 2026</p>
+        <h3>The Week Agents Got Real Jobs</h3>
+        <p>PocketOS wiped in 9 seconds, AWS issues IAM badges to agents, Anthropic eyes $900B — the agentic workforce just clocked in.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-week-agents-got-real-jobs" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue12.png" alt="Issue #12">
+        <p class="issue-card-meta">#12 Apr 20–26, 2026</p>
+        <h3>The Week AI Joined the Payroll</h3>
+        <p>OpenAI ships GPT-5.5. ChatGPT and Gemini become enterprise platforms. Walmart trains 2.1 million employees for the agentic era.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-joined-the-payroll" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue11.png" alt="Issue #11">
+        <p class="issue-card-meta">#11 Apr 13–19, 2026</p>
+        <h3>The Week AI Got Specific</h3>
+        <p>OpenAI builds a model for cybersecurity defenders. Anthropic enters the productivity suite war. TCS reports $2.3B in annualised AI revenue.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-got-specific" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue10.png" alt="Issue #10">
+        <p class="issue-card-meta">#10 Apr 2026</p>
+        <h3>Issue #10</h3>
+        <p></p>
+        <a href="https://newsletter.distilledaidigest.com/archive" class="read-link">Read issue →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Issues #1–9 -->
+  <div class="issues-section">
+    <p class="section-title">Issues #1–9 · Feb–Apr 2026</p>
+    <div class="issue-grid">
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue9.png" alt="Issue #9">
+        <p class="issue-card-meta">#9 Apr 6–12, 2026</p>
+        <h3>The Week AI Sent the Bill</h3>
+        <p>OpenAI proposes a robot tax and public wealth fund. 80,000 tech jobs vanished in Q1 — half blamed on AI. BNY Mellon deploys 20,000 autonomous agents.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-sent-the-bill" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue8.png" alt="Issue #8">
+        <p class="issue-card-meta">#8 Mar 30 – Apr 5, 2026</p>
+        <h3>The Week AI Took the Wheel</h3>
+        <p>GPT-5.4 can use your computer, Oracle sacrifices 30,000 jobs to fund the AI machine, and ChatGPT becomes an advertising platform in six weeks flat.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-took-the-wheel" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue7.png" alt="Issue #7">
+        <p class="issue-card-meta">#7 Mar 22–28, 2026</p>
+        <h3>The Week AI Got Its Report Card</h3>
+        <p>Sora's six-month run ends in failure, AI flunks a new benchmark, Meta reads your mind — and Google pulls off the most underreported comeback of the year.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-got-its-report-card" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue6.png" alt="Issue #6">
+        <p class="issue-card-meta">#6 Mar 15–21, 2026</p>
+        <h3>The Week AI Stopped Asking Permission</h3>
+        <p>Jensen's $1T wake-up call, OpenAI goes classified, Meta's agent goes rogue — and Google reinvents developer tooling overnight.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-week-ai-stopped-the-permission" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue5.png" alt="Issue #5">
+        <p class="issue-card-meta">#5 Mar 9–14, 2026</p>
+        <h3>The Agentic Web Has Arrived</h3>
+        <p>Something shifted this week. AI didn't just generate content — it sued governments, crashed billion-dollar stocks, and launched a new kind of internet.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-agentic-web-has-arrived-d0d5" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue4.png" alt="Issue #4">
+        <p class="issue-card-meta">#4 Mar 2–8, 2026</p>
+        <h3>The Human Bar Has Been Cleared</h3>
+        <p>GPT-5.4 scored above the human baseline on desktop navigation. The bar has been cleared — and the implications go far beyond any benchmark number.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-human-bar-has-been-cleared" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue3.png" alt="Issue #3">
+        <p class="issue-card-meta">#3 Feb 23 – Mar 1, 2026</p>
+        <h3>The Consultants Are Coming</h3>
+        <p>Anthropic vs. the Pentagon dominated every newsletter. What happens when an AI company refuses a government — and the internet rallies behind it?</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-consultants-are-coming" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue2.png" alt="Issue #2">
+        <p class="issue-card-meta">#2 Feb 16–21, 2026</p>
+        <h3>AI Summit — The Partnership Paradox</h3>
+        <p>Three CEOs, three partnerships, 72 hours at the India AI Impact Summit 2026. The same AI labs threatening to displace Indian IT are now its biggest partners.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/ai-summit-the-partnership-paradox" class="read-link">Read issue →</a>
+      </div>
+      <div class="issue-card">
+        <img src="/assets/thumbnail_issue1.png" alt="Issue #1">
+        <p class="issue-card-meta">#1 Feb 10–15, 2026</p>
+        <h3>The $650B Question: Is Enterprise AI Delivering?</h3>
+        <p>Hyperscalers committed $650B in AI infrastructure. Markets erased $950B in market cap within days. The proof of ROI is beginning to emerge — and it's nuanced.</p>
+        <a href="https://newsletter.distilledaidigest.com/p/the-650b-question-is-enterprise-ai-delivering" class="read-link">Read issue →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>Never miss an issue.</h2>
+    <p>Free, every Sunday. The five AI developments that actually matter.</p>
+    <a href="https://newsletter.distilledaidigest.com/subscribe" class="btn-primary">Subscribe Free →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Distilled AI Digest D·A·D</div>
+  <ul class="footer-links">
+    <li><a href="https://distilledaidigest.com/archive">Archive</a></li>
+    <li><a href="https://distilledaidigest.com/about">About</a></li>
+    <li><a href="https://newsletter.distilledaidigest.com/subscribe">Subscribe</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Distilled AI Digest · Built with intention, delivered with clarity.</p>
+</footer>
 
 </body>
 </html>
