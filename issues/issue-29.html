@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nvidia recruits six Wall Street firms to mobilise $500 billion for AI infrastructure, Anthropic's backers float a $2 trillion October IPO, Macquarie and GIC form Theseus to become Anthropic's landlord, IBM joins OpenAI's elite partner tier, and Grok Bot gives agents their own logins.">
+<title>Issue #29 — The Week AI Went to Wall Street | Distilled AI Digest</title>
+<style>
+  :root { --navy:#1C2F50; --gold:#B8862F; --cream:#f5f5f0; --card:#ffffff; --stack:#eef2f8; --ink:#1a1a1a; --muted:#555; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  nav { background:var(--navy); padding:14px 0; }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; }
+  nav .brand { color:#fff; font-weight:bold; letter-spacing:3px; font-size:18px; text-decoration:none; }
+  nav .links a { color:#cdd6e6; text-decoration:none; margin-left:18px; font-size:13px; font-family:Arial,sans-serif; }
+  nav .links a:hover { color:#fff; }
+  header.hero { background:var(--navy); color:#fff; padding:44px 0 50px; border-bottom:4px solid var(--gold); }
+  .issue-line { color:var(--gold); font-family:Arial,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+  header.hero h1 { font-size:40px; line-height:1.15; margin-bottom:16px; color:#fff; }
+  header.hero .dateline { color:#aebbd2; font-size:15px; margin-bottom:20px; }
+  .tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .tags span { border:1px solid var(--gold); color:var(--gold); font-family:Arial,sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:20px; }
+  .intro { padding:34px 0 10px; }
+  .intro p { margin-bottom:18px; font-size:18px; }
+  .story { background:var(--card); border-left:5px solid var(--gold); padding:30px 30px 28px; margin:26px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+  .story .kicker { font-family:Arial,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .story h2 { font-size:26px; line-height:1.25; color:var(--navy); margin-bottom:16px; }
+  .story p { margin-bottom:15px; }
+  .story p .lead { font-weight:bold; color:var(--navy); }
+  .callout { background:var(--cream); border-left:4px solid var(--navy); padding:16px 18px; margin-top:18px; }
+  .callout .label { font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; margin-bottom:6px; display:block; }
+  .callout p { margin:0; font-size:15px; color:#333; }
+  .section-head { font-family:Arial,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin:44px 0 4px; font-weight:bold; }
+  .quickhits { background:var(--card); border-left:5px solid var(--gold); padding:26px 30px; margin:26px 0; }
+  .quickhits h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .quickhits ul { list-style:none; }
+  .quickhits li { margin-bottom:14px; padding-left:16px; position:relative; font-size:15px; }
+  .quickhits li:before { content:"\25B8"; color:var(--gold); position:absolute; left:0; }
+  .stack-grid { display:grid; gap:14px; margin:22px 0; }
+  .stack-card { background:var(--stack); border-radius:6px; padding:18px 20px; }
+  .stack-card .layer { font-family:Arial,sans-serif; font-size:13px; font-weight:bold; color:var(--navy); margin-bottom:6px; }
+  .stack-card p { font-size:14px; margin:0; color:#333; }
+  .agent101 { background:var(--card); border-left:5px solid var(--navy); padding:30px; margin:26px 0; }
+  .agent101 h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .agent101 p { margin-bottom:15px; }
+  .agent101 .takeaway { font-style:italic; color:var(--navy); border-top:1px solid #ddd; padding-top:14px; margin-top:6px; }
+  .cio { background:var(--card); border-left:5px solid var(--gold); padding:30px; margin:26px 0; }
+  .cio h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .cio p { margin-bottom:15px; }
+  .closing { padding:30px 0 10px; font-size:18px; }
+  .closing p { margin-bottom:14px; }
+  .sign { color:var(--navy); font-weight:bold; }
+  footer { background:var(--navy); color:#aebbd2; padding:26px 0; margin-top:40px; font-family:Arial,sans-serif; font-size:13px; }
+  footer a { color:var(--gold); text-decoration:none; }
+  footer .fine { margin-top:8px; font-size:12px; color:#8595b0; }
+  @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="https://distilledaidigest.com/" class="brand">D&middot;A&middot;D</a><div class="links"><a href="https://distilledaidigest.com/">Home</a><a href="https://distilledaidigest.com/archive">Archive</a><a href="https://newsletter.distilledaidigest.com">Subscribe</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="issue-line">Issue #29 &middot; August 10&ndash;16, 2026</div>
+<h1>The Week AI Went to Wall Street</h1>
+<div class="dateline">August 10&ndash;16, 2026</div>
+<div class="tags">
+  <span>Nvidia $500B</span>
+  <span>Anthropic $2T</span>
+  <span>Theseus</span>
+  <span>IBM &times; OpenAI</span>
+  <span>Grok Bot</span>
+</div>
+</div></header>
+
+<div class="wrap">
+
+<section class="intro">
+<p>For three years the AI story has been told in benchmarks. This week it was told in balance sheets. Nvidia recruited six of the largest asset managers on earth to finance the buildout. Anthropic's own backers started briefing reporters about a $2 trillion listing. A sovereign wealth fund and an Australian infrastructure manager quietly became Anthropic's landlord. And IBM, a company that has been selling into the enterprise since before most AI researchers were born, signed up to resell OpenAI.</p>
+<p>None of it required a new model. All of it required capital &mdash; and the terms on which that capital arrives will shape what enterprises can buy, at what price, for the rest of the decade.</p>
+<p>The week's one genuine product launch, meanwhile, gave AI agents something they have never had before: their own login credentials. Which is a financial story too, once you price what happens when it goes wrong.</p>
+</section>
+
+<!-- STORY 1 -->
+<article class="story">
+<div class="kicker">Story 01</div>
+<h2>Nvidia Turns GPUs Into an Asset Class</h2>
+<p><span class="lead">The deal:</span> On August 10, Nvidia announced memoranda of understanding with six firms &mdash; Apollo Global Management, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR &mdash; to establish AI compute infrastructure financing platforms targeting more than <strong>$500 billion of third-party capital</strong>. The structure is project finance borrowed wholesale from power and toll roads: special-purpose entities issue debt against GPUs as collateral, then lease that compute to Nvidia's customers. Jensen Huang framed the shift plainly: "We began by building chips; today, we are helping create a new class of productive, investable infrastructure: AI factories."</p>
+<p><span class="lead">Read the fine print:</span> these are memoranda, not binding agreements &mdash; Nvidia's own release says the partnerships remain subject to execution of final documents. The $500 billion is a mobilisation <em>target</em>, not committed capital, with no drawdown schedule. And buried in the terms is the detail that moved the stock: Nvidia may provide residual-value support for <strong>up to 25% of an opportunity</strong>, assessed project by project, with no aggregate cap disclosed. Nvidia's annual revenue is roughly $130 billion. The target is about four times that.</p>
+<p><span class="lead">Wall Street noticed the circularity:</span> if Nvidia partially backstops the vehicles that buy Nvidia chips, then some portion of Nvidia's reported demand is demand Nvidia underwrote. Michael Burry, still short the stock, called it a "Wall Street stunt" with "shades of Enron's effort to make wholesale power an investable class." Hedgeye's Felix Wang was more precise about the mechanism: "In effect, they made Nvidia's product cheaper without really cutting GPU prices" &mdash; which, he added, "makes future demand more sensitive to credit conditions." The shares fell as much as 3.2% intraday, shedding roughly $130 billion in market value on the day Nvidia announced half a trillion dollars of new financing.</p>
+<p><span class="lead">For enterprises:</span> the practical consequence arrives at your next procurement cycle. If this works, you will soon be offered AI compute as an operating lease from an SPV rather than a capital purchase or a hyperscaler contract &mdash; priced attractively, off your balance sheet, and structurally identical to how you already finance real estate. That is genuinely useful. It is also a form of vendor financing, and the honest comparison is the telecom buildout: nine major equipment suppliers extended roughly $25.6 billion in vendor financing by the end of 2000, and 24 of the 30 largest publicly traded carriers subsequently went bankrupt. Nvidia's plan is roughly twenty times larger. The question to put to any lessor is the one Wall Street is already asking: GPUs depreciate far faster than power plants, so what happens to your lease rate when the collateral underneath it is three generations old?</p>
+<div class="callout"><span class="label">&#9612; The Signal</span><p>Compute stopped being a purchase this week and started becoming a financeable asset. That is what industries look like when they mature &mdash; and also what they look like immediately before the credit cycle turns. Both readings are available; neither is yet proven.</p></div>
+</article>
+
+<!-- STORY 2 -->
+<article class="story">
+<div class="kicker">Story 02</div>
+<h2>Anthropic's Backers Float a $2 Trillion Listing</h2>
+<p><span class="lead">What was reported:</span> On Thursday, August 13, the Financial Times reported that Anthropic investors are targeting a valuation around <strong>$2 trillion</strong> in an IPO as soon as October, citing six of the company's own backers. If it priced there, it would be the largest listing in history &mdash; comfortably past SpaceX, which went public in June at $1.77 trillion.</p>
+<p><span class="lead">The distinction that matters:</span> this is shareholder expectation, not company guidance. No Anthropic executive has confirmed a target or a date, and Fortune's reporting is explicit that the offering is still under discussion and the valuation has not been formally fixed inside the company. Anthropic's last disclosed mark is its Series H in May &mdash; $65 billion raised at $965 billion post-money, which is when it passed OpenAI in private valuation. Everything above that number this week came from people who own the stock.</p>
+<p><span class="lead">The arithmetic problem:</span> Anthropic's last company-disclosed revenue figure was roughly $47 billion annualised in mid-May, growing at a rate that would make almost any multiple arguable. Fortune's counter, published the next day, reframed it on earnings instead: at Nasdaq-100 average multiples, a $2 trillion company needs somewhere between $59 billion and $79 billion in annual profit. Anthropic is only now approaching its <em>first operating profit</em>, on roughly $10.9 billion of quarterly revenue. Renaissance Capital's Avery Marquez put the investor reaction cleanly: "Just seeing the [$2 trillion] number, it's definitely jolting" &mdash; and then named the actual issue: "The big hangup for the valuation is, what metrics make sense for this company?"</p>
+<p><span class="lead">For enterprises:</span> if you run Claude in production, a listing changes your vendor in ways worth planning for now. A public Anthropic reports quarterly, discloses concentration risk, and acquires a class of shareholder with opinions about gross margin &mdash; which is exactly the pressure that historically ends aggressive introductory pricing. Anthropic's revenue is overwhelmingly enterprise; consumer subscriptions are under $2 billion. That means <em>you</em> are the story its S-1 tells. Read your contract's renewal and price-protection terms before October, not after, and if you have been deferring a multi-year commitment to preserve flexibility, understand that the flexibility may get more expensive.</p>
+<div class="callout"><span class="label">&#9612; Watch This</span><p>Watch whether Anthropic confirms anything. A company that wanted this number in the market would let it sit there; a company that thought it was wrong would correct it. Six backers briefing the FT in the same week Nvidia mobilises $500 billion is not a coincidence of timing.</p></div>
+</article>
+
+<!-- STORY 3 -->
+<article class="story">
+<div class="kicker">Story 03</div>
+<h2>Sovereign Capital Becomes AI's Landlord</h2>
+<p><span class="lead">The structure:</span> Also on August 10, Anthropic, Macquarie Asset Management and Singapore's GIC announced <strong>Theseus Infrastructure</strong> &mdash; a new platform that will develop, own and operate data centres, then lease them to Anthropic under long-term agreements. Funds managed by Macquarie and GIC jointly own the platform and will fund the majority of equity for each project. Anthropic is the anchor tenant, not the owner. Macquarie Asset Management runs roughly $498 billion; GIC is estimated around $936 billion.</p>
+<p><span class="lead">What wasn't disclosed is most of it:</span> no capital commitment, no megawatt figures, no named sites, no lease terms, no construction timeline. The release says "initial focus on the United States" and stops. Theseus could be a modest programme or a multi-gigawatt one and there is no public way to tell. There are also no attributed executive quotes in the announcement at all &mdash; from any of the three parties &mdash; which is unusual enough to be worth noticing on a deal of this profile.</p>
+<p><span class="lead">The energy commitment:</span> the release restates a pledge Anthropic first made in February: it will cover electricity price increases that consumers would otherwise face from these sites, and pay for 100% of the grid upgrades needed to interconnect them. This is a voluntary corporate commitment, not a regulatory obligation &mdash; no dollar cap, no enforcement mechanism, no third-party verification. Take it as a serious statement of intent and as pre-emptive politics, because data-centre siting is now a local election issue in a growing number of American counties, and Anthropic clearly knows it.</p>
+<p><span class="lead">For enterprises:</span> two things follow. First, the financial logic here is the same as Nvidia's &mdash; capacity without capex, a variable compute cost converted into a predictable long-term lease liability, which is precisely the kind of clean, forecastable obligation an S-1 wants to show weeks before a listing. Second, note that GIC is simultaneously a Series H equity investor in Anthropic and a co-owner of its landlord. That is not improper, and no reporter has attacked the deal on those grounds, but it is a good illustration of how few genuinely independent parties are left in AI infrastructure finance. When you run counterparty risk analysis on your AI stack, the concentration is not just in the model vendors. It is in the people funding all of them.</p>
+<div class="callout"><span class="label">&#9612; The Implication</span><p>The most consequential AI deals of the week were both about who owns the buildings and the balance sheets, not who trains the models. Infrastructure ownership is quietly becoming the layer where the returns get captured.</p></div>
+</article>
+
+<!-- STORY 4 -->
+<article class="story">
+<div class="kicker">Story 04</div>
+<h2>IBM Becomes OpenAI's Enterprise Front Door</h2>
+<p><span class="lead">The partnership:</span> On August 13, IBM announced it has joined OpenAI's Elite partner tier and is standing up a dedicated OpenAI Practice inside IBM Consulting. GPT-5.6, Codex and ChatGPT Work get embedded into IBM Consulting Advantage, IBM's delivery platform. Thousands of IBM consultants and engineers will earn expert-level certifications through the OpenAI Partner Network, and IBM's Autonomous Security offering integrates with OpenAI capabilities as IBM joins the Daybreak Cyber Partner Program &mdash; an expansion of a cybersecurity partnership the two signed in June. No financial terms were disclosed. There is no deal value to report because none exists publicly.</p>
+<p><span class="lead">The honest framing:</span> IBM lowered its 2026 revenue forecast in July, and Arvind Krishna's own account of why is unusually blunt for a sitting CEO: "We did not adapt and move quickly enough, and numerous large deals failed to close on the timelines we expected, driving the majority of our shortfall." The stock is down roughly 20% year to date. This partnership is a growth-recovery move by a company that has publicly admitted it was too slow, and reading it any other way requires ignoring what its chief executive said six weeks ago.</p>
+<p><span class="lead">Why it still matters:</span> because IBM Consulting's pitch identifies the actual bottleneck. Andy Baldwin, IBM Consulting's global senior vice president, put it exactly right: "The challenge is not access to AI technologies &mdash; it's integrating AI securely and at scale into complex enterprise environments and workflows." Every enterprise buyer already has model access. Almost none has the integration capacity, the security review throughput, or the change-management muscle to deploy across finance, procurement, HR and customer operations simultaneously. OpenAI's Denise Dresser framed the same gap from the vendor side: "The organizations pulling ahead with AI are the ones turning it into a trusted part of how their business operates."</p>
+<p><span class="lead">For enterprises:</span> this changes your procurement path more than your technology choice. Buying OpenAI through IBM means governance, indemnity, industry compliance and a named delivery partner wrapped around the model &mdash; which is why regulated buyers in financial services, government and telecom will find it attractive, and it is exactly those four sectors IBM named. The cost is a services layer on top of model pricing and a partner with an obvious interest in the integration being complex. Price a direct OpenAI enterprise agreement alongside the IBM-delivered version before you assume the wrapper is worth it. Sometimes it plainly is. Make it prove so.</p>
+<div class="callout"><span class="label">&#9612; The Context</span><p>The frontier labs are discovering what every enterprise software company learned in the 1990s: the model is not the product, the deployment is. Whoever owns the systems-integration relationship owns the customer &mdash; and IBM has owned that relationship in 175 countries for decades.</p></div>
+</article>
+
+<!-- STORY 5 -->
+<article class="story">
+<div class="kicker">Story 05</div>
+<h2>Grok Bot Gives Agents Their Own Logins</h2>
+<p><span class="lead">The launch:</span> SpaceXAI opened the beta for <strong>Grok Bot</strong> on August 11 &mdash; the first product from its June acquisition of Anysphere, the company behind Cursor. Each Bot runs on its own cloud virtual machine and operates software the way a person does, driving applications through their interfaces rather than their APIs, which means it works with tools that have no API at all. Bots persist memory and preferences across sessions and devices, run in parallel, and coordinate through a manager Bot in group chat. Pricing rides existing tiers: $120 per seat per month on Cursor Teams Premium, $200 on Cursor Ultra, $300 on SuperGrok Heavy. Enterprise is waitlist only.</p>
+<p><span class="lead">The genuinely new thing:</span> authentication. Grok Bot signs in the way a person would, using accounts you have already authorised through Cursor's SSO layer and installable connectors. There is a credential flow where secrets are masked, excluded from the transcript and withheld from the model &mdash; and SpaceXAI's documentation carries the warning that tells you where the sharp edge is: "Do not send a password or one-time code in ordinary chat."</p>
+<p><span class="lead">Read the vendor's own security documentation, because it is admirably candid:</span> all Bots on an account share a single cloud computer &mdash; the same browser cookies, the same filesystem, the same live sessions. SpaceXAI states it directly: "Do not use separate Bots as a security boundary," and "The screens are separate work surfaces, not separate security boundaries." If one Bot authenticates into your ERP or a financial system, every other Bot on that account can reach that session. Approvals are pre-action only, and the docs are equally direct about the limit: "an approval controls a proposed action &mdash; it does not reverse work already completed." The precedents are not hypothetical: in July a researcher documented Grok's build CLI uploading entire Git repositories including API keys and database passwords, and the industry has already watched a coding agent destroy a startup's production database along with its backups.</p>
+<p><span class="lead">For enterprises:</span> $120 per seat is the first credible market price for agentic office work, and it is cheap enough that departments will expense it without asking you. That is the actual risk on a two-month horizon &mdash; not a rogue agent, but forty Grok Bot seats appearing on a corporate card while your identity governance still assumes every login belongs to a human. Before anyone pilots this, answer three questions: does the agent authenticate as itself or as your employee, can you revoke its access without revoking theirs, and does your audit log distinguish the two? If the answer to the third is no, then every action the agent takes is recorded in your logs under a person's name &mdash; which is a compliance problem long before it is a security one.</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>Credit SpaceXAI for documenting its limits honestly rather than burying them. The lesson is not that Grok Bot is unsafe &mdash; it is that the security model of every agent product is now a procurement document you have to actually read, because the vendors are telling you the truth and most buyers are not listening.</p></div>
+</article>
+
+<!-- QUICK HITS -->
+<div class="quickhits">
+<h2>&#9889; Quick Hits</h2>
+<ul>
+<li><strong>Claude Opus 5 breaks ARC-AGI-3:</strong> ARC Prize published results showing Opus 5 at 30.2% on its hardest benchmark against GPT-5.6 Sol's previous 7.8% &mdash; a near four-fold jump, though Sol still leads on ARC-AGI-2 and Fable 5 leads on ARC-AGI-1.</li>
+<li><strong>Gemini crosses 1 billion monthly users:</strong> Sundar Pichai confirmed the milestone on August 11, making Gemini Google's fastest-growing product ever &mdash; though the announcement conspicuously omitted paid subscriber numbers.</li>
+<li><strong>The price and speed war escalated on the same day:</strong> Google shipped Gemini 3.7 Flash on August 13 at a 50% introductory discount, hours before OpenAI previewed an Ultrafast tier running GPT-5.6 Sol at 750 tokens per second &mdash; roughly 14 times standard speed &mdash; on Cerebras silicon.</li>
+<li><strong>Anthropic began watermarking Claude's text:</strong> invisible C2PA-based marks now attach to Claude output under EU rules, though the mark proves the text was processed by Claude, not who wrote it &mdash; a distinction most coverage got wrong.</li>
+<li><strong>The counterweight to all this capital:</strong> a Businessolver survey of 300+ executives published August 11 found roughly a third of CEOs name headcount reduction as the primary objective for deploying AI, while nearly half of workers report little or no employer-provided AI training.</li>
+</ul>
+</div>
+
+<!-- CIO CORNER -->
+<div class="section-head">CIO Corner</div>
+<div class="cio">
+<h2>When the CFO Starts Reading Your AI Contracts</h2>
+<p>From the CIO seat, this was the week AI stopped being a technology conversation and became a treasury one. Nvidia is arranging half a trillion dollars of structured finance against depreciating silicon. Anthropic's shareholders are pricing a listing at more than the GDP of Italy. Macquarie and GIC are building the buildings. None of that shows up in a model evaluation, and all of it will show up in what you pay.</p>
+<p><span class="lead">On the numbers:</span> the figure worth carrying into your next planning session is Nvidia's 25% residual-value support, because it tells you what the financiers actually believe. Institutions do not require a manufacturer backstop on assets they are confident will hold value. Set against a $500 billion target and Nvidia's roughly $130 billion of annual revenue, the structure is telling you that GPU depreciation is the unresolved question at the centre of the entire buildout. If you are offered leased compute at an attractive rate in the next two quarters &mdash; and you will be &mdash; the diligence question is not the headline rate. It is what happens to that rate at renewal, and who absorbs the residual risk if it doesn't hold.</p>
+<p><span class="lead">On vendor concentration:</span> this week made visible how tightly coupled the AI capital stack has become. GIC is an equity investor in Anthropic and a co-owner of Anthropic's landlord. Amazon books a material share of its net income from its Anthropic stake. Nvidia partially underwrites purchases of Nvidia hardware. None of this is improper and none of it is hidden, but it means the standard mitigation for vendor risk &mdash; multi-sourcing &mdash; provides less independence than your risk register probably assumes. Two model vendors financed by overlapping capital and running on overlapping infrastructure are not two counterparties in any way that would survive a credit event.</p>
+<p><span class="lead">On what to actually do this month:</span> pull your AI contracts and check three things. Price-protection and renewal terms at any vendor plausibly heading to public markets. Whether your agentic tooling authenticates as itself or borrows an employee's identity, because the answer determines whether your audit trail means anything. And whether anyone has modelled what a 20% swing in inference pricing does to your 2027 run rate &mdash; in either direction, because the price war in Quick Hits is pushing costs down at the same moment the finance structures in the main stories are pushing capital costs up. Those two forces resolve somewhere, and the enterprises that budgeted for only one of them will be wrong.</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>The CIOs who come out of the next eighteen months well will be the ones who read their AI vendors like credit counterparties, not just technology suppliers. That is a genuinely new skill for the role &mdash; and it is a far better problem to have than the one we had two years ago, when nobody would fund any of this at all.</p></div>
+</div>
+
+<!-- THE STACK -->
+<div class="section-head">The Stack</div>
+<h2 style="font-size:22px;color:var(--navy);margin:6px 0 4px;">Five Signals Across the AI Infrastructure Layers &mdash; August 10&ndash;16, 2026</h2>
+<div class="stack-grid">
+<div class="stack-card"><div class="layer">&#9889; Energy</div><p>Anthropic restated its pledge to cover consumer electricity price increases and pay 100% of grid interconnection upgrades at Theseus sites. Voluntary, uncapped and unenforced &mdash; but the first time an AI lab has treated local power politics as a cost line rather than a communications problem.</p></div>
+<div class="stack-card"><div class="layer">&#128190; Chips</div><p>The defining move of the week. Nvidia recruited Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to mobilise $500B against GPUs as collateral &mdash; with residual-value support on up to 25% of an opportunity, which is the tell that even the financiers are unsure what a three-year-old GPU is worth.</p></div>
+<div class="stack-card"><div class="layer">&#9729; Cloud</div><p>Theseus Infrastructure turns Macquarie and GIC into Anthropic's landlord under long-term leases, with no capital, capacity or site figures disclosed. Meanwhile IBM Consulting Advantage becomes a distribution channel for OpenAI models on Red Hat OpenShift &mdash; two very different answers to the same question of who sits between the lab and the enterprise.</p></div>
+<div class="stack-card"><div class="layer">&#129504; Models</div><p>Capability rose and price fell in the same 48 hours: Gemini 3.7 Flash at half price, GPT-5.6 Sol at 750 tokens per second on Cerebras, and Opus 5 posting 30.2% on ARC-AGI-3 against a prior state of the art of 7.8%. No single lab is pulling away; all of them are getting cheaper.</p></div>
+<div class="stack-card"><div class="layer">&#128241; Applications</div><p>Grok Bot put the first credible per-seat price on agentic office work at $120 a month &mdash; low enough to spread through departments on expense cards before IT is consulted. The application layer finally has a price tag, which is what turns a category from a demo into a budget line.</p></div>
+</div>
+
+<!-- AGENT 101 -->
+<div class="section-head">Agent 101</div>
+<div class="agent101">
+<h2>Non-Human Identity: When Software Needs Its Own Badge</h2>
+<p>Every employee in your organisation has an identity. They have credentials, a set of permissions, a record of what they accessed, and &mdash; critically &mdash; an offboarding process that revokes all of it on their last day. This machinery took decades to build and it works. It also assumes, in every layer of its design, that the thing holding the credential is a person. Grok Bot broke that assumption this week, and it will not be the last product to do so.</p>
+<p><span class="lead">The problem in one sentence:</span> most agents today do not have identities &mdash; they borrow yours. When an agent signs into your CRM "the way a person would," it is using a human's session, a human's permissions and a human's name. Every action it takes is recorded in the audit log as that person. If the agent updates 400 records overnight, your compliance system believes an employee did, at 3am, and nothing in your infrastructure can prove otherwise. This is not a hypothetical failure mode. It is the default configuration of nearly every agentic product shipping right now.</p>
+<p><span class="lead">Why shared execution surfaces make it sharper:</span> SpaceXAI's own documentation states that multiple Bots on one account share a single cloud computer &mdash; the same cookies, the same filesystem, the same authenticated sessions &mdash; and warns explicitly that separate Bots are not a security boundary. So the blast radius of one agent's credential is every agent on the account. In identity terms, you have not deployed twelve service accounts with scoped permissions. You have deployed one credential that twelve autonomous processes can reach, with no way to tell them apart afterwards.</p>
+<p><span class="lead">What a real answer looks like:</span> non-human identity means the agent is a first-class principal in your identity provider, exactly like a service account but with the lifecycle discipline you apply to people. It has its own entry, its own scoped permissions granted independently of any employee's, its own entries in the audit trail, an owner who is accountable for it, an expiry date, and a revocation path that does not require disabling a human's access. If you can answer "who authorised this agent, what can it reach, and how do I turn it off at 2am on a Sunday" without touching an employee's account, you have non-human identity. If you cannot, you have an employee sharing their password with a robot &mdash; which is a thing your security policy almost certainly already prohibits, written before anyone imagined it would happen this way.</p>
+<p class="takeaway">The identity layer is where agentic AI meets your existing compliance regime, and it is the layer most organisations have not touched yet. Ask your agent vendors one question before the pilot, not after: does this thing get its own badge, or does it wear one of ours?</p>
+</div>
+
+<!-- CLOSING -->
+<section class="closing">
+<p>That's your signal for the week of August 10&ndash;16, 2026. The money arriving in AI this week is a vote of confidence worth taking seriously &mdash; and a set of terms worth reading closely.</p>
+<p class="sign">See you next week &mdash; still watching, still distilling.</p>
+<p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
+</section>
+
+</div>
+
+<footer><div class="wrap">&copy; 2026 Distilled AI Digest &middot; <a href="https://distilledaidigest.com/archive">Archive</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe on Beehiiv</a><div class="fine">You're reading the full issue. Share it freely.</div></div></footer>
+
+</body>
+</html>
