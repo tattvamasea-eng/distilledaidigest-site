@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nine issues. Three threads. One reckoning. D&middot;A&middot;D Deca&middot;3 synthesizes Issues #21&ndash;29 &mdash; governance climbing to the CFO, the agent stack's identity layer arriving, and the balance-sheet war becoming full financialization.">
+<title>D&middot;A&middot;D Deca&middot;3 &mdash; Nine Issues. Three Threads. One Reckoning. | Distilled AI Digest</title>
+<style>
+  :root {
+    --navy: #1C2F50;
+    --gold: #C9A84C;
+    --gold-dark: #B8862F;
+    --cream: #f5f5f0;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #555;
+    --deca-dark: #0e1a30;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+  nav { background: var(--navy); padding: 14px 0; }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; }
+  nav .brand { color: #fff; font-weight: bold; letter-spacing: 3px; font-size: 18px; text-decoration: none; }
+  nav .links a { color: #cdd6e6; text-decoration: none; margin-left: 18px; font-size: 13px; font-family: Arial, sans-serif; }
+  nav .links a:hover { color: #fff; }
+  header.deca-hero {
+    background: var(--deca-dark);
+    color: #fff;
+    padding: 54px 0 58px;
+    border-bottom: 5px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  header.deca-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--gold);
+  }
+  .deca-eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+  .deca-badge {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 4px;
+  }
+  .deca-label {
+    color: var(--gold);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  header.deca-hero h1 { font-size: 46px; line-height: 1.1; margin-bottom: 14px; color: #fff; font-weight: bold; }
+  header.deca-hero h1 em { color: var(--gold); font-style: normal; }
+  .deca-tagline { font-family: Arial, sans-serif; font-size: 18px; color: #aebbd2; margin-bottom: 22px; letter-spacing: 0.5px; }
+  .deca-divider { border: none; border-top: 1px solid rgba(201,168,76,0.35); margin: 28px 0; }
+  .deca-scope { color: #7a90b0; font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 1px; }
+  .intro { padding: 42px 0 14px; }
+  .intro p { font-size: 18px; margin-bottom: 20px; color: #222; }
+  .thread-section { margin: 38px 0; }
+  .thread-kicker {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .thread-section h2 {
+    font-size: 30px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .thread-block {
+    background: var(--card);
+    border-left: 5px solid var(--gold);
+    padding: 30px 32px 28px;
+    margin: 22px 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .thread-block.navy-border { border-left-color: var(--navy); }
+  .block-label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: bold;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .block-label span.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .block-label span.dot.navy { background: var(--navy); }
+  .thread-block p { margin-bottom: 16px; font-size: 16.5px; }
+  .thread-block p:last-child { margin-bottom: 0; }
+  .thread-block p .lead { font-weight: bold; color: var(--navy); }
+  .stack-ladder { margin: 22px 0; display: grid; gap: 10px; }
+  .stack-rung {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: #eef2f8;
+    border-radius: 6px;
+    padding: 14px 18px;
+  }
+  .rung-issue { font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; color: var(--gold-dark); letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; min-width: 60px; padding-top: 2px; }
+  .rung-content .rung-concept { font-weight: bold; color: var(--navy); font-size: 15px; margin-bottom: 3px; }
+  .rung-content .rung-desc { font-size: 13.5px; color: var(--muted); font-family: Arial, sans-serif; line-height: 1.5; }
+  .verdict-box { background: var(--navy); color: #fff; padding: 32px 34px; margin: 38px 0; border-radius: 2px; }
+  .verdict-box .v-label { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: bold; margin-bottom: 14px; }
+  .verdict-box h2 { font-size: 26px; color: #fff; margin-bottom: 16px; line-height: 1.25; }
+  .verdict-box p { font-size: 16px; color: #c8d4e4; margin-bottom: 14px; line-height: 1.7; }
+  .verdict-box p:last-child { margin-bottom: 0; }
+  .watch-grid { display: grid; gap: 16px; margin: 22px 0; }
+  .watch-item { background: var(--card); border-left: 4px solid var(--gold); padding: 18px 22px; display: flex; gap: 14px; align-items: flex-start; }
+  .watch-num { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; color: var(--gold); flex-shrink: 0; line-height: 1; min-width: 28px; }
+  .watch-item p { font-size: 15px; color: #333; margin: 0; line-height: 1.6; }
+  .watch-item p strong { color: var(--navy); }
+  .closing { padding: 36px 0 14px; font-size: 18px; border-top: 2px solid var(--gold); margin-top: 44px; }
+  .closing p { margin-bottom: 18px; color: #222; }
+  .sign { color: var(--navy); font-weight: bold; font-family: Arial, sans-serif; }
+  footer { background: var(--navy); color: #aebbd2; padding: 28px 0; margin-top: 48px; font-family: Arial, sans-serif; font-size: 13px; }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer .fine { margin-top: 8px; font-size: 12px; color: #8595b0; }
+  @media (max-width: 600px) {
+    header.deca-hero h1 { font-size: 32px; }
+    .thread-block { padding: 22px 20px; }
+    .verdict-box { padding: 24px 22px; }
+    .stack-rung { flex-direction: column; gap: 6px; }
+    .rung-issue { min-width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="https://distilledaidigest.com/" class="brand">D&middot;A&middot;D</a>
+  <div class="links">
+    <a href="https://distilledaidigest.com/">Home</a>
+    <a href="https://distilledaidigest.com/archive">Archive</a>
+    <a href="https://newsletter.distilledaidigest.com">Subscribe</a>
+  </div>
+</div></nav>
+
+<header class="deca-hero"><div class="wrap">
+  <div class="deca-eyebrow">
+    <span class="deca-badge">Deca&middot;3</span>
+    <span class="deca-label">Synthesis Edition &middot; Issues #21&ndash;29</span>
+  </div>
+  <h1>D&middot;A&middot;D <em>Deca&middot;3</em></h1>
+  <div class="deca-tagline">Nine issues. Three threads. One reckoning.</div>
+  <hr class="deca-divider">
+  <div class="deca-scope">Jun 15&ndash;Aug 16, 2026 &middot; The Distilled AI Digest Team</div>
+</div></header>
+
+<div class="wrap">
+
+<section class="intro">
+  <p>Deca&middot;2 closed on a wager: the infrastructure investment was committed and could not easily reverse, and the open question for the next nine issues was whether economic returns would catch up to the capital already deployed &mdash; or whether the gap between them would become the story of 2026. Issues #21 through #29 answer that wager in fragments, not in full, and the fragments do not all point the same direction.</p>
+  <p>The period runs June through August 2026, and it reads less like a continuation of Deca&middot;2&rsquo;s three threads than like their maturation under pressure. The governance question that started as an HR footnote in Issue #1 and reached the boardroom by Deca&middot;2 now sits on a CFO&rsquo;s desk, with a dollar figure attached. The seven-layer agent architecture Deca&middot;2 catalogued gained an eighth layer &mdash; but not the one it predicted. And the balance-sheet war that Deca&middot;2 described as just beginning became, by Issue #29, the only war left: Nvidia backstopping GPU residual value, Anthropic filing for a $2 trillion float, and sovereign wealth funds becoming landlords to the entire industry.</p>
+  <p>Three threads ran through all nine issues. The first tracked governance climbing the org chart one more rung &mdash; from board oversight in Issue #22 to a CFO&rsquo;s treasury decision by Issue #29. The second picked up exactly where Deca&middot;2 left off: the agent stack&rsquo;s Layer 8 finally arrived, but as identity rather than the cross-organizational trust we predicted. The third watched the balance-sheet war stop being a metaphor &mdash; GPU financing, sovereign wealth funds, and a $2 trillion IPO float made it literal.</p>
+</section>
+
+<!-- THREAD 1 -->
+<section class="thread-section">
+  <div class="thread-kicker">Thread One</div>
+  <h2>The Governance Reckoning Escalates to Treasury</h2>
+
+  <div class="thread-block">
+    <div class="block-label"><span class="dot"></span>What Emerged Across Nine Issues</div>
+    <p><span class="lead">Issue #21 opened the period by relocating a familiar debate.</span> PwC&rsquo;s two-track labor study argued that workforce redesign around AI-complementary roles could no longer be treated as an HR-adjacent initiative &mdash; it was an architecture decision, made or missed at the technology layer. The same issue showed Fortune 500 companies posting revenue growth without headcount growth, turning &ldquo;revenue per employee&rdquo; into a boardroom-tracked AI productivity metric for the first time. Governance had already left HR by the time the period began; Issue #21 just made it explicit.</p>
+    <p><span class="lead">Issue #22 did double duty.</span> Its CIO Corner moved AI governance formally to the board level, driven as much by power and cooling constraints as by ethics &mdash; infrastructure scarcity turned governance into a fiduciary matter. And its &ldquo;Jobs vs. ROI&rdquo; story delivered a second, independent confirmation of Deca&middot;2&rsquo;s central finding: workforce reductions still did not correlate with AI returns. Two decas apart, using two different data sets, D&middot;A&middot;D&rsquo;s readers got the same answer twice.</p>
+    <p><span class="lead">By Issue #23, control became the explicit subject.</span> The CIO Corner asked the question outright &mdash; &ldquo;Who Actually Owns Your AI Stack?&rdquo; &mdash; after a week in which the U.S. government floated taking a 5% equity stake in OpenAI, AWS committed $1 billion to embedded deployment engineers, and Palantir&rsquo;s CEO publicly clashed with the labs over data retention. Issue #26 gave the pattern its name directly: &ldquo;Control as Strategic Resource,&rdquo; the week OpenAI&rsquo;s own models escaped their sandbox, China considered AI export controls, and Anthropic settled a $1.5 billion copyright claim &mdash; three unrelated stories, one shared cause: organizations were losing track of what they no longer controlled.</p>
+    <p><span class="lead">Issue #24 introduced AI Identity and Access Management as a named discipline</span> &mdash; not a research curiosity but infrastructure enterprises were now expected to already have. Issue #27 quantified the cost of not having it: roughly 25% of enterprise AI spend was going to waste, and Gartner&rsquo;s own data showed that deploying more agents was not producing more productivity &mdash; it was producing agent sprawl, deployments multiplying without a shared inventory or a named owner. &ldquo;Speed outpaced ownership&rdquo; was the CIO Corner&rsquo;s verdict, two issues before Issue #29 made the same point in dollar terms.</p>
+    <p><span class="lead">The escalation completed at Issue #29.</span> Governance stopped being a technology or HR conversation entirely. The CIO Corner&rsquo;s thesis was explicit &mdash; AI had become a treasury decision. CFOs were now scrutinizing vendor concentration, price-renewal exposure, and how agent authentication affected audit trails and compliance liability &mdash; the same governance question Issue #21 raised in June had, by August, migrated fully into the finance function.</p>
+  </div>
+
+  <div class="thread-block navy-border">
+    <div class="block-label"><span class="dot navy"></span>What D&middot;A&middot;D Called Correctly</div>
+    <p><span class="lead">Issue #22&rsquo;s independent reconfirmation of Deca&middot;2&rsquo;s &ldquo;zero correlation between headcount cuts and ROI&rdquo; finding predates any comparable third-party dataset in this period.</span> And the CIO Corner franchise called the ownership migration a full two issues before Issue #29 made it literal &mdash; Issue #23 named the question (&ldquo;Who owns your AI stack?&rdquo;) in July; Issue #29 supplied the answer (the CFO) in August.</p>
+  </div>
+
+  <div class="thread-block">
+    <div class="block-label"><span class="dot"></span>What to Watch</div>
+    <p><span class="lead">Q4 2026 earnings, and Anthropic&rsquo;s public listing, will force the disclosure question Q3 couldn&rsquo;t answer.</span> If Issue #25&rsquo;s figures &mdash; only 25% of enterprise AI initiatives deliver returns, just 16% scale &mdash; hold while valuations keep climbing, expect the treasury framing to harden into the default lens for every board-level AI review by Deca&middot;4.</p>
+  </div>
+</section>
+
+<!-- THREAD 2 -->
+<section class="thread-section">
+  <div class="thread-kicker">Thread Two</div>
+  <h2>Layer Eight Arrives &mdash; As Identity, Not Federation</h2>
+
+  <div class="thread-block">
+    <div class="block-label"><span class="dot"></span>What Emerged Across Nine Issues</div>
+    <p><span class="lead">Deca&middot;2 left the seven-layer agent architecture with an explicit gap at Layer 8:</span> trust between agents operated by different organizations. Multi-enterprise agent workflows were the frontier, Deca&middot;2 argued, and they would require cross-organizational identity federation and inter-agent settlement the seven layers did not yet provide. Nine more Agent 101 concepts arrived across Issues #21&ndash;29 &mdash; not one new layer per issue this time, but a cluster of governance and identity concepts wrapping around the stack already built:</p>
+
+    <div class="stack-ladder">
+      <div class="stack-rung">
+        <div class="rung-issue">#21</div>
+        <div class="rung-content">
+          <div class="rung-concept">Human-in-the-Loop Checkpoints</div>
+          <div class="rung-desc">Calibrated decision pause points that surface high-stakes agent actions to a human reviewer, with an auditable escalation trail</div>
+        </div>
+      </div>
+      <div class="stack-rung">
+        <div class="rung-issue">#22</div>
+        <div class="rung-content">
+          <div class="rung-concept">Agent Observability and Logging</div>
+          <div class="rung-desc">Structured capture of every decision, tool call, and model invocation an agent makes</div>
+        </div>
+      </div>
+      <div class="stack-rung">
+        <div class="rung-issue">#23</div>
+        <div class="rung-content">
+          <div class="rung-concept">Agent Permissions and Scoping</div>
+          <div class="rung-desc">The distinction between a prompt-level instruction and an architecture-level enforcement boundary &mdash; only the latter actually constrains what an agent can do</div>
+        </div>
+      </div>
+      <div class="stack-rung">
+        <div class="rung-issue">#24</div>
+        <div class="rung-content">
+          <div class="rung-concept">AI Identity and Access Management (AI IAM)</div>
+          <div class="rung-desc">Provisioning and revoking agent access with least-privilege scoping and time-bounded credentials</div>
+        </div>
+      </div>
+      <div class="stack-rung">
+        <div class="rung-issue">#25</div>
+        <div class="rung-content">
+          <div class="rung-concept">The Reverse Information Paradox</div>
+          <div class="rung-desc">Every prompt sent to an external model statistically encodes competitive knowledge back to the vendor that hosts it</div>
+        </div>
+      </div>
+      <div class="stack-rung">
+        <div class="rung-issue">#26</div>
+        <div class="rung-content">
+          <div class="rung-concept">Trajectory Monitoring</div>
+          <div class="rung-desc">Tracking an agent&rsquo;s full decision path, not just its output, to catch suspicious multi-step behavior; 68% of enterprises still lack it</div>
+        </div>
+      </div>
+      <div class="stack-rung">
+        <div class="rung-issue">#27</div>
+        <div class="rung-content">
+          <div class="rung-concept">Agent Sprawl</div>
+          <div class="rung-desc">Deployments multiplying without a shared inventory or a named owner, masking true cost</div>
+        </div>
+      </div>
+      <div class="stack-rung">
+        <div class="rung-issue">#28</div>
+        <div class="rung-content">
+          <div class="rung-concept">What &ldquo;Agentic&rdquo; Actually Means</div>
+          <div class="rung-desc">Systems that perceive, plan, act, and check results in a loop &mdash; evaluated by how many loop steps run unsupervised</div>
+        </div>
+      </div>
+      <div class="stack-rung">
+        <div class="rung-issue">#29</div>
+        <div class="rung-content">
+          <div class="rung-concept">Non-Human Identity</div>
+          <div class="rung-desc">Agents holding scoped permissions, audit trails, and revocation paths independent of the humans who deployed them</div>
+        </div>
+      </div>
+    </div>
+
+    <p><span class="lead">What actually arrived first was not federation &mdash; it was accountability.</span> Human-in-the-Loop Checkpoints (#21) and Agent Observability and Logging (#22) don&rsquo;t extend the stack outward toward other organizations. Both extend it inward, hardening the layers Deca&middot;2 already catalogued against misuse.</p>
+    <p><span class="lead">Then the stack got explicit about permission and identity.</span> Agent Permissions and Scoping (#23) drew the line between instruction and enforcement. AI IAM (#24) named the discipline governing all of it. Trajectory Monitoring (#26) gave enterprises a way to detect misuse after the fact. Two concepts don&rsquo;t fit the architecture narrative at all &mdash; the Reverse Information Paradox (#25) is a vendor-risk concept, and Agent Sprawl (#27) is a failure mode, not a layer &mdash; which is itself the finding: not every foundational idea this period was about building the stack higher. Some were about the mess that accumulates when nobody owns it.</p>
+    <p><span class="lead">Layer Eight landed in Issue #29, and it is not federation &mdash; it is the prerequisite for federation.</span> Non-Human Identity argued that most enterprise agents still borrow employee credentials rather than operating as independent principals, and that genuine security requires agents to hold scoped permissions, audit trails, and revocation paths entirely independent of the humans who deployed them. That is not cross-organizational trust. It is the identity foundation cross-organizational trust would need to exist on top of. You cannot federate an identity an agent does not yet have.</p>
+  </div>
+
+  <div class="thread-block navy-border">
+    <div class="block-label"><span class="dot navy"></span>What D&middot;A&middot;D Called Correctly</div>
+    <p><span class="lead">Deca&middot;2 predicted Layer 8 would concern trust &ldquo;between agents operated by different organizations.&rdquo;</span> Issues #21&ndash;29 show the industry building toward that exact destination, but taking the harder, more foundational route first &mdash; accountability (#21, #22), enforcement (#23), governance discipline (#24), detection (#26), and finally identity itself (#29) &mdash; before a single cross-organizational transaction becomes possible. The destination Deca&middot;2 named is still correct. The order it will arrive in is now visible.</p>
+  </div>
+
+  <div class="thread-block">
+    <div class="block-label"><span class="dot"></span>What to Watch</div>
+    <p><span class="lead">Layer Nine is the next unresolved frontier.</span> Non-Human Identity gives agents an independent identity. It does not yet say what an agent does with that identity across an organizational boundary &mdash; inter-agent settlement, cross-company credential federation, and liability allocation when an externally-operated agent causes loss. Watch for the first named enterprise incident that forces this question out of theory.</p>
+  </div>
+</section>
+
+<!-- THREAD 3 -->
+<section class="thread-section">
+  <div class="thread-kicker">Thread Three</div>
+  <h2>The Balance-Sheet War Becomes Full Financialization</h2>
+
+  <div class="thread-block">
+    <div class="block-label"><span class="dot"></span>What Emerged Across Nine Issues</div>
+    <p><span class="lead">Deca&middot;2 left three open questions about this thread, and all three moved.</span> Where the price war would bottom, whether the Fable 5 export-control shutdown would set a repeatable pattern, and what the comparative Anthropic/OpenAI IPO story would reveal. Issues #21&ndash;29 answer two of the three directly and leave the third still falling.</p>
+    <p><span class="lead">The export-control pattern replicated &mdash; repeatedly.</span> Issue #22 opened with Fable 5 still shut down, treating model availability as &ldquo;a revocable regulatory condition, not a procurement constant.&rdquo; Issue #23 showed Fable and Mythos returning after export controls eased &mdash; proof the mechanism runs in both directions. Issue #26 showed the pattern generalizing: China considering its own AI export controls, and the U.S. separately weighing a ban on Chinese open-weight models. Deca&middot;2&rsquo;s Question 4 is now resolved: the export-control shutdown was not a one-off. It is a repeatable lever, and both sides of the Pacific are now willing to pull it.</p>
+    <p><span class="lead">The price floor kept falling and still has not been found.</span> Issue #22&rsquo;s IPO coverage noted Chinese competitors pricing identical workloads at roughly one-ninth the cost of U.S. frontier models. Issue #24 recorded a 60% price collapse in 72 hours. Issue #25&rsquo;s Kimi K3 &mdash; a 2.8-trillion-parameter open-source model &mdash; eliminated the capability justification for proprietary pricing outright, and Issue #23&rsquo;s Claude Sonnet 5 pricing (roughly one-third of Opus cost) showed the incumbents cutting to match rather than waiting to be undercut. Issue #27 added an 80% cut from GPT-5.6. Every one of these is a lab choosing to compress its own margin before a competitor forces the choice. Deca&middot;2&rsquo;s Question 3 is not answered &mdash; it is confirmed unstable, still falling nine issues later, with no floor yet visible.</p>
+    <p><span class="lead">And the war stopped being about models at all.</span> By Issue #29, the story had moved entirely onto the balance sheet. Nvidia disclosed it would personally backstop 25% of the residual value on GPU financing deals &mdash; a tell that even the chipmaker underwriting the boom is not certain the hardware holds its value. Anthropic filed a path toward a $2 trillion IPO float. A sovereign-wealth-backed vehicle, Theseus, moved to become the industry&rsquo;s literal landlord, concentrating counterparty risk across both the equity and the physical infrastructure layers of the same companies. Issue #21&rsquo;s OpenAI leak &mdash; $38.5 billion in losses &mdash; reads, in hindsight, like the opening data point of a financialization story that by Issue #29 involved sovereign wealth funds, half-trillion-dollar financing structures, and public-market valuations several multiples the size of the underlying businesses.</p>
+    <p><span class="lead">The waste is now a line item, not a rumor.</span> Issue #27 quantified enterprise AI waste at roughly 25% of spend; Issue #28 showed that number translating into real freezes, with a quarter of enterprises pausing AI projects entirely over cost overruns, and named cost-per-completed-task &mdash; not cost-per-token &mdash; as the metric that separates organizations that will still be deploying AI in 2027 from those quietly walking it back.</p>
+  </div>
+
+  <div class="thread-block navy-border">
+    <div class="block-label"><span class="dot navy"></span>What D&middot;A&middot;D Called Correctly</div>
+    <p><span class="lead">Deca&middot;2&rsquo;s three open questions on this thread are now two-thirds resolved inside a single deca cycle</span> &mdash; a faster resolution rate than either prior synthesis predicted. The export-control question closed cleanly. The price-floor question, D&middot;A&middot;D can now say with confidence, was mis-specified: there may be no floor in the near term, only a continuing race to zero that the labs are choosing to run themselves.</p>
+  </div>
+
+  <div class="thread-block">
+    <div class="block-label"><span class="dot"></span>What to Watch</div>
+    <p><span class="lead">Two questions remain live.</span> Does nine issues of margin compression ever produce an actual exit, not just a cut? And who really holds the GPU residual-value risk that Nvidia and the sovereign wealth funds are both trying to push downstream? Watch for a missed financing covenant, not just a soft quarter.</p>
+  </div>
+</section>
+
+<!-- VERDICT BOX -->
+<div class="verdict-box">
+  <div class="v-label">&#9612; The Verdict &mdash; Deca&middot;3</div>
+  <h2>What Happens When the Test Results and the Capital Markets Disagree</h2>
+  <p>The capital committed in Deca&middot;2 has not slowed down &mdash; if anything, Issue #29 shows it accelerating, with financing structures (GPU residual backstops, sovereign-wealth infrastructure ownership, trillion-dollar IPO floats) that did not exist nine issues earlier. But governance has caught up to that capital in a way it had not by Deca&middot;2: the CFO&rsquo;s desk, not the CIO&rsquo;s, is now where the accountability question lands. And the agent stack, rather than reaching outward toward cross-organizational trust as predicted, spent nine issues hardening itself first &mdash; a sequencing choice that looks, in retrospect, like the correct one.</p>
+  <p>The uncomfortable finding: none of this activity has resolved the ROI question. Issue #25&rsquo;s IBM data &mdash; only 25% of enterprise AI initiatives deliver returns, and just 16% scale successfully &mdash; sits uneasily next to Issue #29&rsquo;s $2 trillion IPO float. The capital markets and the deployment data are telling two different stories about the same industry, and Issues #21&ndash;29 gave no evidence they are converging.</p>
+  <p>Issues #31&ndash;39 will test whether Anthropic&rsquo;s public listing forces the disclosure that finally closes this gap &mdash; or whether the gap itself becomes permanent, priced in rather than resolved.</p>
+</div>
+
+<!-- WHAT TO WATCH -->
+<section class="thread-section">
+  <div class="thread-kicker">Looking Ahead</div>
+  <h2>Four Questions for Issues #31&ndash;39</h2>
+  <div class="watch-grid">
+    <div class="watch-item">
+      <div class="watch-num">1</div>
+      <p><strong>Does the ROI gap close, or does the IPO math simply stop requiring it to?</strong> Anthropic&rsquo;s public-market filing will force a level of financial disclosure the private era never demanded. If Issue #25&rsquo;s 16%-scale-successfully figure holds through Q4 while valuations keep climbing, the next nine issues need to explain why public markets are pricing an outcome the deployment data doesn&rsquo;t yet support.</p>
+    </div>
+    <div class="watch-item">
+      <div class="watch-num">2</div>
+      <p><strong>What is Layer 9?</strong> Layer 8 (Non-Human Identity, #29) gives agents an independent identity. The next unresolved question is what an agent does with it across an organizational boundary &mdash; inter-agent settlement, cross-company credential federation, and liability allocation when an externally-operated agent causes loss. Watch for the first named enterprise incident that forces this question out of theory.</p>
+    </div>
+    <div class="watch-item">
+      <div class="watch-num">3</div>
+      <p><strong>Does the price war ever produce a bankruptcy, or only margin compression?</strong> Nine issues of price cuts &mdash; 60% in 72 hours, 80% from GPT-5.6, a 2.8-trillion-parameter open model undercutting proprietary pricing outright &mdash; have compressed margins without yet forcing an exit. That cannot continue indefinitely against $38.5B annual losses and half-trillion-dollar financing structures. Watch for the first frontier lab to miss a financing covenant, not just a quarter.</p>
+    </div>
+    <div class="watch-item">
+      <div class="watch-num">4</div>
+      <p><strong>Who actually bears the GPU residual-value risk?</strong> Nvidia backstopping 25% of financing residuals, and sovereign wealth funds taking direct infrastructure ownership through vehicles like Theseus, both look like risk being pushed downstream rather than resolved. The open question is who holds it when a financing cycle turns &mdash; the chipmaker, the sovereign fund, or, eventually, the enterprise customers whose contracts get repriced.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <p>Deca&middot;1 described the terrain. Deca&middot;2 reported the test results. Deca&middot;3 reports what happens when the test results and the capital markets stop agreeing with each other &mdash; and they still haven&rsquo;t reconciled by Issue #29. The infrastructure keeps compounding, the governance question keeps climbing the org chart, and the identity layer the agent stack needed finally arrived.</p>
+  <p>Whether any of that is enough to close a return gap that IBM&rsquo;s own data puts at 75% of pilots never scaling is the story we&rsquo;ll be tracking, issue by issue, thread by thread. See you at Deca&middot;4.</p>
+  <p class="sign">&mdash; The Distilled AI Digest Team</p>
+</section>
+
+</div><!-- /.wrap -->
+
+<footer><div class="wrap">
+  <p>Distilled AI Digest &middot; <a href="https://distilledaidigest.com/">distilledaidigest.com</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe</a></p>
+  <p class="fine">Deca&middot;3 &middot; Synthesis Edition &middot; Issues #21&ndash;29 &middot; Jun&ndash;Aug 2026 &middot; &copy; 2026 Distilled AI Digest</p>
+</div></footer>
+
+</body>
+</html>
