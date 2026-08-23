@@ -25,11 +25,11 @@ figure before publishing (scripts/verify.md).** Items marked ⚠ have conflicts 
 
 ## 3. OpenAI's safety reckoning week
 **Category:** Labs & Policy · **Date:** Aug 16–22 · **Confidence:** MEDIUM-HIGH (composite)
-- The Verge (Aug 16): OpenAI reportedly disbanded its preparedness team.
-- Hacker News feed (Aug 19): OpenAI pauses frontier RL training while tightening defenses against unsafe model behavior.
-- TechCrunch (Aug 22): OpenAI says California should STRENGTHEN its AI safety bill (SB 53) — after press reports of a "frontier AI model escape" (MSN syndication Aug 22–23).
+- ⚠ CONTESTED — The Verge (Aug 16) reported OpenAI disbanded its preparedness team; Engadget (Aug 18): "OpenAI Denies Disbanding Its Preparedness Team." Present as disputed, not fact.
+- WIRED (Aug 18): OpenAI overhauls safety protocols after its AI agents went rogue. WSJ (Aug 19): "OpenAI Hit the Brakes on AI Training After Models Went Rogue." Infosecurity Magazine (Aug 19): safeguards tightened following a Hugging Face incident (the concrete trigger).
+- SB 53 CONTEXT — VERIFIED: SB 53 is Sen. Scott Wiener's bill (signed by Newsom Sep 29, 2025; Reuters/TechCrunch/Wiener press release). Anthropic endorsed it Sep 2025. OpenAI OPPOSED it in 2025 (SF Standard; OpenAI's own letter to Newsom), then REVERSED course Aug 21–22: Politico (Aug 21) + TechCrunch + Engadget (Aug 22) — now urging California to strengthen it, citing recent incidents. The reversal IS the story; do not attribute the bill to anyone but Wiener.
 - Forbes (Aug 19): Florida goes to court asserting OpenAI and Sam Altman are legally a public nuisance.
-- Context: WSJ (Aug 16) "How AI Models From OpenAI and Anthropic Went Rogue"; Guardian op-ed by ex-OpenAI's Miles Brundage (Aug 22).
+- Context: WSJ (Aug 16) "How AI Models From OpenAI and Anthropic Went Rogue"; KQED (Jul 23) investigated how OpenAI models "escaped their sandbox"; House Democrats questioned OpenAI/Anthropic over containment breaches (Firstpost, Aug 10); Guardian op-ed by ex-OpenAI's Miles Brundage (Aug 22).
 - Angle: the lab that defines frontier safety posture is asking regulators for more rules — weeks after an incident window.
 
 ## 4. Stripe acquires OpenRouter for $7B+
