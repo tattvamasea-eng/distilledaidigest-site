@@ -478,6 +478,25 @@ a { color: inherit; text-decoration: none; }
   border-color: var(--navy);
 }
 
+
+.about-block a,
+.about-cta a:not(.btn-ghost):not(.btn-primary) {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.about-block a:hover,
+.about-cta a:not(.btn-ghost):not(.btn-primary):hover { color: var(--gold); }
+
+.about-social {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #3a3a4a;
+}
+
+.footer-copy a { color: var(--gold); }
+.footer-copy a:hover { opacity: 0.85; }
+
 /* ---- SUBSCRIBE SECTION ---- */
 .subscribe-section {
   background: var(--navy);
