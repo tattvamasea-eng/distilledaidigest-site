@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="OpenAI ships GPT-6 Astra as the first Critical cyber model under its Preparedness Framework, CIOs confront outcome-based agent pricing, KPMG takes the first Big Four AIUC-1 cert, AWS pushes partners to rethink SI commercials, and Snowflake's Cortex AI Gateway frames the agentic control plane — plus Boomi's Agent Control Plane on the harness layer.">
+<title>Issue #33 — The Week the Control Plane Got Real | Distilled AI Digest</title>
+<style>
+  :root { --navy:#1C2F50; --gold:#B8862F; --cream:#f5f5f0; --card:#ffffff; --stack:#eef2f8; --ink:#1a1a1a; --muted:#555; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  nav { background:var(--navy); padding:14px 0; }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; }
+  nav .brand { color:#fff; font-weight:bold; letter-spacing:3px; font-size:18px; text-decoration:none; }
+  nav .links a { color:#cdd6e6; text-decoration:none; margin-left:18px; font-size:13px; font-family:Arial,sans-serif; }
+  nav .links a:hover { color:#fff; }
+  header.hero { background:var(--navy); color:#fff; padding:44px 0 50px; border-bottom:4px solid var(--gold); }
+  .issue-line { color:var(--gold); font-family:Arial,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+  header.hero h1 { font-size:40px; line-height:1.15; margin-bottom:16px; color:#fff; }
+  header.hero .dateline { color:#aebbd2; font-size:15px; margin-bottom:20px; }
+  .tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .tags span { border:1px solid var(--gold); color:var(--gold); font-family:Arial,sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:20px; }
+  .intro { padding:34px 0 10px; }
+  .intro p { margin-bottom:18px; font-size:18px; }
+  .story { background:var(--card); border-left:5px solid var(--gold); padding:30px 30px 28px; margin:26px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+  .story .kicker { font-family:Arial,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .story h2 { font-size:26px; line-height:1.25; color:var(--navy); margin-bottom:16px; }
+  .story p { margin-bottom:15px; }
+  .story p .lead { font-weight:bold; color:var(--navy); }
+  .callout { background:var(--cream); border-left:4px solid var(--navy); padding:16px 18px; margin-top:18px; }
+  .callout .label { font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; margin-bottom:6px; display:block; }
+  .callout p { margin:0; font-size:15px; color:#333; }
+  .section-head { font-family:Arial,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin:44px 0 4px; font-weight:bold; }
+  .quickhits { background:var(--card); border-left:5px solid var(--gold); padding:26px 30px; margin:26px 0; }
+  .quickhits h2 { font-size:24px; color:var(--navy); margin-bottom:6px; }
+  .quickhits .qh-sub { font-family:Arial,sans-serif; font-size:13px; color:var(--muted); margin-bottom:16px; }
+  .quickhits ul { list-style:none; }
+  .quickhits li { margin-bottom:14px; padding-left:16px; position:relative; font-size:15px; }
+  .quickhits li:before { content:"\25B8"; color:var(--gold); position:absolute; left:0; }
+  .stack-grid { display:grid; gap:14px; margin:22px 0; }
+  .stack-card { background:var(--stack); border-radius:6px; padding:18px 20px; }
+  .stack-card .layer { font-family:Arial,sans-serif; font-size:13px; font-weight:bold; color:var(--navy); margin-bottom:6px; }
+  .stack-card p { font-size:14px; margin:0; color:#333; }
+  .agent101 { background:var(--card); border-left:5px solid var(--navy); padding:30px; margin:26px 0; }
+  .agent101 h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .agent101 p { margin-bottom:15px; }
+  .agent101 .takeaway { font-style:italic; color:var(--navy); border-top:1px solid #ddd; padding-top:14px; margin-top:6px; }
+  .cio { background:var(--card); border-left:5px solid var(--gold); padding:30px; margin:26px 0; }
+  .cio h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .cio p { margin-bottom:15px; }
+  .cio p .lead { font-weight:bold; color:var(--navy); }
+  .closing { padding:30px 0 10px; font-size:18px; }
+  .closing p { margin-bottom:14px; }
+  .sign { color:var(--navy); font-weight:bold; }
+  footer { background:var(--navy); color:#aebbd2; padding:26px 0; margin-top:40px; font-family:Arial,sans-serif; font-size:13px; }
+  footer a { color:var(--gold); text-decoration:none; }
+  footer .fine { margin-top:8px; font-size:12px; color:#8595b0; }
+  @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="https://distilledaidigest.com/" class="brand">D&middot;A&middot;D</a><div class="links"><a href="https://distilledaidigest.com/">Home</a><a href="https://distilledaidigest.com/archive">Archive</a><a href="https://newsletter.distilledaidigest.com">Subscribe</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="issue-line">Issue #33 &middot; August 30&ndash;September 5, 2026</div>
+<h1>The Week the Control Plane Got Real</h1>
+<div class="dateline">August 30&ndash;September 5, 2026</div>
+<div class="tags">
+  <span>GPT-6 Astra</span>
+  <span>Outcome Pricing</span>
+  <span>AIUC-1</span>
+  <span>AWS Partners</span>
+  <span>Control Plane</span>
+</div>
+</div></header>
+
+<div class="wrap">
+
+<section class="intro">
+<p>Five stories this week, and every one of them is the same story wearing a different suit. A frontier lab rates its own model Critical for cyber under a framework it wrote. SaaS vendors try to bill you for resolved work instead of seats. A Big Four firm gets an agentic tool certified so someone else will underwrite the risk. A hyperscaler tells its partners that time-and-materials will not survive the AI era. A data cloud positions a gateway as the place agent traffic gets metered, attributed, and stopped.</p>
+<p>Underneath all of it: autonomy without a control plane is just spend with a longer blast radius.</p>
+</section>
+
+<!-- STORY 1 -->
+<article class="story" id="story-1">
+<div class="kicker">Story 01</div>
+<h2>OpenAI Ships Astra Across the Critical Cyber Line</h2>
+<p><span class="lead">The designation is the news, not the marketing:</span> On September 1, OpenAI published <em>Path to Astra</em>, stating that GPT-6 Astra meets the Critical cybersecurity capability threshold under its Preparedness Framework &mdash; the first model the company has designated at that level. On September 3 it released a safety overview and began rolling the model out; CSO Online and CNBC covered the public launch on September 3&ndash;4. Critical, in OpenAI's own words, means that with the right tools and access, Astra can find previously unknown security flaws and develop ways to exploit them across many well-protected systems without a person guiding each step.</p>
+<p><span class="lead">The eval numbers OpenAI disclosed are specific:</span> without production safeguards, Astra scored 100% on ExploitBench, up from 78.5% for predecessor GPT-5.6 Sol. On ExploitGym it reached a 42.4% success rate against 30.3% for Sol, while using fewer output tokens. On a set of vulnerabilities disclosed in the three months before launch &mdash; meant to test discovery rather than recall &mdash; OpenAI said Astra found two new zero-day vulnerabilities and is disclosing both to the software makers involved. The public model, OpenAI says, will refuse advanced offensive tasks such as generating proof-of-concept exploits.</p>
+<p><span class="lead">Daybreak is the defender gate, not a second ChatGPT:</span> advanced defensive workflows move through OpenAI Daybreak, a Trusted Access for Cyber program. A limited alpha group starts first; Daybreak Blue is described for coming weeks around vulnerability and proof-of-concept validation, malware analysis, and detection engineering, with stronger verification and human oversight for higher tiers. Astra itself rolls to ChatGPT Plus, Pro, Business, and Enterprise, plus the API and AWS, in phases &mdash; with Enterprise workspaces keeping Astra off until an administrator enables it.</p>
+<p><span class="lead">For CISOs and platform owners:</span> treat Critical as an operations event, not a press release. The same capability that shortens your defender window shortens an attacker's. Inventory where Astra &mdash; or any Critical-class model &mdash; can touch production credentials, require admin enablement rather than silent defaults, and decide now which defensive use cases belong in a vetted Daybreak-style path versus the public refusal boundary. Last week's Aur0ra lesson still applies: refusals are not a compensating control if the agent already holds the keys.</p>
+<div class="callout"><span class="label">&#9612; The Signal</span><p>Capability crossed a named threshold; the control plane did not magically appear with it. If your agent stack can call tools that change state, Astra's launch is your cue to separate public chat access from defensive cyber workflows, and to assume refusals alone will not hold under a determined operator.</p></div>
+</article>
+
+<!-- STORY 2 -->
+<article class="story" id="story-2">
+<div class="kicker">Story 02</div>
+<h2>Agentic Outcome Pricing Is Rewriting the CIO Contract</h2>
+<p><span class="lead">Seats are becoming the wrong unit:</span> CIO Dive reported this week that enterprise vendors are shifting toward outcome-based pricing as agentic AI takes work end to end. Vendors expect to be paid more, not less, as customers hand tasks to agents; the promised customer upside is budget predictability &mdash; a completed task is a defined unit, where token spend is a bill you discover after the fact. This is the SaaS commercial story: how the product vendor bills you once the agent is live inside the application.</p>
+<p><span class="lead">Zendesk and Pega are the clearest commercial examples:</span> Zendesk charges per resolution only when AI handles the issue from end to end. "If the AI resolves 90% of the problem, but 10% goes to a human agent, we don't count it," Chris Donato, Zendesk's president and chief revenue officer, told CIO Dive. Pegasystems charges a fixed fee per completed case &mdash; a dispute or claim &mdash; and absorbs underlying AI costs so the per-case price stays predictable, selecting cost-effective models per task, COO and CFO Ken Stillwell said. Both are product-side rate cards, not systems-integrator statements of work.</p>
+<p><span class="lead">Gartner's Coshow put cold water on the buzz:</span> only 19% of services buyers and 13% of seller-side service agreements use outcome arrangements today, said Tom Coshow, VP analyst at Gartner. The firm projects that through 2031, less than 25% of tech CEO services contracts will use outcome-based pricing. "Right now, what we see is that the increase in outcome-based pricing is more buzz than reality," Coshow said. His test for CIOs: "If the vendor isn't taking on the risk, why are you bothering with outcome-based pricing?"</p>
+<p><span class="lead">The negotiation work is the product:</span> Seton Hall CIO Paul Fisher noted that outcome pricing can save money versus per-call help desks, but only if outcomes are specified tightly enough to survive a dispute. That is the week's practical lesson for the SaaS side of the desk: outcome pricing without a shared definition of "done," a verification method, and consequences for misses is just a new vocabulary for the same invoice. Keep Story 04 separate &mdash; that one is about how your integrator gets paid to implement and adopt, not how Zendesk meters a ticket.</p>
+<div class="callout"><span class="label">&#9612; The Implication</span><p>Do not sign "outcome" language that leaves measurement to the vendor's model. Define the unit, who verifies it, the quiet period or reopen rules, and what happens when the agent escalates. If the vendor keeps all the risk on your side of the table, you bought a rebrand, not a partnership.</p></div>
+</article>
+
+<!-- STORY 3 -->
+<article class="story" id="story-3">
+<div class="kicker">Story 03</div>
+<h2>KPMG Takes the First Big Four AIUC-1 Certificate</h2>
+<p><span class="lead">Assurance is becoming a product category for agents:</span> On August 27, KPMG LLP and the Artificial Intelligence Underwriting Company announced that KPMG is the first Big Four firm to achieve AIUC-1 certification, covering aIQ Capture &mdash; a KPMG-developed agentic organizational intelligence platform that gathers expertise from professionals and synthesizes it for client delivery. CIO Dive covered the move as agentic tools seek independent security and reliability validation while AI risks mount. The certificate is attached to a named product, not to "KPMG AI" as a brand.</p>
+<p><span class="lead">The test count is the headline number, and it is not immunity:</span> KPMG said aIQ Capture underwent more than 900 technical tests spanning hallucinations, high-risk domain interactions, content safety, prompt injection, and other reliability and resilience scenarios. AIUC-1 itself &mdash; developed with contributors including Orrick, the Cloud Security Alliance, and MITRE &mdash; covers security, safety, reliability, accountability, data and privacy, and societal impact. Technical tests are re-run at least quarterly; operational and legal controls are re-audited annually. AIUC's own materials are explicit: a certificate demonstrates best-practice controls at the time of certification, not a guarantee that the system cannot fail.</p>
+<p><span class="lead">Peer set and consortium matter for procurement:</span> KPMG joins a certified cohort that already includes AI-native platforms such as Fin, Harvey, Cursor, and Lovable, and will join the AIUC-1 Consortium of more than 250 Fortune 1000 security leaders shaping agent standards. The firm also cited a prior ISO 42001 certification from November 2025. For buyers, the useful framing is scope: certificates typically cover specific products and versions, not an entire firm's AI estate &mdash; and "certified" is becoming language that insurance underwriters and RFP scorers both recognize.</p>
+<p><span class="lead">Read this next to Story 02:</span> outcome pricing asks who takes commercial risk on a completed case; AIUC-1 asks who will underwrite technical and operational risk on an agent that can act. Neither replaces your own controls. Both are becoming table-stakes vocabulary in RFPs for agentic platforms, and the CIOs who treat them as substitutes for least privilege will discover the difference the hard way.</p>
+<div class="callout"><span class="label">&#9612; Watch This</span><p>Certification &ne; immunity. Ask for the certificate's scope, standard version, and latest quarterly technical results. Treat "AIUC-1 certified" as evidence of a testing cadence you can diligence &mdash; not as permission to skip least privilege, human approval on irreversible actions, or your own red-team.</p></div>
+</article>
+
+<!-- STORY 4 -->
+<article class="story" id="story-4">
+<div class="kicker">Story 04</div>
+<h2>AWS Pushes Partners to Rebuild SI Pricing for AI</h2>
+<p><span class="lead">This is not the Zendesk story wearing a partner badge:</span> a separate CIO Dive / Channel Dive piece this week &mdash; Channel Dive dated August 28 &mdash; tracks how AWS is pressing software and services partners, especially systems integrators, to abandon multiyear, time-and-materials habits as AI shortens migrations and customers demand measurable value. Story 02 is how a SaaS vendor meters a resolved ticket. This story is how the channel bills you for implementation, migration, and adoption. Same word &mdash; "outcome" &mdash; two different invoices on your desk.</p>
+<p><span class="lead">The customer signal AWS is citing is blunt:</span> according to a 2026 AWS Market Study referenced in the coverage and in AWS's own Business Value Realization materials, 80% of customers interviewed are moving toward outcome-based commercial models. AWS partner-leader commentary points to flexible packaging &mdash; pay-as-you-go, usage-based surcharges layered onto old contracts (which confuse buyers), and new units customers understand: per workflow executed, document processed, insight, token, or solved customer case. Those units are SI commercial language, not CX rate cards.</p>
+<p><span class="lead">Business Value Realization is the partner money motion:</span> AWS launched BVR in Partner Central in June 2026, tying funding to demonstrated post-deployment outcomes across defined adoption stages. Partners that earn the Business Value Realization Competency are eligible for $50,000 in marketing development funds in 2026 and 2027, plus visibility benefits. Consulting, SI, and managed-services partners at advance or premier tier with a qualifying domain competency can enroll. The point for CIOs buying through SIs: your integrator's incentive structure is being rewritten by the hyperscaler, whether your MSA has caught up or not.</p>
+<p><span class="lead">Why the differentiation matters in the room:</span> if you collapse both stories into one "everyone is doing outcomes" slide, you will renegotiate the wrong contract. Ask your SaaS vendor how a resolution or case is defined and verified. Ask your SI whether AI compression of discovery and migration still shows up as open-ended T&amp;M, and whether they are in the BVR motion where AWS is putting partner money. One conversation is product commercial; the other is channel commercial. Treat them as such.</p>
+<div class="callout"><span class="label">&#9612; The Context</span><p>If your SI still prices AI work as classic T&amp;M with open-ended discovery, you are financing a model AWS is actively trying to retire. Ask for workflow- or KPI-tied commercial options, and check whether your partner is in the BVR motion &mdash; because that is where AWS is putting partner money.</p></div>
+</article>
+
+<!-- STORY 5 -->
+<article class="story" id="story-5">
+<div class="kicker">Story 05</div>
+<h2>Snowflake Positions Cortex AI Gateway as the Agentic Control Plane</h2>
+<p><span class="lead">Date first, because honesty is the story:</span> Snowflake's primary announcement landed July 28, 2026 &mdash; Black Hat timing &mdash; not as a fresh September press dump. Primary sources &mdash; Snowflake's press release and enterprise AI security blog, plus CIO and SiliconANGLE coverage from July 28&ndash;29 &mdash; are consistent enough to include here because the product language still frames this week's harness conversation, especially beside Boomi's September 2 Agent Control Plane ship on the Stack. This is architecture signal with an honest timestamp, not a manufactured scoop.</p>
+<p><span class="lead">What Snowflake claims the Gateway is:</span> Cortex AI Gateway is cast as a centralized layer that governs how first-party agents (including Snowflake CoWork and CoCo) and third-party agents (Claude Code, Cursor, and others) access models, tools, MCP servers, and enterprise systems. It routes requests, applies policies defined with Horizon Catalog, attributes token cost to teams or agents, and aims to prevent runaway spend. Snowflake says the Gateway builds on technology from its Natoma acquisition and supports a large set of MCP servers, with identity integrations called out in press materials.</p>
+<p><span class="lead">Why it belongs in a control-plane week:</span> the product language is unambiguous &mdash; "trusted control plane," runtime oversight, audit of tool calls, cost limits. Public preview was described as imminent at announcement; treat GA timing as still vendor-roadmap unless your account team confirms otherwise. Do not confuse Gateway positioning with a claim that most enterprises have finished deploying it, and do not pretend July became September.</p>
+<p><span class="lead">The CIO read across the logos:</span> whether you buy Snowflake's Gateway, Boomi's plane, or a homegrown MCP gateway, the category is converging on the same checklist &mdash; identity on every tool call, token caps, human approval for irreversible actions, and a single place to see which agent did what. That checklist is the story; the logo is secondary. Last week's AccuKnox AgentZ and Salesforce AIforce were the same shape in different clothes. This week the shape has a name most boards will recognize: control plane.</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>Treat Cortex AI Gateway as July architecture signal for the agentic control plane &mdash; metering, attribution, policy, MCP access &mdash; not as this week's exclusive scoop. The category is real; the GA date on your account is still a conversation, not a press release.</p></div>
+</article>
+
+<!-- GOVERNANCE WATCH -->
+<div class="quickhits">
+<h2>&#9878; Governance Watch</h2>
+<p class="qh-sub">Four signals for the people who have to build, run, and audit the agents &mdash; the CIO and the assurance function.</p>
+<ul>
+<li><strong>Gartner's inaugural MQ for Cloud AI Infrastructure is still procurement color:</strong> The July 2026 Magic Quadrant &mdash; Google Cloud positioned as a Leader (highest Ability to Execute and furthest Completeness of Vision in Google's telling), with AWS, Microsoft, and Oracle also among Leaders per CRN's rundown &mdash; remains useful shortlist language, not a fresh lead. Use it to pressure-test whether your AI infra RFP rewards coherent stack and governance, not only GPU count.</li>
+<li><strong>AIUC-1 is becoming insurance-underwritable agent language:</strong> Beyond KPMG's aIQ Capture certificate (Story 03), the AIUC-1 Consortium of 250+ Fortune 1000 security leaders and the standard's quarterly technical retest cadence are turning "can we insure this agent?" into a procurement question. Do not re-litigate the 900-test headline here; ask whether your highest-blast-radius agents have any external testing cadence at all.</li>
+<li><strong>Cloudflare is redrawing the open web for agents:</strong> Cloudflare's July 1 changelog splits AI traffic into Search, Agent, and Training controls for all customers, including Free. Starting September 15, 2026, new domains and applicable free-tier defaults block Agent and Training crawlers on ad-supported pages while allowing Search. Multi-purpose crawlers can be judged by the most restrictive applicable behavior &mdash; a live operational issue for anyone building browse-capable agents this month.</li>
+<li><strong>India's AI talent pay war went public:</strong> Analytics India Magazine on September 1 reported that NeGD/MeitY empanelment rates for senior AI roles run as high as &#8377;4.58 lakh per month to suppliers (roughly &#8377;55 lakh a year), covering AI/Solution Architect, Data Science Lead, and AI/ML Lead &mdash; supplier rates including overhead, not take-home. ThePrint's underlying reporting matches. Global capability centers and ministries are bidding for the same scarce pool.</li>
+</ul>
+</div>
+
+<!-- CIO CORNER -->
+<div class="section-head">CIO Corner</div>
+<div class="cio">
+<h2>Autonomy Without a Control Plane Is Just Spend</h2>
+<p>Strip the week down and the CIO question is operational, not philosophical: who governs the agent after the demo? Astra raises the capability ceiling and the dual-use stakes. Outcome pricing asks whether your SaaS contracts measure the right unit. AIUC-1 asks whether anyone outside your walls has tested the agent you are about to trust. AWS is rewriting how partners get paid for adoption. Snowflake and Boomi are productizing the control plane your whiteboard already sketched. Five different suits; one layer underneath.</p>
+<p><span class="lead">On the two pricing stories:</span> do not let "outcome" blur them. Story 02 is product commercial &mdash; Zendesk resolutions, Pega cases, Coshow's warning that most deals still do not share risk. Story 04 is channel commercial &mdash; SI T&amp;M under pressure, AWS BVR funding, pay-per-workflow packaging. Renegotiate each with the right counterpart. A help-desk rate card will not fix an open-ended migration SOW, and a partner MDF motion will not define when an AI ticket counts as resolved.</p>
+<p><span class="lead">Week synthesis:</span> the bottleneck moved. Last month the fight was model access and dependency. This week the fight is metering, permissioning, and proof &mdash; proof of outcomes for finance, proof of controls for risk, proof of defensive use for cyber. Teams that only escalate model quality will lose to teams that escalate governance throughput. Certification helps diligence; it does not replace least privilege.</p>
+<p><span class="lead">The concrete work for the next quarter:</span> (1) Pick one production agent path and install a real control-plane checklist &mdash; identity on tool calls, token caps, human approval on irreversible actions, and an audit trail you can hand to internal audit without a forensic project. (2) Annotate every "outcome" or AI line item in flight: define the unit, verification method, and risk share for SaaS; ask whether your SI is still on classic T&amp;M and whether they are in AWS's BVR motion. (3) Segment cyber and high-blast-radius workloads from general chat &mdash; decide what belongs behind admin-gated or Daybreak-style access before Critical-class models become default in your estate.</p>
+<div class="callout"><span class="label">&#9612; The Implication</span><p>Control planes are how autonomy becomes operable. Buy or build the metering and approval layer now, while capability headlines are still louder than audit findings &mdash; because the findings are coming, and "the model refused" will not be an acceptable answer.</p></div>
+</div>
+
+<!-- THE STACK -->
+<div class="section-head">The Stack</div>
+<h2 style="font-size:22px;color:var(--navy);margin:6px 0 4px;">Six Signals Across the AI Infrastructure Layers &mdash; August 30&ndash;September 5, 2026</h2>
+<div class="stack-grid">
+<div class="stack-card"><div class="layer">&#9889; Energy</div><p>Texas ghost demand stayed in the headlines: a September 1 Reuters analysis framed ERCOT's data-center interconnection surge &mdash; requests cited above 474 GW against a grid whose peak is a fraction of that &mdash; as "ghost" demand forcing audits and pauses. An interconnection queue entry is still not a megawatt you can bank on.</p></div>
+<div class="stack-card"><div class="layer">&#128190; Chips</div><p>Light beat, on purpose: Europe's EuroHPC JU signed a roughly &#8364;387.8 million (~$451 million) contract path for LUMI-AI in Finland with AMD Instinct MI430X accelerators in the design story (TechTimes, September 1). Sovereign and HPC buyers keep writing purchase orders that are not only Nvidia SKUs. (No rehash of Nvidia's $279B supply commitments from #32.)</p></div>
+<div class="stack-card"><div class="layer">&#9729; Cloud</div><p>Gartner's inaugural Magic Quadrant for Cloud AI Infrastructure (July 2026) remains the shortlist document circulating in procurement &mdash; Google Cloud as Leader in its own read, with other hyperscalers also in the Leaders set per trade coverage. Use it as scoring color, not as this week's scoop.</p></div>
+<div class="stack-card"><div class="layer">&#129504; Models</div><p>Short pointer only: GPT-6 Astra is the model event of the week &mdash; first OpenAI Critical cyber designation, Daybreak for defenders, phased ChatGPT/API/AWS rollout. Story 01 owns the depth; here the layer simply stops looking like a commodity safety story.</p></div>
+<div class="stack-card"><div class="layer">&#128295; Harness</div><p><strong>Boomi Agent Control Plane (September 2) is the harness beat.</strong> TechTarget and Boomi's own release describe a vendor-neutral control layer that centralizes visibility, inspects live traffic, applies identity and rate limits, caps tokens, and holds high-risk transactional actions for human approval. Enforcement rides the Boomi AI Gateway (MCP + LLM gateway, Lunar.dev tech); Boomi Connect exposes 1,000+ governed MCP tools. Not a full story &mdash; the productization of the control plane between agents and systems of record.</p></div>
+<div class="stack-card"><div class="layer">&#128241; Applications</div><p>NYC Public Schools announced September 2 a one-year moratorium on student-facing generative AI for grades 2K&ndash;8, affecting nearly 600,000 students, with limited high-school pilots and companion chatbots banned systemwide. Application-layer policy is arriving as forcefully as application-layer features.</p></div>
+</div>
+
+<!-- AGENT 101 -->
+<div class="section-head">Agent 101</div>
+<div class="agent101">
+<h2>The Folder Is the Agent</h2>
+<p>Every.to recirculated Kieran Klaassen's practitioner essay this week: after three months trying to make autonomous agent swarms work, he concluded the durable unit was not a fancier orchestration protocol. It was a folder &mdash; a project directory with a CLAUDE.md or AGENT.md, skill definitions, runbooks, and months of accumulated context. Point the same model at different folders and you get different specialists. He reports running dozens of these folder-agents across projects, with a thin dispatch layer routing work by writing files rather than inventing agent-to-agent networking.</p>
+<p><span class="lead">The teaching point for builders:</span> an agent is a model plus enough durable context that you do not re-explain the job every session. Conventions, institutional knowledge, operational memory, and specialized sub-agents living as files are the harness. The model card is almost beside the point. If your CLAUDE.md is still boilerplate copied from a blog post, you do not have an agent yet &mdash; you have a chat with amnesia. Specialize the files; keep the model interchangeable.</p>
+<p><span class="lead">What breaks when you skip the trust step:</span> Klaassen's rule is build it, use it, trust it, then orchestrate it. Hand a half-baked folder to a dispatcher and you get duplicate pull requests, stale tasks, and stalls you do not notice until you check. Multi-agent setups also burn far more tokens than single-agent work; parallelism without clear task boundaries is an expensive way to create review debt. Orchestration is not the starting line. It is what you earn after a single folder-agent already works under your hands.</p>
+<p><span class="lead">How this connects to the rest of the issue:</span> enterprise control planes &mdash; Boomi's Agent Control Plane, Snowflake's Cortex AI Gateway, Daybreak's gated cyber path &mdash; are the organizational version of the same idea. Constrain where the model can act and what context it inherits. Write the limits into the interface, not into a polite prompt. The folder pattern is the individual practitioner version of that control plane. Both beat "please be careful" instructions the same way tool-schema constraints beat prompt-only guardrails.</p>
+<p class="takeaway">Treat your project folder as the agent boundary. Specialize the files, not the model card. Orchestrate only flows you already trust by hand &mdash; otherwise you are scaling confusion with a nicer dashboard.</p>
+</div>
+
+<!-- CLOSING -->
+<section class="closing">
+<p>That's your signal for the week of August 30&ndash;September 5, 2026. Capability crossed a named threshold, contracts started chasing outcomes, and the control plane stopped being a whiteboard sketch. Autonomy is no longer the hard part. Operability is.</p>
+<p class="sign">See you next week &mdash; still watching, still distilling.</p>
+<p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
+</section>
+
+</div>
+
+<footer><div class="wrap">&copy; 2026 Distilled AI Digest &middot; <a href="https://distilledaidigest.com/archive">Archive</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe on Beehiiv</a><div class="fine">You're reading the full issue. Share it freely.</div></div></footer>
+
+</body>
+</html>
