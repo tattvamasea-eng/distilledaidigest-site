@@ -22,9 +22,11 @@ Checked against the full run in the repo (#14 onward; #1–13 are Beehiiv-only a
 #32 — The Tool Interface Contract (tool/function-calling mechanics)
 #33 — The Folder Is the Agent (the project folder as the durable agent boundary)
 #34 — The Sandbox (the bounded execution environment; deny-by-default containment vs. trusting refusals)
+#35 — The Token Bill (what one agent run costs; tokens re-billed every loop step; caching, context trimming, step budgets, model tiering)
+#36 — Planning and Task Decomposition (goal -> ordered subtasks, re-planning, stopping condition; the plan is where purpose becomes conduct)
 
-Whole areas now saturated — steer clear: identity / credentials / IAM (#24 + #29); observability/monitoring (#22 + #26); trust-boundary/injection (#31); containment/environment (#34 + #23 permissions — adjacent); tool/function-calling mechanics (#32).
+Whole areas now saturated — steer clear: identity / credentials / IAM (#24 + #29); observability/monitoring (#22 + #26); trust-boundary/injection (#31); containment/environment (#34 + #23 permissions — adjacent); tool/function-calling mechanics (#32); cost/token economics (#35); planning & task decomposition (#36).
 
-Candidate fresh directions not yet used: long-horizon coherence & why agents drift, memory & retrieval (RAG vs. agent memory / agentic retrieval), planning & task decomposition, multi-agent coordination protocols, evals-vs-guardrails distinction, cost/token economics of a single agent run, determinism vs. sampling, agent-to-agent auth (A2A), MCP as an interface standard.
+Candidate fresh directions not yet used: long-horizon coherence & why agents drift, memory & retrieval (RAG vs. agent memory / agentic retrieval), multi-agent coordination protocols, evals-vs-guardrails distinction, determinism vs. sampling, agent-to-agent auth (A2A), MCP as an interface standard.
 
 Note on #1–12: these ran on Beehiiv only (pre-repo) and their Agent 101 concepts are not captured here. If full historical de-duplication is needed, reconstruct them from the Beehiiv archive.

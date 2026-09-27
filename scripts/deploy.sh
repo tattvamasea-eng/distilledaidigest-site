@@ -35,10 +35,10 @@ git commit -m "Add Issue #${N}: ${TITLE}"
 git push origin main
 echo "✅ Pushed. Netlify deploying…"
 
-URL="https://distilledaidigest.com/issues/issue-${N}.html"
+URL="https://www.distilledaidigest.com/issues/issue-${N}.html"
 for i in $(seq 1 12); do
   sleep 10
-  CODE=$(curl -sI "$URL" | head -1 | awk '{print $2}')
+  CODE=$(curl -sIL "$URL" | grep -i '^HTTP' | tail -1 | awk '{print $2}')
   echo "  check $i: $CODE"
   [ "$CODE" = "200" ] && { echo "✅ LIVE: $URL"; exit 0; }
 done
