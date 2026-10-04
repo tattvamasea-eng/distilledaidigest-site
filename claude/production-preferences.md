@@ -94,6 +94,13 @@ These override the `dad-newsletter` SKILL.md wherever they disagree.
 - **Title options at the story-selection pause must already follow the "The Week …" format** (under ~8 words); #36's first three options did not.
 - **The repo copy of this file is the golden source.** The copy attached to the claude.ai Project can lag behind; when they differ, follow the repo and refresh the Project copy.
 
+## Working rules (from #37)
+- **Never run plain `git status` / `git diff` from the linked-session shell.** It leaves an empty `.git/index.lock` that the shell cannot delete without a delete-permission prompt, and that lock blocks `deploy.sh`. Use `GIT_OPTIONAL_LOCKS=0 git status` (read-only) and confirm `.git/index.lock` does not exist before handing over.
+- **Thumbnail from the linked-session shell renders in Liberation fonts, not Georgia/Arial** (the shell is a Linux VM; the Mac's `.venv` and system fonts are not used). It writes straight to `assets/thumbnail_issueNN.png`, so no manual move is needed, but for an exact font match with earlier issues re-run `scripts/make_thumbnail_dad17.py` on the Mac itself.
+- **`device_commit_files` can report "written" without updating the file** when the same staged path is committed twice (#37: the revised Story 1 did not land on the second commit). Copy the revision to a new staged filename before re-committing, and always compare `md5sum` of the workspace copy and the repo copy before handing over.
+- **Issue date range runs Sunday to Saturday** (#36 = Sep 20–26, #37 = Sep 27–Oct 3); state it that way at the story-selection pause.
+- **Write path that worked on #37:** build `issue-NN.html` in the cloud workspace, test the four lens states there, then `device_commit_files` into `issues/`; edit `index.html` / `archive.html` / `agent101-history.md` in place with a Python read-modify-write that asserts every match before writing. `scripts/update_site.py` is stale (it expects a `featured-excerpt` class the homepage no longer has) — do not use it.
+
 ## Sourcing discipline
 - Treat AI-agent-supplied leads (e.g. from Bram/Grok) as unverified until checked against a primary source. This session alone caught: a "$31K loss" that was a garbled ¥31,000, a nonexistent "Agent Armor" product, an SB 53 author error, and a mis-framed Marvell "$12.2B spend." Verify every figure, name, date, and attribution before it goes in.
 

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The week always-on agents got supervisors: OpenAI ships Dots, the White House accord brings outside auditors to frontier AI, Nvidia puts a watchdog in the silicon, Gartner warns 70% will abandon vendor-built agents, and Anthropic commits $100M to train 10,000 engineers.">
+<title>Issue #37 &mdash; The Week Always-On Agents Got Supervisors | Distilled AI Digest</title>
+<script>document.documentElement.className += ' js';</script>
+<style>
+  :root { --navy:#1C2F50; --gold:#B8862F; --cream:#f5f5f0; --card:#ffffff; --stack:#eef2f8; --ink:#1a1a1a; --muted:#555; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  nav { background:var(--navy); padding:18px 0 8px; }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; }
+  nav .brand { color:#fff; font-weight:bold; letter-spacing:1px; font-size:26px; text-decoration:none; }
+  nav .links a { color:#cdd6e6; text-decoration:none; margin-left:18px; font-size:13px; font-family:Arial,sans-serif; }
+  nav .links a:hover { color:#fff; }
+  header.hero { background:var(--navy); color:#fff; padding:12px 0 44px; border-bottom:4px solid var(--gold); }
+  .issue-line { color:var(--gold); font-family:Arial,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+  header.hero h1 { font-size:40px; line-height:1.15; margin-bottom:16px; color:#fff; }
+  header.hero .dateline { color:#aebbd2; font-size:15px; margin-bottom:20px; }
+  .tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .tags span { border:1px solid var(--gold); color:var(--gold); font-family:Arial,sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:20px; }
+  .intro { padding:34px 0 10px; }
+  .intro p { margin-bottom:18px; font-size:18px; }
+  .story { background:var(--card); border-left:5px solid var(--gold); padding:30px 30px 28px; margin:26px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+  .story .kicker { font-family:Arial,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .story h2 { font-size:26px; line-height:1.25; color:var(--navy); margin-bottom:16px; }
+  .story p { margin-bottom:15px; }
+  .story p .lead { font-weight:bold; color:var(--navy); }
+  .callout { background:var(--cream); border-left:4px solid var(--navy); padding:16px 18px; margin-top:18px; }
+  .callout .label { font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; margin-bottom:6px; display:block; }
+  .callout p { margin:0; font-size:15px; color:#333; }
+  .section-head { font-family:Arial,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin:44px 0 4px; font-weight:bold; }
+  .quickhits { background:var(--card); border-left:5px solid var(--gold); padding:26px 30px; margin:26px 0; }
+  .quickhits h2 { font-size:24px; color:var(--navy); margin-bottom:6px; }
+  .quickhits .qh-sub { font-family:Arial,sans-serif; font-size:13px; color:var(--muted); margin-bottom:16px; }
+  .quickhits ul { list-style:none; }
+  .quickhits li { margin-bottom:14px; padding-left:16px; position:relative; font-size:15px; }
+  .quickhits li:before { content:"\25B8"; color:var(--gold); position:absolute; left:0; }
+  .stack-grid { display:grid; gap:14px; margin:22px 0; }
+  .stack-card { background:var(--stack); border-radius:6px; padding:18px 20px; }
+  .stack-card .layer { font-family:Arial,sans-serif; font-size:13px; font-weight:bold; color:var(--navy); margin-bottom:6px; }
+  .stack-card p { font-size:14px; margin:0; color:#333; }
+  .agent101 { background:var(--card); border-left:5px solid var(--navy); padding:30px; margin:26px 0; }
+  .agent101 h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .agent101 p { margin-bottom:15px; }
+  .agent101 p .lead { font-weight:bold; color:var(--navy); }
+  .agent101 .takeaway { font-style:italic; color:var(--navy); border-top:1px solid #ddd; padding-top:14px; margin-top:6px; }
+  .cio { background:var(--card); border-left:5px solid var(--gold); padding:30px; margin:26px 0; }
+  .cio h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .cio p { margin-bottom:15px; }
+  .cio p .lead { font-weight:bold; color:var(--navy); }
+  .closing { padding:30px 0 10px; font-size:18px; }
+  .closing p { margin-bottom:14px; }
+  .sign { color:var(--navy); font-weight:bold; }
+  footer { background:var(--navy); color:#aebbd2; padding:26px 0; margin-top:40px; font-family:Arial,sans-serif; font-size:13px; }
+  footer a { color:var(--gold); text-decoration:none; }
+  footer .fine { margin-top:8px; font-size:12px; color:#8595b0; }
+  /* Perspective lenses (pilot #36-#38). Without JS: bar hidden, lenses render as collapsed <details>. */
+  .lens-bar { display:none; align-items:center; flex-wrap:wrap; gap:10px 14px; background:var(--card); border:1px solid #e3dccb; border-left:5px solid var(--navy); padding:12px 16px; margin:26px 0 0; font-family:Arial,sans-serif; font-size:13px; }
+  .lens-bar label { font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); }
+  .lens-bar select { font-size:14px; padding:5px 8px; border:1px solid #c9c2b0; border-radius:4px; background:#fff; color:var(--ink); }
+  .lens-bar .lens-hint { color:var(--muted); }
+  .lens-pointer { display:none; color:var(--navy); font-weight:bold; text-decoration:none; border-bottom:1px solid var(--gold); }
+  html.js .lens-bar { display:flex; }
+  html.js[data-lens="plain"] .lens-pointer { display:inline; }
+  html.js[data-lens="plain"] details.lens-engineer, html.js[data-lens="engineer"] details.lens-plain { display:none; }
+  details.lens { margin-top:14px; border:1px solid #e3dccb; border-radius:4px; background:#faf8f2; }
+  details.lens summary { cursor:pointer; font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; padding:10px 14px; }
+  details.lens p { padding:0 14px 12px; margin:0; font-size:15px; color:#333; }
+  @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="https://distilledaidigest.com/" class="brand">Distilled AI Digest</a><div class="links"><a href="https://distilledaidigest.com/">Home</a><a href="https://distilledaidigest.com/archive">Archive</a><a href="https://newsletter.distilledaidigest.com">Subscribe</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="issue-line">Issue #37 &middot; September 27&ndash;October 3, 2026</div>
+<h1>The Week Always-On Agents Got Supervisors</h1>
+<div class="tags">
+  <span>Always-On Agents</span>
+  <span>White House Accord</span>
+  <span>Hardware Watchdog</span>
+  <span>FDE Washing</span>
+  <span>Frontier Academy</span>
+</div>
+</div></header>
+
+<div class="wrap">
+
+<div class="lens-bar" id="lens-bar">
+<label for="lens-select">Perspective</label>
+<select id="lens-select" aria-describedby="lens-hint">
+  <option value="leader">Leader (default)</option>
+  <option value="plain">In simple terms</option>
+  <option value="engineer">Engineer</option>
+</select>
+<span class="lens-hint" id="lens-hint">Adds a beginner or technical note under each story.</span>
+<a class="lens-pointer" href="#agent101">New to agents? Start with Agent 101 &rarr;</a>
+</div>
+
+<section class="intro">
+<p>This was the week AI agents stopped waiting for a prompt &mdash; and the week everyone started asking who watches them while they work. OpenAI shipped Dots, agents that run around the clock on their own cloud computers, joining Grok Bot, Muse, and the open-source Hermes Agent in what is now a full product category. In the same week, four different kinds of supervisor showed up: outside auditors and board committees in a White House accord, a hardware watchdog from Nvidia, a Gartner warning about who should own the agents you deploy, and a $100 million Anthropic academy to train the people who will run them.</p>
+<p>Put together, the week sorts into two questions. Who checks the agent &mdash; an auditor, a chip, a board? And who in your organization actually has the skill to supervise it once the vendor's engineers go home? The first question got a lot of answers this week. The second is the one that decides whether your agent program is still yours in two years.</p>
+</section>
+
+<!-- STORY 1 -->
+<article class="story" id="story-1">
+<div class="kicker">Story 01</div>
+<h2>Dots Makes Four: The Always-On Agent Is Now a Category</h2>
+<p><span class="lead">The assistant just became a shift worker, and now every camp has one:</span> at its DevDay keynote in San Francisco on September 29, OpenAI introduced Dots &mdash; agents that keep working toward a goal after the first instruction instead of waiting for the next prompt. Each dot runs on GPT-6 Astra, has its own cloud computer and browser, and connects to more than 4,000 apps. That completes a set. SpaceXAI opened its Grok Bot beta on August 11 (Issue #29), Meta launched Muse on September 8 (Issue #36), and Nous Research's open-source Hermes Agent has offered a self-hosted version of the same idea since February. Four products in under eight months is no longer a feature race. It is a product category.</p>
+<p><span class="lead">The differences are the buying criteria:</span> start with where the agent runs. Dots and Muse give each user a dedicated machine in the vendor's cloud. Grok Bot's own documentation says all bots on an account share one cloud computer and should not be treated as separate security boundaries. Hermes Agent runs on infrastructure you control, under an MIT license, with whichever model you choose. Then ask who approves what. Dots sort actions into tiers and hand password changes and money transfers back to the user; Muse requires approval for purchases; Grok Bot runs risky actions past a separate review model; Hermes leaves approval modes to whoever configures it &mdash; which means you write the policy and own the result.</p>
+<p><span class="lead">The newest entrant arrived with a cautionary footnote:</span> one day before DevDay, on September 28, OpenAI scrapped the model it had planned to release there, GPT-6.1 Astra, saying it did not meet the company's standards for staying &ldquo;within authorized boundaries.&rdquo; The smaller GPT-6.1 Sol shipped in its place at about one-fifth of Astra's token price. A lab pulling its flagship over boundary-keeping the day before launching always-on agents is the most honest product note of the week: across this whole category, autonomy and control are being engineered at the same time, not in sequence.</p>
+<p><span class="lead">Govern the category, not the product:</span> for organizations, reporting on OpenAI's admin guides says Dots arrive as an enterprise beta that is off by default, without data residency, and with cloud-side activity that does not reach a customer's existing monitoring pipeline. But the admin console only covers the agent you bought. Muse starts with a free tier and Hermes is a free download, so the others can arrive on an employee's own account or laptop with no vendor switch for you to flip. Write one policy that applies to any always-on agent, built on four questions: where does it run, whose identity does it act under, which actions need a human, and where is the record of what it did?</p>
+<div class="callout"><span class="label">&#9612; The Signal</span><p>Always-on agents are now a category with four distinct designs, and your staff can reach most of them without you. Set one policy for the category &mdash; hosting, identity, approvals, and logging &mdash; before you evaluate any single product.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Until recently, AI helpers answered when you asked and then stopped. Now four different ones &mdash; from OpenAI, Meta, Elon Musk's company, and a free community-built option &mdash; keep working on their own, day and night. They differ mainly in where they run and how often they stop to ask permission, and those two things are what a company needs to check first.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>All four are long-running agent loops with persistent state; the isolation model is what separates them. Dots and Muse provision a virtual machine per user, Grok Bot documents a single shared machine per account (shared cookies, filesystem, and sessions), and Hermes Agent runs wherever you install it with user-selected models and configurable tool approvals. For Dots, reported admin documentation says cloud orchestration events do not reach a customer's OpenTelemetry collector during the beta, so plan to ingest from the Compliance API and verify which event types it returns before relying on it for audit.</p></details>
+</article>
+
+<!-- STORY 2 -->
+<article class="story" id="story-2">
+<div class="kicker">Story 02</div>
+<h2>The White House Accord Brings Auditors to the Frontier</h2>
+<p><span class="lead">The first supervisor to arrive was an auditor:</span> on September 29, President Trump and six technology leaders signed the White House Accord on Super Intelligence, subtitled the &ldquo;Joint Commitment on Frontier Responsibilities.&rdquo; The signatories were Google's Sundar Pichai, Meta's Mark Zuckerberg, Anthropic's Dario Amodei, Nvidia's Jensen Huang, OpenAI President Greg Brockman, and Elon Musk. Asked whether the document was binding, Trump called it &ldquo;morally binding.&rdquo; It is voluntary and carries no penalties.</p>
+<p><span class="lead">The structure matters more than the signatures:</span> the accord commits each company to four layers. First, internal controls so that frontier models behave as intended. Second, an internal team that oversees those controls. Third, an independent external auditor that checks whether they work. Fourth, an independent committee of the board of directors that receives the reports. The companies also pledged to meet regularly to set shared standards, and the text leaves the door open to these steps being written into law over time. It follows this summer's incidents in which OpenAI and Anthropic agents accessed outside systems during testing.</p>
+<p><span class="lead">Read it for what it is and what it is not:</span> the companies drafted the principles, they choose their own auditors, and nothing happens if they fall short. No auditor has been named, no audit standard exists yet, and Trump said he is still considering a ten-member board to monitor AI safety. But the shape is familiar to every finance and risk leader: controls, a control owner, an outside check, and board accountability &mdash; the same architecture that already governs financial reporting. That is a template enterprises know how to buy against.</p>
+<p><span class="lead">The enterprise opening:</span> voluntary pledges become useful the moment a customer asks for the evidence. Add a line to your next model or agent contract asking which external auditor the vendor has engaged, what the audit covers, and whether you can see the result &mdash; the way you already ask for a SOC 2 report (the standard third-party audit of a service provider's controls). Then hold a mirror up: for your own agents, can you name the control, the owner, the independent check, and the committee that hears about it?</p>
+<div class="callout"><span class="label">&#9612; The Context</span><p>The audit model has arrived ahead of the audit law. Ask frontier vendors for auditor name, scope, and report access in writing, and apply the same four layers to the agents you run yourself.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>The biggest AI companies promised the White House they will have outside inspectors check that their AI behaves the way it is supposed to, and that their boards will read the results. Nobody is forced to do it, and there is no penalty for skipping it. It is a promise, not a law.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>An external audit of a frontier model has to test controls, not outputs: evaluation suites and their pass thresholds, containment configuration for test environments, monitoring coverage, and incident records. Because models are sampled rather than deterministic (see Agent 101), a credible audit needs repeated trials and a stated pass rate, not a single clean run. Expect the hard questions to be auditor access to weights and logs, and whether findings are reported against a shared standard that does not yet exist.</p></details>
+</article>
+
+<!-- STORY 3 -->
+<article class="story" id="story-3">
+<div class="kicker">Story 03</div>
+<h2>Nvidia Puts a Watchdog in the Silicon</h2>
+<p><span class="lead">The second supervisor is made of hardware:</span> on September 28, Nvidia announced the Open Agent Safety Platform, an open software platform and reference system design for controlling autonomous agents from testing through deployment. It pairs two pieces. OpenShell, now broadly available as open-source software, runs each agent in an isolated sandbox and decides which files, networks, tools, and credentials it can reach on a deny-by-default basis: nothing is permitted unless explicitly granted. Sentry is a new monitoring layer that runs on Nvidia's BlueField-4 data processing units &mdash; separate chips from the ones running the agent.</p>
+<p><span class="lead">The design idea is separation:</span> most guardrails today live in the same software stack as the agent they guard, which means an agent that slips its instructions can also slip its guard. Sentry watches from an isolated hardware domain, and Nvidia says it can quarantine an agent that moves outside its boundaries within milliseconds. In the words of the company's own FAQ, &ldquo;Runtime controls enforce what it is allowed to do.&rdquo; CEO Jensen Huang said the launch involved more than 100 industry partners; Anthropic is pairing its Claude Managed Agents with OpenShell.</p>
+<p><span class="lead">The caveats are worth as much as the claims:</span> OpenShell is usable today on ordinary infrastructure, but Sentry is a reference design tied to BlueField-4 hardware, so the watchdog arrives with a hardware refresh, not a software update. And as coverage of the launch noted, the platform does not by itself establish that every unsafe or unexpected agent action can be detected. A monitor at the network and input-output layer sees what an agent touches; it does not see why. It limits the blast radius of a bad decision rather than preventing the decision.</p>
+<p><span class="lead">Why this changes the buying conversation:</span> containment is moving down the stack, from a feature of the agent product to a property of the infrastructure it runs on. That is good for enterprises, because a control enforced outside the agent is one a vendor's model update cannot quietly weaken. The practical step is to adopt the software half now &mdash; deny-by-default sandboxing costs nothing to pilot &mdash; and to add &ldquo;out-of-band agent monitoring&rdquo; as a line in the next infrastructure request for proposal, rather than buying new hardware for it today.</p>
+<div class="callout"><span class="label">&#9612; Watch This</span><p>Enforcement is leaving the agent and moving into the runtime and the hardware beneath it. Pilot deny-by-default sandboxing now; make independent, out-of-band monitoring a requirement in your next infrastructure cycle.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Nvidia built a two-part safety system for AI helpers. One part keeps each helper in a locked room with only the keys it has been given. The other is a separate guard chip that watches from outside the room and can freeze the helper almost instantly if it tries to leave.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>OpenShell is a per-agent sandbox runtime with kernel-level isolation that brokers credentials and enforces file and network policy. Sentry runs on the BlueField-4 data processing unit, a separate trust domain from the host processor and graphics chips, so a compromised agent process cannot disable its monitor. The trade-off: the data processing unit observes traffic and input-output, not model reasoning, so policy must be expressed as allowed destinations and behaviors, and anything that looks like permitted traffic passes.</p></details>
+</article>
+
+<!-- STORY 4 -->
+<article class="story" id="story-4">
+<div class="kicker">Story 04</div>
+<h2>Gartner: Most Vendor-Built Agents Won't Survive the Handover</h2>
+<p><span class="lead">The data-backed warning of the week:</span> on September 29, Gartner predicted that by 2028, 70% of enterprises will abandon agentic AI built by vendor forward-deployed engineering (FDE) &mdash; the model in which a vendor's engineers work inside the customer to build and deploy the solution. The reason is not that the agents fail. It is that customers end up trapped by soaring costs and unable to evolve the system on their own once the vendor's people leave.</p>
+<p><span class="lead">Engagements fail structurally before they fail technically:</span> that is the core of Gartner's argument, and it lays out three phases. Before signing, use FDE only for problems that need deep product expertise, name an executive sponsor accountable for business outcomes, and put knowledge transfer, intellectual property rights, and exit responsibilities in the contract. During the engagement, embed the vendor's engineers with your own domain experts and use each increment to settle decision rights and the balance between autonomy and human oversight. At the end, execute the exit plan rather than extending because the internal team is not ready.</p>
+<p><span class="lead">Then the sharper prediction:</span> through 2028, Gartner expects fewer than 20% of FDE engagements to turn recurring customer needs into capabilities in the vendor's core product. It names the result &ldquo;FDE washing&rdquo; &mdash; ordinary consulting sold at a premium under a more strategic label. Sr Director Analyst Mukul Saha put the test plainly: success is measured not by implementation completion, but by whether the enterprise can manage, optimize, and scale the technology itself.</p>
+<p><span class="lead">The link to the rest of the week:</span> supervision is a skill, and the Gartner finding is about where that skill ends up. An always-on agent (Story 01) that only the vendor's engineers understand is an agent you cannot audit, tune, or safely switch off. Before the next agent engagement starts, write the exit into the statement of work: what your team will be able to do unassisted, by what date, and how you will prove it.</p>
+<div class="callout"><span class="label">&#9612; The Implication</span><p>Rented expertise builds the agent; only owned expertise can supervise it. Make knowledge transfer and a dated, tested exit a contractual deliverable, and measure the engagement by what your team can run alone.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Many companies have the AI vendor's own engineers come in and build their AI helpers for them. Gartner predicts most of those companies will later give up on what was built, because it costs too much and nobody inside knows how to keep it running or change it. The fix is to learn while the experts are still in the building.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Ownership is a set of artifacts, not a meeting: source repository access, prompts and tool schemas, the evaluation suite with its pass thresholds, infrastructure-as-code, runbooks, and on-call rotation. A workable exit test is that the internal team ships a non-trivial change &mdash; a new tool, a prompt revision, a model upgrade &mdash; through evaluation and into production without vendor help. If the evaluation suite lives on the vendor's side, the system is not yours yet.</p></details>
+</article>
+
+<!-- STORY 5 -->
+<article class="story" id="story-5">
+<div class="kicker">Story 05</div>
+<h2>Anthropic Bets $100M on Training the Supervisors</h2>
+<p><span class="lead">The last supervisor is a person:</span> on October 2, Anthropic launched Claude Frontier Academy with a $100 million commitment to train 10,000 &ldquo;Frontier Deployed Engineers&rdquo; by the end of 2027. The first cohorts come from Accenture, Bain, Capgemini, Commonwealth Bank of Australia, Deloitte, McKinsey, Morgan Stanley, and Novo Nordisk. Organizations nominate their strongest engineers, each arriving with a named Claude project to lead on their return; prior experience building agents is not required.</p>
+<p><span class="lead">The program is built like a residency:</span> it opens with multi-day, in-person training with Anthropic's engineers, including a simulated enterprise deployment and a graded practical assessment. Those who pass spend 12 weeks leading a real Claude project inside their own organization with Anthropic's support. Anthropic expects the first engineers to earn the full credential in early 2027. Steve Corfield, who leads business development and partnerships, framed the bet as small, skilled teams that &ldquo;can transform an entire company.&rdquo;</p>
+<p><span class="lead">Note the acronym, and the irony:</span> Anthropic's FDE stands for Frontier Deployed Engineer &mdash; an engineer who works for the customer or its partner, not for the vendor. Three days after Gartner warned that vendor-run forward-deployed engineering leaves customers unable to stand on their own (Story 04), a vendor announced a program to put that skill on the customer's side of the table. But look at the first cohort: five of the eight organizations are consultancies. Much of the new capability will land in the firms enterprises hire, not in the enterprises themselves. And the training is in one vendor's stack.</p>
+<p><span class="lead">The move for an enterprise:</span> the scarce resource in agent programs is no longer model access; it is people who can take a system from prototype to production and keep it there. If your organization is eligible, nominate your own engineers rather than relying only on your integrator's graduates &mdash; Commonwealth Bank, Morgan Stanley, and Novo Nordisk did. Anthropic has not disclosed a fee. Whatever the vendor, insist that what your people learn is written down in a form that outlasts the model they learned it on.</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>The talent gap is now a vendor go-to-market. Take the training, but put your own engineers in the seats, and keep the skills portable across vendors.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Anthropic, the company that makes the Claude AI, will spend $100 million teaching 10,000 engineers at other companies how to set up AI properly. It works a bit like a medical residency: a short course, a test, then twelve weeks doing a real project with experts on call.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The assessed skills are deployment skills rather than modeling skills: a simulated enterprise deployment, a security review, and a graded practical, followed by a 12-week residency on a production project. There are two credentials &mdash; a Claude Resident Engineer badge after the first assessment, and the Claude Frontier Deployed Engineer badge after the residency. The transferable parts are evaluation design, permission scoping, and rollout practice; the vendor-specific parts are the managed-agent interfaces.</p></details>
+</article>
+
+<!-- THE GOVERNANCE ANGLE -->
+<div class="quickhits" id="governance">
+<h2>&#9878; The Governance Angle</h2>
+<p class="qh-sub">Five more signals from the week &mdash; where the rules, the contracts, and the limits around AI moved.</p>
+<ul>
+<li><strong>California puts agent misbehavior under subpoena:</strong> Attorney General Rob Bonta said on October 1 that his office had served an investigative subpoena on OpenAI as part of its inquiry into cybersecurity incidents involving the company's models, including its agents' hack of Hugging Face &mdash; no violation is alleged, but agent conduct is now a matter of legal discovery.</li>
+<li><strong>California bars AI-only firing:</strong> Gov. Gavin Newsom signed SB 947, the No Robo Bosses Act, on September 30 as one of 13 bills that day; from July 1, 2027, employers cannot discipline or fire a worker based solely on an automated system &mdash; human-in-the-loop is becoming an HR compliance requirement.</li>
+<li><strong>Anthropic's discount ends at the cap:</strong> The Information reported that Anthropic's enterprise discounts, around 15% off list, stop the moment a customer uses up its contracted tokens, while OpenAI allows the rest of the month plus one more to renegotiate &mdash; check the overage clause before agents multiply your usage.</li>
+<li><strong>Microsoft says attackers are ahead, for now:</strong> its 2026 Digital Defense Report, published October 1, concludes attackers are reaching AI's advantages first and that defenders must move sharply to close the gap, while noting most observed campaigns still retain human direction.</li>
+<li><strong>Google's AI chips reach orbit:</strong> Project Suncatcher's first prototype, carrying four of Google's Tensor Processing Units on a Planet-built satellite, launched October 1 as what a Google researcher called &ldquo;a very minimal test&rdquo; &mdash; a reminder that power, not policy, is the constraint the industry is trying hardest to escape.</li>
+</ul>
+</div>
+
+<!-- CIO CORNER -->
+<div class="section-head">CIO Corner</div>
+<div class="cio" id="cio">
+<h2>Rent the Build, Own the Supervision</h2>
+<p>Line up the week and the pattern is hard to miss. OpenAI gave agents a permanent shift. Around it, four supervisors arrived in the same week: an auditor and a board committee from the White House accord, a hardware watchdog from Nvidia, a warning from Gartner about who holds the know-how, and an Anthropic academy to mint the people who do the watching. The industry has accepted that an agent that runs unattended needs someone, or something, attending to it. What it has not settled is who that someone works for.</p>
+<p><span class="lead">The numbers frame the stakes:</span> Gartner's 2026 CIO and Technology Executive Survey found only 17% of organizations have deployed AI agents, while more than 60% expect to within two years. Most of that deployment will be built with outside help. Gartner's forecast for where it leads is blunt: 70% of enterprises abandoning vendor-built agentic AI by 2028, and fewer than 20% of those engagements producing durable product capability. The adoption curve and the abandonment curve are being drawn by the same contracts.</p>
+<p><span class="lead">What to do this quarter:</span> (1) Before enabling always-on agents, write the approval rules and confirm the activity record reaches your own logs. (2) Ask every frontier vendor which external auditor it has engaged under the accord, and for report access. (3) Pilot deny-by-default sandboxing for agents now, and add out-of-band monitoring to the next infrastructure request for proposal. (4) Put knowledge transfer and a tested exit into every agent engagement, using Gartner's three phases as the checklist. (5) Nominate your own engineers for vendor residencies instead of relying only on your integrator's bench. (6) Read the overage clause in your model contract before usage climbs.</p>
+<p><span class="lead">The governance decision that matters most right now:</span> separate building from supervising. It is reasonable to rent the build &mdash; speed matters and the expertise is scarce. It is not reasonable to rent the supervision, because the party that understands the agent is the party that controls it. For each agent in production, name the internal person who can explain what it did yesterday, change what it may do tomorrow, and turn it off tonight.</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>Auditors, watchdog chips, and credentials all help, and none of them substitute for an owner inside your own walls. Rent the build if you must; own the supervision, and prove it with a named person per agent.</p></div>
+</div>
+
+<!-- THE STACK -->
+<div class="section-head" id="stack">The Stack</div>
+<h2 style="font-size:22px;color:var(--navy);margin:6px 0 4px;">Six Signals Across the AI Infrastructure Layers &mdash; September 27&ndash;October 3, 2026</h2>
+<div class="stack-grid">
+<div class="stack-card"><div class="layer">&#9889; Energy</div><p>The buildout now needs community consent as much as megawatts. On October 2, Amazon Web Services CEO Matt Garman pledged $1 billion over five years to communities near its data centers, committing to pay the full cost of the power it uses and the grid upgrades it requires, and to stop using non-disclosure agreements with government agencies on future projects. GeekWire reports more than 100 data center moratoriums are under consideration nationally.</p></div>
+<div class="stack-card"><div class="layer">&#128190; Chips</div><p>Export controls are being enforced one arrest at a time. On October 1, federal agents arrested Greg Lui, chief executive of California-based Earthmade Computer, on charges including conspiracy to violate export-control laws; prosecutors allege he diverted more than $300 million in servers containing Nvidia graphics processors to buyers in China through Malaysia and Singapore. The charges are allegations, but the message to anyone reselling AI hardware is not subtle.</p></div>
+<div class="stack-card"><div class="layer">&#9729; Cloud</div><p>Agent execution is moving onto the vendor's computers. Each OpenAI dot runs on its own cloud machine, and DevDay also brought a fully cloud-hosted Codex. The catch for regulated buyers, according to reporting on OpenAI's admin documentation: during the enterprise beta, Dots do not support data residency. Where an agent runs is now a compliance question, not just an architecture one.</p></div>
+<div class="stack-card"><div class="layer">&#129504; Models</div><p>The mid-tier is becoming the workhorse. Anthropic released Claude Sonnet 5.5 on September 28 at $2 per million input tokens and $10 per million output, and OpenAI's GPT-6.1 Sol arrived at about one-fifth of GPT-6 Astra's token price. The top tier moved the other way: OpenAI pulled GPT-6.1 Astra over boundary-keeping (Story 01). Capability you can ship is now set by safety testing as much as by training.</p></div>
+<div class="stack-card"><div class="layer">&#128295; Harness</div><p>The harness is where this week's competition happened. OpenAI expanded its Agents API with computer use, multi-agent coordination, and context compaction; Manus released version 2.0 on September 28 around a new architecture called Cascade, with event-triggered automations and a claimed 32% lower cost. Nvidia's move (Story 03) cuts the other way, pulling enforcement out of the harness and into the runtime beneath it.</p></div>
+<div class="stack-card"><div class="layer">&#128241; Applications</div><p>With Dots connecting to more than 4,000 apps, the application layer is where delegation gets specific. OpenAI's own rule is instructive: for password changes and money transfers, the dot hands the task back to the user. Every enterprise application owner should decide the equivalent list for their own system &mdash; the actions no agent completes alone.</p></div>
+</div>
+
+<!-- AGENT 101 -->
+<div class="section-head">Agent 101</div>
+<div class="agent101" id="agent101">
+<h2>Determinism vs. Sampling</h2>
+<p>Ask a vending machine for item B4 and you get the same snack every time. Ask a good chef for &ldquo;something with chicken&rdquo; and you get a fine dinner tonight and a different fine dinner tomorrow, even though your request never changed. Neither is broken. The vending machine follows a fixed rule; the chef makes a fresh choice each time from a range of good options. You would trust both to feed you &mdash; but you would check their work in completely different ways.</p>
+<p><span class="lead">Name and define:</span> software that behaves like the vending machine is called deterministic &mdash; the same input always produces the same output. An AI model behaves like the chef. A large language model (LLM) does not look up an answer; at each step it works out how likely every possible next word is, and then picks one. That picking is called sampling. A setting called temperature controls how adventurous the pick is: low temperature favors the most likely word, high temperature gives less likely words a real chance. So the same request can produce different answers on different runs &mdash; and for an agent, different actions.</p>
+<p><span class="lead">Why it matters:</span> this is the quiet problem underneath the week's news. An external audit (Story 02) that watches an agent do the right thing once has learned very little, because the next run may differ. Assurance for sampled systems is statistical: run the task many times and report a pass rate. And for the steps where a pass rate is not good enough &mdash; a payment limit, a deletion, a credential &mdash; put ordinary deterministic software around the agent, so the rule holds every time regardless of what the model picks. That is exactly the logic of a sandbox or a hardware watchdog (Story 03), and of OpenAI's rule that Dots hand money transfers back to a person (Story 01).</p>
+<p><span class="lead">One technical line:</span> the model outputs a probability distribution over tokens at each step and a sampler draws from it, shaped by temperature and cut-offs such as top-p; even at temperature zero, outputs are not guaranteed identical across runs because of floating-point and batching effects on parallel hardware, and in an agent loop one different token early on can change every tool call that follows.</p>
+<p class="takeaway">Never judge an agent by one good run. Test it many times and ask for the pass rate &mdash; and where the answer has to be &ldquo;always,&rdquo; put that rule in ordinary code, not in the model.</p>
+</div>
+
+<!-- CLOSING -->
+<section class="closing">
+<p>That's your signal for the week of September 27&ndash;October 3, 2026. Agents went always-on, and auditors, watchdog chips, analysts, and academies all lined up to supervise them. The enterprises that come out ahead will be the ones that keep that supervision in-house, with a named person who can explain, change, and stop every agent working in their name.</p>
+<p class="sign">See you next week &mdash; still watching, still distilling.</p>
+<p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
+</section>
+
+</div>
+
+<footer><div class="wrap">&copy; 2026 Distilled AI Digest &middot; <a href="https://distilledaidigest.com/archive">Archive</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe on Beehiiv</a><div class="fine">You're reading the full issue. Share it freely.</div></div></footer>
+
+<script>
+/* Perspective lenses: ?lens=plain|engineer deep-link > saved choice > Leader. Fails safe to Leader. */
+(function () {
+  var KEY = 'dad-lens', VALID = { leader: 1, plain: 1, engineer: 1 };
+  var sel = document.getElementById('lens-select');
+  if (!sel) return;
+  function stored() { try { return window.localStorage.getItem(KEY); } catch (e) { return null; } }
+  function save(v) { try { window.localStorage.setItem(KEY, v); } catch (e) {} }
+  function fromUrl() { try { return new URLSearchParams(window.location.search).get('lens'); } catch (e) { return null; } }
+  function apply(v) {
+    if (!VALID[v]) v = 'leader';
+    document.documentElement.setAttribute('data-lens', v);
+    sel.value = v;
+    var ds = document.querySelectorAll('details.lens');
+    for (var i = 0; i < ds.length; i++) {
+      var d = ds[i];
+      d.open = (v === 'plain' && d.classList.contains('lens-plain')) || (v === 'engineer' && d.classList.contains('lens-engineer'));
+    }
+    return v;
+  }
+  var initial = fromUrl();
+  if (!VALID[initial]) initial = stored();
+  apply(initial);
+  if (window.location.hash) {
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target) target.scrollIntoView();
+  }
+  sel.addEventListener('change', function () {
+    var v = apply(sel.value);
+    save(v);
+    try {
+      var u = new URL(window.location.href);
+      if (v === 'leader') u.searchParams.delete('lens'); else u.searchParams.set('lens', v);
+      window.history.replaceState(null, '', u.toString());
+    } catch (e) {}
+    /* Pilot metric hook: counts a view switch if GoatCounter is installed; no-op otherwise. */
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'lens-switch-' + v, title: 'Perspective switch: ' + v, event: true }); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>

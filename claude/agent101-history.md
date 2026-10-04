@@ -24,9 +24,10 @@ Checked against the full run in the repo (#14 onward; #1–13 are Beehiiv-only a
 #34 — The Sandbox (the bounded execution environment; deny-by-default containment vs. trusting refusals)
 #35 — The Token Bill (what one agent run costs; tokens re-billed every loop step; caching, context trimming, step budgets, model tiering)
 #36 — Planning and Task Decomposition (goal -> ordered subtasks, re-planning, stopping condition; the plan is where purpose becomes conduct)
+#37 — Determinism vs. Sampling (why the same agent can act differently on the same task; temperature; assurance is a pass rate over repeated runs; deterministic code around high-stakes steps)
 
-Whole areas now saturated — steer clear: identity / credentials / IAM (#24 + #29); observability/monitoring (#22 + #26); trust-boundary/injection (#31); containment/environment (#34 + #23 permissions — adjacent); tool/function-calling mechanics (#32); cost/token economics (#35); planning & task decomposition (#36).
+Whole areas now saturated — steer clear: identity / credentials / IAM (#24 + #29); observability/monitoring (#22 + #26); trust-boundary/injection (#31); containment/environment (#34 + #23 permissions — adjacent); tool/function-calling mechanics (#32); cost/token economics (#35); planning & task decomposition (#36); determinism/sampling & run-to-run variance (#37).
 
-Candidate fresh directions not yet used: long-horizon coherence & why agents drift, memory & retrieval (RAG vs. agent memory / agentic retrieval), multi-agent coordination protocols, evals-vs-guardrails distinction, determinism vs. sampling, agent-to-agent auth (A2A), MCP as an interface standard.
+Candidate fresh directions not yet used: long-horizon coherence & why agents drift, memory & retrieval (RAG vs. agent memory / agentic retrieval), multi-agent coordination protocols, evals-vs-guardrails distinction, agent-to-agent auth (A2A), MCP as an interface standard.
 
 Note on #1–12: these ran on Beehiiv only (pre-repo) and their Agent 101 concepts are not captured here. If full historical de-duplication is needed, reconstruct them from the Beehiiv archive.
