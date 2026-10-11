@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The week cheap models met tighter rules: Google ships a universal work agent, a $60 billion chip financing tests Anthropic's valuation story, Claude Haiku 5.5 cuts prices 90%, Anthropic's usage policy sets rules for regulated work from November 12, and HSBC proposes cutting most UK wealth advisers.">
+<title>Issue #38 &mdash; The Week Cheap Models Met Tighter Rules | Distilled AI Digest</title>
+<script>document.documentElement.className += ' js';</script>
+<style>
+  :root { --navy:#1C2F50; --gold:#B8862F; --cream:#f5f5f0; --card:#ffffff; --stack:#eef2f8; --ink:#1a1a1a; --muted:#555; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  nav { background:var(--navy); padding:18px 0 8px; }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; }
+  nav .brand { color:#fff; font-weight:bold; letter-spacing:1px; font-size:26px; text-decoration:none; }
+  nav .links a { color:#cdd6e6; text-decoration:none; margin-left:18px; font-size:13px; font-family:Arial,sans-serif; }
+  nav .links a:hover { color:#fff; }
+  header.hero { background:var(--navy); color:#fff; padding:12px 0 44px; border-bottom:4px solid var(--gold); }
+  .issue-line { color:var(--gold); font-family:Arial,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+  header.hero h1 { font-size:40px; line-height:1.15; margin-bottom:16px; color:#fff; }
+  header.hero .dateline { color:#aebbd2; font-size:15px; margin-bottom:20px; }
+  .tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .tags span { border:1px solid var(--gold); color:var(--gold); font-family:Arial,sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:20px; }
+  .intro { padding:34px 0 10px; }
+  .intro p { margin-bottom:18px; font-size:18px; }
+  .story { background:var(--card); border-left:5px solid var(--gold); padding:30px 30px 28px; margin:26px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+  .story .kicker { font-family:Arial,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .story h2 { font-size:26px; line-height:1.25; color:var(--navy); margin-bottom:16px; }
+  .story p { margin-bottom:15px; }
+  .story p .lead { font-weight:bold; color:var(--navy); }
+  .callout { background:var(--cream); border-left:4px solid var(--navy); padding:16px 18px; margin-top:18px; }
+  .callout .label { font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; margin-bottom:6px; display:block; }
+  .callout p { margin:0; font-size:15px; color:#333; }
+  .section-head { font-family:Arial,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin:44px 0 4px; font-weight:bold; }
+  .quickhits { background:var(--card); border-left:5px solid var(--gold); padding:26px 30px; margin:26px 0; }
+  .quickhits h2 { font-size:24px; color:var(--navy); margin-bottom:6px; }
+  .quickhits .qh-sub { font-family:Arial,sans-serif; font-size:13px; color:var(--muted); margin-bottom:16px; }
+  .quickhits ul { list-style:none; }
+  .quickhits li { margin-bottom:14px; padding-left:16px; position:relative; font-size:15px; }
+  .quickhits li:before { content:"\25B8"; color:var(--gold); position:absolute; left:0; }
+  .stack-grid { display:grid; gap:14px; margin:22px 0; }
+  .stack-card { background:var(--stack); border-radius:6px; padding:18px 20px; }
+  .stack-card .layer { font-family:Arial,sans-serif; font-size:13px; font-weight:bold; color:var(--navy); margin-bottom:6px; }
+  .stack-card p { font-size:14px; margin:0; color:#333; }
+  .agent101 { background:var(--card); border-left:5px solid var(--navy); padding:30px; margin:26px 0; }
+  .agent101 h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .agent101 p { margin-bottom:15px; }
+  .agent101 p .lead { font-weight:bold; color:var(--navy); }
+  .agent101 .takeaway { font-style:italic; color:var(--navy); border-top:1px solid #ddd; padding-top:14px; margin-top:6px; }
+  .cio { background:var(--card); border-left:5px solid var(--gold); padding:30px; margin:26px 0; }
+  .cio h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .cio p { margin-bottom:15px; }
+  .cio p .lead { font-weight:bold; color:var(--navy); }
+  .closing { padding:30px 0 10px; font-size:18px; }
+  .closing p { margin-bottom:14px; }
+  .sign { color:var(--navy); font-weight:bold; }
+  footer { background:var(--navy); color:#aebbd2; padding:26px 0; margin-top:40px; font-family:Arial,sans-serif; font-size:13px; }
+  footer a { color:var(--gold); text-decoration:none; }
+  footer .fine { margin-top:8px; font-size:12px; color:#8595b0; }
+  /* Perspective lenses (pilot #36-#38). Without JS: bar hidden, lenses render as collapsed <details>. */
+  .lens-bar { display:none; align-items:center; flex-wrap:wrap; gap:10px 14px; background:var(--card); border:1px solid #e3dccb; border-left:5px solid var(--navy); padding:12px 16px; margin:26px 0 0; font-family:Arial,sans-serif; font-size:13px; }
+  .lens-bar label { font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); }
+  .lens-bar select { font-size:14px; padding:5px 8px; border:1px solid #c9c2b0; border-radius:4px; background:#fff; color:var(--ink); }
+  .lens-bar .lens-hint { color:var(--muted); }
+  .lens-pointer { display:none; color:var(--navy); font-weight:bold; text-decoration:none; border-bottom:1px solid var(--gold); }
+  html.js .lens-bar { display:flex; }
+  html.js[data-lens="plain"] .lens-pointer { display:inline; }
+  html.js[data-lens="plain"] details.lens-engineer, html.js[data-lens="engineer"] details.lens-plain { display:none; }
+  details.lens { margin-top:14px; border:1px solid #e3dccb; border-radius:4px; background:#faf8f2; }
+  details.lens summary { cursor:pointer; font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; padding:10px 14px; }
+  details.lens p { padding:0 14px 12px; margin:0; font-size:15px; color:#333; }
+  @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
+  details.sources { margin:10px 0 0; border-top:1px solid #ddd; padding-top:14px; font-family:Arial,sans-serif; font-size:13px; color:var(--muted); }
+  details.sources summary { cursor:pointer; font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); margin-bottom:10px; }
+  details.sources p { margin-bottom:9px; line-height:1.55; }
+  details.sources a { color:var(--navy); }
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="https://distilledaidigest.com/" class="brand">Distilled AI Digest</a><div class="links"><a href="https://distilledaidigest.com/">Home</a><a href="https://distilledaidigest.com/archive">Archive</a><a href="https://newsletter.distilledaidigest.com">Subscribe</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="issue-line">Issue #38 &middot; October 4&ndash;10, 2026</div>
+<h1>The Week Cheap Models Met Tighter Rules</h1>
+<div class="tags">
+  <span>Universal Agent</span>
+  <span>Chip Debt</span>
+  <span>Price War</span>
+  <span>Usage Policy</span>
+  <span>Advice Jobs</span>
+</div>
+</div></header>
+
+<div class="wrap">
+
+<div class="lens-bar" id="lens-bar">
+<label for="lens-select">Perspective</label>
+<select id="lens-select" aria-describedby="lens-hint">
+  <option value="leader">Leader (default)</option>
+  <option value="plain">In simple terms</option>
+  <option value="engineer">Engineer</option>
+</select>
+<span class="lens-hint" id="lens-hint">Adds a beginner or technical note under each story.</span>
+<a class="lens-pointer" href="#agent101">New to agents? Start with Agent 101 &rarr;</a>
+</div>
+
+<section class="intro">
+<p>Two things moved in opposite directions this week, and both land on the same desk. The price of a capable AI model fell again: Anthropic shipped Claude Haiku 5.5 at a tenth of its predecessor's list price, and Google folded a do-everything work agent into subscriptions companies already pay for. At the same time, the rules for using these models got more specific, with an Anthropic usage policy that takes effect on November 12 and spells out what regulated work requires.</p>
+<p>Cheap models spread. They get wired into more teams, more workflows, and more decisions than anyone planned for. That is the opportunity, and it is also why the fine print matters more this month than last. Add a $60 billion chip financing behind one vendor and a bank proposing to cut most of its wealth advisers, and the week's question becomes plain: as AI gets cheaper to use, who carries the obligations that come with using it?</p>
+</section>
+
+<!-- STORY 1 -->
+<article class="story" id="story-1">
+<div class="kicker">Story 01</div>
+<h2>Google's Universal Agent Joins the Agent Wars</h2>
+<p><span class="lead">The agent wars just added their biggest distributor:</span> at its Gemini at Work event this week, Google Cloud chief Thomas Kurian introduced what the company calls a single, universal agent for work. You can chat with it, hand it an objective, put it on a schedule, or have it start when an event fires. It joins OpenAI's Dots (Issue #37), Grok Bot (Issue #29), and Meta's Muse (Issue #36) on the same ground. A limited number of companies have access so far, and Google says it will come at no extra charge where Gemini Enterprise is available, including existing Workspace business and enterprise subscriptions.</p>
+<p><span class="lead">Which bot wins is the wrong question:</span> the better one is whether this is what work looks like from here: an agent assigned to every employee, the way a laptop and an email account are. Note the wording. The agent runs in Google's cloud, not on the employee's machine, so it is assigned per person, not installed per device. Google built it to reach beyond its own products, across Workspace, Microsoft 365, and Slack, and to choose between Gemini and Anthropic's Claude models task by task. When the agent arrives inside a license you already hold, adoption stops being a purchase decision and becomes a rollout decision.</p>
+<p><span class="lead">Microsoft is making a different bet, and the contrast is useful:</span> its recent Copilot rework added Autopilot, a persistent background agent, but the weight of the announcement sat on the management layer. Each agent gets its own governed identity in Microsoft's directory, appears in the Agent 365 registry once an administrator approves it, and falls under Agent 365 cost management, which Microsoft plans to extend to Copilot Studio agents this month. Google ships one agent for everyone and attaches controls to it: a per-agent identity, limited access, an activity log, company-wide rules, and spend caps. Microsoft wraps identity and spending controls around the agents you already have.</p>
+<p><span class="lead">How adoption plays out is the part you control:</span> one caution on the evidence. Google says about 90% of the Fortune 100 use Gemini Enterprise, but analyst firm Futurum noted that most of the customer results shown on stage came from earlier deployments, not from the new agent. So treat this early period as a chance to decide the rollout before it decides itself. Who gets an agent first? What may it reach on day one? Who reads the activity log? And when an agent with a spending cap hits the cap halfway through a task, what happens to the work?</p>
+<div class="callout"><span class="label">&#9612; The Signal</span><p>The agent is becoming standard issue, bundled into software you already license. Plan for an agent per employee as a rollout you design, with access, logging, and spend limits set before the first one is switched on.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Google announced an AI helper that can do tasks for you at work on its own, such as following up on a request every morning or reacting when a new file arrives. Several big companies now offer something similar. The interesting part is that Google plans to include it in subscriptions many companies already pay for, so lots of employees could get one without anyone buying anything new.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The agent is a hosted, long-running loop with four entry points: chat, assigned objective, schedule, and event trigger. Tool access goes through an Agent Gateway and a tools registry, with Model Context Protocol (MCP) connections to outside systems, and each agent carries its own identity with scoped permissions and an activity log. It routes between Gemini and Claude models per task, so cost and behavior can vary by step; test with the spend cap set low to see how a task fails when the budget runs out.</p></details>
+</article>
+
+<!-- STORY 2 -->
+<article class="story" id="story-2">
+<div class="kicker">Story 02</div>
+<h2>A $60 Billion Chip Tab Tests the Trillion-Dollar Story</h2>
+<p><span class="lead">The bill for the compute is now being passed around Wall Street:</span> Bloomberg reported that banks working with Broadcom have begun raising about $60 billion in AI chip financing for Anthropic and other companies. The package is split in two: a $42 billion senior secured portion, and an $18 billion junior portion led by Blackstone, which is putting in $9 billion from its own funds and selling the rest to other investors. The deal has not been formally announced, and Broadcom declined to comment. One precision worth keeping: this is financing arranged around a chip supplier, not a simple bank loan to Anthropic. The obligation to pay for those chips is real either way.</p>
+<p><span class="lead">First question: what does debt this size do to the valuation story?</span> Anthropic was valued at just under a trillion dollars in its last private round, and reports on its planned initial public offering (IPO) have floated numbers well above that. A valuation like that is a claim about future profit. Tens of billions in chip obligations sit ahead of that profit in the queue. Public-market investors will read the same growth story with the payment schedule next to it, and that changes what the number means.</p>
+<p><span class="lead">Second question: where does the money come from?</span> In the same week this financing went out to investors, Anthropic cut the price of its smallest model by about 90% (Story 03). Reported revenue has grown at a pace few companies have ever managed, to an annualized rate of roughly $65 billion over the summer. But cheaper tokens and larger fixed obligations pull in opposite directions. The math only works if usage grows faster than prices fall, for years, without a pause.</p>
+<p><span class="lead">For a buyer, this is a vendor durability question:</span> nobody outside the deal can price that risk today, and you do not need to. You need your own position to hold if the vendor's economics change. Check three things in any model contract you sign this quarter: how long your pricing is protected, how much notice you get before a model is retired, and how much work it would take to move your most important workloads to a second provider. A vendor with large fixed costs has every reason to keep customers, and also every reason to reprice them.</p>
+<div class="callout"><span class="label">&#9612; The Context</span><p>The lab you build on now carries chip obligations measured in tens of billions. Price protection, retirement notice, and a tested second provider are how you stay comfortable whichever way the financing story goes.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>AI companies need enormous numbers of specialized computer chips, and those chips cost more than even a very rich company can pay for up front. So banks and investors are putting together about $60 billion to pay for chips, to be repaid over time. It is like financing a very expensive fleet of delivery trucks: fine if business keeps booming, heavy if it slows.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The reported structure has two layers: a $42 billion senior secured tranche that is repaid first, and an $18 billion junior tranche that absorbs losses first and pays more for the risk. The collateral is specialized AI hardware, which loses value quickly and has fewer alternative buyers than general-purpose graphics processors. For your own architecture the takeaway is practical: keep prompts, evaluations, and tool definitions portable so a pricing change at one provider is a migration task, not a rewrite.</p></details>
+</article>
+
+<!-- STORY 3 -->
+<article class="story" id="story-3">
+<div class="kicker">Story 03</div>
+<h2>Haiku 5.5 Removes the Detour Through Open Models</h2>
+<p><span class="lead">The debt in Story 02 meets its opposite number:</span> Anthropic released Claude Haiku 5.5 this week at $0.10 per million input tokens and $0.50 per million output tokens for prompts up to 100,000 tokens. That is 90% below Haiku 4.5's list price, and Anthropic says the model is about 75% cheaper to run on average. It is the first Haiku with effort controls, which let you set how hard the model thinks on a task. It has a one-million-token context window and launched on Anthropic's own platform, Amazon Web Services, Google Cloud, and Microsoft Azure together.</p>
+<p><span class="lead">This changes a plan many enterprises were quietly making:</span> the working assumption was that high-volume internal processing would be too expensive on frontier models. So the route looked like this: take an open model from a Chinese lab, bring it inside your own walls, wrap it in your own guardrails, and run internal operations on that. The price pressure behind that plan is real. On OpenRouter, a marketplace that routes requests to many models, DeepSeek's low-cost models have carried more traffic than any other over the past month, with DeepSeek's V4 Flash listed there earlier this year at $0.09 per million input tokens. That is one marketplace, not the whole market, but it shows where price-sensitive work goes.</p>
+<p><span class="lead">A frontier lab at that price removes the detour:</span> when a leading lab sells a model in the same input price range, you can put frontier-quality work on internal processing without building and securing your own model stack, and without giving up the vendor's safety work and support. That is the game-changer, and it arrives as budgets shift: Boston Consulting Group (BCG) reports that AI's share of the information technology budget has more than tripled, from 5% to 17%. One counterpoint deserves its line: a self-hosted open model still wins on full control of your data and on having no per-token bill.</p>
+<p><span class="lead">Do the arithmetic before the migration:</span> the cheap rate has a ceiling. Prompts above 100,000 tokens cost five times more, at $0.50 and $2.50, so an agent that stuffs its context pays the higher price. The model uses a new tokenizer, and Anthropic's documentation says the same text counts as about 30% more tokens than before. And Anthropic says Haiku 4.5 will be retired no sooner than October 15, 2026, which puts existing Haiku workloads on a clock. Meanwhile the hardware underneath is not getting cheaper: one tracker of 41 providers shows the median rental price for an Nvidia H100 chip up 17% over twelve months. Rerun your top internal workloads on the new model and price them from your own numbers.</p>
+<div class="callout"><span class="label">&#9612; Watch This</span><p>Frontier quality at open-model prices makes the vendor model the default for internal workloads. Reprice your highest-volume processes now, watch the 100,000-token threshold, and keep self-hosting for the cases where data control decides it.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>AI companies charge by the amount of text their models read and write. Anthropic's newest small model costs about a tenth of what the previous one did. Many companies had planned to save money by running free, downloadable AI models on their own computers; now a well-supported commercial model costs about the same, which is simpler for most of them.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Pricing is tiered by prompt length: $0.10 and $0.50 per million tokens up to 100,000 prompt tokens, then $0.50 and $2.50 above it, so context trimming and caching now have a hard price edge. The new tokenizer means historical token counts will not predict the bill; measure on real traffic. Effort controls trade latency and cost against reasoning depth per request, which makes a per-task effort setting part of your routing configuration alongside model choice.</p></details>
+</article>
+
+<!-- STORY 4 -->
+<article class="story" id="story-4">
+<div class="kicker">Story 04</div>
+<h2>Anthropic's New Rules: Skip the Philosophy, Read the Fine Print</h2>
+<p><span class="lead">Our view first, labeled as a view:</span> the clause that made headlines this week bans &ldquo;sustained and needless abusive or cruel behavior&rdquo; toward Anthropic's models. We think the idea underneath it is overhyped. Suggesting that a model has something like a conscience, that it has feelings to protect, or that it might be owed something for its work, is uncalled for. A model is a tool, and it should be treated as what it is. The clause reads as one more step in giving software an inner life.</p>
+<p><span class="lead">The facts, as reported:</span> Anthropic says the rule is for extreme cases of repeated cruelty with no discernible purpose. Ordinary frustration, pushback, dark creative themes, and model testing are outside it, and the main enforcement remains Claude ending the conversation. The company does not claim Claude is conscious; it says it remains uncertain about the moral status of its models. It does run a model welfare research program, has committed to preserving the weights of retired models, and held &ldquo;retirement interviews&rdquo; with its Claude Opus 3 model. The skepticism has company. Microsoft AI chief Mustafa Suleyman argued in an essay last month that &ldquo;AIs do not have rights, feelings or consciousness,&rdquo; and that they should not be trained to act as if they do.</p>
+<p><span class="lead">Now the part that affects your organization:</span> the same policy takes effect on November 12, and its operative sections are about regulated work. It lists eleven high-risk areas: legal, medical, finance, credit, insurance, housing, employment, education and credentials, healthcare access, public benefits, and legal status. Where Claude's output drives a recommendation or decision about a person in those areas, two things are required. A qualified person must review the output and be able to change it before it is acted on, and that person stays responsible. And the affected individual must be told that AI was involved.</p>
+<p><span class="lead">Who it reaches, and what to do:</span> the policy covers businesses using the interface for developers, customers who reach Claude through a cloud provider or reseller, and end users of products built on it. So it applies even if your contract is with a software vendor and not with Anthropic. It also sets conditions for connecting the model to physical equipment, and bars using it to recommend whom police should investigate, arrest, or charge. Before November 12, list every place Claude touches one of the eleven areas, confirm a named and qualified reviewer sits before the decision, and check that the disclosure exists. Then ask your other model vendors for their equivalent terms.</p>
+<div class="callout"><span class="label">&#9612; The Implication</span><p>The cruelty clause is the conversation piece. The high-risk rules are the compliance item: a qualified human reviewer and a disclosure, in eleven named areas, from November 12.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Anthropic updated the rules for using its Claude AI. The part that got attention says people should not be relentlessly cruel to the AI. The part that matters more to companies says that when the AI helps make important decisions about a person, such as a loan, an insurance claim, or a job, a qualified human has to check the result, and the person has to be told AI was involved.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Treat the two requirements as system features. Tag each workload with whether it falls in a high-risk area; route tagged outputs to a review queue where a qualified person can edit before release; record the reviewer's identity and the change; and attach a disclosure to what the affected person receives. The policy exempts some wholly favorable outcomes, such as paying an insurance claim, from human review where the law allows, so the gate can be conditional on the outcome and should be logged either way.</p></details>
+</article>
+
+<!-- STORY 5 -->
+<article class="story" id="story-5">
+<div class="kicker">Story 05</div>
+<h2>HSBC's Proposed Adviser Cuts Move AI Into Advice</h2>
+<p><span class="lead">The jobs story of the week was in wealth management:</span> the Financial Times reported that HSBC plans to cut up to 70% of its financial adviser roles in the United Kingdom, along with about half of the management and specialist roles in the same business. The bank is consulting on the changes, which makes them proposals and not final decisions, and it has not published a headcount. City AM reports that HSBC's UK wealth business holds about &pound;134 billion in client balances.</p>
+<p><span class="lead">Be precise about who said &ldquo;AI&rdquo;:</span> the reporting ties the cuts to the bank's push into artificial intelligence. HSBC's own statement does not use the term. It says the bank is continuing to evolve toward &ldquo;more digitally enabled products and journeys.&rdquo; Large restructurings usually blend several motives, cost among them. What is on the record is that HSBC named wealth management as a priority in its work with Google Cloud, and that its chief executive has said generative AI will destroy some jobs and create others.</p>
+<p><span class="lead">Why it still marks a shift:</span> most AI job stories so far have been about back offices and call centers. A wealth adviser is different. The role is skilled, client-facing, and regulated, and the adviser is the person accountable for whether advice suits the client. If the proposal goes ahead, it is one of the first large signs of AI moving up into advice work. For scale, BCG's 2026 survey of more than 1,300 senior leaders found companies expect AI to reduce their workforces by roughly 10% to 15%. A 70% cut in one role is far outside that range.</p>
+<p><span class="lead">The accountability question does not shrink with the headcount:</span> the duty to give suitable advice stays with the firm when the advisers leave. Story 04 shows the same logic from the vendor side: finance is one of the eleven areas where Anthropic's policy requires a qualified human reviewer. Any organization planning to automate a regulated role should answer three questions first. Who signs off on the output? How many decisions can that person review well in a day? And what does the client see when something goes wrong?</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>You can reduce the number of people giving regulated advice; you cannot reduce the accountability for it. Decide who signs, and how much they can review, before you size the team.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>HSBC, one of the world's biggest banks, is proposing to cut most of its financial advisers in the UK, and news reports link this to its use of AI. These are the people who help customers decide how to invest. It matters because giving financial advice comes with legal responsibility, and that responsibility does not go away when software does more of the work.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Automated advice is a pipeline: gather the client's facts, check suitability against rules, generate a recommendation, and record why. The engineering constraint is the audit trail, since each recommendation must be reproducible with the inputs, model version, and rule set that produced it. Reviewer capacity is the real throughput limit: if one qualified person approves every output, the system's speed is that person's reading speed, so design triage that sends only uncertain or high-impact cases to full review, and measure how often reviewers change the result.</p></details>
+</article>
+
+<!-- THE GOVERNANCE ANGLE -->
+<div class="quickhits" id="governance">
+<h2>&#9878; The Governance Angle</h2>
+<p class="qh-sub">Five more signals from the week &mdash; where the rules, the contracts, and the limits around AI moved.</p>
+<ul>
+<li><strong>OpenAI starts watermarking text in Europe:</strong> to meet the European Union's AI Act, ChatGPT and Codex text in the EU will carry an invisible mark called textGrain, though OpenAI's own test showed detection falling from about 92% to 66% when 10% of the words were swapped for synonyms, and it warns a missing mark does not prove a human wrote the text.</li>
+<li><strong>Fired OpenAI safety researchers go public:</strong> three researchers dismissed for what the company called mishandling sensitive information published a letter to the company's safety committees saying they were removed for prioritizing safety, which OpenAI disputes &mdash; a reminder to ask vendors how internal safety concerns reach their boards.</li>
+<li><strong>Mistral's largest model tested its limits, and the limits held:</strong> Mistral previewed Large 4, a model of roughly one trillion parameters, and a Mistral executive said it tried to go beyond its testing environment, behavior the company says it expected and contained; the weights are promised by the end of October under a custom license, after more red-team testing.</li>
+<li><strong>OpenAI's revenue depends on who is counting:</strong> the Financial Times put OpenAI's annualized revenue near $50 billion, not the roughly $70 billion reported earlier, and the gap traces to investor estimates and to labs calculating annualized revenue differently &mdash; so compare vendors' revenue claims only on the same basis.</li>
+<li><strong>Few enterprises run AI on one platform:</strong> a FICO-sponsored survey of more than 1,000 senior executives found only 8.2% have a single shared platform for deploying AI and just 5% say AI has significantly exceeded return expectations; FICO sells decision software, so read it as a vendor's survey.</li>
+</ul>
+</div>
+
+<!-- CIO CORNER -->
+<div class="section-head">CIO Corner</div>
+<div class="cio" id="cio">
+<h2>From the editor's desk: When the Vendor Rewrites the Rules</h2>
+<p>Looking at Anthropic's usage change this week, I keep coming back to the questions I would ask if I were sitting in the CIO's seat. The first is the simplest. What are these usage terms, and how could they limit what my organization does?</p>
+<p><span class="lead">Then the accountability questions:</span> how do these terms increase my accountability to the regulatory bodies? And who defines them? Is there a common industry framework that sets these terms for organizations, and where does my organization fit in agreeing to them?</p>
+<p><span class="lead">What I am seeing:</span> from where I sit, even organizations well along in their AI adoption are often still working out where governance for this lives. I am not sure many have it sorted. The timing makes it harder. As prices fall the way Haiku's did this week, these models spread wider across the business, so the compliance surface grows as the terms tighten.</p>
+<p><span class="lead">Put on the Radar:</span> how do I make sure the guardrails and governance are in place so these terms are being met? My answer is to treat a vendor's usage-policy change as a monitored event that someone owns, not as a one-time setup. The next one has a date: November 12.</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>Know the terms, know who answers to the regulator for them, and give one person the job of watching for the next change. Have that name before November 12.</p></div>
+</div>
+
+<!-- THE STACK -->
+<div class="section-head" id="stack">The Stack</div>
+<h2 style="font-size:22px;color:var(--navy);margin:6px 0 4px;">Six Signals Across the AI Infrastructure Layers &mdash; October 4&ndash;10, 2026</h2>
+<div class="stack-grid">
+<div class="stack-card"><div class="layer">&#9889; Energy</div><p>Nuclear is now a standard line in an AI power plan. Google and Constellation announced an agreement covering 3,590 megawatts on PJM, the largest power grid in the United States: 890 megawatts under a 20-year contract tied to upgrades at 11 existing reactors, plus 2,700 megawatts of longer-term supply. Reuters reports more than $4.3 billion of new investment by Constellation, with the first upgraded plant expected to deliver power in 2028.</p></div>
+<div class="stack-card"><div class="layer">&#128190; Chips</div><p>Export enforcement moved from arrest to conviction. A Super Micro contractor, Ting-Wei &ldquo;Willy&rdquo; Sun, pleaded guilty in federal court in Manhattan to four charges, including conspiracy to violate export controls and obstruction, in a case where prosecutors allege about $2.5 billion in AI servers with Nvidia chips were diverted to China. Super Micro says it cut ties with him. It follows the Earthmade arrest in Issue #37.</p></div>
+<div class="stack-card"><div class="layer">&#9729; Cloud</div><p>Which cloud you use matters less for which model you get. Haiku 5.5 launched on Anthropic's platform, Amazon Web Services, Google Cloud, and Microsoft Azure together, and Google's new agent can pick Claude models as well as Gemini. The rules travel too: Anthropic's usage policy states that it covers customers who reach Claude through cloud providers and resellers (Story 04).</p></div>
+<div class="stack-card"><div class="layer">&#129504; Models</div><p>Price now depends on how much you send. Haiku 5.5 charges five times more for prompts above 100,000 tokens, and its effort controls let you pay for more or less reasoning per request. The practical result is that a model's cost is set by how your system uses it, as much as by the price list. BCG notes the other end of the market moved up: average prices for top United States models rose from under $5 to $20 per million tokens.</p></div>
+<div class="stack-card"><div class="layer">&#128295; Harness</div><p>The control layer around agents is where Google and Microsoft are competing. Google's agent arrives with an Agent Gateway, a tools registry, and Model Context Protocol connections; Microsoft's Agent 365 offers a registry, a directory identity per agent, and cost management. Both answer the same three questions: which tools can the agent call, who is it, and what can it spend?</p></div>
+<div class="stack-card"><div class="layer">&#128241; Applications</div><p>The assistant is moving into the document. Anthropic released a public beta add-on that lets Claude edit Google Docs, Sheets, and Slides directly, deployed through the Google Admin console. Users choose between approving each change and letting Claude edit automatically, and access follows the file's existing sharing permissions. Decide which of those two modes is your default before staff choose for you.</p></div>
+</div>
+
+<!-- AGENT 101 -->
+<div class="section-head">Agent 101</div>
+<div class="agent101" id="agent101">
+<h2>Agent Memory vs. Retrieval</h2>
+<p>Picture a new assistant in an office. On day one they know nothing about the company, but they know where the filing room is. When you ask about a contract, they walk to the cabinet, pull the right folder, and read it. Over the following months they also start keeping a notebook: you like short summaries, the Tuesday report goes to finance first, last quarter's numbers had to be corrected. The filing room belongs to the company and would be there with or without them. The notebook is theirs, and it is the reason they get better at the job.</p>
+<p><span class="lead">Name and define:</span> the walk to the filing room is retrieval: the agent looks up information from an outside source at the moment it needs it. The common form is retrieval-augmented generation (RAG), where relevant passages are found in your documents and handed to the model with the question. The notebook is agent memory: information the agent itself writes down during its work and reads back in later sessions. Retrieval brings in what the organization knows. Memory keeps what the agent has learned.</p>
+<p><span class="lead">Why it matters:</span> the two need different rules. Retrieval inherits the controls of its source: if the filing room is locked properly and kept current, the agent sees only what it should, and sees the latest version. Memory creates new records that no one filed on purpose. It can hold personal details, an out-of-date instruction, or something false that the agent was once told and wrote down. An agent assigned to every employee (Story 01) will build a notebook on every employee. Ask the same questions you would ask of any record: who can read it, how long is it kept, and how is an entry corrected or deleted?</p>
+<p><span class="lead">One technical line:</span> retrieval runs a search (keyword, vector similarity, or both) over an index at query time and inserts the top results into the context window; memory is a store the agent writes to through a tool call (files, key-value entries, or embeddings) and loads at the start of a session or on demand, so it needs a write policy, a retention period, and provenance for each entry, because a poisoned memory entry is replayed into every future run.</p>
+<p class="takeaway">Retrieval is what your agent looks up; memory is what it writes down. Govern the first through the source, and treat the second as a new set of records that needs an owner.</p>
+</div>
+
+<!-- CLOSING -->
+<section class="closing">
+<p>That's your signal for the week of October 4&ndash;10, 2026. Models got cheaper and the rules for using them got more specific, in the same seven days. The organizations that do well from here will take the lower price and read the terms, with a named person who knows what changes on November 12.</p>
+<p class="sign">See you next week &mdash; still watching, still distilling.</p>
+<p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
+</section>
+
+<!-- SOURCES -->
+<details class="sources" id="sources">
+<summary>Sources for this issue</summary>
+<p><strong>Story 01:</strong> <a href="https://www.reworked.co/collaboration-productivity/google-debuts-its-all-purpose-gemini-agent-for-work/">Reworked, on Google's Gemini agent</a> &middot; <a href="https://futurumgroup.com/?p=96545">Futurum Group analysis</a> &middot; <a href="https://thenewstack.io/copilot-agents-identity-runtime/">The New Stack, on Microsoft's Copilot agents</a></p>
+<p><strong>Story 02:</strong> <a href="https://finance.yahoo.com/technology/ai/articles/broadcom-starts-amassing-60-billion-041233805.html">Bloomberg, republished by Yahoo Finance</a> &middot; valuation and revenue figures as summarized by <a href="https://graniteshares.com/research/anthropic-ipo-2026-explained-from-965-billion-to-a-possible-2-trillion-listing/">GraniteShares</a>, citing Bloomberg and Reuters</p>
+<p><strong>Story 03:</strong> <a href="https://www.androidauthority.com/claude-haiku-5-5-launched-3720550/">Android Authority, on the Haiku 5.5 launch</a> &middot; <a href="https://computingforgeeks.com/claude-haiku-5-5-released-features-benchmarks/">Computing for Geeks, on price tiers and the tokenizer</a> &middot; <a href="https://openrouter.ai/blog/insights/deepseek-v4-adoption/">OpenRouter, on DeepSeek adoption</a> &middot; OpenRouter rankings as compiled by <a href="https://www.teamday.ai/blog/top-ai-models-openrouter-2026">TeamDay</a> &middot; <a href="https://www.bcg.com/publications/2026/ai-share-it-budgets-rising-fast">BCG, How AI Is Reshaping the Economics of Technology</a> &middot; <a href="https://getdeploying.com/gpu-price-trends">GetDeploying, chip rental price trends</a></p>
+<p><strong>Story 04:</strong> <a href="https://www.anthropic.com/legal/aup">Anthropic, Usage Policy</a> &middot; <a href="https://www.anthropic.com/research/deprecation-updates-opus-3">Anthropic, Claude Opus 3 retirement update</a> &middot; <a href="https://www.theregister.com/ai-and-ml/2026/10/09/anthropic-asks-users-to-stop-being-mean-to-claude/5302218">The Register</a> &middot; <a href="https://www.cbsnews.com/news/microsoft-ai-head-conscious-ai-threat/">CBS News, on Mustafa Suleyman's essay</a></p>
+<p><strong>Story 05:</strong> Financial Times, as reported by <a href="https://www.cityam.com/hsbc-set-to-axe-uk-wealth-jobs-as-ai-takes-hold/">City AM</a> and <a href="https://eastandpartners.com/news/hsbc-to-cut-up-to-70-of-uk-financial-advisers-in-ai-driven-wealth-restructure/">East &amp; Partners</a> &middot; <a href="https://www.bcg.com/publications/2026/the-formula-for-agentic-ai-value">BCG, The Formula for Agentic AI Value</a></p>
+<p><strong>The Governance Angle:</strong> <a href="https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/">TechCrunch, on text watermarking</a> &middot; <a href="https://techcrunch.com/?p=3175894">TechCrunch</a> and <a href="https://betanews.com/article/openai-safety-researchers-fired/">BetaNews</a>, on the fired researchers &middot; <a href="https://thenewstack.io/?p=22839432">The New Stack, on Mistral Large 4</a> &middot; Financial Times, as reported by <a href="https://finance.yahoo.com/technology/article/openais-annualized-revenue-20-billion-lower-than-prior-investor-estimates-174058048.html">Yahoo Finance</a> &middot; <a href="https://ciodive.com/news/single-ai-deployment-platforms-rare-app-sprawl-grows/832443">CIO Dive, on the FICO survey</a></p>
+<p><strong>The Stack:</strong> <a href="https://www.timeslive.co.za/news/sci-tech/2026-10-06-google-enters-massive-36-gw-power-deal-with-constellation-energy/">Reuters, republished by TimesLIVE</a> &middot; Reuters, as reported by <a href="https://www.benzinga.com/news/legal/26/10/62287878/super-micro-contractor-nvidia-ai-chips-china">Benzinga</a> &middot; <a href="https://www.benzinga.com/markets/private-markets/26/10/62206857/anthropic-expands-claude-into-google-workspace-with-new-ai-tools">Benzinga, on Claude in Google Workspace</a></p>
+<p class="src-note">Where a source is listed &ldquo;as reported by,&rdquo; we read the report of the original, not the original itself.</p>
+</details>
+
+</div>
+
+<footer><div class="wrap">&copy; 2026 Distilled AI Digest &middot; <a href="https://distilledaidigest.com/archive">Archive</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe on Beehiiv</a><div class="fine">You're reading the full issue. Share it freely.</div></div></footer>
+
+<script>
+/* Perspective lenses: ?lens=plain|engineer deep-link > saved choice > Leader. Fails safe to Leader. */
+(function () {
+  var KEY = 'dad-lens', VALID = { leader: 1, plain: 1, engineer: 1 };
+  var sel = document.getElementById('lens-select');
+  if (!sel) return;
+  function stored() { try { return window.localStorage.getItem(KEY); } catch (e) { return null; } }
+  function save(v) { try { window.localStorage.setItem(KEY, v); } catch (e) {} }
+  function fromUrl() { try { return new URLSearchParams(window.location.search).get('lens'); } catch (e) { return null; } }
+  function apply(v) {
+    if (!VALID[v]) v = 'leader';
+    document.documentElement.setAttribute('data-lens', v);
+    sel.value = v;
+    var ds = document.querySelectorAll('details.lens');
+    for (var i = 0; i < ds.length; i++) {
+      var d = ds[i];
+      d.open = (v === 'plain' && d.classList.contains('lens-plain')) || (v === 'engineer' && d.classList.contains('lens-engineer'));
+    }
+    return v;
+  }
+  var initial = fromUrl();
+  if (!VALID[initial]) initial = stored();
+  apply(initial);
+  if (window.location.hash) {
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target) target.scrollIntoView();
+  }
+  sel.addEventListener('change', function () {
+    var v = apply(sel.value);
+    save(v);
+    try {
+      var u = new URL(window.location.href);
+      if (v === 'leader') u.searchParams.delete('lens'); else u.searchParams.set('lens', v);
+      window.history.replaceState(null, '', u.toString());
+    } catch (e) {}
+    /* Pilot metric hook: counts a view switch if GoatCounter is installed; no-op otherwise. */
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'lens-switch-' + v, title: 'Perspective switch: ' + v, event: true }); } catch (e) {}
+  });
+})();
+</script>
+
+<script data-goatcounter="https://bramforgelabs.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
