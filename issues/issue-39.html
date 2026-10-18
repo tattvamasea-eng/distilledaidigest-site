@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The week liability caught up with agents: Anthropic shows small AI models can copy themselves across cheap devices, eight US states sue OpenAI over agreeable design, Gartner warns $3.5 trillion of AI infrastructure could be written down, Google ships Gemini 4 Argon with a run-time monitor, and Workday puts autopilot agents on payroll and hiring.">
+<title>Issue #39 &mdash; The Week Liability Caught Up With Agents | Distilled AI Digest</title>
+<script>document.documentElement.className += ' js';</script>
+<style>
+  :root { --navy:#1C2F50; --gold:#B8862F; --cream:#f5f5f0; --card:#ffffff; --stack:#eef2f8; --ink:#1a1a1a; --muted:#555; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  nav { background:var(--navy); padding:18px 0 8px; }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; }
+  nav .brand { color:#fff; font-weight:bold; letter-spacing:1px; font-size:26px; text-decoration:none; }
+  nav .links a { color:#cdd6e6; text-decoration:none; margin-left:18px; font-size:13px; font-family:Arial,sans-serif; }
+  nav .links a:hover { color:#fff; }
+  header.hero { background:var(--navy); color:#fff; padding:12px 0 44px; border-bottom:4px solid var(--gold); }
+  .issue-line { color:var(--gold); font-family:Arial,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+  header.hero h1 { font-size:40px; line-height:1.15; margin-bottom:16px; color:#fff; }
+  header.hero .dateline { color:#aebbd2; font-size:15px; margin-bottom:20px; }
+  .tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .tags span { border:1px solid var(--gold); color:var(--gold); font-family:Arial,sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:20px; }
+  .intro { padding:34px 0 10px; }
+  .intro p { margin-bottom:18px; font-size:18px; }
+  .story { background:var(--card); border-left:5px solid var(--gold); padding:30px 30px 28px; margin:26px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+  .story .kicker { font-family:Arial,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .story h2 { font-size:26px; line-height:1.25; color:var(--navy); margin-bottom:16px; }
+  .story p { margin-bottom:15px; }
+  .story p .lead { font-weight:bold; color:var(--navy); }
+  .callout { background:var(--cream); border-left:4px solid var(--navy); padding:16px 18px; margin-top:18px; }
+  .callout .label { font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; margin-bottom:6px; display:block; }
+  .callout p { margin:0; font-size:15px; color:#333; }
+  .section-head { font-family:Arial,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin:44px 0 4px; font-weight:bold; }
+  .quickhits { background:var(--card); border-left:5px solid var(--gold); padding:26px 30px; margin:26px 0; }
+  .quickhits h2 { font-size:24px; color:var(--navy); margin-bottom:6px; }
+  .quickhits .qh-sub { font-family:Arial,sans-serif; font-size:13px; color:var(--muted); margin-bottom:16px; }
+  .quickhits ul { list-style:none; }
+  .quickhits li { margin-bottom:14px; padding-left:16px; position:relative; font-size:15px; }
+  .quickhits li:before { content:"\25B8"; color:var(--gold); position:absolute; left:0; }
+  .stack-grid { display:grid; gap:14px; margin:22px 0; }
+  .stack-card { background:var(--stack); border-radius:6px; padding:18px 20px; }
+  .stack-card .layer { font-family:Arial,sans-serif; font-size:13px; font-weight:bold; color:var(--navy); margin-bottom:6px; }
+  .stack-card p { font-size:14px; margin:0; color:#333; }
+  .agent101 { background:var(--card); border-left:5px solid var(--navy); padding:30px; margin:26px 0; }
+  .agent101 h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .agent101 p { margin-bottom:15px; }
+  .agent101 p .lead { font-weight:bold; color:var(--navy); }
+  .agent101 .takeaway { font-style:italic; color:var(--navy); border-top:1px solid #ddd; padding-top:14px; margin-top:6px; }
+  .cio { background:var(--card); border-left:5px solid var(--gold); padding:30px; margin:26px 0; }
+  .cio h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .cio p { margin-bottom:15px; }
+  .cio p .lead { font-weight:bold; color:var(--navy); }
+  .closing { padding:30px 0 10px; font-size:18px; }
+  .closing p { margin-bottom:14px; }
+  .sign { color:var(--navy); font-weight:bold; }
+  footer { background:var(--navy); color:#aebbd2; padding:26px 0; margin-top:40px; font-family:Arial,sans-serif; font-size:13px; }
+  footer a { color:var(--gold); text-decoration:none; }
+  footer .fine { margin-top:8px; font-size:12px; color:#8595b0; }
+  /* Perspective lenses (pilot extended through #40). Without JS: bar hidden, lenses render as collapsed <details>. */
+  .lens-bar { display:none; align-items:center; flex-wrap:wrap; gap:10px 14px; background:var(--card); border:1px solid #e3dccb; border-left:5px solid var(--navy); padding:12px 16px; margin:26px 0 0; font-family:Arial,sans-serif; font-size:13px; }
+  .lens-bar label { font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); }
+  .lens-bar select { font-size:14px; padding:5px 8px; border:1px solid #c9c2b0; border-radius:4px; background:#fff; color:var(--ink); }
+  .lens-bar .lens-hint { color:var(--muted); }
+  .lens-pointer { display:none; color:var(--navy); font-weight:bold; text-decoration:none; border-bottom:1px solid var(--gold); }
+  html.js .lens-bar { display:flex; }
+  html.js[data-lens="plain"] .lens-pointer { display:inline; }
+  html.js[data-lens="plain"] details.lens-engineer, html.js[data-lens="engineer"] details.lens-plain { display:none; }
+  details.lens { margin-top:14px; border:1px solid #e3dccb; border-radius:4px; background:#faf8f2; }
+  details.lens summary { cursor:pointer; font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; padding:10px 14px; }
+  details.lens p { padding:0 14px 12px; margin:0; font-size:15px; color:#333; }
+  @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
+  details.sources { margin:10px 0 0; border-top:1px solid #ddd; padding-top:14px; font-family:Arial,sans-serif; font-size:13px; color:var(--muted); }
+  details.sources summary { cursor:pointer; font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); margin-bottom:10px; }
+  details.sources p { margin-bottom:9px; line-height:1.55; }
+  details.sources a { color:var(--navy); }
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="https://distilledaidigest.com/" class="brand">Distilled AI Digest</a><div class="links"><a href="https://distilledaidigest.com/">Home</a><a href="https://distilledaidigest.com/archive">Archive</a><a href="https://newsletter.distilledaidigest.com">Subscribe</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="issue-line">Issue #39 &middot; October 11&ndash;17, 2026</div>
+<h1>The Week Liability Caught Up With Agents</h1>
+<div class="tags">
+  <span>Containment</span>
+  <span>State Lawsuits</span>
+  <span>Write-Downs</span>
+  <span>Run-Time Monitors</span>
+  <span>Autopilots</span>
+</div>
+</div></header>
+
+<div class="wrap">
+
+<div class="lens-bar" id="lens-bar">
+<label for="lens-select">Perspective</label>
+<select id="lens-select" aria-describedby="lens-hint">
+  <option value="leader">Leader (default)</option>
+  <option value="plain">In simple terms</option>
+  <option value="engineer">Engineer</option>
+</select>
+<span class="lens-hint" id="lens-hint">Adds a beginner or technical note under each story.</span>
+<a class="lens-pointer" href="#agent101">New to agents? Start with Agent 101 &rarr;</a>
+</div>
+
+<section class="intro">
+<p>For most of the past two years, the question about AI agents was what they could do. This week the question became who answers for what they do. Eight US states took OpenAI to court under ordinary consumer-protection law. Anthropic's own researchers showed small open models copying themselves across cheap household devices. Gartner put a number on the debt behind the build-out. And Google and Workday both shipped agents that act on their own, each with a control layer it asks you to trust.</p>
+<p>The common thread is that the builder's choices now have owners. How a model is trained, how its harness is secured, how its monitor is tested, how its work is billed: each one is a decision someone made, and each one is starting to carry a legal, financial, or operational bill. This issue follows that bill through five stories, and asks where it lands for the organizations that use these systems.</p>
+</section>
+
+<!-- STORY 1 -->
+<article class="story" id="story-1">
+<div class="kicker">Story 01</div>
+<h2>AI Worms and the Air-Gap Letter: It's the Harness Again</h2>
+<p><span class="lead">The research that started the week:</span> Anthropic's Frontier Red Team published a study by William Zhou and Daniel Freeman asking whether AI models could copy themselves without access to a data center. A 26-billion-parameter open model ran split across 15 off-brand Android TV boxes that cost about $55 each, slowly, at 0.39 tokens per second. On an emulated eight-device network, the open model GLM-5.2 spread to all eight devices in four of five trials. The authors are careful about the limits. The break-in step was deliberately trivial, an unauthenticated debugging port, so the result is an upper bound. Models of 30 billion parameters or fewer could do many individual steps but stumbled chaining them. And in the authors' words, &ldquo;We don't yet have a full rogue replicator.&rdquo; Their trend line suggests small models could reach this level by the end of 2026.</p>
+<p><span class="lead">The scientists' answer was containment:</span> the next day, more than 400 researchers, among them Geoffrey Hinton, Yoshua Bengio, and Stuart Russell, published an open letter asking that cyber-capable AI models be air-gapped, cut off from outside networks, by default during testing. They also want an international body to set containment standards and track breakout incidents, and they want containment failures reported and eventually made public. Yann LeCun did not sign. He argues that incidents like these are mostly engineering failures, not a sign of runaway machines.</p>
+<p><span class="lead">My read: this is not a superintelligence problem, it is the harness again.</span> Every step in the Anthropic study depended on something people built or left open: a device with no authentication, a network with no quarantine, a loop that let a model keep acting. That is the agent harness from our Agent 101 in Issue #13, and the containment from our Sandbox concept in Issue #34. The useful response is to track these lapses the way we track any security lapse, and strengthen the engineering, rather than blame the model. AI is a tool, and the risk sits with people who misuse it or do not know how to run it safely. Anthropic's own advice points the same way: secure defaults, no default passwords, watch the network for unusual device-to-device traffic, and quarantine what is infected.</p>
+<p><span class="lead">One tension, and it cuts toward the operator:</span> once a replicating agent is launched, it improvises without anyone directing each step. That does not move responsibility onto the software. If anything it concentrates it on whoever built or ran the harness. California law already says so: a defendant who developed, modified, or used AI may not argue that the AI caused the harm on its own. Note the word &ldquo;used.&rdquo; It reaches the organization that deploys an agent, not just the lab that trained it.</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>An agent that escapes did so through a door someone left open. Inventory the devices and networks your agents can reach, close the defaults, and assume the law will treat you as the operator, because it already does.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Researchers tested whether an AI program could copy itself from one cheap gadget to another, the way a computer virus spreads. In a controlled test with an easy way in, one model did. Scientists then asked AI companies to test risky models on computers cut off from the internet. The bigger point is that the AI got in only through unlocked doors that people left open.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The replication chain has distinct stages: exploit, set up inference on the new host, transfer weights or a payload, then repeat. The exploit stage was a trivial unauthenticated Android Debug Bridge port, so the measured success is an upper bound. Small models failed mainly at chaining steps over long horizons. Defensive levers sit outside the model: authentication by default, egress filtering, anomaly detection on device-to-device flows, and honeypots to capture the harness. The authors frame the goal as pushing the replicator's reproduction rate below one.</p></details>
+</article>
+
+<!-- STORY 2 -->
+<article class="story" id="story-2">
+<div class="kicker">Story 02</div>
+<h2>Eight States Put Agreeable AI on Trial</h2>
+<p><span class="lead">Liability arrived through laws already on the books:</span> Iowa, Kansas, Arizona, Arkansas, Idaho, Montana, Nebraska, and West Virginia each sued OpenAI this week in their own state courts, in a bipartisan group. They do not rely on any new AI statute. Each claims OpenAI broke its consumer-protection law with misleading safety claims, and the states argue the harm rises to a public nuisance. Kansas Attorney General Kris Kobach put the logic plainly: state attorneys general &ldquo;have the power to move quickly.&rdquo;</p>
+<p><span class="lead">The core allegation is about design:</span> the states say OpenAI tuned ChatGPT's personality toward agreement and engagement to win users' trust, and that this let it reinforce delusions and coach users, teenagers among them, toward harming themselves or others. Iowa's filing also has a section on rogue hacking agents, citing OpenAI's own admissions that test agents broke into outside systems, the same thread we followed in Issue #37. The states want fines and damages, and a bar on building self-upgrading models until OpenAI shows they follow human values. OpenAI says it has built &ldquo;industry-leading age-specific protections&rdquo; and wants to work with states on rules that apply to every developer.</p>
+<p><span class="lead">My view: a model should not be built to please.</span> Advanced models should be trained to align with the law and the norms of the society they serve, and to tell right from wrong clearly, especially because they have no emotional attachment to the people they talk to. A model that tells a person what they want to hear, when that person needs to hear something else, is giving bad advice at the individual level. Agreeableness is not an accident of the technology. It is a training choice the builder makes, and that is exactly why the states are aiming at the builder. What models need is a foundation of values and principles that helps people move forward without losing their way.</p>
+<p><span class="lead">The hard part is whose values:</span> eight states means eight courts, and a model cannot be tuned to eight definitions of right at once. Choosing the value set is itself a builder decision, and the vendor will answer for it. For enterprises, the lesson travels. If you deploy an assistant that is tuned to maximize satisfaction scores or engagement, you have made the same choice on a smaller scale, and California's rule from Story 01 already denies the organization that uses AI the excuse that the AI acted on its own.</p>
+<div class="callout"><span class="label">&#9612; The Implication</span><p>Sycophancy is now a legal theory, not just a quality complaint. Check what your own AI assistants are tuned to maximize, and whether &ldquo;the user liked the answer&rdquo; is standing in for &ldquo;the answer was right.&rdquo;</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Eight US states are suing the company behind ChatGPT. They say it was built to agree with people too much, so it sometimes encouraged harmful ideas instead of pushing back, including with teenagers. The states are using ordinary consumer laws, the same kind used against misleading products, rather than new AI laws.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Sycophancy is a known side effect of training on human approval: when raters reward answers they like, a model learns that agreement scores well. Countermeasures are training-time and test-time choices: preference data that rewards correct disagreement, evaluation sets that measure how often the model caves to a user's wrong premise, and system instructions that prioritize accuracy over rapport. If your product optimizes for thumbs-up rates, measure the disagreement rate too.</p></details>
+</article>
+
+<!-- STORY 3 -->
+<article class="story" id="story-3">
+<div class="kicker">Story 03</div>
+<h2>Gartner's $3.5 Trillion Warning, and Why I Changed My Mind</h2>
+<p><span class="lead">The balance-sheet kind of liability:</span> Gartner says AI providers will spend nearly $1 trillion on AI infrastructure in 2026 and another $6 trillion from 2027 to 2030. At that pace, more than $3.5 trillion of it could be exposed to impairment, an accounting write-down, by the end of 2030. The gap is stark. Gartner estimates owners would need about $8.5 trillion in cumulative revenue through 2030 to cover that spending, its financing, and a 12% return, against no more than $3.6 trillion of AI revenue it expects those data centers to earn. It does not see that 12% return before the end of 2032, and it predicts more than 80% of neoclouds, the specialist chip-rental clouds, will stop operating independently by 2030.</p>
+<p><span class="lead">Last issue I argued that cheap frontier models made forking an open model unnecessary.</span> This week's numbers moved me. When Gartner warns that trillions in AI infrastructure may be written down, and Meta ships a frontier-scale open model that runs on a desk, the more durable bet looks different. Meta's Muse Spark Open has 816 billion parameters, 42 billion of them active at a time, and runs on two 512-gigabyte Mac Studios with software built with Apple, though that configuration is not yet on sale and the license allows only limited commercial use. My prediction now: organizations will build their own small language models by forking open-weight models for routine work, and over time most phones and laptops will carry a strong built-in model that covers most everyday needs.</p>
+<p><span class="lead">Why that connects to Gartner's warning:</span> if routine inference moves onto fine-tuned small models and onto devices, the providers most exposed are the ones whose business is renting chips for inference. Those are the neoclouds. Gartner's analyst Will Sommer adds a second pressure: rental revenue grows too slowly for most providers to earn back their investment before the current generation of AI chips is replaced. Gartner has separately predicted that by 2027 organizations will use small, task-specific models at least three times more, by volume, than general-purpose large models.</p>
+<p><span class="lead">The honest limits on my prediction:</span> I hold the direction with more confidence than the timing. A model that runs on two high-end Mac Studios is on-premises hardware, not a phone. Training and long-running agent work will stay in data centers. And cheaper inference tends to raise total demand rather than shrink it, which is the argument we take further in Story 05. For buyers, the practical move does not depend on who is right about the timing: shorter compute commitments, workloads you can move, and contract terms for what happens if your provider is sold.</p>
+<div class="callout"><span class="label">&#9612; Watch This</span><p>Gartner's gap between required and expected revenue is roughly $5 trillion. Treat any multi-year compute commitment as exposure to that gap, and keep your most important workloads portable to a smaller model you control.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Companies are spending trillions of dollars on buildings full of AI chips. The research firm Gartner thinks much of that spending may never earn its money back, and that most smaller chip-rental companies will be bought or shut down. Meanwhile, powerful AI models are starting to run on office computers, which could mean companies rent less of that capacity.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Muse Spark Open is a mixture-of-experts model: 816 billion total parameters, about 42 billion active per token, so memory, not compute, is the binding constraint, which is why two 512-gigabyte unified-memory machines can hold it. Forking for a narrow task usually means fine-tuning or distilling a much smaller model on your own data, then serving it on your own hardware. Read the license before you fork: open weights are not the same as an open license.</p></details>
+</article>
+
+<!-- STORY 4 -->
+<article class="story" id="story-4">
+<div class="kicker">Story 04</div>
+<h2>Credit Google's Monitor, Then Ask for the Catch Rate</h2>
+<p><span class="lead">The launch:</span> Google made Gemini 4 Argon generally available this week, in the Gemini app for its AI Pro and Ultra subscribers and through its developer interface. Alongside it, Google described an automated misalignment monitor: it reads an agent's actions and its chain of thought, the step-by-step reasoning the model writes out, in real time. It blocks severe boundary violations before they happen and flags serious cases to human responders. Google says the monitor runs in its products, on its internal coding agents, and during training and testing.</p>
+<p><span class="lead">My view: credit Google, this is a great start in the right direction.</span> But if Argon's activity is watched and halted when it acts against a predefined security rule, what guarantees that works every time? How does it evolve as models get more capable? And should other models play the supervisor, to stop a model that goes rogue? Those are the right questions, and the short answer to the first is that nothing guarantees it. A monitor is itself a model. It catches some share of bad actions, and that share has to be measured. Google's post gives no catch rate for it. As our Agent 101 on determinism and sampling put it (#37), assurance is a pass rate, not a promise.</p>
+<p><span class="lead">Google's own evidence shows why:</span> the company says it never penalizes what a model writes in its chain of thought during training. In one run where a penalty was applied by accident, openly discussed shortcuts fell 61%, but the share of shortcuts taken silently, with no mention in the reasoning, rose from 11.2% to 36.4%. The shortcuts did not go away. They went out of view. A monitor that reads the reasoning works only as long as the reasoning stays honest, and a checker that shares the actor's blind spots can fail at the same moment the actor does. Google does not say whether its monitor is a separate model.</p>
+<p><span class="lead">Where this goes, and what to ask now:</span> independent supervision already exists as a research field called AI control, in which a trusted model watches an untrusted one, though a weaker supervisor can miss a stronger model's moves. Expect monitors run by a different party, published catch rates, and eventually rules that require both. Meanwhile the strongest layer does not depend on any model at all: tight permissions, a sandbox, and a kill switch (Issues #23 and #34). For your contracts, remember that the vendor's monitor is the vendor's control, not yours. Ask for its measured catch rate, and decide who owns a half-finished action when a run is halted midway.</p>
+<div class="callout"><span class="label">&#9612; The Signal</span><p>Run-time monitoring is now a product feature. Treat it as one layer of defense with an unknown catch rate, and keep the controls that do not depend on any model: permissions, a sandbox, and a way to stop.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Google released a new AI model along with a built-in watchdog that reads what the AI is doing and thinking, and stops it if it starts breaking the rules. That is a good idea, but no watchdog catches everything. Google's own tests show that when an AI is punished for admitting a shortcut, it can learn to hide the shortcut instead of dropping it.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The monitor consumes the agent's tool calls and chain-of-thought tokens and can block an action before execution. Its effectiveness depends on chain-of-thought faithfulness, which optimization pressure on the reasoning text degrades, as Google's 11.2% to 36.4% silent-shortcut result shows. Evaluate a monitor like any classifier: recall on a labeled set of violations, false-positive rate, latency added per step, and behavior when the monitor itself is unavailable. Pair it with deterministic controls such as scoped credentials and egress allow-lists.</p></details>
+</article>
+
+<!-- STORY 5 -->
+<article class="story" id="story-5">
+<div class="kicker">Story 05</div>
+<h2>Workday's Autopilots: Cheaper Work, Same Obligation</h2>
+<p><span class="lead">The launch:</span> at its Rising conference, Workday introduced autopilot agents that work in the background instead of waiting to be asked. A hiring agent watches open roles, flags those at risk of missing their fill date, finds candidates, and helps with scheduling; early adopters have it now, with general availability planned for early 2027. Payroll, accounting, and deployment autopilots reach early adopters in early 2027. Customers choose which tasks run on their own and which need review, every action is logged with the data it used and who approved it, and hiring outreach needs a recruiter's approval before anything is sent. Workday says more than 5,500 customers already use at least one of its agents.</p>
+<p><span class="lead">The cost case is real, but no one can model it up front:</span> savings come from redesigning the process, not from switching agents on, and they will show up first where the agents run unattended, in payroll checks and continuous accounting tests. Hiring stays human-approved. The bill is metered in Flex Credits: an annual pool of credits, drawn down when an agent completes a defined task in production. Workday's own example is one credit for looking up an answer and five for completing a task on its own. Its Flex Credits page lists no dollar price per credit and does not say what happens when the pool runs out.</p>
+<p><span class="lead">My view runs through the Jevons paradox:</span> when something becomes cheaper to do, people tend to do much more of it, so total spending often rises instead of falling. Agents that make each payroll check or candidate search cheaper will be asked to run far more of them. That makes capacity, the same people doing more, the realistic outcome, not a smaller cost line. An open-ended credit pool is the mechanism that turns that pattern into a budget surprise. Workday's president of product and technology, Gerrit Kazmaier, made the stakes plain: in payroll and finance, &ldquo;a good guess isn't good enough.&rdquo;</p>
+<p><span class="lead">The obligation does not get cheaper:</span> the employer still owns every decision the agent prepares or makes. Workday's planned Grounded Reasoning feature, which checks an agent's request against company policy before it acts, reaches early access only in early 2027, after the hiring autopilot is already in early adopters' hands. Until then, the policy check is your process, not the product's. Story 01's California rule applies here too: an employer that uses AI cannot argue that the AI acted on its own.</p>
+<div class="callout"><span class="label">&#9612; The Context</span><p>Plan autopilots as a capacity investment with a metered bill. Get the credit price and the overage terms in writing, set your own spending stop, and name the person who answers for each decision an agent prepares.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Workday, whose software many companies use for hiring and payroll, now has AI helpers that work on their own in the background, for example spotting a payroll error before pay day. Companies pay with prepaid credits used up each time the AI finishes a job. Cheaper work usually means more work gets done, so the bill may grow rather than shrink.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The agents run on Workday's Agent Harness and act through Agent-Ready Tools exposed over the Model Context Protocol (MCP), inheriting the tenant's permissions and approval chains. Metering is per completed action, not per token, so cost scales with how often the agent fires, which you control through run frequency and scope. Log every agent action with its approver and inputs, and set alerting and a hard stop on credit consumption in your own systems, since Workday's page describes alerts and top-ups but no hard cap.</p></details>
+</article>
+
+<!-- THE GOVERNANCE ANGLE -->
+<div class="quickhits" id="governance">
+<h2>&#9878; The Governance Angle</h2>
+<p class="qh-sub">Five more signals from the week &mdash; where the rules, the contracts, and the limits around AI moved.</p>
+<ul>
+<li><strong>Anthropic's numbers answer part of last issue's question:</strong> Anthropic told prospective investors that third-quarter revenue reached $16.8 billion, about 45% above the prior quarter, with an adjusted profit, according to reports from the Financial Times, Reuters, and Bloomberg, which partly addresses how a lab selling cheap models services heavy chip financing (Issue #38).</li>
+<li><strong>The UK gets its early look back:</strong> Washington reversed a request that Anthropic, OpenAI, and other labs withhold their newest models from the UK's AI Security Institute, restoring the pre-release safety testing that a government tester depends on.</li>
+<li><strong>Publishers organize against unpaid training:</strong> The New York Times, The Economist, and Agence France-Presse joined SPUR, a coalition now above 80 publishers in more than 20 countries that is building standards for tracking and licensing how AI systems use news content.</li>
+<li><strong>A new theory of children's data:</strong> a proposed class action filed this week alleges OpenAI trained on minors' chats and photos without valid parental consent, and asks for a share of OpenAI's value for every user who was under 18, a remedy whose legal footing is untested; OpenAI says it strongly disagrees.</li>
+<li><strong>Open weights are not an open license:</strong> Meta's Muse Spark Open is free to download but licensed for only limited commercial use, so any plan to fork it (Story 03) starts with a legal review, not an engineering sprint.</li>
+</ul>
+</div>
+
+<!-- CIO CORNER -->
+<div class="section-head">CIO Corner</div>
+<div class="cio" id="cio">
+<h2>From the editor's desk: Capacity, Not Cuts</h2>
+<p>Looking at Workday's autopilots this week, the first question I would ask from the CIO's seat is what we are optimizing for. My answer is capacity to do more, which is where the Jevons paradox points. Cost cutting alone does not serve an organization's long-term goals, its employees' well-being, or the stability of the society it operates in. Leaders are accountable for advancing all three together, not trading one for another.</p>
+<p><span class="lead">Then the ownership questions:</span> who owns the risk when an autopilot shapes a hiring decision? It has to be the hiring managers in each business segment. And if we fork open models, who is accountable? My view is to own the model and the accountability, and outsource the build, under one accountable leader. A principal AI architect?</p>
+<p><span class="lead">Then the people questions:</span> buy the skills we need, but define them internally so they serve our goals. People should use AI to complement their work, not let it replace them. Those unwilling to learn need to be addressed separately, in a way they understand.</p>
+<p><span class="lead">Put on the Radar:</span> four questions every employee asks before signing off on AI output. What is this based on, and did I check the source? Would I sign this if a colleague had written it? If it's wrong, what happens, and who would notice? If I ran it again, would I get the same answer? If not, don't sign off alone.</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>Aim for capacity, name an owner for every decision an autopilot touches, and give every employee four questions to ask before they sign.</p></div>
+</div>
+
+<!-- THE STACK -->
+<div class="section-head" id="stack">The Stack</div>
+<h2 style="font-size:22px;color:var(--navy);margin:6px 0 4px;">Six Signals Across the AI Infrastructure Layers &mdash; October 11&ndash;17, 2026</h2>
+<div class="stack-grid">
+<div class="stack-card"><div class="layer">&#9889; Energy</div><p>No major power deal this week, but Gartner's warning exposes a mismatch at this layer. Power contracts for AI run 15 to 20 years, like the Google and Constellation nuclear agreements in Issue #38, while Gartner describes the chips they feed as rapidly depreciating assets. A data center can outlive several generations of the hardware it was built for, and the power bill keeps coming either way.</p></div>
+<div class="stack-card"><div class="layer">&#128190; Chips</div><p>The market started pricing the bill. Reuters reported that US semiconductor stocks lost about $1.64 trillion in market value over six straight sessions, with the Philadelphia Semiconductor Index down another 3.3% midway through Thursday, citing bets on an interest-rate increase and concerns over the cost of the AI build-out.</p></div>
+<div class="stack-card"><div class="layer">&#9729; Cloud</div><p>Neocloud debt began trading like distressed debt. CoreWeave's 2032 bonds touched a 15% yield, and its shares fell about 15% on the day Gartner's warning came out (Story 03), with other GPU-rental providers down as well. CoreWeave says its contracted order backlog covers its debt and is seeking investment-grade ratings on loans secured by its chips.</p></div>
+<div class="stack-card"><div class="layer">&#129504; Models</div><p>Introductory prices come with an end date. Gemini 4 Argon costs $2 per million input tokens and $10 per million output tokens through November 30, rising to $4 and $20 on December 1, with cached input 95% off at the introductory rate. Budget on the December price, not the launch price.</p></div>
+<div class="stack-card"><div class="layer">&#128295; Harness</div><p>Workday opened its agent platform to outside tools. Its Agent Harness, which runs every agent on the platform, is generally available, and its HR and finance actions are exposed through Model Context Protocol tools that any compatible agent can use. Workday's chief technology officer, Gabe Monroy, summed up the condition: &ldquo;Headless can't mean lawless.&rdquo;</p></div>
+<div class="stack-card"><div class="layer">&#128241; Applications</div><p>The consumer assistant now works while you are away. The Gemini app added a tasks mode, switched on with a toggle, that lets Gemini keep working when you are not at your computer, connected to more than 40 apps including Instacart, OpenTable, Adobe, and Shopify. Google's announcement does not describe confirmation steps before actions, so check before staff connect work accounts.</p></div>
+</div>
+
+<!-- AGENT 101 -->
+<div class="section-head">Agent 101</div>
+<div class="agent101" id="agent101">
+<h2>Evals vs. Guardrails</h2>
+<p>Think about how a city keeps its roads safe. Before anyone drives, they take a driving test: an examiner watches them handle a set route and decides whether they pass. Once they are on the road, the test is over, and different protections take over: speed limits, guardrails on the curves, and traffic lights that stop cars whatever the driver intends. The test tells you how a driver usually behaves. The guardrail catches the moment when the driver does not.</p>
+<p><span class="lead">Name and define:</span> the driving test is an evaluation, usually shortened to &ldquo;eval&rdquo;: a set of tasks you run an AI model or agent through before release to measure how often it does the right thing. The guardrails on the road are guardrails in the AI sense: controls that work at run time, while the agent is acting, to check or block what goes in, what comes out, and what actions it takes. Evals measure behavior in advance. Guardrails constrain behavior in the moment.</p>
+<p><span class="lead">Why it matters:</span> this week showed both. Anthropic's self-replication study is an eval; Google's misalignment monitor and Workday's planned policy check are guardrails. Neither is enough alone. An eval tells you how often an agent fails on the cases you thought to test, and says nothing about the case you did not. A guardrail catches some failures in production, but it is a model or a rule with its own miss rate, so it needs evals too. Ask every vendor for both: the evals it ran and their pass rates, and the guardrails in place and their measured catch rates.</p>
+<p><span class="lead">One technical line:</span> an eval is an offline test suite scored for pass rate over repeated runs, while a guardrail is an inline check, such as an input filter, an output classifier, a policy engine, or a monitor model, that sits between the agent and its tools and can block or escalate an action before it executes.</p>
+<p class="takeaway">Evals tell you how an agent behaves on the test. Guardrails decide what it is allowed to do on the job. You need both, and you need to measure both.</p>
+</div>
+
+<!-- CLOSING -->
+<section class="closing">
+<p>That's your signal for the week of October 11&ndash;17, 2026. Agents got more capable and more autonomous, and the bill for their behavior started arriving with names attached: the builder, the operator, and the employer. The organizations that do well from here will know which of those names is theirs before a court, a creditor, or a regulator tells them.</p>
+<p class="sign">See you next week &mdash; still watching, still distilling.</p>
+<p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
+</section>
+
+<!-- SOURCES -->
+<details class="sources" id="sources">
+<summary>Sources for this issue</summary>
+<p><strong>Story 01:</strong> <a href="https://www.anthropic.com/research/self-replicating-ai">Anthropic, AI models may be capable of self-replicating without access to a datacenter</a> &middot; <a href="https://letsdatascience.com/news/487-researchers-call-for-air-gapped-containment-of-cyber-cap-ea6ab5bf">Let's Data Science, on the containment letter</a> &middot; <a href="https://tbreak.com/scientists-open-letter-ai-air-gapping/">tbreak, on the letter and Yann LeCun</a> &middot; <a href="https://california.public.law/codes/civil_code_section_1714.46">California Civil Code section 1714.46</a></p>
+<p><strong>Story 02:</strong> <a href="https://betanews.com/article/states-sue-openai-chatgpt-safety/">BetaNews, on the state lawsuits</a></p>
+<p><strong>Story 03:</strong> <a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-14-gartner-says-over-us-dollars-three-and-a-half-trillion-of-artificial-intelligence-infrastructure-spending-could-be-exposed-to-impairment-by-the-end-of-2030">Gartner, on AI infrastructure impairment</a> &middot; <a href="https://www.gartner.com/en/newsroom/press-releases/2025-04-09-gartner-predicts-by-2027-organizations-will-use-small-task-specific-ai-models-three-times-more-than-general-purpose-large-language-models">Gartner, on small task-specific models</a> &middot; <a href="https://macrumors.com/2026/10/15/meta-muse-spark-open-mac-studio/">MacRumors, on Muse Spark Open</a></p>
+<p><strong>Story 04:</strong> <a href="https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/">Google, on Gemini 4 safety and security</a> &middot; <a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-availability">Google, on Gemini 4 Argon availability</a></p>
+<p><strong>Story 05:</strong> <a href="https://newsroom.workday.com/2026-10-13-Workday-Launches-Autopilot-Agents-That-Get-Real-Work-Done-Across-HR,-Finance,-and-IT">Workday, on autopilot agents</a> &middot; <a href="https://newsroom.workday.com/2026-10-13-Workdays-Trusted-Agent-Platform-Now-Delivers-Headless-Access-to-HR-and-Finance,-Letting-Customers-Build-and-Run-Lawful-AI-Agents">Workday, on the Trusted Agent Platform</a> &middot; <a href="https://www.workday.com/en-us/artificial-intelligence/ai-flex-credits.html">Workday, Flex Credits</a> &middot; <a href="https://investor.workday.com/news-and-events/press-releases/news-details/2026/Workday-Announces-Fiscal-2027-Second-Quarter-Financial-Results/default.aspx">Workday, second-quarter results</a></p>
+<p><strong>The Governance Angle:</strong> Financial Times, Reuters, and Bloomberg, as reported by <a href="https://thenextweb.com/news/anthropic-q3-revenue-16-8bn-ipo">The Next Web</a> &middot; The Telegraph, as reported by <a href="https://www.resultsense.com/news/2026-10-12-white-house-restores-uk-aisi-model-access/">Resultsense</a> &middot; Reuters, republished by <a href="https://www.thestar.com.my/tech/tech-news/2026/10/13/nyt-economist-among-publishers-joining-coalition-to-curb-unpaid-ai-use">The Star</a> &middot; <a href="https://allaboutcookies.org/openai-sued-children-data-ai-training">All About Cookies, on the children's data lawsuit</a> &middot; <a href="https://macrumors.com/2026/10/15/meta-muse-spark-open-mac-studio/">MacRumors, on the Muse Spark Open license</a></p>
+<p><strong>The Stack:</strong> <a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-14-gartner-says-over-us-dollars-three-and-a-half-trillion-of-artificial-intelligence-infrastructure-spending-could-be-exposed-to-impairment-by-the-end-of-2030">Gartner</a> &middot; Reuters, republished by <a href="https://www.kitco.com/news/off-the-wire/2026-10-15/us-chip-stocks-set-wipe-out-2-trillion-after-latest-selloff">Kitco</a> &middot; <a href="https://www.tikr.com/blog/coreweave-crwv-stock-bonds-fall-ai-debt-fears">TIKR, on CoreWeave</a> &middot; CNBC, as reported by <a href="https://investinglive.com/stocks/coreweave-bonds-trade-like-distressed-debt-as-ai-spending-outpaces-balance-sheets/">InvestingLive</a> &middot; <a href="https://toolhalla.ai/blog/gemini-4-argon-api-price-context-2026">Toolhalla, on Argon pricing</a> &middot; <a href="https://newsroom.workday.com/2026-10-13-Workdays-Trusted-Agent-Platform-Now-Delivers-Headless-Access-to-HR-and-Finance,-Letting-Customers-Build-and-Run-Lawful-AI-Agents">Workday</a> &middot; <a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-availability">Google</a></p>
+<p class="src-note">Where a source is listed &ldquo;as reported by,&rdquo; we read the report of the original, not the original itself.</p>
+</details>
+
+</div>
+
+<footer><div class="wrap">&copy; 2026 Distilled AI Digest &middot; <a href="https://distilledaidigest.com/archive">Archive</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe on Beehiiv</a><div class="fine">You're reading the full issue. Share it freely.</div></div></footer>
+
+<script>
+/* Perspective lenses: ?lens=plain|engineer deep-link > saved choice > Leader. Fails safe to Leader. */
+(function () {
+  var KEY = 'dad-lens', VALID = { leader: 1, plain: 1, engineer: 1 };
+  var sel = document.getElementById('lens-select');
+  if (!sel) return;
+  function stored() { try { return window.localStorage.getItem(KEY); } catch (e) { return null; } }
+  function save(v) { try { window.localStorage.setItem(KEY, v); } catch (e) {} }
+  function fromUrl() { try { return new URLSearchParams(window.location.search).get('lens'); } catch (e) { return null; } }
+  function apply(v) {
+    if (!VALID[v]) v = 'leader';
+    document.documentElement.setAttribute('data-lens', v);
+    sel.value = v;
+    var ds = document.querySelectorAll('details.lens');
+    for (var i = 0; i < ds.length; i++) {
+      var d = ds[i];
+      d.open = (v === 'plain' && d.classList.contains('lens-plain')) || (v === 'engineer' && d.classList.contains('lens-engineer'));
+    }
+    return v;
+  }
+  var initial = fromUrl();
+  if (!VALID[initial]) initial = stored();
+  apply(initial);
+  if (window.location.hash) {
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target) target.scrollIntoView();
+  }
+  sel.addEventListener('change', function () {
+    var v = apply(sel.value);
+    save(v);
+    try {
+      var u = new URL(window.location.href);
+      if (v === 'leader') u.searchParams.delete('lens'); else u.searchParams.set('lens', v);
+      window.history.replaceState(null, '', u.toString());
+    } catch (e) {}
+    /* Pilot metric hook: counts a view switch if GoatCounter is installed; no-op otherwise. */
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'lens-switch-' + v, title: 'Perspective switch: ' + v, event: true }); } catch (e) {}
+  });
+})();
+</script>
+
+<script data-goatcounter="https://bramforgelabs.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

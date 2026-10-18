@@ -26,9 +26,10 @@ Checked against the full run in the repo (#14 onward; #1–13 are Beehiiv-only a
 #36 — Planning and Task Decomposition (goal -> ordered subtasks, re-planning, stopping condition; the plan is where purpose becomes conduct)
 #37 — Determinism vs. Sampling (why the same agent can act differently on the same task; temperature; assurance is a pass rate over repeated runs; deterministic code around high-stakes steps)
 #38 — Agent Memory vs. Retrieval (retrieval = looking up from a source at the moment of need, RAG; memory = records the agent writes and carries across sessions; govern retrieval through the source, treat memory as new records needing an owner, retention and correction)
+#39 — Evals vs. Guardrails (evals = offline tests before release scored as a pass rate; guardrails = run-time checks that block or escalate inputs, outputs and actions; you need both and must measure both, including the guardrail's catch rate; adjacent to #14 The Evaluation Gate and #26 Trajectory Monitoring)
 
-Whole areas now saturated — steer clear: identity / credentials / IAM (#24 + #29); observability/monitoring (#22 + #26); trust-boundary/injection (#31); containment/environment (#34 + #23 permissions — adjacent); tool/function-calling mechanics (#32); cost/token economics (#35); planning & task decomposition (#36); determinism/sampling & run-to-run variance (#37); memory vs. retrieval (#38; adjacent to #16 persistent state and #18 context window).
+Whole areas now saturated — steer clear: identity / credentials / IAM (#24 + #29); observability/monitoring (#22 + #26); trust-boundary/injection (#31); containment/environment (#34 + #23 permissions — adjacent); tool/function-calling mechanics (#32); cost/token economics (#35); planning & task decomposition (#36); determinism/sampling & run-to-run variance (#37); memory vs. retrieval (#38; adjacent to #16 persistent state and #18 context window); evals & guardrails (#14 + #39).
 
-Candidate fresh directions not yet used: long-horizon coherence & why agents drift, multi-agent coordination protocols, evals-vs-guardrails distinction, agent-to-agent auth (A2A), MCP as an interface standard.
+Candidate fresh directions not yet used: long-horizon coherence & why agents drift, multi-agent coordination protocols, agent-to-agent auth (A2A), MCP as an interface standard.
 
 Note on #1–12: these ran on Beehiiv only (pre-repo) and their Agent 101 concepts are not captured here. If full historical de-duplication is needed, reconstruct them from the Beehiiv archive.
