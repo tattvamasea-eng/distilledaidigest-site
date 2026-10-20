@@ -25,6 +25,8 @@ The ONLY steps requiring Ram are: (1) approving the 5 story topics + 5 Quick Hit
    5 stories (3-4 paras + named callout) -> Quick Hits (5) -> CIO Corner
    (4 paras + callout) -> The Stack (Energy/Chips/Cloud/Models/Apps) ->
    Agent 101 (NEW concept) -> Closing. issue-19.html is the worked reference.
+   Also fill the og:/twitter: block in <head> (social preview cards); og:image must be
+   this issue's own assets/thumbnail_issueNN.png.
 3. **ASSETS:** thumbnail (scripts/make_thumbnail.py, Issue #17 visual template),
    Word .docx, Beehiiv teaser, X thread text + stat cards.
 4. **UPDATE SITE:** scripts/update_site.py edits index.html (featured-card swap)

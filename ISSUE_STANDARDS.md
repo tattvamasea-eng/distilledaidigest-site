@@ -223,5 +223,6 @@ Generated from each story's short slug + Quick Hits + CIO + Stack + Agent 101.
 - [ ] Issue date consistent across badge, footer, meta tags
 - [ ] All figures verified against source (no guesswork)
 - [ ] Thumbnail generated and deployed
+- [ ] og:/twitter: meta block filled in <head> (title, description <=200 chars, url) and og:image points at this issue's own thumbnail_issueNN.png (file exists in assets/)
 - [ ] HTML validates (no unclosed tags)
 - [ ] Beehiiv teaser generated (separate file)
