@@ -1,6 +1,6 @@
 # Agent 101 — Concepts Already Used (do not repeat)
 
-Checked against the full run in the repo (#14 onward; #1–13 are Beehiiv-only and not in the repo — only #13 is known: "The Agent Harness"; #20, #30 are Deca editions with no Agent 101). Update this after every new issue.
+Checked against the full run in the repo (#14 onward; #1–13 are Beehiiv-only and not in the repo — only #13 is known: "The Agent Harness"; #20, #30, #40 are Deca editions with no Agent 101). Update this after every new issue.
 
 #13 — The Agent Harness (Beehiiv-only; per project instructions)
 #14 — The Evaluation Gate

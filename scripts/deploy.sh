@@ -15,7 +15,9 @@ find .git -name "*.lock" -delete 2>/dev/null || true
 
 # Preconditions
 [ -f "issues/issue-${N}.html" ] || { echo "❌ issues/issue-${N}.html missing"; exit 1; }
-[ -f "assets/thumbnail_issue${N}.png" ] || { echo "❌ thumbnail missing"; exit 1; }
+if [ -f "assets/thumbnail_issue${N}.png" ]; then :
+elif [ $((N % 10)) -eq 0 ] && [ -f "assets/thumbnail_deca$((N / 10)).png" ]; then :  # Deca edition
+else echo "❌ thumbnail missing"; exit 1; fi
 grep -q "issue-${N}" index.html   || { echo "❌ index.html does not link issue-${N}"; exit 1; }
 grep -q "issue-${N}" archive.html || { echo "❌ archive.html does not link issue-${N}"; exit 1; }
 

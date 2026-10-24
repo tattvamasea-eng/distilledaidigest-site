@@ -144,3 +144,10 @@ These override the `dad-newsletter` SKILL.md wherever they disagree.
 - **Thumbnail:** the connector cannot write binary files. Preview it in the cloud, then have it rendered on the Mac (Ram's Hermes agent ran the venv command for #39), which also gives the house fonts.
 - **Before proposing an Agent 101 concept, check for near-neighbors, not just exact repeats.** #39 Evals vs. Guardrails sits next to #14 The Evaluation Gate; say so at the story-selection pause.
 - **Governance Angle and Stack picks:** if Ram does not pick them, choose, verify, and list them at the review gate as Claude's choices. If no in-week item exists for a Stack layer, say so in the card rather than reaching outside the week.
+
+## Deca editions (from #40, 2026-10-23)
+- Every 10th issue is a Deca synthesis of the previous nine (#40 = Deca·4 over #31–39; #50 = Deca·5). No weekly stories, no CIO Corner, no Stack, no Agent 101, no lenses, no takes pause. Byline "The Distilled AI Digest Team".
+- Template = `issues/issue-30.html` (hero, three thread blocks: What Emerged / What D·A·D Called / What to Watch, nine-rung Agent 101 ladder in Thread Two, verdict box, four questions for the next nine, closing). #40 added the collapsed Sources block (links to the nine issues) and the GoatCounter script. It must answer the previous Deca's four "questions for the next nine" and say honestly where we missed.
+- Thumbnail is `assets/thumbnail_decaN.png` (N = issue/10), not `thumbnail_issueNN.png`. `deploy.sh` now accepts it when the issue number is a multiple of 10. Generated from a patched copy of `make_thumbnail_dad17.py` (meta line "DECA·N · ISSUES #a–b"); #40 rendered in Liberation fonts on the linked shell, so re-run on the Mac for Georgia/Arial.
+- index.html: replace the single Deca card; archive.html: insert the new Deca card at the top of the deca grid. Link form `.../issues/issue-NN` (no .html), as for #30.
+
