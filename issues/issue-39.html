@@ -89,6 +89,17 @@
   details.sources summary { cursor:pointer; font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); margin-bottom:10px; }
   details.sources p { margin-bottom:9px; line-height:1.55; }
   details.sources a { color:var(--navy); }
+
+  /* Subscribe CTA (sub-cta) */
+  .sub-cta { font-family:Arial,sans-serif; box-sizing:border-box; }
+  .sub-cta-inline { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 16px; background:#fff; border:1px solid #e3dccb; border-left:4px solid #C9A84C; padding:12px 16px; margin:22px 0; font-size:15px; color:#333; line-height:1.5; }
+  .sub-cta-inline p { margin:0; padding:0; flex:1 1 260px; font-size:15px; color:#333; }
+  .sub-cta a.sub-btn { display:inline-block; background:#C9A84C; color:#1A2A4A; font-weight:bold; text-decoration:none; padding:10px 20px; border-radius:4px; font-size:14px; white-space:nowrap; border:0; }
+  .sub-cta a.sub-btn:hover { background:#e0bc64; color:#1A2A4A; }
+  .sub-cta-band { background:#1A2A4A; color:#fff; text-align:center; padding:44px 24px; margin:30px 0 12px; border-radius:4px; }
+  .sub-cta-band h2 { font-family:Georgia,serif; font-size:26px; line-height:1.25; color:#fff; margin:0 0 12px; padding:0; border:0; }
+  .sub-cta-band h2 em { color:#C9A84C; font-style:italic; }
+  .sub-cta-band p { color:#F5F0E8; font-size:15px; margin:0 auto 22px; max-width:560px; }
 </style>
 </head>
 <body>
@@ -137,6 +148,8 @@
 <details class="lens lens-engineer"><summary>Under the Hood</summary><p>The replication chain has distinct stages: exploit, set up inference on the new host, transfer weights or a payload, then repeat. The exploit stage was a trivial unauthenticated Android Debug Bridge port, so the measured success is an upper bound. Small models failed mainly at chaining steps over long horizons. Defensive levers sit outside the model: authentication by default, egress filtering, anomaly detection on device-to-device flows, and honeypots to capture the harness. The authors frame the goal as pushing the replicator's reproduction rate below one.</p></details>
 </article>
 
+
+<div class="sub-cta sub-cta-inline"><p>Reading this on the site? Get every issue in your inbox on Sunday, free.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
 <!-- STORY 2 -->
 <article class="story" id="story-2">
 <div class="kicker">Story 02</div>
@@ -188,6 +201,8 @@
 <details class="lens lens-plain"><summary>In simple terms</summary><p>Workday, whose software many companies use for hiring and payroll, now has AI helpers that work on their own in the background, for example spotting a payroll error before pay day. Companies pay with prepaid credits used up each time the AI finishes a job. Cheaper work usually means more work gets done, so the bill may grow rather than shrink.</p></details>
 <details class="lens lens-engineer"><summary>Under the Hood</summary><p>The agents run on Workday's Agent Harness and act through Agent-Ready Tools exposed over the Model Context Protocol (MCP), inheriting the tenant's permissions and approval chains. Metering is per completed action, not per token, so cost scales with how often the agent fires, which you control through run frequency and scope. Log every agent action with its approver and inputs, and set alerting and a hard stop on credit consumption in your own systems, since Workday's page describes alerts and top-ups but no hard cap.</p></details>
 </article>
+<div class="sub-cta sub-cta-inline"><p>Those are the week&rsquo;s five. Get next week&rsquo;s in your inbox on Sunday, free.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
+
 
 <!-- THE GOVERNANCE ANGLE -->
 <div class="quickhits" id="governance">
@@ -243,6 +258,8 @@
 <p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
 </section>
 
+
+<div class="sub-cta sub-cta-band"><h2>Stay <em>one issue</em> ahead.</h2><p>Every Sunday, the five AI developments that actually matter &mdash; with the strategic context to act on them. Free, always.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
 <!-- SOURCES -->
 <details class="sources" id="sources">
 <summary>Sources for this issue</summary>

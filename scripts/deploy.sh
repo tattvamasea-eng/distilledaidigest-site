@@ -20,6 +20,7 @@ elif [ $((N % 10)) -eq 0 ] && [ -f "assets/thumbnail_deca$((N / 10)).png" ]; the
 else echo "❌ thumbnail missing"; exit 1; fi
 grep -q "issue-${N}" index.html   || { echo "❌ index.html does not link issue-${N}"; exit 1; }
 grep -q "issue-${N}" archive.html || { echo "❌ archive.html does not link issue-${N}"; exit 1; }
+grep -q 'class="sub-cta' "issues/issue-${N}.html" || { echo "❌ subscribe CTA (class=\"sub-cta\") missing from issue-${N}.html — run scripts/add_sub_cta.py"; exit 1; }
 
 # Guardrails
 grep -q "— Ram\b" "issues/issue-${N}.html" && { echo "❌ personal byline 'Ram' present"; exit 1; } || true

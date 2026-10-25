@@ -85,6 +85,17 @@
   details.lens summary { cursor:pointer; font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; padding:10px 14px; }
   details.lens p { padding:0 14px 12px; margin:0; font-size:15px; color:#333; }
   @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
+
+  /* Subscribe CTA (sub-cta) */
+  .sub-cta { font-family:Arial,sans-serif; box-sizing:border-box; }
+  .sub-cta-inline { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 16px; background:#fff; border:1px solid #e3dccb; border-left:4px solid #C9A84C; padding:12px 16px; margin:22px 0; font-size:15px; color:#333; line-height:1.5; }
+  .sub-cta-inline p { margin:0; padding:0; flex:1 1 260px; font-size:15px; color:#333; }
+  .sub-cta a.sub-btn { display:inline-block; background:#C9A84C; color:#1A2A4A; font-weight:bold; text-decoration:none; padding:10px 20px; border-radius:4px; font-size:14px; white-space:nowrap; border:0; }
+  .sub-cta a.sub-btn:hover { background:#e0bc64; color:#1A2A4A; }
+  .sub-cta-band { background:#1A2A4A; color:#fff; text-align:center; padding:44px 24px; margin:30px 0 12px; border-radius:4px; }
+  .sub-cta-band h2 { font-family:Georgia,serif; font-size:26px; line-height:1.25; color:#fff; margin:0 0 12px; padding:0; border:0; }
+  .sub-cta-band h2 em { color:#C9A84C; font-style:italic; }
+  .sub-cta-band p { color:#F5F0E8; font-size:15px; margin:0 auto 22px; max-width:560px; }
 </style>
 </head>
 <body>
@@ -133,6 +144,8 @@
 <details class="lens lens-engineer"><summary>Under the Hood</summary><p>All four are long-running agent loops with persistent state; the isolation model is what separates them. Dots and Muse provision a virtual machine per user, Grok Bot documents a single shared machine per account (shared cookies, filesystem, and sessions), and Hermes Agent runs wherever you install it with user-selected models and configurable tool approvals. For Dots, reported admin documentation says cloud orchestration events do not reach a customer's OpenTelemetry collector during the beta, so plan to ingest from the Compliance API and verify which event types it returns before relying on it for audit.</p></details>
 </article>
 
+
+<div class="sub-cta sub-cta-inline"><p>Reading this on the site? Get every issue in your inbox on Sunday, free.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
 <!-- STORY 2 -->
 <article class="story" id="story-2">
 <div class="kicker">Story 02</div>
@@ -184,6 +197,8 @@
 <details class="lens lens-plain"><summary>In simple terms</summary><p>Anthropic, the company that makes the Claude AI, will spend $100 million teaching 10,000 engineers at other companies how to set up AI properly. It works a bit like a medical residency: a short course, a test, then twelve weeks doing a real project with experts on call.</p></details>
 <details class="lens lens-engineer"><summary>Under the Hood</summary><p>The assessed skills are deployment skills rather than modeling skills: a simulated enterprise deployment, a security review, and a graded practical, followed by a 12-week residency on a production project. There are two credentials &mdash; a Claude Resident Engineer badge after the first assessment, and the Claude Frontier Deployed Engineer badge after the residency. The transferable parts are evaluation design, permission scoping, and rollout practice; the vendor-specific parts are the managed-agent interfaces.</p></details>
 </article>
+<div class="sub-cta sub-cta-inline"><p>Those are the week&rsquo;s five. Get next week&rsquo;s in your inbox on Sunday, free.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
+
 
 <!-- THE GOVERNANCE ANGLE -->
 <div class="quickhits" id="governance">
@@ -238,6 +253,8 @@
 <p class="sign">See you next week &mdash; still watching, still distilling.</p>
 <p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
 </section>
+<div class="sub-cta sub-cta-band"><h2>Stay <em>one issue</em> ahead.</h2><p>Every Sunday, the five AI developments that actually matter &mdash; with the strategic context to act on them. Free, always.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
+
 
 </div>
 
