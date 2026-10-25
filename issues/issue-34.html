@@ -72,16 +72,21 @@
   footer .fine { margin-top:8px; font-size:12px; color:#8595b0; }
   @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
 
-  /* Subscribe CTA (sub-cta) */
+  /* Subscribe CTA (sub-cta) — in-page Beehiiv form */
   .sub-cta { font-family:Arial,sans-serif; box-sizing:border-box; }
-  .sub-cta-inline { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 16px; background:#fff; border:1px solid #e3dccb; border-left:4px solid #C9A84C; padding:12px 16px; margin:22px 0; font-size:15px; color:#333; line-height:1.5; }
-  .sub-cta-inline p { margin:0; padding:0; flex:1 1 260px; font-size:15px; color:#333; }
+  .sub-cta-inline { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 18px; background:#fff; border:1px solid #e3dccb; border-left:4px solid #C9A84C; padding:14px 16px; margin:22px 0; color:#333; line-height:1.5; }
+  .sub-cta-inline p { margin:0; padding:0; flex:1 1 220px; font-size:15px; color:#333; }
+  .sub-cta .sub-form { flex:0 1 340px; min-width:0; max-width:100%; }
+  .sub-cta .sub-form iframe { max-width:100%; }
   .sub-cta a.sub-btn { display:inline-block; background:#C9A84C; color:#1A2A4A; font-weight:bold; text-decoration:none; padding:10px 20px; border-radius:4px; font-size:14px; white-space:nowrap; border:0; }
   .sub-cta a.sub-btn:hover { background:#e0bc64; color:#1A2A4A; }
+  .sub-cta a.sub-btn.sub-fallback { display:none; }
+  .sub-cta .sub-form.sub-failed a.sub-btn.sub-fallback { display:inline-block; }
   .sub-cta-band { background:#1A2A4A; color:#fff; text-align:center; padding:44px 24px; margin:30px 0 12px; border-radius:4px; }
   .sub-cta-band h2 { font-family:Georgia,serif; font-size:26px; line-height:1.25; color:#fff; margin:0 0 12px; padding:0; border:0; }
   .sub-cta-band h2 em { color:#C9A84C; font-style:italic; }
   .sub-cta-band p { color:#F5F0E8; font-size:15px; margin:0 auto 22px; max-width:560px; }
+  .sub-cta-band .sub-form { margin:0 auto; max-width:400px; }
 </style>
 </head>
 <body>
@@ -118,7 +123,7 @@
 </article>
 
 
-<div class="sub-cta sub-cta-inline"><p>Reading this on the site? Get every issue in your inbox on Sunday, free.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
+<div class="sub-cta sub-cta-inline"><p>Reading this on the site? Get every issue in your inbox on Sunday, free.</p><div class="sub-form"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="8a0fc263-5054-46cc-af3c-08eb30fd3775"></script><a class="sub-btn sub-fallback" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
 <!-- STORY 2 -->
 <article class="story" id="story-2">
 <div class="kicker">Story 02</div>
@@ -162,7 +167,7 @@
 <p><span class="lead">The grounded takeaway:</span> you cannot resolve the superintelligence debate from a CIO's chair, and you should not try. What you can do is treat the exodus as market intelligence &mdash; it tells you which assurance mechanisms are gaining credibility, and it argues for leaning on independent evaluation and contractual guarantees rather than any single vendor's self-assessment. Trust, but verify through someone who does not share the vendor's incentive.</p>
 <div class="callout"><span class="label">&#9612; The Lesson</span><p>Insider departures are a leading indicator, not gossip. They point to where trust is migrating &mdash; toward independent evaluators and away from self-assessment. Build your vendor assurance around external verification, because the market is already repricing whose word to take.</p></div>
 </article>
-<div class="sub-cta sub-cta-inline"><p>Those are the week&rsquo;s five. Get next week&rsquo;s in your inbox on Sunday, free.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
+<div class="sub-cta sub-cta-inline"><p>Those are the week&rsquo;s five. Get next week&rsquo;s in your inbox on Sunday, free.</p><div class="sub-form"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="8a0fc263-5054-46cc-af3c-08eb30fd3775"></script><a class="sub-btn sub-fallback" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
 
 
 <!-- THE GOVERNANCE ANGLE -->
@@ -218,12 +223,13 @@
 <p class="sign">See you next week &mdash; still watching, still distilling.</p>
 <p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
 </section>
-<div class="sub-cta sub-cta-band"><h2>Stay <em>one issue</em> ahead.</h2><p>Every Sunday, the five AI developments that actually matter &mdash; with the strategic context to act on them. Free, always.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
+<div class="sub-cta sub-cta-band"><h2>Stay <em>one issue</em> ahead.</h2><p>Every Sunday, the five AI developments that actually matter &mdash; with the strategic context to act on them. Free, always.</p><div class="sub-form"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="8a0fc263-5054-46cc-af3c-08eb30fd3775"></script><a class="sub-btn sub-fallback" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
 
 
 </div>
 
 <footer><div class="wrap">&copy; 2026 Distilled AI Digest &middot; <a href="https://distilledaidigest.com/archive">Archive</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe on Beehiiv</a><div class="fine">You're reading the full issue. Share it freely.</div></div></footer>
 
+<script>setTimeout(function(){document.querySelectorAll('.sub-form').forEach(function(f){if(!f.querySelector('iframe'))f.classList.add('sub-failed');});},6000);</script>
 </body>
 </html>

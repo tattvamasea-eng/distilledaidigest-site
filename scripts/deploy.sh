@@ -21,6 +21,7 @@ else echo "❌ thumbnail missing"; exit 1; fi
 grep -q "issue-${N}" index.html   || { echo "❌ index.html does not link issue-${N}"; exit 1; }
 grep -q "issue-${N}" archive.html || { echo "❌ archive.html does not link issue-${N}"; exit 1; }
 grep -q 'class="sub-cta' "issues/issue-${N}.html" || { echo "❌ subscribe CTA (class=\"sub-cta\") missing from issue-${N}.html — run scripts/add_sub_cta.py"; exit 1; }
+[ "$(grep -o 'data-beehiiv-form=' "issues/issue-${N}.html" | wc -l | tr -d ' ')" -ge 3 ] || { echo "❌ in-page subscribe forms missing from issue-${N}.html — run scripts/add_sub_cta.py --write issues/issue-${N}.html"; exit 1; }
 
 # Guardrails
 grep -q "— Ram\b" "issues/issue-${N}.html" && { echo "❌ personal byline 'Ram' present"; exit 1; } || true

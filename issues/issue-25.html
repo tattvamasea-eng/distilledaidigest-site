@@ -94,16 +94,21 @@
     .site-footer a { color:var(--gold); text-decoration:none; }
     @media (max-width:600px) { .stack-grid { grid-template-columns:1fr; } .stack-card:last-child { grid-column:auto; } .hero-title { font-size:2rem; } .section-number { font-size:2rem; } .toc-strip { gap:0.75rem; } }
   
-  /* Subscribe CTA (sub-cta) */
+  /* Subscribe CTA (sub-cta) — in-page Beehiiv form */
   .sub-cta { font-family:Arial,sans-serif; box-sizing:border-box; }
-  .sub-cta-inline { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 16px; background:#fff; border:1px solid #e3dccb; border-left:4px solid #C9A84C; padding:12px 16px; margin:22px 0; font-size:15px; color:#333; line-height:1.5; }
-  .sub-cta-inline p { margin:0; padding:0; flex:1 1 260px; font-size:15px; color:#333; }
+  .sub-cta-inline { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 18px; background:#fff; border:1px solid #e3dccb; border-left:4px solid #C9A84C; padding:14px 16px; margin:22px 0; color:#333; line-height:1.5; }
+  .sub-cta-inline p { margin:0; padding:0; flex:1 1 220px; font-size:15px; color:#333; }
+  .sub-cta .sub-form { flex:0 1 340px; min-width:0; max-width:100%; }
+  .sub-cta .sub-form iframe { max-width:100%; }
   .sub-cta a.sub-btn { display:inline-block; background:#C9A84C; color:#1A2A4A; font-weight:bold; text-decoration:none; padding:10px 20px; border-radius:4px; font-size:14px; white-space:nowrap; border:0; }
   .sub-cta a.sub-btn:hover { background:#e0bc64; color:#1A2A4A; }
+  .sub-cta a.sub-btn.sub-fallback { display:none; }
+  .sub-cta .sub-form.sub-failed a.sub-btn.sub-fallback { display:inline-block; }
   .sub-cta-band { background:#1A2A4A; color:#fff; text-align:center; padding:44px 24px; margin:30px 0 12px; border-radius:4px; }
   .sub-cta-band h2 { font-family:Georgia,serif; font-size:26px; line-height:1.25; color:#fff; margin:0 0 12px; padding:0; border:0; }
   .sub-cta-band h2 em { color:#C9A84C; font-style:italic; }
   .sub-cta-band p { color:#F5F0E8; font-size:15px; margin:0 auto 22px; max-width:560px; }
+  .sub-cta-band .sub-form { margin:0 auto; max-width:400px; }
 </style>
 </head>
 <body>
@@ -144,7 +149,7 @@
     <hr class="story-divider" />
   </article>
   
-<div class="sub-cta sub-cta-inline"><p>Reading this on the site? Get every issue in your inbox on Sunday, free.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
+<div class="sub-cta sub-cta-inline"><p>Reading this on the site? Get every issue in your inbox on Sunday, free.</p><div class="sub-form"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="8a0fc263-5054-46cc-af3c-08eb30fd3775"></script><a class="sub-btn sub-fallback" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
 <article id="story2">
     <div class="section-header"><div class="section-number">02</div><div class="section-title-block"><div class="section-label">Markets</div><h2 class="section-title">IBM Falls 25% &mdash; The Budget Cannibalization Is Real</h2></div></div>
     <div class="story-body">
@@ -189,7 +194,7 @@
     <div class="callout"><div class="callout-label">The Lesson</div><p>In the same week IBM showed most AI initiatives fail to deliver ROI, Wells Fargo illustrates what right looks like: platform first, AI second. The $1 billion spent before the AI went live is not overhead. It is the reason the AI works.</p></div>
     <hr class="story-divider" />
   </article>
-<div class="sub-cta sub-cta-inline"><p>Those are the week&rsquo;s five. Get next week&rsquo;s in your inbox on Sunday, free.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
+<div class="sub-cta sub-cta-inline"><p>Those are the week&rsquo;s five. Get next week&rsquo;s in your inbox on Sunday, free.</p><div class="sub-form"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="8a0fc263-5054-46cc-af3c-08eb30fd3775"></script><a class="sub-btn sub-fallback" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
 
   <section id="quickhits" class="quick-hits-section">
     <div class="quick-hits-header"><span class="quick-hits-icon">&#9889;</span><h2 class="quick-hits-title">Quick <span>Hits</span></h2></div>
@@ -241,12 +246,13 @@
     <p class="closing-text" style="font-size:0.95rem; margin-top:0.5rem;">We&rsquo;ll see you next week with more signal, less noise.</p>
     <div class="closing-sig">&mdash; The Distilled AI Digest Team</div>
   </section>
-<div class="sub-cta sub-cta-band"><h2>Stay <em>one issue</em> ahead.</h2><p>Every Sunday, the five AI developments that actually matter &mdash; with the strategic context to act on them. Free, always.</p><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></div>
+<div class="sub-cta sub-cta-band"><h2>Stay <em>one issue</em> ahead.</h2><p>Every Sunday, the five AI developments that actually matter &mdash; with the strategic context to act on them. Free, always.</p><div class="sub-form"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="8a0fc263-5054-46cc-af3c-08eb30fd3775"></script><a class="sub-btn sub-fallback" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
 
 </div>
 <footer class="site-footer">
   <p>&copy; 2026 Distilled AI Digest &nbsp;&middot;&nbsp; <a href="https://distilledaidigest.com">distilledaidigest.com</a> &nbsp;&middot;&nbsp; <a href="/archive.html">Archive</a> &nbsp;&middot;&nbsp; <a href="https://newsletter.distilledaidigest.com">Subscribe</a></p>
   <p style="margin-top:0.5rem; opacity:0.6;">Issue #25 &nbsp;&middot;&nbsp; July 12&ndash;18, 2026 &nbsp;&middot;&nbsp; For enterprise leaders navigating the AI era.</p>
 </footer>
+<script>setTimeout(function(){document.querySelectorAll('.sub-form').forEach(function(f){if(!f.querySelector('iframe'))f.classList.add('sub-failed');});},6000);</script>
 </body>
 </html>
