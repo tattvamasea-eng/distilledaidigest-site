@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The week agents worked both sides: Anthropic&#39;s always-on Claude Duet, one hacker&#39;s AI agents breach 100+ companies at $50 each, Gartner maps the 2027 agent trends, Splunk finds 55% can&#39;t control AI costs, and LiteLLM is poisoned again. Plus Agent 101: Reversibility.">
+<title>Issue #41 &mdash; The Week Agents Worked Both Sides | Distilled AI Digest</title>
+<link rel="canonical" href="https://www.distilledaidigest.com/issues/issue-41">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Distilled AI Digest">
+<meta property="og:title" content="The Week Agents Worked Both Sides | Distilled AI Digest #41">
+<meta property="og:description" content="The week agents worked both sides: Anthropic&#39;s always-on Claude Duet, one hacker&#39;s AI agents breach 100+ companies at $50 each, Gartner maps the 2027 agent trends, Splunk finds 55% can&#39;t control AI costs, and LiteLLM is poisoned again. Plus Agent 101: Reversibility.">
+<meta property="og:url" content="https://www.distilledaidigest.com/issues/issue-41">
+<meta property="og:image" content="https://www.distilledaidigest.com/assets/thumbnail_issue41.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@BramForge">
+<meta name="twitter:title" content="The Week Agents Worked Both Sides | Distilled AI Digest #41">
+<meta name="twitter:description" content="The week agents worked both sides: Anthropic&#39;s always-on Claude Duet, one hacker&#39;s AI agents breach 100+ companies at $50 each, Gartner maps the 2027 agent trends, Splunk finds 55% can&#39;t control AI costs, and LiteLLM is poisoned again. Plus Agent 101: Reversibility.">
+<meta name="twitter:image" content="https://www.distilledaidigest.com/assets/thumbnail_issue41.png">
+<script>document.documentElement.className += ' js';</script>
+<style>
+  :root { --navy:#1C2F50; --gold:#B8862F; --cream:#f5f5f0; --card:#ffffff; --stack:#eef2f8; --ink:#1a1a1a; --muted:#555; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  nav { background:var(--navy); padding:18px 0 8px; }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; }
+  nav .brand { color:#fff; font-weight:bold; letter-spacing:1px; font-size:26px; text-decoration:none; }
+  nav .links a { color:#cdd6e6; text-decoration:none; margin-left:18px; font-size:13px; font-family:Arial,sans-serif; }
+  nav .links a:hover { color:#fff; }
+  header.hero { background:var(--navy); color:#fff; padding:12px 0 44px; border-bottom:4px solid var(--gold); }
+  .issue-line { color:var(--gold); font-family:Arial,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+  header.hero h1 { font-size:40px; line-height:1.15; margin-bottom:16px; color:#fff; }
+  header.hero .dateline { color:#aebbd2; font-size:15px; margin-bottom:20px; }
+  .tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .tags span { border:1px solid var(--gold); color:var(--gold); font-family:Arial,sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:20px; }
+  .intro { padding:34px 0 10px; }
+  .intro p { margin-bottom:18px; font-size:18px; }
+  .story { background:var(--card); border-left:5px solid var(--gold); padding:30px 30px 28px; margin:26px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+  .story .kicker { font-family:Arial,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .story h2 { font-size:26px; line-height:1.25; color:var(--navy); margin-bottom:16px; }
+  .story p { margin-bottom:15px; }
+  .story p .lead { font-weight:bold; color:var(--navy); }
+  .callout { background:var(--cream); border-left:4px solid var(--navy); padding:16px 18px; margin-top:18px; }
+  .callout .label { font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; margin-bottom:6px; display:block; }
+  .callout p { margin:0; font-size:15px; color:#333; }
+  .section-head { font-family:Arial,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin:44px 0 4px; font-weight:bold; }
+  .quickhits { background:var(--card); border-left:5px solid var(--gold); padding:26px 30px; margin:26px 0; }
+  .quickhits h2 { font-size:24px; color:var(--navy); margin-bottom:6px; }
+  .quickhits .qh-sub { font-family:Arial,sans-serif; font-size:13px; color:var(--muted); margin-bottom:16px; }
+  .quickhits ul { list-style:none; }
+  .quickhits li { margin-bottom:14px; padding-left:16px; position:relative; font-size:15px; }
+  .quickhits li:before { content:"\25B8"; color:var(--gold); position:absolute; left:0; }
+  .stack-grid { display:grid; gap:14px; margin:22px 0; }
+  .stack-card { background:var(--stack); border-radius:6px; padding:18px 20px; }
+  .stack-card .layer { font-family:Arial,sans-serif; font-size:13px; font-weight:bold; color:var(--navy); margin-bottom:6px; }
+  .stack-card p { font-size:14px; margin:0; color:#333; }
+  .agent101 { background:var(--card); border-left:5px solid var(--navy); padding:30px; margin:26px 0; }
+  .agent101 h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .agent101 p { margin-bottom:15px; }
+  .agent101 p .lead { font-weight:bold; color:var(--navy); }
+  .agent101 .takeaway { font-style:italic; color:var(--navy); border-top:1px solid #ddd; padding-top:14px; margin-top:6px; }
+  .cio { background:var(--card); border-left:5px solid var(--gold); padding:30px; margin:26px 0; }
+  .cio h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .cio p { margin-bottom:15px; }
+  .cio p .lead { font-weight:bold; color:var(--navy); }
+  .closing { padding:30px 0 10px; font-size:18px; }
+  .closing p { margin-bottom:14px; }
+  .sign { color:var(--navy); font-weight:bold; }
+  footer { background:var(--navy); color:#aebbd2; padding:26px 0; margin-top:40px; font-family:Arial,sans-serif; font-size:13px; }
+  footer a { color:var(--gold); text-decoration:none; }
+  footer .fine { margin-top:8px; font-size:12px; color:#8595b0; }
+  /* Perspective lenses (pilot extended through #40). Without JS: bar hidden, lenses render as collapsed <details>. */
+  .lens-bar { display:none; align-items:center; flex-wrap:wrap; gap:10px 14px; background:var(--card); border:1px solid #e3dccb; border-left:5px solid var(--navy); padding:12px 16px; margin:26px 0 0; font-family:Arial,sans-serif; font-size:13px; }
+  .lens-bar label { font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); }
+  .lens-bar select { font-size:14px; padding:5px 8px; border:1px solid #c9c2b0; border-radius:4px; background:#fff; color:var(--ink); }
+  .lens-bar .lens-hint { color:var(--muted); }
+  .lens-pointer { display:none; color:var(--navy); font-weight:bold; text-decoration:none; border-bottom:1px solid var(--gold); }
+  html.js .lens-bar { display:flex; }
+  html.js[data-lens="plain"] .lens-pointer { display:inline; }
+  html.js[data-lens="plain"] details.lens-engineer, html.js[data-lens="engineer"] details.lens-plain { display:none; }
+  details.lens { margin-top:14px; border:1px solid #e3dccb; border-radius:4px; background:#faf8f2; }
+  details.lens summary { cursor:pointer; font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; padding:10px 14px; }
+  details.lens p { padding:0 14px 12px; margin:0; font-size:15px; color:#333; }
+  @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
+  details.sources { margin:10px 0 0; border-top:1px solid #ddd; padding-top:14px; font-family:Arial,sans-serif; font-size:13px; color:var(--muted); }
+  details.sources summary { cursor:pointer; font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); margin-bottom:10px; }
+  details.sources p { margin-bottom:9px; line-height:1.55; }
+  details.sources a { color:var(--navy); }
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="https://distilledaidigest.com/" class="brand">Distilled AI Digest</a><div class="links"><a href="https://distilledaidigest.com/">Home</a><a href="https://distilledaidigest.com/archive">Archive</a><a href="https://newsletter.distilledaidigest.com">Subscribe</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="issue-line">Issue #41 &middot; October 18&ndash;24, 2026</div>
+<h1>The Week Agents Worked Both Sides</h1>
+<div class="tags">
+  <span>Always-On Agents</span>
+  <span>Agent Attacks</span>
+  <span>Gartner 2027</span>
+  <span>AI Costs</span>
+  <span>Supply Chain</span>
+</div>
+</div></header>
+
+<div class="wrap">
+
+<div class="lens-bar" id="lens-bar">
+<label for="lens-select">Perspective</label>
+<select id="lens-select" aria-describedby="lens-hint">
+  <option value="leader">Leader (default)</option>
+  <option value="plain">In simple terms</option>
+  <option value="engineer">Engineer</option>
+</select>
+<span class="lens-hint" id="lens-hint">Adds a beginner or technical note under each story.</span>
+<a class="lens-pointer" href="#agent101">New to agents? Start with Agent 101 &rarr;</a>
+</div>
+
+<section class="intro">
+<p>This week the same technology showed up on both sides of the desk. Anthropic released an agent that watches your inbox and acts for you while you are away. A single hacker pointed a swarm of agents at more than 1,200 websites and got into over 100 companies for about the price of a dinner per break-in. A popular open-source tool that thousands of AI applications route through was poisoned for the second time this year, and it shipped malware that steals the very keys those applications run on.</p>
+<p>Gartner gave the moment a map, putting agent identity and the agent harness among its top trends for 2027. A Splunk survey gave it a price tag: most organizations cannot control what their AI costs. The pattern is that an agent works for whoever holds its keys. This issue is about making sure that is you, and about knowing what each one costs.</p>
+</section>
+
+<!-- STORY 1 -->
+<article class="story" id="story-1">
+<div class="kicker">Story 01</div>
+<h2>Claude Duet and the Always-On Agent: You Will Pick One</h2>
+<p><span class="lead">What launched:</span> Anthropic opened a research preview of Claude Duet, a separate app in which Claude comes to you rather than waiting for a prompt. It runs on Claude Opus 5.5 on its own cloud computer, so tasks keep going after you close the app. It checks your connected accounts every few hours, sends a morning brief, and asks before it sends, pays, signs, or deletes anything. Access is by waitlist, for Pro and Max subscribers in the US only. Team and Enterprise plans are not included, and the background work counts against the plan's usage limits.</p>
+<p><span class="lead">The field is now crowded:</span> Duet arrives after Grok Bot (Issue #29), Meta's Muse (#36), OpenAI's Dots (#37), and Google's Gemini agent (#38). Each one wants the same things: your email, your calendar, your memory, and permission to act.</p>
+<p><span class="lead">My read: the always-on agent market is splitting in two.</span> Muse and Instinct are built for personal life. Dots, Duet, and Grok Bot lean toward work. Duet sits in that second group, but it is aimed at professionals and is not yet sold to enterprises. And this is not a mix-and-match market. An always-on agent is only useful if it holds your context, so running two means two sets of access to the same inbox and two agents acting on the same threads. You pick one.</p>
+<p><span class="lead">Why it lands on the CIO's desk now:</span> Duet is sold to individuals. A professional on a personal Pro or Max plan can connect it to the tools they work in before the organization has chosen any agent at all. The choice of platform can be made for you, one employee at a time.</p>
+<div class="callout"><span class="label">&#9612; The Implication</span><p>Choose your always-on agent deliberately, before your people choose it individually. Whichever one you pick will hold the keys to your inboxes and calendars.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Most AI assistants wait for you to type a question. Duet works the other way: it watches your email and calendar, tells you what needs attention, and does tasks for you in the background. It asks permission before doing anything that cannot be undone, like sending a message or paying a bill.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Duet runs an Opus 5.5 agent loop on a hosted machine and polls connected accounts every few hours instead of streaming them continuously, which keeps plan usage down. Consequential tool calls (send, pay, sign, delete) are gated on an explicit user approval, and background runs draw on the same quota as interactive use.</p></details>
+</article>
+
+<!-- STORY 2 -->
+<article class="story" id="story-2">
+<div class="kicker">Story 02</div>
+<h2>$50 a Break-In: Ask Why, Not How</h2>
+<p><span class="lead">What happened:</span> Reuters reported that a Chinese-speaking hacker used AI agents to break into the websites of more than 100 companies, including Deere, SharkNinja, and Cummins, across the US, Canada, Australia, and Japan. The research came from Snorre Fagerland of the security firm NorForge. He found the operator's control panel for Cairn, an open-source agent platform, left exposed on the internet. The agents attacked more than 1,200 sites, mostly on their own, at roughly $50 in model tokens per successful hack. The instructions were reportedly under 100 Chinese characters. Cairn's author told Reuters the tool was not built for attacks.</p>
+<p><span class="lead">How is the boring part:</span> the agents went after well-known weaknesses such as SQL injection, unsafe file uploads, and authentication bypasses. These are the flaws standard scanners have looked for over many years. Reuters could not establish how much data, if any, was taken.</p>
+<p><span class="lead">My read: the real question is why.</span> At $50 a break-in, an attacker does not need a big payoff from any one victim. Reselling access, skimming payment data, or a small extortion demand all pay for themselves many times over at that price. The economics of attack have flipped: it is now cheap to try everyone. Assume you are being tested cheaply, at volume, right now.</p>
+<p><span class="lead">What changes for defenders:</span> controls sized for a rare, expensive, targeted attacker do not fit an attacker that costs almost nothing to run. Your exposure is no longer measured by whether you are worth attacking. It is measured by whether you have one unpatched web form among thousands of probes.</p>
+<div class="callout"><span class="label">&#9612; The Signal</span><p>When an attack costs $50, every company is worth trying. Close the known, ordinary flaws on every public site you own, because the agents will find the one you forgot.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>One person used AI programs to try to break into more than a thousand company websites and got into over a hundred. The AI did almost all the work, and each successful break-in cost about $50. When attacks are that cheap, criminals can afford to try every company, not just big targets.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Cairn takes a start state and a goal and runs agents step by step toward it. NorForge reports the agents probed for SQL injection, unsafe file uploads, insecure deserialization, authentication bypass, and server-side template injection, all classes that common scanners and web application firewall rules already cover. NorForge saw the campaign only because operators left their Cairn panels exposed to internet scanning.</p></details>
+</article>
+
+<!-- STORY 3 -->
+<article class="story" id="story-3">
+<div class="kicker">Story 03</div>
+<h2>Gartner Maps 2027, and the Harness Is the Door</h2>
+<p><span class="lead">The map:</span> at its IT Symposium, Gartner named its top ten strategic technology trends for 2027. Gene Alvarez, Distinguished VP Analyst, framed the problem bluntly: AI systems, he said, "operate in an architectural vacuum," producing software faster than people can review it and opening credential paths no one manages. Several trends are about agents directly. AI context platforms give agents the business knowledge they need to act, and Gartner predicts that organizations that prioritize semantics in AI-ready data will raise agentic accuracy by up to 80% and cut costs by up to 60% by 2027. The Agent Coding Harness is a closed-loop control system that governs coding agents across the software lifecycle. AI Agent Identity replaces static credentials with access granted per action.</p>
+<p><span class="lead">The number that will get quoted:</span> Gartner predicts that by 2028, 25% of enterprise security breaches will trace back to AI agent abuse, driven by unmanaged machine privileges and old credential practices. Story 02 is what that looks like at small scale.</p>
+<p><span class="lead">My read: this is still evolving, and the harness is where it will be won.</span> The harness is the agent's entry point to everything it touches, so it is where hardening happens: identity, permissions, checks before action. As harnesses mature, breach risk should shrink. Gartner's 25% figure assumes that gap is not closed. Mine is the optimistic case, and it depends on organizations actually investing in the harness rather than in more agents.</p>
+<p><span class="lead">Where to start:</span> Gartner's list reads like a build order. Give each agent its own identity (Agent 101, Issue #29: Non-Human Identity), put a harness around it (Issue #13: The Agent Harness), and feed it governed context. Skip the first two and the third makes a capable agent more dangerous, not less.</p>
+<div class="callout"><span class="label">&#9612; Watch This</span><p>Gartner's 25% is a forecast of what happens if nothing changes. Budget for agent identity and the harness this planning cycle, and the forecast becomes a ceiling rather than a floor.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Gartner, a research firm many IT leaders follow, published its list of the technologies that matter most for 2027. Several are about controlling AI agents: giving each one its own login, putting a supervising layer around it, and feeding it accurate company information. Gartner expects a quarter of company security breaches to involve misused AI agents by 2028 if this is not done.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Gartner defines an agent coding harness as a closed-loop control system: it constrains what coding agents can run, verifies their output, and feeds results back into the loop. Agent identity swaps long-lived static secrets for just-in-time, policy-controlled access, binding the model, prompt, and credential to each action so it can be audited.</p></details>
+</article>
+
+<!-- STORY 4 -->
+<article class="story" id="story-4">
+<div class="kicker">Story 04</div>
+<h2>The Bill Is the Brake: Splunk's 55%</h2>
+<p><span class="lead">The survey:</span> Cisco released the Splunk State of Observability 2026 report. Oxford Economics surveyed 2,050 IT operations and engineering professionals in 10 countries earlier this year. Note the source: Splunk sells the monitoring tools the report recommends, so read it as a vendor survey, not an analyst study. Its findings: 55% say they cannot control AI costs, and 60% say unexpected billing spikes strain them more than high baseline costs do. 57% say their telemetry costs now exceed the cost of the infrastructure being monitored. Splunk's "leaders" group is far more likely to attribute AI costs accurately to the agents and models that drive them (91% against 69%).</p>
+<p><span class="lead">The line that stuck:</span> Kamal Hathi, who runs Splunk at Cisco, said the excitement of AI "is clashing with the reality of the bill." That matches what the report measures: the problem is less the size of the bill than the surprise.</p>
+<p><span class="lead">My read: unpredictable cost is now the brake.</span> In the organizations I work with, it is the reason leaders give for pausing AI investment. A pilot that cannot say what it will cost next month does not get funded for next year, however good the demo was. Cost control has become the precondition for the next round of AI funding.</p>
+<p><span class="lead">What follows:</span> agents make this worse, because they loop, retry, and run in the background (Story 01). The tools that let you see cost per agent, per workflow, and per owner are no longer optional finance tooling. They are how a pilot earns its second year (see Agent 101, Issue #35: The Token Bill).</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>Before the next pilot is approved, require that its cost can be traced to each agent and workflow, with a cap set. Predictable cost is now what gets an AI budget renewed.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>A survey of more than 2,000 tech workers found that over half cannot keep their AI costs under control. Surprise bills are the biggest headache. When leaders cannot predict what AI will cost, they slow down or stop spending on it. The survey comes from a company that sells cost-tracking tools, so it has an interest in the answer.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Attributing AI cost means tagging every model and tool call with the agent, workflow, and owner that triggered it, then rolling up tokens, retries, and calls per tag. Without that tagging, bills arrive per provider account, and a spike cannot be traced back to the loop that caused it.</p></details>
+</article>
+
+<!-- STORY 5 -->
+<article class="story" id="story-5">
+<div class="kicker">Story 05</div>
+<h2>LiteLLM, Again: Vendors Can Sell the Hardening, Not the Accountability</h2>
+<p><span class="lead">What happened:</span> LiteLLM, an open-source gateway that applications use to route calls to many AI model providers, was compromised for the second time this year. According to LiteLLM's own incident report, its release pipeline was hijacked and pushed version 1.107.0 to PyPI, the main Python package index, and to its official Docker images. The package carried malware that steals credentials and loads remote-control tools. It was live on PyPI for about two hours before being pulled. Datadog, citing LiteLLM's analysis, reports that the attackers used stolen GitHub tokens from three engineers' accounts. The earlier compromise this year hit two other versions, and no link between the two has been established.</p>
+<p><span class="lead">Why this one matters more than most:</span> a gateway like LiteLLM holds the API keys for every model provider an application uses. Datadog puts its downloads at about 23 million a week. Poison the gateway and you collect the keys to everything behind it.</p>
+<p><span class="lead">My read: this forces a choice.</span> Buy this kind of plumbing through a vendor, and the questions become what security control the vendor actually provides and how far its liability extends. Harden it yourself, and it becomes your own engineering problem. There is an opening for vendors to bundle the hardening with delivery and price the risk into the deal. But vendors can sell the hardening; they cannot take the accountability. Contracts usually cap liability at the fees paid, and a vendor's own pipeline can be poisoned too, exactly as LiteLLM's was. Whichever route you take, three baseline controls stay with you:</p>
+<ul>
+<li><strong>Pin and verify versions</strong> before you update, rather than taking whatever is newest.</li>
+<li><strong>Keep secrets out of logs</strong>, so a compromised host has less to steal.</li>
+<li><strong>Use short-lived, narrowly scoped keys</strong>, so one bad update cannot empty the vault.</li>
+</ul>
+<div class="callout"><span class="label">&#9612; The Context</span><p>The AI supply chain is now a target in its own right. Whether you buy or build, the breach and the regulator still land on you, so own the three controls above.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Many AI apps use a free tool called LiteLLM to connect to AI services. Criminals broke into the system that publishes its updates and slipped in a version that steals passwords and keys. Anyone who installed that update during a two-hour window has to assume their systems were exposed. It is the second time this has happened to the same tool this year.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The source tag for 1.107.0 was clean. The malicious files were added inside the compromised build environment, so every wheel uploaded to PyPI carried them. Open-ended constraints such as <code>litellm&gt;=</code> and floating Docker tags such as <code>latest</code> pulled the release in automatically. Hash-pinned lockfiles and digest-pinned images would not have.</p></details>
+</article>
+
+<div class="quickhits" id="governance">
+<h2>&#9878; The Governance Angle</h2>
+<p class="qh-sub">Five more signals from the week &mdash; where the rules, the contracts, and the limits around AI moved.</p>
+<ul>
+<li><strong>Know which model is inside your vendor's product:</strong> the US Department of Homeland Security ordered federal civilian agencies to remove DeepSeek products and stop buying them, and the order also covers third-party products built on DeepSeek implementations. It does not apply to private companies, but anyone selling to US civilian agencies now has to answer a model-provenance question (DeepSeek last appeared in Issue #38).</li>
+<li><strong>An AI diagnosis result, with the fine print:</strong> in a paper published in <em>Science</em>, Microsoft's MAI-DxO system diagnosed 83.2% of 304 difficult published case records, against 36.1% for 56 generalist physicians who could use reference materials. The authors are from Microsoft, the cases are a test set rather than live patients, and no specialists or physician teams were in the comparison, so this is evidence for a pilot, not for deployment.</li>
+<li><strong>Anthropic's pre-IPO governance move:</strong> Anthropic said it will commit 5% of its shares to a new Anthropic Public Benefit Fund, subject to stockholder approval, with the board able to add more as the company's value rises above an undisclosed baseline. Until the vote, treat it as a pledge rather than a transfer.</li>
+<li><strong>Sovereignty goes mainstream:</strong> Gartner predicts that by 2030 over 75% of organizations based outside the US will adopt digital sovereignty strategies, moving critical workloads to reduce geopolitical and vendor lock-in risk. For Canadian and European readers, exit plans from critical AI providers are becoming a planning item, not a theory.</li>
+<li><strong>A second Cairn group went after payment data:</strong> NorForge linked another set of exposed Cairn panels to an English-writing group that told its agents to steal credit cards and cryptocurrency. Agent-run attacks are now aimed squarely at payment data, which puts PCI scope and card-data controls back on the AI risk list (Story 02).</li>
+</ul>
+</div>
+
+<!-- CIO CORNER -->
+<div class="section-head">CIO Corner</div>
+<div class="cio" id="cio">
+<h2>From the editor's desk: Start With the Sponsor's Number</h2>
+<p>With Duet, Grok Bot, and Dots all heading toward the workplace, the questions I would ask from the CIO's seat are simple ones. Are we ready for the agent road? And where do we start: in operations as they run today, or by re-engineering the process first? The common pattern I see is scattered pilots, each with its own tool, and costs that are found late. The organizations getting it right are doing three things differently.</p>
+<p><span class="lead">They start with a sponsor's measurable outcome.</span> Not "try agents in finance," but a number a business sponsor already owns. Then they fix just enough of the process to make the agent's work measurable against it, rather than re-engineering everything before the first result.</p>
+<p><span class="lead">They start where mistakes can be undone.</span> Early agent work goes where errors are reversible, with a human approval on every step that is not (see Agent 101 below). And they settle on one agent platform rather than letting each team pick its own.</p>
+<p><span class="lead">Put on the Radar:</span> every agent pilot gets a spend cap and a named owner for its cost before it starts. If no one owns the bill, the bill will end the pilot.</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>Tie each pilot to a sponsor's number, start where mistakes can be undone, and give every pilot a cap and a cost owner.</p></div>
+</div>
+
+<!-- THE STACK -->
+<div class="section-head" id="stack">The Stack</div>
+<h2 style="font-size:22px;color:var(--navy);margin:6px 0 4px;">Six Signals Across the AI Infrastructure Layers &mdash; October 18&ndash;24, 2026</h2>
+<div class="stack-grid">
+<div class="stack-card"><div class="layer">&#9889; Energy</div><p>No major power deal this week. The energy signal came from Gartner's trends list instead: it says traditional silicon cannot scale enterprise AI indefinitely because of its energy demands, and it put biological computing on the list as an early bet on efficiency.</p></div>
+<div class="stack-card"><div class="layer">&#128190; Chips</div><p>Nvidia's software moat took a direct hit. Amazon open-sourced TorchNeuron under Apache 2.0, letting PyTorch code run on Trainium2 and Trainium3 chips with a configuration change, and said it is contributing code to PyTorch itself that decouples features from Nvidia hardware.</p></div>
+<div class="stack-card"><div class="layer">&#9729; Cloud</div><p>Google answered a day later by open-sourcing TorchTPU, built with Meta's PyTorch team, so existing workloads move to its TPUs with minimal code changes. Portable code is now negotiating leverage with your cloud. Gartner also forecast worldwide IT spending will grow 15% in 2027, to $7.35 trillion.</p></div>
+<div class="stack-card"><div class="layer">&#129504; Models</div><p>Anthropic put its top model, Opus 5.5, behind Duet's always-on loop rather than a cheaper one. The more an agent runs in the background, the more the choice of model drives the bill (Stories 01 and 04).</p></div>
+<div class="stack-card"><div class="layer">&#128295; Harness</div><p>The plumbing became the target. The LiteLLM gateway compromise (Story 05) hit the layer that brokers an agent's calls and holds its keys, the same week Gartner named the agent coding harness a 2027 trend.</p></div>
+<div class="stack-card"><div class="layer">&#128241; Applications</div><p>Agents now work for attackers and clinicians alike. Cairn ran a hacking campaign mostly on its own (Story 02), while Microsoft's MAI-DxO reported 80.3% accuracy on 325 emergency department cases against 46.8% for generalist physicians.</p></div>
+</div>
+
+<!-- AGENT 101 -->
+<div class="section-head">Agent 101</div>
+<div class="agent101" id="agent101">
+<h2>Reversibility</h2>
+<p>Think about writing in pencil versus pen. With a pencil you can try things, make mistakes, and erase them, so you can work fast without checking every word. With a pen, you slow down before you commit, because there is no eraser. Most people handle this without thinking: draft freely, then pause before the step that cannot be taken back, like signing a contract or dropping a letter in the mailbox.</p>
+<p><span class="lead">Name and define:</span> reversibility is whether an agent's action can be undone after it happens. A reversible action, such as drafting an email or moving a file to trash, can be rolled back. An irreversible one, such as sending a payment, deleting data permanently, or signing an agreement, cannot. Where an action cannot be literally undone, a compensating action can offset it: a refund reverses a charge, and a correction follows a sent message. Designing for reversibility means sorting every action an agent can take into one of these groups and treating each group differently.</p>
+<p><span class="lead">Why it matters:</span> this is how you decide where an agent may run on its own. Reversible steps can run unattended and be checked afterward. Irreversible steps need an approval gate before they run, which is exactly the line Claude Duet draws when it asks before it sends, pays, signs, or deletes (Story 01). It is related to Human-in-the-Loop Checkpoints (Issue #21) but comes first: reversibility tells you which steps need a human at all. It also tells you where to start a pilot (CIO Corner): wherever most of the work can be undone.</p>
+<p><span class="lead">One technical line:</span> tag each tool in the agent's interface as reversible, compensable, or irreversible; let reversible calls run with logging, pair compensable ones with a defined undo action (the saga pattern), and require a human-issued approval for irreversible calls, using idempotency keys so a retry never repeats a payment.</p>
+<p class="takeaway">Let agents work in pencil. Make them stop and ask before they pick up the pen.</p>
+</div>
+
+<!-- CLOSING -->
+<section class="closing">
+<p>That's your signal for the week of October 18&ndash;24, 2026. Agents went to work for both sides this week: for the professional who wants an assistant, for the attacker who wants a cheap way in, and against the companies whose tooling they quietly pass through. The organizations that come out ahead will be the ones that decide who holds each agent's keys, what each one costs, and which of its actions can never be taken back.</p>
+<p class="sign">See you next week &mdash; still watching, still distilling.</p>
+<p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
+</section>
+
+<!-- SOURCES -->
+<details class="sources" id="sources">
+<summary>Sources for this issue</summary>
+<p><strong>Story 01:</strong> <a href="https://macrumors.com/2026/10/21/anthropic-claude-duet/">MacRumors, on Claude Duet</a> &middot; <a href="https://iphoneincanada.ca/2026/10/21/claude-duet-proactive-ai-agent-app">iPhone in Canada, on Duet access and usage limits</a> &middot; <a href="https://www.aichatdaily.com/ai-tools/anthropic-launches-claude-duet-proactive-opus-5-5">AI Chat Daily, on Duet's approvals and cloud computer</a></p>
+<p><strong>Story 02:</strong> Reuters, as reported by <a href="https://www.staradvertiser.com/2026/10/19/breaking-news/how-one-hacker-used-ai-agents-to-break-into-over-100-company-websites/">the Honolulu Star-Advertiser</a> &middot; <a href="https://thenextweb.com/news/ai-agents-hacker-cairn-100-sites-deere-norforge">The Next Web, on cost per hack and data taken</a> &middot; <a href="https://darkreading.com/cyberattacks-data-breaches/hackers-abuse-ai-pen-test-tool-cairn">Dark Reading, on the weaknesses targeted</a> &middot; <a href="https://letsdatascience.com/news/hacker-uses-autonomous-ai-agents-to-breach-100-company-websi-6f2900ba">Let's Data Science, on Cairn's author</a></p>
+<p><strong>Story 03:</strong> <a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-20-gartner-identifies-the-top-strategic-technology-trends-for-2027">Gartner, Top Strategic Technology Trends for 2027</a></p>
+<p><strong>Story 04:</strong> <a href="https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m10/splunk-state-of-observability-2026-avoiding-the-hidden-costs-of-ai-agents.html">Cisco, Splunk State of Observability 2026</a></p>
+<p><strong>Story 05:</strong> <a href="https://docs.litellm.ai/blog/security-incident-oct-21-2026">LiteLLM, incident report for v1.107.0</a> &middot; <a href="https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-docker/">Datadog Security Labs, on the compromise</a> &middot; <a href="https://www.stepsecurity.io/blog/litellm-1-107-0-compromised-pypi-backdoored-wheels-credential-stealer">StepSecurity, on the build and version constraints</a></p>
+<p><strong>The Governance Angle:</strong> <a href="https://techcrunch.com/2026/10/20/us-orders-federal-agencies-to-remove-chinas-deepseek-ai-from-their-systems/">TechCrunch, on the DeepSeek order</a> &middot; <a href="https://www.bleepingcomputer.com/news/security/dhs-bans-deepseek-products-across-us-federal-civilian-agencies/">BleepingComputer, on its scope</a> &middot; <em>Science</em>, as reported by <a href="https://1023jack.com/news/microsoft-says-its-ai-beats-doctors-here-is-what-the-science-paper-actually-meas/">1023 Jack</a> and <a href="https://www.newsdirectory3.com/microsoft-diagnostic-ai-outperforms-physicians-in-complex-cases/">News Directory 3</a> &middot; Reuters, as reported by <a href="https://www.ksl.com/article/51637860/anthropic-to-commit-5-stake-to-new-public-benefit-fund">KSL</a> &middot; <a href="https://aimagazine.com/news/anthropic-to-invest-5-of-shares-to-its-public-benefit-fund">AI Magazine, on the fund's terms</a> &middot; <a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-20-gartner-identifies-the-top-strategic-technology-trends-for-2027">Gartner, on sovereign tech</a> &middot; <a href="https://thenextweb.com/news/ai-agents-hacker-cairn-100-sites-deere-norforge">The Next Web, on the second Cairn group</a></p>
+<p><strong>The Stack:</strong> <a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-20-gartner-identifies-the-top-strategic-technology-trends-for-2027">Gartner, on energy limits and the coding harness</a> &middot; <a href="https://geekwire.com/2026/amazon-challenges-nvidias-software-advantage-with-new-tool-for-its-ai-chips">GeekWire, on TorchNeuron</a> &middot; <a href="https://thenextweb.com/news/amazon-torchneuron-pytorch-trainium">The Next Web, on TorchNeuron's license and chips</a> &middot; <a href="https://letsdatascience.com/news/google-open-sources-torchtpu-to-run-native-pytorch-on-tpus-e36126c1">Let's Data Science, on TorchTPU</a> &middot; Gartner IT spending forecast, headline as listed in <a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-20-gartner-identifies-the-top-strategic-technology-trends-for-2027">Gartner's newsroom</a> &middot; <em>Science</em>, as reported by <a href="https://1023jack.com/news/microsoft-says-its-ai-beats-doctors-here-is-what-the-science-paper-actually-meas/">1023 Jack</a></p>
+<p class="src-note">Where a source is listed &ldquo;as reported by,&rdquo; we read the report of the original, not the original itself.</p>
+</details>
+
+</div>
+
+<footer><div class="wrap">&copy; 2026 Distilled AI Digest &middot; <a href="https://distilledaidigest.com/archive">Archive</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe on Beehiiv</a><div class="fine">You're reading the full issue. Share it freely.</div></div></footer>
+
+<script>
+/* Perspective lenses: ?lens=plain|engineer deep-link > saved choice > Leader. Fails safe to Leader. */
+(function () {
+  var KEY = 'dad-lens', VALID = { leader: 1, plain: 1, engineer: 1 };
+  var sel = document.getElementById('lens-select');
+  if (!sel) return;
+  function stored() { try { return window.localStorage.getItem(KEY); } catch (e) { return null; } }
+  function save(v) { try { window.localStorage.setItem(KEY, v); } catch (e) {} }
+  function fromUrl() { try { return new URLSearchParams(window.location.search).get('lens'); } catch (e) { return null; } }
+  function apply(v) {
+    if (!VALID[v]) v = 'leader';
+    document.documentElement.setAttribute('data-lens', v);
+    sel.value = v;
+    var ds = document.querySelectorAll('details.lens');
+    for (var i = 0; i < ds.length; i++) {
+      var d = ds[i];
+      d.open = (v === 'plain' && d.classList.contains('lens-plain')) || (v === 'engineer' && d.classList.contains('lens-engineer'));
+    }
+    return v;
+  }
+  var initial = fromUrl();
+  if (!VALID[initial]) initial = stored();
+  apply(initial);
+  if (window.location.hash) {
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target) target.scrollIntoView();
+  }
+  sel.addEventListener('change', function () {
+    var v = apply(sel.value);
+    save(v);
+    try {
+      var u = new URL(window.location.href);
+      if (v === 'leader') u.searchParams.delete('lens'); else u.searchParams.set('lens', v);
+      window.history.replaceState(null, '', u.toString());
+    } catch (e) {}
+    /* Pilot metric hook: counts a view switch if GoatCounter is installed; no-op otherwise. */
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'lens-switch-' + v, title: 'Perspective switch: ' + v, event: true }); } catch (e) {}
+  });
+})();
+</script>
+
+<script data-goatcounter="https://bramforgelabs.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

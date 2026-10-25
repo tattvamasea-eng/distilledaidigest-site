@@ -27,6 +27,8 @@ Checked against the full run in the repo (#14 onward; #1–13 are Beehiiv-only a
 #37 — Determinism vs. Sampling (why the same agent can act differently on the same task; temperature; assurance is a pass rate over repeated runs; deterministic code around high-stakes steps)
 #38 — Agent Memory vs. Retrieval (retrieval = looking up from a source at the moment of need, RAG; memory = records the agent writes and carries across sessions; govern retrieval through the source, treat memory as new records needing an owner, retention and correction)
 #39 — Evals vs. Guardrails (evals = offline tests before release scored as a pass rate; guardrails = run-time checks that block or escalate inputs, outputs and actions; you need both and must measure both, including the guardrail's catch rate; adjacent to #14 The Evaluation Gate and #26 Trajectory Monitoring)
+#40 — Deca·4 (no Agent 101)
+#41 — Reversibility (sort agent actions into reversible / compensable / irreversible; reversible run unattended with logs, compensable get a defined undo (saga pattern), irreversible need a human approval gate; idempotency keys stop repeat payments; adjacent to #21 Human-in-the-Loop Checkpoints — reversibility decides which steps need a human)
 
 Whole areas now saturated — steer clear: identity / credentials / IAM (#24 + #29); observability/monitoring (#22 + #26); trust-boundary/injection (#31); containment/environment (#34 + #23 permissions — adjacent); tool/function-calling mechanics (#32); cost/token economics (#35); planning & task decomposition (#36); determinism/sampling & run-to-run variance (#37); memory vs. retrieval (#38; adjacent to #16 persistent state and #18 context window); evals & guardrails (#14 + #39).
 

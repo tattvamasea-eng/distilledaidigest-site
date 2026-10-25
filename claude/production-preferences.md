@@ -151,3 +151,9 @@ These override the `dad-newsletter` SKILL.md wherever they disagree.
 - Thumbnail is `assets/thumbnail_decaN.png` (N = issue/10), not `thumbnail_issueNN.png`. `deploy.sh` now accepts it when the issue number is a multiple of 10. Generated from a patched copy of `make_thumbnail_dad17.py` (meta line "DECA·N · ISSUES #a–b"); #40 rendered in Liberation fonts on the linked shell, so re-run on the Mac for Georgia/Arial.
 - index.html: replace the single Deca card; archive.html: insert the new Deca card at the top of the deca grid. Link form `.../issues/issue-NN` (no .html), as for #30.
 
+## Working rules (from #41)
+- **Save verification results to `claude/issue-NN-verified.md` before a session stops.** #41's first writing chat verified everything, was stopped, and its results were lost; the next chat had to re-verify.
+- **Template rolls forward:** the most recent shipped weekly issue is now `issues/issue-41.html` (a Deca issue is never the weekly template).
+- **Splice, don't retype:** write the new body to `.venv/bNN.html` (git-ignored), splice it into the previous issue from `<header class="hero">` to the end of the Sources `</details>`, then swap title, descriptions and issue number in the head. Head CSS, lens script and footer stay byte-identical.
+- **Lenses stayed on #41** by default; the keep/drop decision on the ~10% switch rule is still open.
+- **Archive after a Deca:** the first issue after a Deca opens a new archive section above the previous one (#41 opened "Issues #41–49").
