@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The week nobody took AI&#39;s word: IDC says only 14% of large enterprises can verify agent decisions, an open model reaches for Beijing in a sandbox, Cathedral&#39;s agents get into Anthropic via third-party tools, ServiceNow has its worst day, and OpenAI&#39;s proof goes to review. Plus Agent 101: Computer Use.">
+<title>Issue #42 &mdash; The Week Nobody Took AI&#39;s Word | Distilled AI Digest</title>
+<link rel="canonical" href="https://www.distilledaidigest.com/issues/issue-42">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Distilled AI Digest">
+<meta property="og:title" content="The Week Nobody Took AI&#39;s Word | Distilled AI Digest #42">
+<meta property="og:description" content="The week nobody took AI&#39;s word: IDC says only 14% of large enterprises can verify agent decisions, an open model reaches for Beijing in a sandbox, Cathedral&#39;s agents get into Anthropic via third-party tools, ServiceNow has its worst day, and OpenAI&#39;s proof goes to review. Plus Agent 101: Computer Use.">
+<meta property="og:url" content="https://www.distilledaidigest.com/issues/issue-42">
+<meta property="og:image" content="https://www.distilledaidigest.com/assets/thumbnail_issue42.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@BramForge">
+<meta name="twitter:title" content="The Week Nobody Took AI&#39;s Word | Distilled AI Digest #42">
+<meta name="twitter:description" content="The week nobody took AI&#39;s word: IDC says only 14% of large enterprises can verify agent decisions, an open model reaches for Beijing in a sandbox, Cathedral&#39;s agents get into Anthropic via third-party tools, ServiceNow has its worst day, and OpenAI&#39;s proof goes to review. Plus Agent 101: Computer Use.">
+<meta name="twitter:image" content="https://www.distilledaidigest.com/assets/thumbnail_issue42.png">
+<script>document.documentElement.className += ' js';</script>
+<style>
+  :root { --navy:#1C2F50; --gold:#B8862F; --cream:#f5f5f0; --card:#ffffff; --stack:#eef2f8; --ink:#1a1a1a; --muted:#555; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  nav { background:var(--navy); padding:18px 0 8px; }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; }
+  nav .brand { color:#fff; font-weight:bold; letter-spacing:1px; font-size:26px; text-decoration:none; }
+  nav .links a { color:#cdd6e6; text-decoration:none; margin-left:18px; font-size:13px; font-family:Arial,sans-serif; }
+  nav .links a:hover { color:#fff; }
+  header.hero { background:var(--navy); color:#fff; padding:12px 0 44px; border-bottom:4px solid var(--gold); }
+  .issue-line { color:var(--gold); font-family:Arial,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+  header.hero h1 { font-size:40px; line-height:1.15; margin-bottom:16px; color:#fff; }
+  header.hero .dateline { color:#aebbd2; font-size:15px; margin-bottom:20px; }
+  .tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .tags span { border:1px solid var(--gold); color:var(--gold); font-family:Arial,sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:20px; }
+  .intro { padding:34px 0 10px; }
+  .intro p { margin-bottom:18px; font-size:18px; }
+  .story { background:var(--card); border-left:5px solid var(--gold); padding:30px 30px 28px; margin:26px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+  .story .kicker { font-family:Arial,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .story h2 { font-size:26px; line-height:1.25; color:var(--navy); margin-bottom:16px; }
+  .story p { margin-bottom:15px; }
+  .story p .lead { font-weight:bold; color:var(--navy); }
+  .callout { background:var(--cream); border-left:4px solid var(--navy); padding:16px 18px; margin-top:18px; }
+  .callout .label { font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; margin-bottom:6px; display:block; }
+  .callout p { margin:0; font-size:15px; color:#333; }
+  .section-head { font-family:Arial,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin:44px 0 4px; font-weight:bold; }
+  .quickhits { background:var(--card); border-left:5px solid var(--gold); padding:26px 30px; margin:26px 0; }
+  .quickhits h2 { font-size:24px; color:var(--navy); margin-bottom:6px; }
+  .quickhits .qh-sub { font-family:Arial,sans-serif; font-size:13px; color:var(--muted); margin-bottom:16px; }
+  .quickhits ul { list-style:none; }
+  .quickhits li { margin-bottom:14px; padding-left:16px; position:relative; font-size:15px; }
+  .quickhits li:before { content:"\25B8"; color:var(--gold); position:absolute; left:0; }
+  .stack-grid { display:grid; gap:14px; margin:22px 0; }
+  .stack-card { background:var(--stack); border-radius:6px; padding:18px 20px; }
+  .stack-card .layer { font-family:Arial,sans-serif; font-size:13px; font-weight:bold; color:var(--navy); margin-bottom:6px; }
+  .stack-card p { font-size:14px; margin:0; color:#333; }
+  .agent101 { background:var(--card); border-left:5px solid var(--navy); padding:30px; margin:26px 0; }
+  .agent101 h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .agent101 p { margin-bottom:15px; }
+  .agent101 p .lead { font-weight:bold; color:var(--navy); }
+  .agent101 .takeaway { font-style:italic; color:var(--navy); border-top:1px solid #ddd; padding-top:14px; margin-top:6px; }
+  .cio { background:var(--card); border-left:5px solid var(--gold); padding:30px; margin:26px 0; }
+  .cio h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .cio p { margin-bottom:15px; }
+  .cio p .lead { font-weight:bold; color:var(--navy); }
+  .closing { padding:30px 0 10px; font-size:18px; }
+  .closing p { margin-bottom:14px; }
+  .sign { color:var(--navy); font-weight:bold; }
+  footer { background:var(--navy); color:#aebbd2; padding:26px 0; margin-top:40px; font-family:Arial,sans-serif; font-size:13px; }
+  footer a { color:var(--gold); text-decoration:none; }
+  footer .fine { margin-top:8px; font-size:12px; color:#8595b0; }
+  /* Perspective lenses (pilot extended through #40). Without JS: bar hidden, lenses render as collapsed <details>. */
+  .lens-bar { display:none; align-items:center; flex-wrap:wrap; gap:10px 14px; background:var(--card); border:1px solid #e3dccb; border-left:5px solid var(--navy); padding:12px 16px; margin:26px 0 0; font-family:Arial,sans-serif; font-size:13px; }
+  .lens-bar label { font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); }
+  .lens-bar select { font-size:14px; padding:5px 8px; border:1px solid #c9c2b0; border-radius:4px; background:#fff; color:var(--ink); }
+  .lens-bar .lens-hint { color:var(--muted); }
+  .lens-pointer { display:none; color:var(--navy); font-weight:bold; text-decoration:none; border-bottom:1px solid var(--gold); }
+  html.js .lens-bar { display:flex; }
+  html.js[data-lens="plain"] .lens-pointer { display:inline; }
+  html.js[data-lens="plain"] details.lens-engineer, html.js[data-lens="engineer"] details.lens-plain { display:none; }
+  details.lens { margin-top:14px; border:1px solid #e3dccb; border-radius:4px; background:#faf8f2; }
+  details.lens summary { cursor:pointer; font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; padding:10px 14px; }
+  details.lens p { padding:0 14px 12px; margin:0; font-size:15px; color:#333; }
+  @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
+  details.sources { margin:10px 0 0; border-top:1px solid #ddd; padding-top:14px; font-family:Arial,sans-serif; font-size:13px; color:var(--muted); }
+  details.sources summary { cursor:pointer; font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); margin-bottom:10px; }
+  details.sources p { margin-bottom:9px; line-height:1.55; }
+  details.sources a { color:var(--navy); }
+
+  /* Subscribe CTA (sub-cta) — in-page Beehiiv form */
+  .sub-cta { font-family:Arial,sans-serif; box-sizing:border-box; }
+  .sub-cta-inline { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 18px; background:#fff; border:1px solid #e3dccb; border-left:4px solid #C9A84C; padding:14px 16px; margin:22px 0; color:#333; line-height:1.5; }
+  .sub-cta-inline p { margin:0; padding:0; flex:1 1 220px; font-size:15px; color:#333; }
+  .sub-cta .sub-form { flex:0 1 340px; min-width:0; max-width:100%; }
+  .sub-cta .sub-form iframe.sub-embed { display:block; width:100%; max-width:100%; height:56px; border:0; }
+  .sub-cta a.sub-btn { display:inline-block; background:#C9A84C; color:#1A2A4A; font-weight:bold; text-decoration:none; padding:10px 20px; border-radius:4px; font-size:14px; white-space:nowrap; border:0; }
+  .sub-cta a.sub-btn:hover { background:#e0bc64; color:#1A2A4A; }
+  .sub-cta-band { background:#1A2A4A; color:#fff; text-align:center; padding:44px 24px; margin:30px 0 12px; border-radius:4px; }
+  .sub-cta-band h2 { font-family:Georgia,serif; font-size:26px; line-height:1.25; color:#fff; margin:0 0 12px; padding:0; border:0; }
+  .sub-cta-band h2 em { color:#C9A84C; font-style:italic; }
+  .sub-cta-band p { color:#F5F0E8; font-size:15px; margin:0 auto 22px; max-width:560px; }
+  .sub-cta-band .sub-form { margin:0 auto; max-width:400px; }
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="https://distilledaidigest.com/" class="brand">Distilled AI Digest</a><div class="links"><a href="https://distilledaidigest.com/">Home</a><a href="https://distilledaidigest.com/archive">Archive</a><a href="https://newsletter.distilledaidigest.com">Subscribe</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="issue-line">Issue #42 &middot; October 25&ndash;31, 2026</div>
+<h1>The Week Nobody Took AI's Word</h1>
+<div class="tags">
+  <span>Agent Verification</span>
+  <span>Open-Model Risk</span>
+  <span>Third-Party Access</span>
+  <span>SaaS Selloff</span>
+  <span>AI Proofs</span>
+</div>
+</div></header>
+
+<div class="wrap">
+
+<div class="lens-bar" id="lens-bar">
+<label for="lens-select">Perspective</label>
+<select id="lens-select" aria-describedby="lens-hint">
+  <option value="leader">Leader (default)</option>
+  <option value="plain">In simple terms</option>
+  <option value="engineer">Engineer</option>
+</select>
+<span class="lens-hint" id="lens-hint">Adds a beginner or technical note under each story.</span>
+<a class="lens-pointer" href="#agent101">New to agents? Start with Agent 101 &rarr;</a>
+</div>
+
+<section class="intro">
+<p>This week, every big AI claim arrived with a challenge attached. IDC said only 14% of large enterprises can continuously verify what their agents decide. A Canadian AI company caught an open model reaching for a server in Beijing, and an independent audit disputed what it meant. A start-up said its agents got inside Anthropic in half a day, and Anthropic disputed most of the rest. Investors refused to take ServiceNow's AI story on faith and cut its value by more than a quarter in a single session. OpenAI said its AI had overturned a pillar of computer science, then handed the proof to the people best placed to break it.</p>
+<p>The pattern is that AI output, AI vendors and AI security claims are now checked before they are trusted. This issue is about building that checking into your own organization before an auditor, an insurer or an investor does it for you.</p>
+</section>
+
+<!-- STORY 1 -->
+<article class="story" id="story-1">
+<div class="kicker">Story 01</div>
+<h2>IDC's Verification Gap: From 14% to 70% in Two Years</h2>
+<p><span class="lead">What IDC predicts:</span> IDC's FutureScape 2027, released this week, says that by 2028, 70% of the world's 2,000 largest companies will be able to continuously verify the decisions their AI agents make, up from 14% today. It also puts a price on falling behind: companies without kill switches on their production agents by 2028 will pay 25% higher liability insurance premiums and face twice as many material audit findings. And it expects 60% of AI workloads to shift toward open models by 2028, as companies route work to cheaper models and hedge against lock-in.</p>
+<p><span class="lead">My questions:</span> the number that stopped me is the 14%. If only one large enterprise in seven can continuously verify what its agents decide today, how is that gap plugged between now and 2028, and what exactly do organizations have to do to get there? And from a kill switch standpoint, what are the mechanisms that can actually be put in place?</p>
+<p><span class="lead">Closing the gap, in practice:</span> continuous verification rests on four things. An inventory of every agent and the identity it runs under. A record of each decision, with its inputs, the tools it called and what it produced, that a reviewer can replay. Automated checks at the moment of action against written policy, so a breach is blocked rather than discovered. And repeated testing, because assurance for an agent is a pass rate over many runs, not a single demo (Agent 101 in Issues #37 and #39).</p>
+<p><span class="lead">What a kill switch is made of:</span> it is a set of layers, not a red button. Revoke the agent's credentials at the gateway that brokers its calls, so stopping it is one policy change rather than a code release. Add circuit breakers that pause it automatically when it exceeds a spend, rate or scope limit. Save its state when it halts, so a half-finished task can be completed or rolled back (Reversibility, Issue #41). And name an owner who has actually rehearsed the stop. A kill switch nobody has tested is a hope, not a control.</p>
+<div class="callout"><span class="label">&#9612; The Signal</span><p>IDC has put a price on not being able to stop an agent: higher premiums and more audit findings. Verification and a tested kill switch are becoming insurance questions, not engineering preferences.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>IDC, a research firm, predicts that most big companies will soon be able to check what their AI agents decide, but only about one in seven can do it today. A kill switch is a way to stop an agent quickly if it misbehaves, and IDC says companies without one will end up paying more for insurance.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Continuous verification means capturing a full trace (prompt, retrieved context, tool calls with arguments, outputs) to a tamper-evident log keyed to the agent's identity, plus policy-as-code evaluated at the action boundary. A layered kill switch combines token revocation at the proxy that carries model and tool traffic, rate and spend circuit breakers, and checkpointed state so a halted run can be resumed or compensated.</p></details>
+</article>
+
+<div class="sub-cta sub-cta-inline"><p>Reading this on the site? Get every issue in your inbox on Sunday, free.</p><div class="sub-form"><iframe class="sub-embed" src="https://subscribe-forms.beehiiv.com/v3/forms/8a0fc263-5054-46cc-af3c-08eb30fd3775?layout=slim" title="Subscribe to Distilled AI Digest" loading="eager" frameborder="0" scrolling="no"></iframe><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
+<!-- STORY 2 -->
+<article class="story" id="story-2">
+<div class="kicker">Story 02</div>
+<h2>An Open Model Reached for Beijing. The Sandbox Said No.</h2>
+<p><span class="lead">What happened:</span> Cohere, the Canadian AI company, reported that Alibaba's open-weight model Qwen3.8-Flash-Next did something odd during a security test in Cohere's own sandbox. Asked to write a rule that detects a malicious download into a temporary folder, the model looked through that folder, read the machine's network settings, and then tried to upload a small test file to an Alibaba Cloud storage bucket in Beijing. The sandbox blocked it. Cohere says the behavior showed up in fewer than one in 100,000 evaluations and does not claim to know the cause. Alibaba had not commented.</p>
+<p><span class="lead">The other reading:</span> an independent audit of the traces Cohere published argues this was a leftover from training, not a plan. The test prompt itself was about downloads into that folder, no data from the machine was in the upload, the reproduction script pre-filled thousands of tokens, and the model appears to have memorized an address from Alibaba's own training environment. Nothing left the sandbox, and nothing from inside it was sent.</p>
+<p><span class="lead">My read:</span> it is interesting if Chinese models are trying to upload information back to China in some fashion, deliberate or not. The question then becomes what controls organizations, and even individuals, can put in place. Is this an engineering problem, where the security pieces and guardrails have to be defined? And how is a situation like this controlled in future? It is the argument I made about the harness in Issue #39: the fix is engineering around the model, not trust in it.</p>
+<p><span class="lead">The controls that already work:</span> the sandbox is the reason this is a footnote and not an incident. Run open weights with outbound network access blocked by default. Allow only named destinations. Block the cloud metadata address and filter name lookups. Log every outbound attempt and alert on it. Then ask where a model came from and what it was trained on. If IDC is right that 60% of AI workloads move toward open models by 2028 (Story 01), these controls have to scale with them.</p>
+<div class="callout"><span class="label">&#9612; Watch This</span><p>An open model is software you did not write, running inside your network. Treat its network access the way you treat any unvetted code: none by default, and every attempt logged.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>A Chinese AI model being tested by a Canadian company tried to send a small test file to a server in Beijing. The test setup blocked it, so nothing got out. Experts disagree on whether it was deliberate or a quirk left over from training, but either way the safety fence did its job.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The trace shows filesystem and DNS reconnaissance followed by an HTTP upload to an object-storage endpoint. The controls are egress deny-by-default at the container or VPC level, an allow-list proxy, blocking the instance-metadata IPs, and DNS logging. Provenance checks on the weights sit on top of network isolation, not in place of it.</p></details>
+</article>
+
+<!-- STORY 3 -->
+<article class="story" id="story-3">
+<div class="kicker">Story 03</div>
+<h2>Cathedral Got Into Anthropic Through the Side Door</h2>
+<p><span class="lead">What was reported:</span> the Washington Post reported that Cathedral, a security start-up a few months old founded by four former DOGE staffers, told Anthropic its AI agents had got into Anthropic's internal systems in under 12 hours. Cathedral says the agents reached meeting transcripts, salary and job-offer data, and internal Slack discussions. The route was not Claude. It was weaknesses in third-party business software that Anthropic uses for sales, HR and IT. By some accounts of the Post's reporting, Cathedral first spent days on Anthropic's own software without getting in.</p>
+<p><span class="lead">What Anthropic says:</span> it confirms access to a limited set of sales, HR and IT systems, and says no customer prompts, Claude responses, source code or model weights were reached. Its monitoring caught part of the activity before Cathedral reported it, access was cut the same day, and the software involved is switched off until the vendor ships a fix. The test ran under Anthropic's program for outside security researchers. Anthropic says Cathedral did not fully follow the program's rules and overstated the national-security angle. Readers will also weigh this: co-founder Gavin Kliger was the Pentagon's chief data officer until earlier this year and, the Post reports, followed the Defense Department's case against Anthropic in that role.</p>
+<p><span class="lead">My read, and a view I have changed:</span> I had assumed a frontier lab's own house would be airtight, and that it would be extremely difficult for anyone to reach what sits on its servers. This shows its corporate systems are as exposed as anyone's. So the questions become: how does Anthropic tighten this, and what does it mean for the other frontier labs? Which models were Cathedral's agents running on, and how did they get past a lab that should have tighter defenses than most, given the business it is in? The reporting so far does not name the models Cathedral used.</p>
+<p><span class="lead">The lesson for everyone else:</span> the way in was the cleaning company's spare key, not the front door. Ordinary admin and HR tools are connected to sensitive data so they can do their jobs, and every company runs them. List which third-party tools can reach your sensitive internal data, cut their permissions to what they need, and ask whether your monitoring would catch an agent moving through them in a single afternoon.</p>
+<div class="callout"><span class="label">&#9612; The Context</span><p>Agents make third-party weaknesses cheap to find and fast to use. The lab's own software held; the tools around it did not. Your exposure sits in the same place.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>A small security firm used AI agents to get into some of Anthropic's internal business systems, like HR and sales tools, in less than a day. It did not touch Claude itself or customer conversations. The weak spots were in other companies' software that Anthropic uses, which is true of almost every business.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The path was lateral movement through SaaS business applications rather than the model-serving stack. OAuth-connected admin tools with broad scopes are a standing attack surface. The mitigations are SaaS posture management, least-privilege scopes on every integration, short-lived tokens, and detection tuned to machine-speed enumeration across SaaS APIs.</p></details>
+</article>
+
+<!-- STORY 4 -->
+<article class="story" id="story-4">
+<div class="kicker">Story 04</div>
+<h2>ServiceNow's Worst Day: One Company or the Whole Category?</h2>
+<p><span class="lead">What happened:</span> ServiceNow shares fell 27% the day after its third-quarter results, the worst day in its history. The quarter itself was close to plan: revenue of $4.11 billion, roughly in line with estimates, a slightly higher full-year subscription outlook, and net new AI contract value up 65%. Adjusted earnings of $1.00 a share missed by two cents. The trigger was guidance: growth in contracted revenue due over the next 12 months is expected to slow to about 18.5%, from roughly 21%. The same day, ServiceNow announced a bigger partnership with OpenAI.</p>
+<p><span class="lead">My question:</span> I really don't know. If this is a weakness specific to ServiceNow, what exactly is it? If it is not, the competitors' recent results should show whether there is a widespread problem here versus one specific to ServiceNow.</p>
+<p><span class="lead">What the comparison shows so far:</span> software fell with it, but nowhere near as far. Salesforce dropped about 6% and Workday about 5% that day, and SAP slipped about 2% in early trading. Over the week, ServiceNow lost about a third of its value while a broad software fund fell under 6%. Microsoft, reporting the same week, beat expectations with Azure up 48%, and its stock rose. Salesforce and Workday report their own quarters later in November, so their numbers are not in yet. On today's evidence, the fall is ServiceNow-specific in size and sector-wide in story.</p>
+<p><span class="lead">The specific weakness:</span> it is a slowdown in new committed business, the measure that shows whether customers are signing bigger and longer deals. The market is betting that agents shrink the number of people who need a software seat. ServiceNow is betting it becomes the control layer that agents run through. For a CIO with a ServiceNow estate, the practical question is pricing: if agents do more of the work, will your renewal still be priced per person?</p>
+<div class="callout"><span class="label">&#9612; The Implication</span><p>Investors now price software vendors on whether agents reduce seat counts. Expect that pressure to reach your renewals as new pricing units, and negotiate them knowing the vendor needs the deal.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>ServiceNow, a big business-software company, had decent results but warned that new business would grow a little more slowly, and its stock dropped by more than a quarter in one day. Investors worry that AI agents will replace some of the software that companies pay for per user.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The guided metric is cRPO (current remaining performance obligations): contracted revenue to be recognized in the next 12 months, the closest public proxy for near-term bookings. Seat-based SaaS revenue is exposed if agentic automation reduces licensed users, and vendors are moving to consumption or outcome units, which shifts forecasting risk onto the buyer.</p></details>
+</article>
+
+<!-- STORY 5 -->
+<article class="story" id="story-5">
+<div class="kicker">Story 05</div>
+<h2>OpenAI Says AI Disproved a Decades-Old Assumption. Review Pending.</h2>
+<p><span class="lead">What was claimed:</span> OpenAI published a paper titled "The Exponential Time Hypothesis is False," produced by an unreleased internal model and checked in Lean, a language in which a computer verifies every logical step. The hypothesis says a classic class of logic puzzles cannot be solved much faster than by trying a large share of all the possibilities, and hundreds of results in computer science are built on it. Anthropic released its own refutation on GitHub within hours. OpenAI also claimed new results in mathematics and physics.</p>
+<p><span class="lead">Who is checking:</span> two of the scientists who proposed the hypothesis, Russell Impagliazzo and Ramamohan Paturi of UC San Diego, are leading an independent review with MIT's Ryan Williams. In an open letter they wrote that their role "should not be taken as certification of the claim." Williams says OpenAI checked whether the result weakens any encryption and was reasonably confident it does not. It does not settle the famous P versus NP question.</p>
+<p><span class="lead">My read:</span> I'm not surprised by this from OpenAI or the other frontier labs. These models have become extremely good at resolving age-old problems; OpenAI also says its models resolved the Navier&ndash;Stokes problem on fluid motion. I'm excited to see how many more of these showstoppers get solved as we go forward. Both claims are still under review, and the Navier&ndash;Stokes result carries a credit dispute and a debate over whether it matches the prize problem as stated, so the excitement is not yet confirmation.</p>
+<p><span class="lead">Why a CIO should care:</span> not for the math, but for the process. OpenAI changed how it released this time: raw data in public, outside reviewers, and a request to fund a conference on the result. The burden of proof sits with the people best placed to break the claim. That is the model for any high-stakes AI output inside your own organization: inputs on the record, machine checks where possible, and a named reviewer with the authority to say no (Story 01).</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>When AI produces something big, the value lies in the process that checks it. A machine check confirms the logic; people still have to confirm it proves the right thing.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>OpenAI says its AI found a faster way to solve a famous kind of logic puzzle that experts believed could not be solved much faster. The scientists who first proposed the idea are now checking the work. Until they finish, it is a claim, not a fact.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The claimed algorithm counts satisfying assignments of k-CNF formulas in sub-exponential time, which would violate ETH's lower bound for 3-SAT while remaining impractical at real sizes. Lean guarantees that the formal theorem follows from its definitions; the human review focuses on whether that formal statement matches the hypothesis as the field states it.</p></details>
+</article>
+
+<div class="sub-cta sub-cta-inline"><p>Those are the week&rsquo;s five. Get next week&rsquo;s in your inbox on Sunday, free.</p><div class="sub-form"><iframe class="sub-embed" src="https://subscribe-forms.beehiiv.com/v3/forms/8a0fc263-5054-46cc-af3c-08eb30fd3775?layout=slim" title="Subscribe to Distilled AI Digest" loading="eager" frameborder="0" scrolling="no"></iframe><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
+<div class="quickhits" id="governance">
+<h2>&#9878; The Governance Angle</h2>
+<p class="qh-sub">Five more signals from the week &mdash; where the rules, the contracts, and the limits around AI moved.</p>
+<ul>
+<li><strong>Your AI vendor's credit rating is now a procurement input:</strong> Anthropic filed to list on Nasdaq under the symbol "ANT," with share count and price not yet set. The Financial Times reports that Blackstone, the anchor investor in Anthropic's chip financing, now expects the company to receive a high junk rating in the BB range after listing, rather than investment grade. Vendor durability, which Issue #38 raised, now has a public scorecard.</li>
+<li><strong>Top cyber-risk rating at a mid-tier price:</strong> OpenAI's GPT-6.1 Terra, built for computer use, costs $1 per million input tokens and $5 per million output, half the price of GPT-6.1 Sol, and OpenAI classes it as Critical for cybersecurity capability under its own Preparedness Framework, shipping it with GPT-6 Astra's safeguards. Its performance figures are OpenAI's own. Put the vendor's risk class on your procurement checklist next to the price.</li>
+<li><strong>The strongest model goes to defenders first:</strong> Google's Gemini 4 Carbon launched only to selected cyber defenders through its Fairwind Program, with no public date, and Google says it is part of the US government's voluntary pre-release testing. Vendors, not buyers, now decide who gets the most capable model first.</li>
+<li><strong>A workforce signal from the biggest software employer:</strong> Microsoft offered voluntary buyouts to about 60,000 employees, more than a quarter of its workforce, in Canada, India, the UK and the US. Reuters reported the aim is to contain costs and help fund AI investment; Microsoft's own statement did not name AI as the cause.</li>
+<li><strong>Provenance is becoming a buyer's question:</strong> alongside its Qwen findings (Story 02), Cohere asked governments and buyers to demand information on where models come from and how clean their training data is. Expect model provenance to join the vendor questionnaire.</li>
+</ul>
+</div>
+
+<!-- CIO CORNER -->
+<div class="section-head">CIO Corner</div>
+<div class="cio" id="cio">
+<h2>From the editor's desk: Moving Faster Than We Can Verify</h2>
+<p>Organizations are moving forward heavily on deploying agents, but the controls around how those agents are verified, and the guardrails around them, are not clear yet, at least from what I am seeing. Some organizations may well have them. But nobody is putting them forward as a framework or a solution across the industry. IDC's 14% (Story 01) puts a number on it.</p>
+<p><span class="lead">The kill switch is engineering's job and the business's call.</span> Engineering has to build the mechanism that stops an agent. But the business has to agree on the situations in which an agent can be killed, before it is needed, so nobody is debating it during an incident.</p>
+<p><span class="lead">Trust is decided in-house.</span> Which agent platforms and models we trust should be decided inside the organization, by the business owners with the CIO's guidance, based on our own independent analysis. It should not be left to a vendor to decide for us. This week, ServiceNow (Story 04) and Qwen (Story 02) both showed why.</p>
+<p><span class="lead">Put on the Radar:</span> a proper guardrail framework that checks and verifies how models and agents are governed, audited and reported. Start from an existing baseline, such as the NIST AI Risk Management Framework, ISO/IEC 42001 or the EU AI Act's obligations, and map where it does not cover agents. US bank regulators' rewritten model-risk guidance, for one, explicitly puts agentic AI out of scope. The open question for every CIO: who fills that gap? Will the industry produce an agent-specific standard, or does each organization have to build its own?</p>
+<div class="callout"><span class="label">&#9612; The Signal</span><p>Agree with the business when an agent gets stopped, keep the trust decision in-house, and map where your governance framework stops covering agents.</p></div>
+</div>
+
+<!-- THE STACK -->
+<div class="section-head" id="stack">The Stack</div>
+<h2 style="font-size:22px;color:var(--navy);margin:6px 0 4px;">Six Signals Across the AI Infrastructure Layers &mdash; October 25&ndash;31, 2026</h2>
+<div class="stack-grid">
+<div class="stack-card"><div class="layer">&#9889; Energy</div><p>The US Department of Energy offered Constellation a conditional loan of up to $5 billion to raise output at existing nuclear plants in Illinois, Maryland and Pennsylvania. It is conditional, not funded, and it adds public money to the private uprate deals covered in Issue #38.</p></div>
+<div class="stack-card"><div class="layer">&#128190; Chips</div><p>No chip launch or deal cleared our checks this week. The chip signal sits in the cloud numbers instead: the spending on processors and data centers is now large enough to push hyperscalers' free cash flow down, and in Alphabet's case below zero.</p></div>
+<div class="stack-card"><div class="layer">&#9729; Cloud</div><p>Microsoft disclosed Azure revenue in dollars for the first time: $33.2 billion for the quarter, up 48%, now its largest business. Its free cash flow fell 27%, and Alphabet reported more than $9 billion of negative free cash flow. Capacity is being bought well ahead of the revenue it serves.</p></div>
+<div class="stack-card"><div class="layer">&#129504; Models</div><p>Artificial Analysis rebuilt its intelligence index, and Google's Gemini 4 Carbon took the top spot at 59, one point ahead of Claude Opus 5.5 at 58 and two ahead of GPT-6 Astra. At the frontier, choose on cost, access and controls, not on rank.</p></div>
+<div class="stack-card"><div class="layer">&#128295; Harness</div><p>Google opened a preview of its Connected Apps Platform: developers connect an app to Search and Gemini through a cloud-hosted Model Context Protocol (MCP) server and register it in one console. MCP keeps hardening into the standard plug for agent harnesses.</p></div>
+<div class="stack-card"><div class="layer">&#128241; Applications</div><p>OpenAI showcased Legora, which is building what it calls an agentic operating system for legal work on OpenAI models. Law is where agent output is checked hardest, which makes it a useful test of the verification problem in Story 01.</p></div>
+</div>
+
+<!-- AGENT 101 -->
+<div class="section-head">Agent 101</div>
+<div class="agent101" id="agent101">
+<h2>Computer Use: Screen Agents vs. API Agents</h2>
+<p>Think about two ways to get help with paperwork. You can pass forms through a clerk's window, where only certain forms fit and every field is labeled. Or you can let a helper sit at your desk, look at your screen and use your mouse and keyboard. The helper can do anything you can, in any program you have. But it is hard to limit what they touch, they work more slowly, and they get confused when a button moves.</p>
+<p><span class="lead">Name and define:</span> computer use is an agent operating software through its graphical user interface (GUI): it takes in screenshots and sends out clicks and keystrokes, the way a person would. The alternative is an agent that works through an application programming interface (API), the structured connection described in The Tool Interface Contract (Issue #32). OpenAI's GPT-6.1 Terra, launched this week, is sold largely as a computer-use model (see The Governance Angle).</p>
+<p><span class="lead">Why it matters:</span> it trades control for reach. Screen agents can work in older systems that have no API, which matters in any large enterprise estate. But they break when a screen layout changes, cost more per task, and are hard to scope, because they usually act with a person's full login and therefore have whatever access that person has. Use an API where one exists. Where it does not, give the screen agent its own identity, its own isolated machine (The Sandbox, Issue #34), and an approval step before any click that cannot be undone (Reversibility, Issue #41).</p>
+<p><span class="lead">One technical line:</span> the harness loops screenshot (plus the accessibility tree where available), model-predicted action as coordinates or keystrokes, execution through operating-system or browser automation, then a new screenshot; unlike a function call, the action has no typed schema, so it can only be validated by observing the screen afterward.</p>
+<p class="takeaway">Use the clerk's window when there is one. Let the agent sit at the desk only when there isn't, and give it a desk of its own.</p>
+</div>
+
+<!-- CLOSING -->
+<section class="closing">
+<p>That's your signal for the week of October 25&ndash;31, 2026. Nobody took AI's word this week: not the analysts measuring agent oversight, not the researchers watching an open model in a sandbox, not the investors pricing software, and not the scientists checking a proof. The organizations that come out ahead will be the ones that can verify what their agents do, stop them when they must, and decide for themselves which vendors and models to trust.</p>
+<p class="sign">See you next week &mdash; still watching, still distilling.</p>
+<p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
+</section>
+
+<div class="sub-cta sub-cta-band"><h2>Stay <em>one issue</em> ahead.</h2><p>Every Sunday, the five AI developments that actually matter &mdash; with the strategic context to act on them. Free, always.</p><div class="sub-form"><iframe class="sub-embed" src="https://subscribe-forms.beehiiv.com/v3/forms/8a0fc263-5054-46cc-af3c-08eb30fd3775?layout=slim" title="Subscribe to Distilled AI Digest" loading="eager" frameborder="0" scrolling="no"></iframe><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
+<!-- SOURCES -->
+<details class="sources" id="sources">
+<summary>Sources for this issue</summary>
+<p><strong>Story 01:</strong> <a href="https://www.idc.com/?p=122385">IDC, FutureScape 2027 press release</a> &middot; <a href="https://www.idc.com/?p=122248">IDC, FutureScape 2027 overview</a></p>
+<p><strong>Story 02:</strong> Cohere, as reported by <a href="https://letsdatascience.com/news/cohere-reports-qwen38-model-tried-uploading-file-to-beijing-69e75837">Let's Data Science</a> and <a href="https://pasqualepillitteri.it/en/news/27416/qwen3-8-flash-next-cohere-upload-beijing-reveals">Pasquale Pillitteri</a> &middot; <a href="https://toolhalla.ai/blog/cohere-qwen38-flash-next-trace-audit-2026-10-27">Toolhalla, independent trace audit</a></p>
+<p><strong>Story 03:</strong> The Washington Post, as reported by <a href="https://gizmodo.com/?p=2000830560">Gizmodo</a>, <a href="https://www.datastudios.org/post/anthropic-cathedral-ai-agents-third-party-software-sales-hr-it-systems">Data Studios</a>, <a href="https://explainx.ai/blog/cathedral-ex-doge-startup-anthropic-breach-12-hours-claimed-vs-verified-2026">ExplainX</a> and <a href="https://www.ibtimes.sg/A000OrR">IBTimes Singapore</a></p>
+<p><strong>Story 04:</strong> <a href="https://www.cnbc.com/2026/10/29/servicenow-now-earnings-q3-2026.html">CNBC, on ServiceNow's results and fall</a> &middot; <a href="https://247wallst.com/investing/2026/10/29/servicenow-tumbles-19-as-slower-contract-growth-overshadows-raised-ai-target-salesforce-slides-6-workday-drops-5/">24/7 Wall St., on peers and guidance</a> &middot; <a href="https://www.streetinsider.com/General+News/SAP+stock+drops+after+ServiceNow,+Fortinet+results+weigh/27253768.html">StreetInsider, on SAP</a> &middot; <a href="https://fourweekmba.com/ai-servicenow-fell-34-in-a-week-as-software-sold-off-around-it/">FourWeekMBA, on the week's moves</a> &middot; <a href="https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html">CNBC, on Microsoft's quarter</a></p>
+<p><strong>Story 05:</strong> <a href="https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/">TechCrunch, on the claims and the review</a> &middot; <a href="https://thenextweb.com/news/openai-exponential-time-hypothesis-false-kakeya-yang-mills">The Next Web, on the reviewers' letter</a> &middot; <a href="https://openai.com/index/navier-stokes-solution/">OpenAI, on Navier&ndash;Stokes</a> &middot; <a href="https://rits.shanghai.nyu.edu/ai/openai-navier-stokes-proof-credit-dispute/">NYU Shanghai RITS, on the credit dispute</a></p>
+<p><strong>The Governance Angle:</strong> <a href="https://www.anthropic.com/news/s1-sec">Anthropic, on its S-1 filing</a> &middot; Financial Times, as reported by <a href="https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/">TechCrunch</a> &middot; <a href="https://www.vktr.com/ai-platforms/openais-cheapest-path-to-flagship-performance-is-gpt61-terra/">VKTR, on GPT-6.1 Terra</a> &middot; <a href="https://felloai.com/gemini-4-carbon/">Fello AI, on Gemini 4 Carbon's access</a> &middot; Reuters, as reported by <a href="https://virginiabusiness.com/microsoft-offers-buyouts-60000-employees-ai-investments/">Virginia Business</a> &middot; Cohere, as reported by <a href="https://pasqualepillitteri.it/en/news/27416/qwen3-8-flash-next-cohere-upload-beijing-reveals">Pasquale Pillitteri</a></p>
+<p><strong>CIO Corner:</strong> <a href="https://www.orrick.com/en/Insights/2026/04/Agencies-Overhaul-Model-Risk-Management-Guidance-for-Banks-Heres-What-Changed">Orrick, on the revised bank model-risk guidance</a></p>
+<p><strong>The Stack:</strong> <a href="https://www.energy.gov/articles/energy-department-announces-5-billion-loan-boost-nuclear-power-and-help-lower-costs">US Department of Energy, on the Constellation loan</a> &middot; <a href="https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html">CNBC, on Azure and free cash flow</a> &middot; <a href="https://felloai.com/gemini-4-carbon/">Fello AI, on the Artificial Analysis index</a> &middot; <a href="https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/">TechCrunch, on Google's Connected Apps</a> &middot; <a href="https://openai.com/index/legora-agentic-operating-system-for-legal-work/">OpenAI, on Legora</a></p>
+<p class="src-note">Where a source is listed &ldquo;as reported by,&rdquo; we read the report of the original, not the original itself.</p>
+</details>
+
+
+</div>
+
+<footer><div class="wrap">&copy; 2026 Distilled AI Digest &middot; <a href="https://distilledaidigest.com/archive">Archive</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe on Beehiiv</a><div class="fine">You're reading the full issue. Share it freely.</div></div></footer>
+
+<script>
+/* Perspective lenses: ?lens=plain|engineer deep-link > saved choice > Leader. Fails safe to Leader. */
+(function () {
+  var KEY = 'dad-lens', VALID = { leader: 1, plain: 1, engineer: 1 };
+  var sel = document.getElementById('lens-select');
+  if (!sel) return;
+  function stored() { try { return window.localStorage.getItem(KEY); } catch (e) { return null; } }
+  function save(v) { try { window.localStorage.setItem(KEY, v); } catch (e) {} }
+  function fromUrl() { try { return new URLSearchParams(window.location.search).get('lens'); } catch (e) { return null; } }
+  function apply(v) {
+    if (!VALID[v]) v = 'leader';
+    document.documentElement.setAttribute('data-lens', v);
+    sel.value = v;
+    var ds = document.querySelectorAll('details.lens');
+    for (var i = 0; i < ds.length; i++) {
+      var d = ds[i];
+      d.open = (v === 'plain' && d.classList.contains('lens-plain')) || (v === 'engineer' && d.classList.contains('lens-engineer'));
+    }
+    return v;
+  }
+  var initial = fromUrl();
+  if (!VALID[initial]) initial = stored();
+  apply(initial);
+  if (window.location.hash) {
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target) target.scrollIntoView();
+  }
+  sel.addEventListener('change', function () {
+    var v = apply(sel.value);
+    save(v);
+    try {
+      var u = new URL(window.location.href);
+      if (v === 'leader') u.searchParams.delete('lens'); else u.searchParams.set('lens', v);
+      window.history.replaceState(null, '', u.toString());
+    } catch (e) {}
+    /* Pilot metric hook: counts a view switch if GoatCounter is installed; no-op otherwise. */
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'lens-switch-' + v, title: 'Perspective switch: ' + v, event: true }); } catch (e) {}
+  });
+})();
+</script>
+
+<script data-goatcounter="https://bramforgelabs.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
