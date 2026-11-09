@@ -30,9 +30,10 @@ Checked against the full run in the repo (#14 onward; #1–13 are Beehiiv-only a
 #40 — Deca·4 (no Agent 101)
 #41 — Reversibility (sort agent actions into reversible / compensable / irreversible; reversible run unattended with logs, compensable get a defined undo (saga pattern), irreversible need a human approval gate; idempotency keys stop repeat payments; adjacent to #21 Human-in-the-Loop Checkpoints — reversibility decides which steps need a human)
 #42 — Computer Use: Screen Agents vs. API Agents (agent operates the GUI via screenshots, clicks and keystrokes vs. typed API calls; reach vs. control; give screen agents their own identity, sandbox and approval gates; adjacent to #32 Tool Interface Contract)
+#43 — Long-Horizon Drift (why multi-step agent runs wander from the goal as small errors, stale context and misread results compound; per-step success p gives roughly p^n end to end; controls: staged checks, re-grounding state from the system of record, step caps, trajectory watch, approval before irreversible steps; adjacent to #18 context window, #26 trajectory monitoring, #36 planning)
 
 Whole areas now saturated — steer clear: identity / credentials / IAM (#24 + #29); observability/monitoring (#22 + #26); trust-boundary/injection (#31); containment/environment (#34 + #23 permissions — adjacent); tool/function-calling mechanics (#32); cost/token economics (#35); planning & task decomposition (#36); determinism/sampling & run-to-run variance (#37); memory vs. retrieval (#38; adjacent to #16 persistent state and #18 context window); evals & guardrails (#14 + #39).
 
-Candidate fresh directions not yet used: long-horizon coherence & why agents drift, multi-agent coordination protocols, agent-to-agent auth (A2A), MCP as an interface standard.
+Candidate fresh directions not yet used: multi-agent coordination protocols, agent-to-agent auth (A2A), MCP as an interface standard.
 
 Note on #1–12: these ran on Beehiiv only (pre-repo) and their Agent 101 concepts are not captured here. If full historical de-duplication is needed, reconstruct them from the Beehiiv archive.

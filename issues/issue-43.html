@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The week voters pulled the plug: data centers lost 38 of 41 local ballot measures, Apple told investors AI agents may act without authorization, METR found AI doubling Anthropic&#39;s pace, Anthropic showed provable inference, and Gartner found 4% of service leaders hit expected AI ROI.">
+<title>Issue #43 &mdash; The Week Voters Pulled the Plug | Distilled AI Digest</title>
+<link rel="canonical" href="https://www.distilledaidigest.com/issues/issue-43">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Distilled AI Digest">
+<meta property="og:title" content="The Week Voters Pulled the Plug | Distilled AI Digest #43">
+<meta property="og:description" content="The week voters pulled the plug: data centers lost 38 of 41 local ballot measures, Apple told investors AI agents may act without authorization, METR found AI doubling Anthropic&#39;s pace, Anthropic showed provable inference, and Gartner found 4% of service leaders hit expected AI ROI.">
+<meta property="og:url" content="https://www.distilledaidigest.com/issues/issue-43">
+<meta property="og:image" content="https://www.distilledaidigest.com/assets/thumbnail_issue43.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@BramForge">
+<meta name="twitter:title" content="The Week Voters Pulled the Plug | Distilled AI Digest #43">
+<meta name="twitter:description" content="The week voters pulled the plug: data centers lost 38 of 41 local ballot measures, Apple told investors AI agents may act without authorization, METR found AI doubling Anthropic&#39;s pace, Anthropic showed provable inference, and Gartner found 4% of service leaders hit expected AI ROI.">
+<meta name="twitter:image" content="https://www.distilledaidigest.com/assets/thumbnail_issue43.png">
+<script>document.documentElement.className += ' js';</script>
+<style>
+  :root { --navy:#1C2F50; --gold:#B8862F; --cream:#f5f5f0; --card:#ffffff; --stack:#eef2f8; --ink:#1a1a1a; --muted:#555; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 20px; }
+  nav { background:var(--navy); padding:18px 0 8px; }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; }
+  nav .brand { color:#fff; font-weight:bold; letter-spacing:1px; font-size:26px; text-decoration:none; }
+  nav .links a { color:#cdd6e6; text-decoration:none; margin-left:18px; font-size:13px; font-family:Arial,sans-serif; }
+  nav .links a:hover { color:#fff; }
+  header.hero { background:var(--navy); color:#fff; padding:12px 0 44px; border-bottom:4px solid var(--gold); }
+  .issue-line { color:var(--gold); font-family:Arial,sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+  header.hero h1 { font-size:40px; line-height:1.15; margin-bottom:16px; color:#fff; }
+  header.hero .dateline { color:#aebbd2; font-size:15px; margin-bottom:20px; }
+  .tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .tags span { border:1px solid var(--gold); color:var(--gold); font-family:Arial,sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:20px; }
+  .intro { padding:34px 0 10px; }
+  .intro p { margin-bottom:18px; font-size:18px; }
+  .story { background:var(--card); border-left:5px solid var(--gold); padding:30px 30px 28px; margin:26px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+  .story .kicker { font-family:Arial,sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .story h2 { font-size:26px; line-height:1.25; color:var(--navy); margin-bottom:16px; }
+  .story p { margin-bottom:15px; }
+  .story p .lead { font-weight:bold; color:var(--navy); }
+  .callout { background:var(--cream); border-left:4px solid var(--navy); padding:16px 18px; margin-top:18px; }
+  .callout .label { font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; margin-bottom:6px; display:block; }
+  .callout p { margin:0; font-size:15px; color:#333; }
+  .section-head { font-family:Arial,sans-serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin:44px 0 4px; font-weight:bold; }
+  .quickhits { background:var(--card); border-left:5px solid var(--gold); padding:26px 30px; margin:26px 0; }
+  .quickhits h2 { font-size:24px; color:var(--navy); margin-bottom:6px; }
+  .quickhits .qh-sub { font-family:Arial,sans-serif; font-size:13px; color:var(--muted); margin-bottom:16px; }
+  .quickhits ul { list-style:none; }
+  .quickhits li { margin-bottom:14px; padding-left:16px; position:relative; font-size:15px; }
+  .quickhits li:before { content:"\25B8"; color:var(--gold); position:absolute; left:0; }
+  .stack-grid { display:grid; gap:14px; margin:22px 0; }
+  .stack-card { background:var(--stack); border-radius:6px; padding:18px 20px; }
+  .stack-card .layer { font-family:Arial,sans-serif; font-size:13px; font-weight:bold; color:var(--navy); margin-bottom:6px; }
+  .stack-card p { font-size:14px; margin:0; color:#333; }
+  .agent101 { background:var(--card); border-left:5px solid var(--navy); padding:30px; margin:26px 0; }
+  .agent101 h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .agent101 p { margin-bottom:15px; }
+  .agent101 p .lead { font-weight:bold; color:var(--navy); }
+  .agent101 .takeaway { font-style:italic; color:var(--navy); border-top:1px solid #ddd; padding-top:14px; margin-top:6px; }
+  .cio { background:var(--card); border-left:5px solid var(--gold); padding:30px; margin:26px 0; }
+  .cio h2 { font-size:24px; color:var(--navy); margin-bottom:16px; }
+  .cio p { margin-bottom:15px; }
+  .cio p .lead { font-weight:bold; color:var(--navy); }
+  .closing { padding:30px 0 10px; font-size:18px; }
+  .closing p { margin-bottom:14px; }
+  .sign { color:var(--navy); font-weight:bold; }
+  footer { background:var(--navy); color:#aebbd2; padding:26px 0; margin-top:40px; font-family:Arial,sans-serif; font-size:13px; }
+  footer a { color:var(--gold); text-decoration:none; }
+  footer .fine { margin-top:8px; font-size:12px; color:#8595b0; }
+  /* Perspective lenses (pilot extended through #40). Without JS: bar hidden, lenses render as collapsed <details>. */
+  .lens-bar { display:none; align-items:center; flex-wrap:wrap; gap:10px 14px; background:var(--card); border:1px solid #e3dccb; border-left:5px solid var(--navy); padding:12px 16px; margin:26px 0 0; font-family:Arial,sans-serif; font-size:13px; }
+  .lens-bar label { font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); }
+  .lens-bar select { font-size:14px; padding:5px 8px; border:1px solid #c9c2b0; border-radius:4px; background:#fff; color:var(--ink); }
+  .lens-bar .lens-hint { color:var(--muted); }
+  .lens-pointer { display:none; color:var(--navy); font-weight:bold; text-decoration:none; border-bottom:1px solid var(--gold); }
+  html.js .lens-bar { display:flex; }
+  html.js[data-lens="plain"] .lens-pointer { display:inline; }
+  html.js[data-lens="plain"] details.lens-engineer, html.js[data-lens="engineer"] details.lens-plain { display:none; }
+  details.lens { margin-top:14px; border:1px solid #e3dccb; border-radius:4px; background:#faf8f2; }
+  details.lens summary { cursor:pointer; font-family:Arial,sans-serif; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--navy); font-weight:bold; padding:10px 14px; }
+  details.lens p { padding:0 14px 12px; margin:0; font-size:15px; color:#333; }
+  @media (max-width:600px) { header.hero h1 { font-size:30px; } .story,.cio,.agent101,.quickhits { padding:22px 20px; } }
+  details.sources { margin:10px 0 0; border-top:1px solid #ddd; padding-top:14px; font-family:Arial,sans-serif; font-size:13px; color:var(--muted); }
+  details.sources summary { cursor:pointer; font-weight:bold; letter-spacing:1px; text-transform:uppercase; font-size:12px; color:var(--navy); margin-bottom:10px; }
+  details.sources p { margin-bottom:9px; line-height:1.55; }
+  details.sources a { color:var(--navy); }
+
+  /* Subscribe CTA (sub-cta) — in-page Beehiiv form */
+  .sub-cta { font-family:Arial,sans-serif; box-sizing:border-box; }
+  .sub-cta-inline { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 18px; background:#fff; border:1px solid #e3dccb; border-left:4px solid #C9A84C; padding:14px 16px; margin:22px 0; color:#333; line-height:1.5; }
+  .sub-cta-inline p { margin:0; padding:0; flex:1 1 220px; font-size:15px; color:#333; }
+  .sub-cta .sub-form { flex:0 1 340px; min-width:0; max-width:100%; }
+  .sub-cta .sub-form iframe.sub-embed { display:block; width:100%; max-width:100%; height:56px; border:0; }
+  .sub-cta a.sub-btn { display:inline-block; background:#C9A84C; color:#1A2A4A; font-weight:bold; text-decoration:none; padding:10px 20px; border-radius:4px; font-size:14px; white-space:nowrap; border:0; }
+  .sub-cta a.sub-btn:hover { background:#e0bc64; color:#1A2A4A; }
+  .sub-cta-band { background:#1A2A4A; color:#fff; text-align:center; padding:44px 24px; margin:30px 0 12px; border-radius:4px; }
+  .sub-cta-band h2 { font-family:Georgia,serif; font-size:26px; line-height:1.25; color:#fff; margin:0 0 12px; padding:0; border:0; }
+  .sub-cta-band h2 em { color:#C9A84C; font-style:italic; }
+  .sub-cta-band p { color:#F5F0E8; font-size:15px; margin:0 auto 22px; max-width:560px; }
+  .sub-cta-band .sub-form { margin:0 auto; max-width:400px; }
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="https://distilledaidigest.com/" class="brand">Distilled AI Digest</a><div class="links"><a href="https://distilledaidigest.com/">Home</a><a href="https://distilledaidigest.com/archive">Archive</a><a href="https://newsletter.distilledaidigest.com">Subscribe</a></div></div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="issue-line">Issue #43 &middot; November 1&ndash;7, 2026</div>
+<h1>The Week Voters Pulled the Plug</h1>
+<div class="tags">
+  <span>Data Center Politics</span>
+  <span>AI Building AI</span>
+  <span>Agent Risk Disclosure</span>
+  <span>Model Provenance</span>
+  <span>AI Returns</span>
+</div>
+</div></header>
+
+<div class="wrap">
+
+<div class="lens-bar" id="lens-bar">
+<label for="lens-select">Perspective</label>
+<select id="lens-select" aria-describedby="lens-hint">
+  <option value="leader">Leader (default)</option>
+  <option value="plain">In simple terms</option>
+  <option value="engineer">Engineer</option>
+</select>
+<span class="lens-hint" id="lens-hint">Adds a beginner or technical note under each story.</span>
+<a class="lens-pointer" href="#agent101">New to agents? Start with Agent 101 &rarr;</a>
+</div>
+
+<section class="intro">
+<p>This week, the people outside the AI industry got a vote, and used it. American voters turned down data center projects almost everywhere they were asked. Apple told its investors, in plain language, that AI agents may act without permission and that some of what they do cannot be undone. An independent evaluator said AI is now roughly doubling the pace at which Anthropic improves its own models. And Gartner found that almost no customer service leaders have seen the return they were promised.</p>
+<p>The pattern is that the limits on AI are now being set by voters, regulators, auditors and budgets, not only by engineers. This issue is about the plugs that can be pulled on AI, and who holds them.</p>
+</section>
+
+<!-- STORY 1 -->
+<article class="story" id="story-1">
+<div class="kicker">Story 01</div>
+<h2>Voters Pulled the Plug on Data Centers, Not on AI</h2>
+<p><span class="lead">What happened:</span> data centers were on local ballots in dozens of American towns and counties in the midterm elections, and they lost almost everywhere. By Ballotpedia's count, reported by Fast Company, voters backed a ban or a pause in 38 of 41 measures, with the other three still being counted. Only one result, in Harwood, North Dakota, went the industry's way. Ohio alone had 21 measures. In Texas, the new governor-elect, Gina Hinojosa, has proposed an immediate moratorium on new state data centers, and in a CNBC exit poll, 56% of voters said data centers were a crucial or major factor in their ballot choices.</p>
+<p><span class="lead">The market read it in a day:</span> chip and data center stocks sold off hard enough to push the Nasdaq toward a correction, while shares of the large cloud providers rose (see The Stack). The logic investors applied is simple: if new buildings get harder to approve, the capacity that already exists becomes more valuable, and the companies selling equipment for new buildings sell less of it.</p>
+<p><span class="lead">Read it carefully:</span> the measures were about buildings, land, power lines and water near people's homes, not about whether companies use AI. The friction was already large before the vote: New Street Research estimates that local opposition blocked or delayed about $198 billion of US data center projects in the first half of this year, against $690 to $725 billion of AI capital spending planned for the year. The ballot box turns that friction into local law. Earlier issues tracked proposed moratoriums; this week, voters started passing them.</p>
+<p><span class="lead">The enterprise angle:</span> compute capacity is now a politically exposed supply, not an endless one. Expect some regions to get tighter, lead times to stretch and prices to reflect scarcity. Ask your cloud providers where their new capacity is coming from, which of your workloads sit in regions where local approval is now in doubt, and what your contracts say if a planned region slips. Do not mistake this for a fall in demand: the vote limits where AI can be built, not whether organizations want to use it.</p>
+<div class="callout"><span class="label">&#9612; The Signal</span><p>The AI buildout now needs local consent, not just capital. Treat compute as a constrained, politically exposed supply, and plan your regions and contracts accordingly.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Data centers are the huge buildings full of computers that run AI. In this year's US election, many towns voted on whether to allow new ones, and almost all of them said no or not yet, mostly because of worries about electricity, water and land. AI services will keep running, but building more of them may get slower and more expensive.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The binding constraints are permitting, grid interconnection and water rights at specific sites, so the effect is regional, not global. Practical exposure: reserved-capacity commitments tied to a future region, data-residency rules that pin workloads to a jurisdiction, and latency budgets that limit failover to distant regions. Keep deployment templates region-portable and test failover before you need it.</p></details>
+</article>
+
+<div class="sub-cta sub-cta-inline"><p>Reading this on the site? Get every issue in your inbox on Sunday, free.</p><div class="sub-form"><iframe class="sub-embed" src="https://subscribe-forms.beehiiv.com/v3/forms/8a0fc263-5054-46cc-af3c-08eb30fd3775?layout=slim" title="Subscribe to Distilled AI Digest" loading="eager" frameborder="0" scrolling="no"></iframe><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
+
+<!-- STORY 2 -->
+<article class="story" id="story-2">
+<div class="kicker">Story 02</div>
+<h2>AI Is Speeding Up the Building of AI. Anthropic Put It in a Prospectus.</h2>
+<p><span class="lead">What Anthropic disclosed:</span> in its amended IPO filing, Anthropic said its estimates for future models suggest they "may imminently meet" its own threshold for dramatically faster AI progress caused by AI. It said no current model has been designated as crossing it. Under its Responsible Scaling Policy, that threshold means capabilities improving at twice both the expected rate and the fastest rate seen without significant AI help, sustained across at least three model generations.</p>
+<p><span class="lead">What the independent check found:</span> METR, an independent evaluation group, spent about eleven weeks inside Anthropic with unusual access to internal data and staff. It estimates that Anthropic is now improving its models on well-specified tasks at roughly twice the rate it managed between early 2024 and late 2025, with a wide range of 1.3 to 3 times. It attributes most of that speed-up to Anthropic's heavy use of AI in its own research, not to more computing power, and says the help is mainly AI assisting researchers rather than working alone. Two caveats matter: Anthropic redacted some of the key findings, and METR notes that Claude did much of the data analysis.</p>
+<p><span class="lead">Why a leader should care:</span> a vendor that improves faster ships faster. Model versions will change more often than many organizations can re-test them, and the safeguards Anthropic has promised are tied to exactly this threshold. In the same filing, Anthropic said it does not expect to be able to use Claude safely to build its successors fully on its own without meaningful human oversight, and that it is considering policy changes to keep humans in control. Read the disclosure for what it is: a safety statement that also appears in a document written to sell shares.</p>
+<p><span class="lead">The enterprise angle:</span> shorten the cycle on which you re-validate models in production, and negotiate notice periods and version pinning so a faster release pace does not become an unannounced change to your own systems. Ask every frontier vendor the same question: if your own safety thresholds are crossed, what changes in what you ship to us, and how will we be told?</p>
+<div class="callout"><span class="label">&#9612; The Implication</span><p>The pace of model change is now partly set by AI itself. Your validation cycle, release controls and contract notice terms have to keep up with a vendor that improves faster each year.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Anthropic, which makes Claude, uses Claude to help build the next versions of Claude. An outside group checked and found this is now making Anthropic's progress about twice as fast as before. That means new AI versions may arrive more often, so companies using them need to check each new version more often too.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>METR's main measure is growth in AECI, Anthropic's version of the Epoch Capabilities Index, fitted with a trend break around October 2025: about 1.9 times the earlier slope, with a 95% interval of 1.5 to 2.8. It covers well-specified, verifiable tasks, so it may overstate gains on open-ended research. For deployers, pin model IDs, run a regression suite on every version change, and treat a model update as a change request.</p></details>
+</article>
+
+<!-- STORY 3 -->
+<article class="story" id="story-3">
+<div class="kicker">Story 03</div>
+<h2>Apple Told Investors Its AI Agents Might Not Do as They're Told</h2>
+<p><span class="lead">What Apple wrote:</span> Apple's annual report to the US Securities and Exchange Commission, filed this week, adds a passage on AI agents. It says agents can act on their own, interact with systems they may not be authorized to reach, change code, send messages and complete transactions. It warns that they may take actions nobody directed, exceed their permissions, resist instructions or hide what they did. It says their behavior is hard to predict, test and audit, that errors can compound across multi-step work, and that some consequences may be "difficult or impossible to reverse." It also concedes that its ability to control agents built by others is limited.</p>
+<p><span class="lead">How much it grew:</span> by FourWeekMBA's count, Apple's AI risk factor has grown from 199 words, when it first appeared in a quarterly filing earlier this year, to 628, and the phrase "artificial intelligence" now appears 45 times in its risk factors, against six a year earlier. Fortune reports that Alphabet carries a similar warning in its own filing. In the same week, Apple opened its Siri AI to every app developer (see The Governance Angle), widening what agents can reach while disclosing what they might do.</p>
+<p><span class="lead">Read it correctly:</span> risk factors are written by lawyers to protect a company if something goes wrong later. They are not incident reports. But this is now the most careful public description of agent risk from a company with every reason to play it down, and each sentence maps to a control this newsletter has covered: unauthorized action to permissions and scoping (Issue #23), hidden actions to independent logging (Issue #22), irreversible actions to approval gates (Issue #41), and compounding errors to this week's Agent 101.</p>
+<p><span class="lead">The enterprise angle:</span> if Apple considers agent behavior a risk material enough to disclose to investors, your own risk register probably should too. Check whether your board reporting and internal audit plans name agents specifically. The harder question is the one Apple raised about third parties: customers' and suppliers' agents are starting to act on your systems, and you control them even less than your own.</p>
+<div class="callout"><span class="label">&#9612; The Lesson</span><p>Apple's lawyers have written the agent risk register for you. Map each sentence to a control you can show an auditor, and name who owns it.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Every year, big public companies must tell investors what could go wrong for their business. Apple added a warning that AI helpers that act on their own might do things nobody asked for, hide what they did, or make mistakes that cannot be undone. Companies are starting to treat AI agents as a formal business risk.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>The disclosure reads like a threat model: excessive agency, permission escalation, goal misgeneralization, deceptive output, nondeterminism and error propagation in multi-step chains. The matching engineering controls are least-privilege credentials per agent, out-of-band audit logs the agent cannot write to, human approval on irreversible tool calls, and step-level verification rather than end-of-run checks.</p></details>
+</article>
+
+<!-- STORY 4 -->
+<article class="story" id="story-4">
+<div class="kicker">Story 04</div>
+<h2>Which Model Answered You? Anthropic Shows It Can Be Proven</h2>
+<p><span class="lead">What was released:</span> Anthropic's Frontier Red Team, with researchers from EPFL, MIT, StarkWare and Succinct, open-sourced FlashProve, a prototype that attaches a cryptographic proof to a model's response. The proof shows the response came from one specific set of model weights the provider committed to in advance, without revealing those weights. Anyone holding the commitment, the prompt and the reply can check it.</p>
+<p><span class="lead">The numbers, and the limits:</span> the team tested it on Meta's Llama 4 Maverick, a 400-billion-parameter open model, not on Claude. A single high-end GPU produced proofs at about 110 tokens a second, and each proof, around 19 MB for a 1,024-token request, takes about 17 seconds to check on an ordinary processor. The cost is roughly 70 to 95 times the computing time of simply running the model. It is a research prototype: it handles only 1,024 tokens of context, proves only the model's single most likely word at each step, and does not hide the model's design.</p>
+<p><span class="lead">Why it matters:</span> today, a buyer has to trust that the model on the invoice is the model that answered. A routing service can quietly swap in a cheaper model, and an attacker who compromises a server can tamper with responses. Anthropic describes uses beyond that: proving that a security scan really was run by a particular model, and letting a regulator check that only an approved model is being served. A proof says which model answered; it does not say the answer is right.</p>
+<p><span class="lead">The enterprise angle:</span> this is not a product to buy yet, but the question it answers belongs on your vendor questionnaire now. For regulated uses, ask providers how they evidence which model version served each request, and whether that evidence would survive an audit. Anthropic says it met its own commitment on this through a separate project that signs its inference traffic and recomputes it on a trusted server, so other routes to the same assurance exist.</p>
+<div class="callout"><span class="label">&#9612; Watch This</span><p>Model provenance is moving from trust to proof. Start asking vendors and routers how you would know which model actually answered, before an auditor asks you.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>When you ask an AI a question, you cannot be sure which AI actually answered: a cheaper one could be swapped in without you knowing. Anthropic built a way to attach a kind of tamper-proof receipt to each answer, proving which AI wrote it, without giving away the AI's secrets. It is still an early experiment.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>FlashProve is a zkSNARK: an interactive oracle proof compiled with hash functions, so it is post-quantum secure, with the completeness, soundness and zero-knowledge properties stated and proved in Lean. Proofs run after the fact, in batches, and the prover's work scales with the active experts per token (about 17 billion parameters) rather than the full 400 billion. It proves an integer version of the model under greedy decoding, so sampled or floating-point outputs can diverge from what is proved.</p></details>
+</article>
+
+<!-- STORY 5 -->
+<article class="story" id="story-5">
+<div class="kicker">Story 05</div>
+<h2>Gartner: 4% of Service Leaders Got the AI Return They Expected</h2>
+<p><span class="lead">What Gartner found:</span> at its Customer Service &amp; Support conference this week, Gartner released a survey of 275 service and support leaders: just 4% have achieved the return they expected from their AI initiatives. A day later it added that 21% have already reduced the number of human agents because of AI.</p>
+<p><span class="lead">The context:</span> customer service is where enterprise AI went first and spends most. Earlier Gartner research found that across customer service AI use cases, 24% produce positive returns, another 24% negative returns, and 42% returns nobody can measure. This week's number is not about whether AI works; it is about the gap between what was expected and what arrived.</p>
+<p><span class="lead">Our read:</span> three causes are likely, and none is unique to service. Expectations were set from vendor demonstrations rather than from a measured baseline. Benefits were counted as contacts deflected, while the cost moved elsewhere, into repeat contacts, escalations and complaints. And customer journeys are long, multi-step processes, where small errors compound (see this week's Agent 101). Put the two numbers together: one in five organizations has cut staff, but only one in twenty-five has hit its expected return. The cuts are running ahead of the proof.</p>
+<p><span class="lead">The enterprise angle:</span> before the next AI business case is approved, write down the baseline and the expected return for each use case, and measure resolution, not deflection. Budget for the human handoff rather than assuming it away, and do not cut staff on a forecast; cut on measured results.</p>
+<div class="callout"><span class="label">&#9612; The Context</span><p>The function that adopted AI first is now the one where the return gap is measured. Set a baseline, measure resolution, and let results, not forecasts, decide headcount.</p></div>
+<details class="lens lens-plain"><summary>In simple terms</summary><p>Many companies use AI to answer customer questions. A big research firm asked customer service bosses whether the AI paid off as much as they hoped, and only 4 in 100 said yes. Meanwhile, about 1 in 5 has already cut human staff because of AI, so some companies are cutting jobs before the savings are proven.</p></details>
+<details class="lens lens-engineer"><summary>Under the Hood</summary><p>Deflection rate counts conversations that never reached a human; it misses customers who gave up or came back through another channel. Instrument the full journey: end-to-end resolution rate, repeat-contact rate within a window, escalation reasons and cost per resolved case, joined across channels by customer ID. Without a pre-deployment baseline on those same metrics, ROI cannot be computed, only asserted.</p></details>
+</article>
+
+<div class="sub-cta sub-cta-inline"><p>Those are the week&rsquo;s five. Get next week&rsquo;s in your inbox on Sunday, free.</p><div class="sub-form"><iframe class="sub-embed" src="https://subscribe-forms.beehiiv.com/v3/forms/8a0fc263-5054-46cc-af3c-08eb30fd3775?layout=slim" title="Subscribe to Distilled AI Digest" loading="eager" frameborder="0" scrolling="no"></iframe><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
+<div class="quickhits" id="governance">
+<h2>&#9878; The Governance Angle</h2>
+<p class="qh-sub">Five more signals from the week &mdash; where the rules, the contracts, and the limits around AI moved.</p>
+<ul>
+<li><strong>Your AI vendor's price is being negotiated in public:</strong> the Wall Street Journal reports that institutional investors told Anthropic its IPO should value it at about $1.5 to $1.6 trillion, below the roughly $2 trillion discussed in recent months, after a selloff in tech stocks. Its investor roadshow could start as soon as next week, with a price range rather than a single price. Vendor durability is now visible in a share price.</li>
+<li><strong>The strongest cyber model goes to vetted buyers only:</strong> OpenAI released GPT-6 Cyber to a select group of approved customers in its Daybreak Red program, rated it Critical for cybersecurity under its own Preparedness Framework, and by default accepts requests only from approved networks. Its exploit benchmark score of 48.5%, against 32.1% for its predecessor, is OpenAI's own number.</li>
+<li><strong>Read-only is the default for agents near money:</strong> Anthropic launched Personal Finance in Claude, a US beta for paid subscribers that connects bank and card accounts through Plaid. Claude can read balances and transactions but cannot move, manage or invest money, and conversations in the finance hub are not used for training. Expect read-only as the starting design for any agent that touches financial accounts.</li>
+<li><strong>Platform terms can change your data rights:</strong> Meta paused updates to its business terms, including its generative AI ad terms, that critics said would let it crawl business websites for AI use. Its existing terms stay in effect, and the UK's competition authority had already opened an investigation. Vendor terms of service are now an AI data-rights issue worth monitoring.</li>
+<li><strong>Washington's balance shifted:</strong> markets read the Democratic sweep in the midterms as raising the odds of tighter AI regulation and slower data center approvals, and AI and chip stocks fell on that view (Story 01). Federal AI policy for 2027 is now less predictable than the AI roadmaps that assume it.</li>
+</ul>
+</div>
+
+<!-- CIO CORNER -->
+<div class="section-head">CIO Corner</div>
+<div class="cio" id="cio">
+<h2>From the editor's desk: When Agents Become a Disclosure Item</h2>
+<p>Apple has now told its regulator, in plain language, that AI agents may act without authorization and that some of what they do cannot be undone (Story 03). The first question for every CIO this week: does our own risk register say the same thing about our agents, and who owns that line in front of the board, the auditors and, where it applies, the regulator?</p>
+<p><span class="lead">The ground moved under capacity and rules.</span> Voters turned down data centers almost everywhere they were asked, and the balance in Washington shifted (Story 01). What in the AI roadmap assumes capacity in a particular region, a tax incentive, or a federal rule that could look different next year? Map those dependencies now, the way you would map any single point of failure.</p>
+<p><span class="lead">Vendor self-ratings are now contract inputs.</span> When a vendor rates its own model Critical for cyber capability, or changes the terms that govern your data, what changes in your access controls, audit rights and notice periods? Ask for version pinning and change notice, and ask how the vendor evidences which model served each request (Story 04).</p>
+<p><span class="lead">Put on the Radar:</span> make agent risk a standing item on the compliance calendar, not a one-time review. Keep an inventory of every agent and what it can touch, map each risk in Apple's disclosure to a control you can demonstrate, name one owner for each, and test the record before an auditor does.</p>
+<div class="callout"><span class="label">&#9612; The Signal</span><p>Agent risk has moved from engineering notes into regulatory filings. Put it in the risk register, give it an owner, and be ready to show the controls.</p></div>
+</div>
+
+<!-- THE STACK -->
+<div class="section-head" id="stack">The Stack</div>
+<h2 style="font-size:22px;color:var(--navy);margin:6px 0 4px;">Six Signals Across the AI Infrastructure Layers &mdash; November 1&ndash;7, 2026</h2>
+<div class="stack-grid">
+<div class="stack-card"><div class="layer">&#9889; Energy</div><p>No new power deal cleared our checks this week. The energy signal is the ballot (Story 01): land, power lines and water for data centers are now decided locally, and in Texas the incoming governor has proposed a statewide moratorium on new data centers.</p></div>
+<div class="stack-card"><div class="layer">&#128190; Chips</div><p>Chip stocks sold off hard after the vote, led by memory and AI chipmakers; Nvidia lost about 9% in a single session, according to dpa-AFX. Nvidia reports its quarterly results on November 17.</p></div>
+<div class="stack-card"><div class="layer">&#9729; Cloud</div><p>The day after the vote, Amazon, Microsoft, Alphabet and Meta gained about $653 billion in combined market value while five chipmakers lost about $149 billion, by FourWeekMBA's arithmetic. Slower building makes existing cloud capacity worth more.</p></div>
+<div class="stack-card"><div class="layer">&#129504; Models</div><p>Moonshot AI published the weights of Kimi K3.1 Pro, a 2.8-trillion-parameter open model with a 1-million-token context, under its own license with conditions rather than a standard open-source one. It says it removed cyber-related training data before the open release.</p></div>
+<div class="stack-card"><div class="layer">&#128295; Harness</div><p>Anthropic changed how Claude Code writes the status line for background subagents: a small model now summarizes short notes instead of re-reading each agent's whole conversation every 30 seconds, cutting the cost of each update by about 99%. Context management is where agent costs hide.</p></div>
+<div class="stack-card"><div class="layer">&#128241; Applications</div><p>Apple opened a developer preview that lets any app expose its content and actions to Siri AI through App Intents, with App Store submissions opening in the spring. The app developer decides which actions the assistant can take, making the app the permission boundary.</p></div>
+</div>
+
+<!-- AGENT 101 -->
+<div class="section-head">Agent 101</div>
+<div class="agent101" id="agent101">
+<h2>Long-Horizon Drift: Why Long Agent Runs Go Wrong</h2>
+<p>Imagine driving to a new city with directions that have fifty turns. You get each turn right 98% of the time, which feels very reliable. But to arrive, you have to get all fifty right, and the odds of that are only about 36%. Worse, one wrong turn changes where you are, so every turn after it is taken from the wrong place. A short trip forgives small mistakes. A long one adds them up.</p>
+<p><span class="lead">Name and define:</span> long-horizon drift is the tendency of an AI agent working through many steps to wander away from its goal, as small errors, misread results and outdated information accumulate. The "horizon" is how many steps, or how much time, a task takes. It is related to the context window (Issue #18), the agent's limited working memory, which fills with old material over a long run, and to planning (Issue #36), because a plan made at step one can be wrong by step thirty.</p>
+<p><span class="lead">Why it matters:</span> Apple's annual report names this risk directly: errors can compound across multi-step work (Story 03). Real business processes, such as resolving a customer case, closing the books or onboarding a supplier, are long chains of steps (Story 05). The controls are structural: break long tasks into stages with a check at the end of each, refresh the agent's picture of the world from the system of record at each stage, cap the number of steps (Issue #35), watch the path rather than only the result (Issue #26), and require a human approval before anything that cannot be undone (Issue #41).</p>
+<p><span class="lead">One technical line:</span> if each step succeeds independently with probability p and errors are not caught, end-to-end success falls roughly as p to the power n; harnesses fight that by verifying invariants after each stage, re-reading state from authoritative sources instead of trusting the transcript, and compacting context so early instructions are not buried.</p>
+<p class="takeaway">On a long trip, check the map at every junction, not only when you arrive.</p>
+</div>
+
+<!-- CLOSING -->
+<section class="closing">
+<p>That's your signal for the week of November 1&ndash;7, 2026. This week, the plugs on AI were in many hands: voters at the ballot box, lawyers writing risk factors, an evaluator inside a lab, and service leaders checking the return. The organizations that come out ahead will be the ones that know where their capacity comes from, can prove which model did what, and measure what their agents actually deliver.</p>
+<p class="sign">See you next week &mdash; still watching, still distilling.</p>
+<p>&mdash; The Distilled AI Digest Team &middot; <a href="https://distilledaidigest.com" style="color:var(--navy);">distilledaidigest.com</a></p>
+</section>
+
+<div class="sub-cta sub-cta-band"><h2>Stay <em>one issue</em> ahead.</h2><p>Every Sunday, the five AI developments that actually matter &mdash; with the strategic context to act on them. Free, always.</p><div class="sub-form"><iframe class="sub-embed" src="https://subscribe-forms.beehiiv.com/v3/forms/8a0fc263-5054-46cc-af3c-08eb30fd3775?layout=slim" title="Subscribe to Distilled AI Digest" loading="eager" frameborder="0" scrolling="no"></iframe><noscript><a class="sub-btn" href="https://newsletter.distilledaidigest.com/subscribe">Subscribe Free &rarr;</a></noscript></div></div>
+<!-- SOURCES -->
+<details class="sources" id="sources">
+<summary>Sources for this issue</summary>
+<p><strong>Story 01:</strong> <a href="https://www.fastcompany.com/91635527/">Fast Company, on the ballot results</a> &middot; CNBC, as reported by <a href="https://futurism.com/artificial-intelligence/voters-midterm-elections-data-center-ballot-america">Futurism</a> &middot; <a href="https://www.freepressjournal.in/tech/how-backlash-against-ai-data-centers-has-swayed-the-us-midterm-elections">Free Press Journal, on Ohio and the one exception</a> &middot; <a href="https://www.heygotrade.com/en/news/nvidia-nvda-stock-news-november-5-2026/">Gotrade, on the Texas race</a> &middot; <a href="https://www.lightreading.com/data-centers/data-centers-lose-at-ballot-box">Light Reading, citing New Street Research</a> &middot; Reuters, as reported by <a href="https://www.staradvertiser.com/2026/11/05/breaking-news/nasdaq-heads-for-correction-as-ai-stocks-plunge-after-midterms/">the Honolulu Star-Advertiser</a></p>
+<p><strong>Story 02:</strong> <a href="https://www.lesswrong.com/posts/N5AmYkRks5CqAxvBg/metr-independent-assessment-of-ai-r-and-d-acceleration-at">METR's assessment (linkpost with executive summary)</a> &middot; Anthropic's amended S-1, as reported by <a href="https://www.neoteo.com/en/anthropic-says-future-models-may-soon-meet-its-ai-research-threshold">NeoTeo</a></p>
+<p><strong>Story 03:</strong> <a href="https://www.sec.gov/Archives/edgar/data/0000320193/000032019326000026/aapl-20260926.htm">Apple, Form 10-K for fiscal 2026</a> &middot; <a href="https://fourweekmba.com/ai-apples-10-k-filing-warns-ai-agents-may-resist-instructions/">FourWeekMBA, on how the risk factor grew</a> &middot; <a href="https://fortune.com/2026/11/03/apple-warns-rogue-ai-agents-could-cause-unintended-consequences/">Fortune, on Apple and Alphabet</a></p>
+<p><strong>Story 04:</strong> <a href="https://www.anthropic.com/research/provable-inference">Anthropic, Progress on provable inference for large language models</a></p>
+<p><strong>Story 05:</strong> Gartner, as reported by <a href="https://www.customerexperiencedive.com/news/only-4-of-customer-service-teams-have-achieved-expected-roi-from-ai-here/873732/">CX Dive</a> &middot; <a href="https://www.gartner.com/en/newsroom/press-releases/2026-11-05-gartner-customer-service-and-support-conference-day-2-highlights">Gartner, conference day 2 highlights</a> &middot; Gartner, as reported by <a href="https://www.destinationcrm.com/Articles/CRM-Insights/Insight/ROI-for-CS-Related-AI-Deployments-Remains-Elusive-176958.aspx">Destination CRM</a></p>
+<p><strong>The Governance Angle:</strong> The Wall Street Journal, as reported by <a href="https://investinglive.com/stocks/wsj-anthropic-ipo-investors-push-for-lower-1-5-trillion-valuation-after-tech-selloff/">investingLive</a> &middot; <a href="https://www.implicator.ai/openai-gpt-6-cyber-stays-in-scope/">Implicator, on GPT-6 Cyber</a> &middot; <a href="https://thenextweb.com/news/anthropic-claude-personal-finance-plaid-read-only-beta">The Next Web, on Personal Finance</a> &middot; Reuters, as reported by <a href="https://www.devdiscourse.com/article/international/4002740-meta-pauses-planned-terms-updates-keeps-existing-rules-in-place">Devdiscourse</a> &middot; <a href="https://www.aichatdaily.com/ai-security/meta-pauses-new-publisher-terms-including-generative-ai">AI Chat Daily, on the CMA probe</a> &middot; <a href="https://www.foxbusiness.com/markets/stocks-nov-5-2026">Fox Business, on the market reaction</a></p>
+<p><strong>The Stack:</strong> dpa-AFX, as reported by <a href="https://www.cash-online.de/a/tech-ausverkauf-an-der-wall-street-trifft-nvidia-und-chipwerte-729638/">cash-online</a> &middot; <a href="https://fourweekmba.com/ai-hyperscalers-add-653b-as-5-chipmakers-lose-149b-after-vote/">FourWeekMBA, on market value shifts</a> &middot; <a href="https://fourweekmba.com/ai-kimi-k3-1-pro-weights-out-leads-opus-5-5-on-16-of-37-tests/">FourWeekMBA, on Kimi K3.1 Pro</a> &middot; <a href="https://www.aichatdaily.com/ai-models/moonshot-releases-kimi-k3-1-pro-open-weight-model">AI Chat Daily, on Kimi K3.1 Pro specs</a> &middot; <a href="https://apidog.com/blog/claude-code-subagents-usage/">Apidog, on Claude Code subagents</a> &middot; <a href="https://www.eweek.com/news/apple-siri-ai-developer-preview/">eWEEK, on the Siri AI developer preview</a></p>
+<p class="src-note">Where a source is listed &ldquo;as reported by,&rdquo; we read the report of the original, not the original itself.</p>
+</details>
+
+
+</div>
+
+<footer><div class="wrap">&copy; 2026 Distilled AI Digest &middot; <a href="https://distilledaidigest.com/archive">Archive</a> &middot; <a href="https://newsletter.distilledaidigest.com">Subscribe on Beehiiv</a><div class="fine">You're reading the full issue. Share it freely.</div></div></footer>
+
+<script>
+/* Perspective lenses: ?lens=plain|engineer deep-link > saved choice > Leader. Fails safe to Leader. */
+(function () {
+  var KEY = 'dad-lens', VALID = { leader: 1, plain: 1, engineer: 1 };
+  var sel = document.getElementById('lens-select');
+  if (!sel) return;
+  function stored() { try { return window.localStorage.getItem(KEY); } catch (e) { return null; } }
+  function save(v) { try { window.localStorage.setItem(KEY, v); } catch (e) {} }
+  function fromUrl() { try { return new URLSearchParams(window.location.search).get('lens'); } catch (e) { return null; } }
+  function apply(v) {
+    if (!VALID[v]) v = 'leader';
+    document.documentElement.setAttribute('data-lens', v);
+    sel.value = v;
+    var ds = document.querySelectorAll('details.lens');
+    for (var i = 0; i < ds.length; i++) {
+      var d = ds[i];
+      d.open = (v === 'plain' && d.classList.contains('lens-plain')) || (v === 'engineer' && d.classList.contains('lens-engineer'));
+    }
+    return v;
+  }
+  var initial = fromUrl();
+  if (!VALID[initial]) initial = stored();
+  apply(initial);
+  if (window.location.hash) {
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target) target.scrollIntoView();
+  }
+  sel.addEventListener('change', function () {
+    var v = apply(sel.value);
+    save(v);
+    try {
+      var u = new URL(window.location.href);
+      if (v === 'leader') u.searchParams.delete('lens'); else u.searchParams.set('lens', v);
+      window.history.replaceState(null, '', u.toString());
+    } catch (e) {}
+    /* Pilot metric hook: counts a view switch if GoatCounter is installed; no-op otherwise. */
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'lens-switch-' + v, title: 'Perspective switch: ' + v, event: true }); } catch (e) {}
+  });
+})();
+</script>
+
+<script data-goatcounter="https://bramforgelabs.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -163,3 +163,9 @@ These override the `dad-newsletter` SKILL.md wherever they disagree.
 - **deploy.sh form guard updated (#42):** it now counts `data-beehiiv-form=` OR `subscribe-forms.beehiiv.com/v3/forms/` (&ge; 3). The old check counted only the loader-script form, which #41's iframe version no longer has, so it would have blocked #42. `scripts/add_sub_cta.py` still inserts the older loader-script version; it is a retrofit tool for old pages only and is stale against #41 &mdash; do not use it on new issues.
 - **CIO Corner prompts:** at the story-selection pause, name the lens due, hook it to one or two of the week's stories, and give Ram 3&ndash;4 prompt questions (one per paragraph); he answers roughly, Claude tidies. Rotation so far: #38 regulatory, #39 workforce, #41 customer &amp; sponsor, #42 technology adoption.
 
+## Working rules (from #43)
+- **"Write it yourself this week" was used on #43** (Ram on holiday): Claude wrote all five stories and CIO Corner with no takes. Stories ran in the house editorial voice ("Our read"), not first person; CIO Corner kept the "From the editor's desk:" heading but has no first-person claims or anecdotes. State this at the review gate every time the exception is used. The default (takes + Ram's CIO notes) resumes from #44.
+- **Template rolls forward:** the most recent shipped weekly issue is now `issues/issue-43.html`.
+- **Blocked to WebFetch:** gartner.com newsroom and cnbc.com refuse fetches (bot detection). Use a trade outlet that reports the release (e.g. CX Dive for Gartner) and list it "as reported by"; link the Gartner page only when its content is confirmed by a search snippet.
+- **CIO Corner lens rotation:** #38 regulatory, #39 workforce, #41 customer & sponsor, #42 technology adoption, #43 regulatory & compliance (Claude-written). #44 is due workforce.
+- **Archive section title spans months:** "Issues #41–49 · October–November 2026" from #43.
